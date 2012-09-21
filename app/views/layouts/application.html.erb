@@ -2,11 +2,20 @@
 <html>
 <head>
   <title>JeKaWg</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div class="header">
+  <ul>
+    <li><%= link_to "offers", offers_path %></li>
+    <li><%= link_to "new offer", new_offer_path %></li>
+    <li><%= link_to "requests", requests_path %></li>
+    <li><%= link_to "new request", new_request_path %></li>
+  </ul>
+</div>
 
 <%= yield %>
 
