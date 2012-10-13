@@ -15,6 +15,7 @@
   <%= @offer.until %>
 </p>
 
+<%= render 'answers/form', object: @offer %>
 
 <% if @offer.user == current_user %>
     <%= link_to 'Edit', edit_offer_path(@offer) %> |

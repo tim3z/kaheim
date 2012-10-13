@@ -1,9 +1,9 @@
 JeKaWg::Application.routes.draw do
   devise_for :users
-
   resources :offers
-
   resources :requests
+
+  resources :answers, only: [:create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

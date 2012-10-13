@@ -1,0 +1,13 @@
+<%= form_tag answers_path do %>
+    <p>
+      <%= label_tag :mail %>
+      <%= email_field_tag :mail %>
+    </p>
+    <p>
+      <%= label_tag :message %><br />
+      <%= text_area_tag :message %>
+    </p>
+    <%= hidden_field_tag :type, object.class.to_s %>
+    <%= hidden_field_tag :id, object.id %>
+    <%= submit_tag %>
+<% end %>

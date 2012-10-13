@@ -15,6 +15,8 @@
   <%= @request.until %>
 </p>
 
+<%= render 'answers/form', object: @request %>
+
 <% if @request.user == current_user %>
     <%= link_to 'Edit', edit_request_path(@request) %> |
     <%= link_to 'Destroy', @request, method: :delete, data: { confirm: 'Are you sure?' } %> |
