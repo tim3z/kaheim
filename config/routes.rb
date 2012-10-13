@@ -1,4 +1,6 @@
 JeKaWg::Application.routes.draw do
+  devise_for :users
+
   resources :offers
 
   resources :requests

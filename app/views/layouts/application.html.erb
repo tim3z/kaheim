@@ -14,10 +14,22 @@
     <li><%= link_to "new offer", new_offer_path %></li>
     <li><%= link_to "requests", requests_path %></li>
     <li><%= link_to "new request", new_request_path %></li>
+    <li>
+      <% if user_signed_in? %>
+          Signed in as <%= current_user.email %>.
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+      <% end %>
+    </li>
   </ul>
 </div>
 
-<%= yield %>
+<div class="content">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</div>
 
 </body>
 </html>
