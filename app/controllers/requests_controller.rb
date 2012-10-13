@@ -2,84 +2,53 @@ class RequestsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   # GET /requests
-  # GET /requests.json
   def index
-    @requests = Request.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @requests }
-    end
+    @requests = Request.where('requests.until >= ?', Date.today)
   end
 
   # GET /requests/1
-  # GET /requests/1.json
   def show
     @request = Request.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @request }
-    end
   end
 
   # GET /requests/new
-  # GET /requests/new.json
   def new
     @request = Request.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @request }
-    end
   end
 
   # GET /requests/1/edit
   def edit
-    @request = Request.find(params[:id])
+    @request = current_user.requests.find(params[:id])
   end
 
   # POST /requests
-  # POST /requests.json
   def create
     @request = Request.new(params[:request])
+    @request.user = current_user
 
-    respond_to do |format|
-      if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
-        format.json { render json: @request, status: :created, location: @request }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
-      end
+    if @request.save
+      redirect_to @request, notice: 'Request was successfully created.'
+    else
+      render action: "new"
     end
   end
 
   # PUT /requests/1
-  # PUT /requests/1.json
   def update
-    @request = Request.find(params[:id])
+    @request = current_user.requests.find(params[:id])
 
-    respond_to do |format|
-      if @request.update_attributes(params[:request])
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @request.errors, status: :unprocessable_entity }
-      end
+    if @request.update_attributes(params[:request])
+      redirect_to @request, notice: 'Request was successfully updated.'
+    else
+      render action: "edit"
     end
   end
 
   # DELETE /requests/1
-  # DELETE /requests/1.json
   def destroy
-    @request = Request.find(params[:id])
+    @request = current_user.requests.find(params[:id])
     @request.destroy
 
-    respond_to do |format|
-      format.html { redirect_to requests_url }
-      format.json { head :no_content }
-    end
+    redirect_to requests_url
   end
 end

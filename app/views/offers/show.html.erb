@@ -16,5 +16,8 @@
 </p>
 
 
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<% if @offer.user == current_user %>
+    <%= link_to 'Edit', edit_offer_path(@offer) %> |
+    <%= link_to 'Destroy', @offer, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
 <%= link_to 'Back', offers_path %>
