@@ -9,5 +9,8 @@
     </p>
     <%= hidden_field_tag :type, object.class.to_s %>
     <%= hidden_field_tag :id, object.id %>
+
+    <%= recaptcha_tags %>
+
     <%= submit_tag %>
 <% end %>

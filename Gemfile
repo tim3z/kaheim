@@ -25,6 +25,9 @@ gem 'jquery-rails'
 # Authentication with devise
 gem 'devise'
 
+# bot protection with recaptcha
+gem 'recaptcha', :require => 'recaptcha/rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

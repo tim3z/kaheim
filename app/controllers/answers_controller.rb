@@ -1,6 +1,11 @@
 class AnswersController < ApplicationController
   def create
-    UserMailer.answer_mail(params[:type].constantize.find(params[:id]), params[:message], params[:mail]).deliver
+    if verify_recaptcha
+      UserMailer.answer_mail(params[:type].constantize.find(params[:id]), params[:message], params[:mail]).deliver
+      flash[:message] = t 'answers.success'
+    else
+      flash[:alert] = t 'recaptcha.errors.verification_failed'
+    end
     redirect_to :back
   end
 end
