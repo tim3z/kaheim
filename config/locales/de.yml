@@ -1,4 +1,6 @@
+
+
 de:
   recaptcha:
     errors:
-      verification_failed: "Die eingegebenen Zeichen stimmen nicht mit der Sicherheitsabfrage überein. Bitte versuche es nochmal.
+      verification_failed: "Die eingegebenen Zeichen stimmen nicht mit der Sicherheitsabfrage überein. Bitte versuche es nochmal."
