@@ -1,5 +1,5 @@
 class String
-  def constantize
+  def to_class
     Kernel.const_get self
   end
 end
