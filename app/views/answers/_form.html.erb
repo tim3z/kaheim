@@ -10,7 +10,7 @@
     <%= hidden_field_tag :type, object.class.to_s %>
     <%= hidden_field_tag :id, object.id %>
 
-    <%= recaptcha_tags %>
+    <%= recaptcha_tags unless user_signed_in? %>
 
-    <%= submit_tag %>
+    <%= submit_tag 'send' %>
 <% end %>

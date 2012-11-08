@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   def create
-    if verify_recaptcha
+    if user_signed_in? || verify_recaptcha
       UserMailer.answer_mail(params[:type].to_class.find(params[:id]), params[:message], params[:mail]).deliver
       flash[:message] = t 'answers.success'
     else
