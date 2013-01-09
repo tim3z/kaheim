@@ -1,0 +1,78 @@
+div.button {
+  width: 200px;
+  height: 200px;
+}
+
+@mixin centered($height, $width) {
+  width: $width;
+  height: $height;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.upper_bar {
+  position: fixed;
+  z-index: 100;
+  clear: both;
+  width: 94%;
+  height: auto;
+  padding: 5px;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-bottom: 2px solid #000;
+  background-color: #eee;
+  opacity: 0.9;
+  text-align: right;
+}
+
+div.header {
+  position: relative;
+  clear: both;
+  z-index: 50;
+  width: 100%;
+  height: auto;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background-color: #4dabd2;
+
+  .center {
+    @include centered(200px, 400px);
+
+    a {
+      color: #02183f;
+      font-weight: bolder;
+      font-size: 16pt;
+
+      &:hover {
+        color: inherit;
+      }
+    }
+
+    .left_button {
+      @extend .button;
+      float: left;
+      background-image: url("/images/offer.png");
+    }
+
+    .right_button {
+      @extend .button;
+      float: right;
+      background-image: url("/images/request.png");
+    }
+  }
+}
+
+div.content {
+  position: relative;
+  clear: both;
+  z-index: 50;
+  width: 100%;
+  height: 400px;
+  padding-top: 35px;
+  color: #333;
+  background-color: #8acc43;
+
+  .center {
+    @include centered(auto, 60%);
+  }
+}

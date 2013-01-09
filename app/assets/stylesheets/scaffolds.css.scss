@@ -1,9 +1,10 @@
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #3b2823;
+  color: #eee;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin: 0px;
 }
 
 p, ol, ul, td {
@@ -20,12 +21,13 @@ pre {
 
 a {
   color: #000;
+  text-decoration: none;
   &:visited {
     color: #666;
   }
   &:hover {
     color: #fff;
-    background-color: #000;
+    border-bottom: dotted 1px #fff;
   }
 }
 
