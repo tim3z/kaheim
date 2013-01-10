@@ -31,6 +31,8 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 # admin stuff
 gem 'activeadmin'
 
+gem "letter_opener", :group => :development
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

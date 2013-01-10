@@ -35,8 +35,12 @@
   </div>
 </div>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice || alert %>
+    <div class="notice">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
+<% end %>
 
 <div class="content">
   <div class="center">

@@ -10,27 +10,30 @@ div.button {
   margin-right: auto;
 }
 
+@mixin stretched {
+  width: 100%;
+  height: auto;
+  clear: both;
+  position: relative;
+}
+
 div.upper_bar {
+  @include stretched;
   position: fixed;
   z-index: 100;
-  clear: both;
   width: 94%;
-  height: auto;
   padding: 5px;
   padding-left: 3%;
   padding-right: 3%;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #3b2823;
   background-color: #eee;
   opacity: 0.9;
   text-align: right;
 }
 
 div.header {
-  position: relative;
-  clear: both;
+  @include stretched;
   z-index: 50;
-  width: 100%;
-  height: auto;
   padding-top: 100px;
   padding-bottom: 50px;
   background-color: #4dabd2;
@@ -51,23 +54,29 @@ div.header {
     .left_button {
       @extend .button;
       float: left;
-      background-image: url("/images/offer.png");
+      background-image: url("/images/request.png");
     }
 
     .right_button {
       @extend .button;
       float: right;
-      background-image: url("/images/request.png");
+      background-image: url("/images/offer.png");
     }
   }
 }
 
-div.content {
-  position: relative;
-  clear: both;
+div.notice {
+  @include stretched;
+  padding-top: 5px;
+  padding-bottom: 5px;
   z-index: 50;
-  width: 100%;
-  height: 400px;
+  color: #eee;
+  background-color: #3b2823;
+}
+
+div.content {
+  @include stretched;
+  z-index: 50;
   padding-top: 35px;
   color: #333;
   background-color: #8acc43;
