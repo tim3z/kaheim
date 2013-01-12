@@ -12,9 +12,9 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container">
+    <div class="container-fluid">
 
       <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -23,18 +23,22 @@
         <span class="icon-bar"></span>
       </a>
 
-      <a class="brand" href="#">JeKaWg</a>
+      <%= link_to "JeKaWg", "/", :class => "brand" %>
 
       <div class="nav-collapse collapse">
 
         <ul class="nav">
-          <li>
+          <li class="divider-vertical"></li>
+          <li class="nav-with-note">
+            <span class="badge badge-info"><%= (Offer.count > 0) ? Offer.count : "" %></span>
             <%= link_to "offers", offers_path %>
           </li>
           <li>
             <%= link_to "new offer", new_offer_path %>
           </li>
-          <li>
+          <li class="divider-vertical"></li>
+          <li class="nav-with-note">
+            <span class="badge badge-info"><%= (Request.count > 0) ? Request.count : "" %></span>
             <%= link_to "requests", requests_path %>
           </li>
           <li>
@@ -67,19 +71,21 @@
   </div>
 </div>
 
-<% if notice %>
-    <p class="notice"><%= notice %></p>
-<% end %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <% if notice || alert %>
+        <div class="alert">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <p><%= notice %></p>
+          <p><%= alert %></p>
+        </div>
+    <% end %>
 
-<% if alert %>
-    <p class="alert"><%= alert %></p>
-<% end %>
-
-<div class="container">
-  <div class="row">
-    <div class="span 12">
+    <div class="span2"></div>
+      <div class="span8">
         <%= yield %>
     </div>
+      <div class="span2"></div>
   </div>
 </div>
 
