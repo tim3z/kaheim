@@ -1,24 +1,45 @@
-<h1>Listing offers</h1>
+<%- model_class = Offer -%>
+<% if @offers.count > 0 %>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Until</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @offers.each do |offer| %>
-  <tr>
-    <td><%= link_to offer.title, offer %></td>
-    <td><%= offer.description %></td>
-    <td><%= offer.until %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:until) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td><%= link_to offer.title, offer_path(offer) %></td>
+        <td><%= offer.description %></td>
+        <td><%= offer.until %></td>
+        <td><%=l offer.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_offer_path(offer), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      offer_path(offer),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+<% else %>
+<div class="page-header">
+  <h1>No <%=t '.title', :default => model_class.model_name.human.pluralize %> found.</h1>
+</div>
+<% end %>
 
-<br />
-
-<%= link_to 'New Offer', new_offer_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_offer_path,
+            :class => 'btn btn-primary' %>
