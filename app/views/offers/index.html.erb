@@ -1,4 +1,5 @@
 <%- model_class = Offer -%>
+<% if @offers.count > 0 %>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
@@ -33,6 +34,11 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<div class="page-header">
+  <h1>No <%=t '.title', :default => model_class.model_name.human.pluralize %> found.</h1>
+</div>
+<% end %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_offer_path,
