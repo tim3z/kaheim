@@ -3,23 +3,35 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
+<% if current_user == @offer.user %>
+  <span class="label label-info"><%= t "helpers.mine" %></span>
+<% end %>
+
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
   <dd><%= @offer.title %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @offer.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:until) %>:</strong></dt>
-  <dd><%= @offer.until %></dd>
+  <dd><%= l @offer.until %></dd>
 </dl>
+
+<hr />
+
+<% if current_user != @offer.user %>
+  <%= render 'answers/form', object: @offer %>
+<% end %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              offers_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_offer_path(@offer), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              offer_path(@offer),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+              offers_path, :class => 'btn' %>
+  <% if current_user == @offer.user %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_offer_path(@offer), :class => 'btn' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy", subject: model_class.model_name.human)),
+                offer_path(@offer),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+  <% end %>
 </div>

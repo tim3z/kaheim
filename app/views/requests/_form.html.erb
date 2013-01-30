@@ -1,26 +1,11 @@
-<%= form_for @request, :html => { :class => 'form-horizontal' } do |f| %>
-    <div class="control-group">
-      <%= f.label :until, :class => 'control-label' %>
-      <div class="controls">
-        <%= f.date_select :until, :class => 'date_select' %>
-      </div>
-    </div>
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, :class => 'text_area' %>
-    </div>
-  </div>
+<%= bootstrap_form_for @request, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.date_select :until, :class => 'date_select' %>
+  <%= f.text_field :title, :class => 'text_field' %>
+  <%= f.text_area :description, :class => 'text_area' %>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 requests_path, :class => 'btn' %>
   </div>
 <% end %>

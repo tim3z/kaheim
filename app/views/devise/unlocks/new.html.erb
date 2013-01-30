@@ -1,21 +1,16 @@
 <div class="page-header">
-  <h1>Resend unlock instructions</h1>
+  <h1><%= t("helpers.request_unlock") %></h1>
 </div>
 
-<%= form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f| %>
+<%= bootstrap_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f| %>
+
   <%= devise_error_messages! %>
 
-  <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.email_field :email, :class => 'text_field' %>
-    </div>
-  </div>
+  <%= f.email_field :email, :class => 'text_field' %>
 
   <div class="form-actions">
-    <%= f.submit "Resend unlock instructions", :class => 'btn btn-primary' %>
+    <%= f.submit t("helpers.request_unlock"), :class => 'btn btn-primary' %>
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
 
-<hr />
-<%= render "devise/shared/links" %>
+<% end %>
