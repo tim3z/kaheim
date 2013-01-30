@@ -3,7 +3,7 @@ class OffersController < ApplicationController
 
   # GET /offers
   def index
-    @offers = Offer.where('offers.until >= ?', Date.today)
+    @offers = Offer.active
   end
 
   # GET /offers/1

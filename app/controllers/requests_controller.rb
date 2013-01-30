@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = Request.where('requests.until >= ?', Date.today)
+    @requests = Request.active
   end
 
   # GET /requests/1

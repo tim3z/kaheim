@@ -31,16 +31,16 @@
         <ul class="nav">
           <li class="divider-vertical"></li>
           <li class="nav-with-note">
-            <span class="badge badge-info"><%= (Offer.count > 0) ? Offer.count : "" %></span>
-            <%= link_to t(Offer.model_name.human count: Offer.count), offers_path %>
+            <span class="badge badge-info"><%= (c = Offer.active.count) > 0 ? c : "" %></span>
+            <%= link_to t(Offer.model_name.human count: c), offers_path %>
           </li>
           <li>
             <%= link_to t("helpers.new_offer"), new_offer_path %>
           </li>
           <li class="divider-vertical"></li>
           <li class="nav-with-note">
-            <span class="badge badge-info"><%= (Request.count > 0) ? Request.count : "" %></span>
-            <%= link_to t(Request.model_name.human count: Request.count), requests_path %>
+            <span class="badge badge-info"><%= (c = Request.active.count) > 0 ? c : "" %></span>
+            <%= link_to t(Request.model_name.human count: c), requests_path %>
           </li>
           <li>
             <%= link_to t("helpers.new_request"), new_request_path %>
