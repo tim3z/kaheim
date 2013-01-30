@@ -1,24 +1,47 @@
-<h1>Listing offers</h1>
+<%- model_class = Offer -%>
+<% if @offers.count > 0 %>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(count: @offers.count) %></h1>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Until</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @offers.each do |offer| %>
-  <tr>
-    <td><%= link_to offer.title, offer %></td>
-    <td><%= offer.description %></td>
-    <td><%= offer.until %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:until) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr>
+        <td>
+          <% if current_user != offer.user %>
+            <%= link_to t("helpers.answer"), offer_path(offer), class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to t("helpers.show"), offer_path(offer), class: "btn" %>
+          <% end %>
+        </td>
+        <td><%= offer.title %></td>
+        <td><%= offer.description %></td>
+        <td><%= l offer.until %></td>
+        <td>
+        <% if current_user == offer.user %>
+          <span class="label label-info"><%= t "helpers.mine"  %></span>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+<% else %>
+<div class="page-header">
+  <h1><%=t 'helpers.none_found', :subject => model_class.model_name.human(count: 0) %></h1>
+</div>
+<% end %>
 
-<br />
-
-<%= link_to 'New Offer', new_offer_path %>
+<%= link_to t('helpers.new_offer', :default => t("helpers.links.new")),
+            new_offer_path,
+            :class => 'btn btn-primary' %>

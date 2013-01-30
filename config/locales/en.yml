@@ -1,7 +1,65 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
+
+  activerecord:
+    models:
+      offer:
+        zero: "Offers"
+        one: "Offer"
+        other: "Offers"
+      request:
+        zero: "Requests"
+        one: "Request"
+        other: "Requests"
+    attributes:
+      offer:
+        title: "Title"
+        description: "Description"
+        until: "free until"
+        created_at: "Created at"
+      request:
+        title: "Title"
+        description: "Description"
+        until: "need until"
+        created_at: "Created at"
+      user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirm password"
+        remember_me: "Remember me"
+
+  helpers:
+    signed_in_message: "Signed in as %{mail}."
+    new_offer: "New offer"
+    new_request: "New request"
+    none_found: "No %{subjects} found."
+    show: "Show"
+    actions: "Actions"
+    answer: "Answer"
+    mine: "Mine"
+    mail: "Mail"
+    password: "Password"
+    password_confirm: "Confirm password"
+    forgot_password: "Forgot your password?"
+    request_password: "Send me reset password instructions"
+    change_password: "Change my password"
+    no_confirmation: "Didn't receive confirmation instructions?"
+    request_confirmation: "Send me confirmation instructions"
+    request_unlock: "Resend unlock instructions"
+    no_unlock: "Didn't receive unlock instructions?"
+    remember_me: "Remember me"
+    message: "Message"
+    links:
+      new: "New"
+      cancel: "Cancel"
+      back: "Back"
+      edit: "Edit"
+      send: "Send"
+      destroy: "Destroy %{subject}"
+      confirm: "Are you sure?"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      sign_out: "Sign out"
+
   recaptcha:
     errors:
       verification_failed: "Your input didn't match the captcha - try again"

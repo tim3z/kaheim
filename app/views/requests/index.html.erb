@@ -1,24 +1,47 @@
-<h1>Listing requests</h1>
+<%- model_class = Request -%>
+<% if @requests.count > 0 %>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human(count: @requests.count) %></h1>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Until</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @requests.each do |request| %>
-  <tr>
-    <td><%= link_to request.title, request %></td>
-    <td><%= request.description %></td>
-    <td><%= request.until %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:until) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td>
+          <% if current_user != request.user %>
+            <%= link_to t("helpers.answer"), request_path(request), class: "btn btn-primary" %>
+          <% else %>
+            <%= link_to t("helpers.show"), request_path(request), class: "btn" %>
+          <% end %>
+        </td>
+        <td><%= request.title %></td>
+        <td><%= request.description %></td>
+        <td><%= l request.until %></td>
+        <td>
+          <% if current_user == request.user %>
+            <span class="label label-info"><%= t "helpers.mine" %></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
+<% else %>
+  <div class="page-header">
+    <h1><%=t 'helpers.none_found', :subject => model_class.model_name.human(count: 0) %></h1>
+  </div>
+<% end %>
 
-<br />
-
-<%= link_to 'New Request', new_request_path %>
+<%= link_to t('helpers.new_request', :default => t("helpers.links.new")),
+            new_request_path,
+            :class => 'btn btn-primary' %>

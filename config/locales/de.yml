@@ -1,6 +1,65 @@
-
-
 de:
+
+  activerecord:
+    models:
+      offer:
+        zero: "Angebote"
+        one: "Angebot"
+        other: "Angebote"
+      request:
+        zero: "Gesuche"
+        one: "Gesuch"
+        other: "Gesuche"
+    attributes:
+      offer:
+        title: "Titel"
+        description: "Beschreibung"
+        until: "frei bis"
+        created_at: "Erstellt am"
+      request:
+        title: "Titel"
+        description: "Beschreibung"
+        until: "suche bis"
+        created_at: "Erstellt am"
+      user:
+        email: "Email"
+        password: "Passwort"
+        password_confirmation: "Passwort wiederholen"
+        remember_me: "Angemeldet bleiben"
+
+
+  helpers:
+    signed_in_message: "Angemeldet als %{mail}."
+    new_offer: "Neues Angebot"
+    new_request: "Neues Gesuch"
+    none_found: "Keine %{subjects} gefunden."
+    show: "Betrachten"
+    actions: "Aktionen"
+    answer: "Antworten"
+    mine: "Meins"
+    mail: "Mail"
+    password: "Passwort"
+    password_confirm: "Passwort wiederholen"
+    forgot_password: "Passwort vergessen?"
+    request_password: "Änderung des Passworts anfordern"
+    change_password: "Passwort ändern"
+    no_confirmation: "Keine Bestätigungsmail bekommen?"
+    request_confirmation: "Bestätigungsmail erneut senden"
+    request_unlock: "Freischaltung anfordern"
+    no_unlock: "Keine Freischaltung erhalten?"
+    message: "Nachricht"
+    links:
+      new: "Neu"
+      cancel: "Abbrechen"
+      back: "Zurück"
+      edit: "Bearbeiten"
+      send: "Absenden"
+      destroy: "%{subject} Löschen"
+      confirm: "Bist du sicher?"
+      sign_in: "Anmelden"
+      sign_up: "Registrieren"
+      sign_out: "Abmelden"
+
   recaptcha:
     errors:
       verification_failed: "Die eingegebenen Zeichen stimmen nicht mit der Sicherheitsabfrage überein. Bitte versuche es nochmal."

@@ -1,16 +1,27 @@
-<%= form_tag answers_path do %>
-    <p>
-      <%= label_tag :mail %><br />
-      <%= email_field_tag :mail, user_signed_in? ? current_user.email : "" %>
-    </p>
-    <p>
-      <%= label_tag :message %><br />
-      <%= text_area_tag :message %>
-    </p>
-    <%= hidden_field_tag :type, object.class.to_s %>
-    <%= hidden_field_tag :id, object.id %>
+<div class="page-header">
+  <h2><%=t 'helpers.answer' %></h2>
+</div>
+<%= form_tag answers_path, class: 'form-horizontal' do %>
+  <div class="control-group">
+    <%= label_tag t('helpers.mail'), nil, class: 'control-label' %>
+    <%= email_field_tag :mail, user_signed_in? ? current_user.email : "", class: 'controls' %>
+  </div>
+  <div class="control-group">
+    <%= label_tag t('helpers.message'), nil, class: 'control-label' %><br />
+    <%= text_area_tag :message, nil, class: 'controls' %>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= recaptcha_tags unless user_signed_in? %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= submit_tag t('helpers.links.send'), class: 'btn btn-primary' %>
+    </div>
+  </div>
 
-    <%= recaptcha_tags unless user_signed_in? %>
+  <%= hidden_field_tag :type, object.class.to_s %>
+  <%= hidden_field_tag :id, object.id %>
 
-    <%= submit_tag 'send' %>
 <% end %>
