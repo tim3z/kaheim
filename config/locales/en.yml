@@ -14,12 +14,12 @@ en:
       offer:
         title: "Title"
         description: "Description"
-        until: "free until"
+        until: "Until"
         created_at: "Created at"
       request:
         title: "Title"
         description: "Description"
-        until: "need until"
+        until: "Needed until"
         created_at: "Created at"
       user:
         email: "Email"

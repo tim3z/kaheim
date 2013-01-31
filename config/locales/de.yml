@@ -14,12 +14,12 @@ de:
       offer:
         title: "Titel"
         description: "Beschreibung"
-        until: "frei bis"
+        until: "Zu besetzen bis"
         created_at: "Erstellt am"
       request:
         title: "Titel"
         description: "Beschreibung"
-        until: "suche bis"
+        until: "Gesucht bis"
         created_at: "Erstellt am"
       user:
         email: "Email"
