@@ -7,7 +7,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:until) %></th>
@@ -15,25 +14,18 @@
     </tr>
   </thead>
   <tbody>
-    <% @offers.each do |offer| %>
-      <tr>
-        <td>
-          <% if current_user != offer.user %>
-            <%= link_to t("helpers.answer"), offer_path(offer), class: "btn btn-primary" %>
-          <% else %>
-            <%= link_to t("helpers.show"), offer_path(offer), class: "btn" %>
-          <% end %>
-        </td>
+  <% @offers.each do |offer| %>
+      <tr data-link="<%= offer_path offer %>">
         <td><%= offer.title %></td>
         <td><%= offer.description %></td>
         <td><%= l offer.until %></td>
         <td>
-        <% if current_user == offer.user %>
-          <span class="label label-info"><%= t "helpers.mine"  %></span>
-        <% end %>
+          <% if current_user == offer.user %>
+              <span class="label label-info"><%= t "helpers.mine"  %></span>
+          <% end %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 <% else %>

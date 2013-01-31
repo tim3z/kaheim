@@ -7,7 +7,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:description) %></th>
       <th><%= model_class.human_attribute_name(:until) %></th>
@@ -16,14 +15,7 @@
   </thead>
   <tbody>
     <% @requests.each do |request| %>
-      <tr>
-        <td>
-          <% if current_user != request.user %>
-            <%= link_to t("helpers.answer"), request_path(request), class: "btn btn-primary" %>
-          <% else %>
-            <%= link_to t("helpers.show"), request_path(request), class: "btn" %>
-          <% end %>
-        </td>
+      <tr data-link="<%= request_path request %>">
         <td><%= request.title %></td>
         <td><%= request.description %></td>
         <td><%= l request.until %></td>
