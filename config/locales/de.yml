@@ -26,6 +26,7 @@ de:
         password: "Passwort"
         password_confirmation: "Passwort wiederholen"
         remember_me: "Angemeldet bleiben"
+        name: "Name"
 
 
   helpers:
@@ -48,6 +49,7 @@ de:
     request_unlock: "Freischaltung anfordern"
     no_unlock: "Keine Freischaltung erhalten?"
     message: "Nachricht"
+    author: "Kontakt"
     links:
       new: "Neu"
       cancel: "Abbrechen"

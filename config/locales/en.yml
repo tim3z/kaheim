@@ -26,6 +26,7 @@ en:
         password: "Password"
         password_confirmation: "Confirm password"
         remember_me: "Remember me"
+        name: "Name"
 
   helpers:
     signed_in_message: "Signed in as %{mail}."
@@ -48,6 +49,7 @@ en:
     no_unlock: "Didn't receive unlock instructions?"
     remember_me: "Remember me"
     message: "Message"
+    author: "Contact"
     links:
       new: "New"
       cancel: "Cancel"
