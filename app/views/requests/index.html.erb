@@ -1,9 +1,14 @@
 <%- model_class = Request -%>
-<% if @requests.count > 0 %>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human(count: @requests.count) %></h1>
+  <% if @requests.count > 0 %>
+      <h1><%=t '.title', :default => model_class.model_name.human(count: @requests.count) %></h1>
+  <% else %>
+      <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
+  <% end %>
+  <%= link_to t('helpers.archive'), requests_path(archive: true) unless params[:archive] %>
 </div>
 
+<% if @requests.count > 0 %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -28,10 +33,6 @@
     <% end %>
   </tbody>
 </table>
-<% else %>
-  <div class="page-header">
-    <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
-  </div>
 <% end %>
 
 <%= link_to t('helpers.new_request', :default => t("helpers.links.new")),

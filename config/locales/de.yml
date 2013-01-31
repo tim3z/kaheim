@@ -50,6 +50,7 @@ de:
     no_unlock: "Keine Freischaltung erhalten?"
     message: "Nachricht"
     author: "Kontakt"
+    archive: Zeige abgelaufene
     links:
       new: "Neu"
       cancel: "Abbrechen"

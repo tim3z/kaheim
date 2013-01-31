@@ -50,6 +50,7 @@ en:
     remember_me: "Remember me"
     message: "Message"
     author: "Contact"
+    archive: "Show past"
     links:
       new: "New"
       cancel: "Cancel"

@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = Request.active
+    @requests = (params[:archive] && Request.all) || Request.active
   end
 
   # GET /requests/1

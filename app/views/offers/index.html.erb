@@ -1,9 +1,14 @@
 <%- model_class = Offer -%>
-<% if @offers.count > 0 %>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human(count: @offers.count) %></h1>
+  <% if @offers.count > 0 %>
+    <h1><%=t '.title', :default => model_class.model_name.human(count: @offers.count) %></h1>
+  <% else %>
+    <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
+  <% end %>
+  <%= link_to t('helpers.archive'), offers_path(archive: true) unless params[:archive] %>
 </div>
 
+<% if @offers.count > 0 %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -28,10 +33,6 @@
   <% end %>
   </tbody>
 </table>
-<% else %>
-<div class="page-header">
-  <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
-</div>
 <% end %>
 
 <%= link_to t('helpers.new_offer', :default => t("helpers.links.new")),
