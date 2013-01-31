@@ -54,6 +54,9 @@
               <li>
                 <p class="navbar-text"><%= t "helpers.signed_in_message", :mail => current_user.email %></p>
               </li>
+              <% if current_user.admin %>
+                <li><%= link_to 'Admin', '/admin' %></li>
+              <% end %>
               <li>
                 <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
               </li>
