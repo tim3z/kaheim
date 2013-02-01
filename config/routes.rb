@@ -9,6 +9,12 @@ JeKaWg::Application.routes.draw do
 
   resources :answers, only: [:create]
 
+  # Error handling
+  match '/404' => redirect("/errors/404")
+  match '/422' => redirect("/errors/422")
+  match '/500' => redirect("/errors/500")
+  match '/errors/:error_code', to: "errors#error"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

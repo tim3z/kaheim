@@ -37,6 +37,8 @@ gem 'activeadmin'
 
 gem "letter_opener", :group => :development
 
+gem "exception_notification", group: :production
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

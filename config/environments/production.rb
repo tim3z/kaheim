@@ -51,6 +51,8 @@ JeKaWg::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.delivery_method = :sendmail
+
   # Enable threaded mode
   # config.threadsafe!
 
@@ -66,4 +68,12 @@ JeKaWg::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Deliver mails on exceptions
+  config.middleware.use ExceptionNotifier,
+                        sender_address: 'error@je-ka-wg.de',
+                        exception_recipients: 'dew.tim.zeitz@googlemail.com'
+
+  # exception views
+  config.exceptions_app = self.routes
 end
