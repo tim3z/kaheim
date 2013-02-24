@@ -5,7 +5,7 @@ class AnswersController < ApplicationController
       return false
     end
 
-    UserMailer.answer_mail(params[:type].to_class.find(params[:id]), params[:message], params[:mail]).deliver
+    UserMailer.answer_mail(params[:type].constantize.find(params[:id]), params[:message], params[:mail]).deliver
     redirect_to :back, notice: t('answers.success')
   end
 end
