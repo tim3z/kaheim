@@ -1,7 +1,27 @@
-// Place all the styles related to the offers controller here.
-// They will automatically be included in application.css.
+// Place all the styles related to the requests controller here.
+// They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "application.css.scss";
 
-tr[data-link] {
+div[data-link] {
   cursor: pointer;
+}
+
+.offer {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: #F5F5F5;
+  border: 1px solid #E5E5E5;
+  box-shadow: 5px 5px 10px #D3D3D3;
+  border-top-left-radius: 10px 10px;
+  border-bottom-right-radius: 25px 25px;
+
+  &:hover {
+    background-color: #F9F9F9;
+    box-shadow: 6px 6px 12px #C3C3C3;
+  }
+
+  @include insert-content
 }

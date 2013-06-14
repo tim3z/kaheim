@@ -9,30 +9,25 @@
 </div>
 
 <% if @requests.count > 0 %>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:until) %></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
     <% @requests.each do |request| %>
-      <tr data-link="<%= request_path request %>">
-        <td><%= request.title %></td>
-        <td><%= request.description %></td>
-        <td><%= l request.until %></td>
-        <td>
-          <% if current_user == request.user %>
-            <span class="label label-info"><%= t "helpers.mine" %></span>
-          <% end %>
-        </td>
-      </tr>
+        <div class="request" data-link="<%= request_path request %>">
+
+          <div class="titel"><strong><%= request.title %></strong></div>
+
+          <div class="until"><strong><%= model_class.human_attribute_name(:until) + " " + (l request.until) %></strong></div>
+
+          <div class="description">
+            <%= simple_format request.description %>
+          </div>
+          <div class="contact">
+            <% if current_user == request.user %>
+                <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
+            <% else %>
+                <strong><%= t 'helpers.author' %>: <%= request.user.name %></strong>
+            <% end %>
+          </div>
+        </div>
     <% end %>
-  </tbody>
-</table>
 <% end %>
 
 <%= link_to t('helpers.new_request', :default => t("helpers.links.new")),
