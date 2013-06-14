@@ -1,2 +1,8 @@
-<div class="hero-unit">
+<div class="row">
+  <div class="span6">
+    <%= render :partial => 'offers/list', :locals => {:offers => @offers} %>
+  </div>
+  <div class="span6">
+    <%= render :partial => 'requests/list', :locals => {:requests => @requests} %>
+  </div>
 </div>

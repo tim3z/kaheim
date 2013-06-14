@@ -42,6 +42,7 @@
     border: 1px solid #E5E5E5;
     border-bottom: none;
     text-align: left;
+    cursor: pointer;
   }
 
   .contact {
@@ -55,4 +56,12 @@
     text-align: right;
     border-bottom-right-radius: 10px 10px;
   }
+}
+
+.shorten {
+  white-space: nowrap;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
