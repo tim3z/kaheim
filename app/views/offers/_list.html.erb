@@ -30,6 +30,10 @@
     <% end %>
 <% end %>
 
-<%= link_to t('helpers.new_offer', :default => t("helpers.links.new")),
-            new_offer_path,
-            :class => 'btn btn-primary' %>
+<% if user_signed_in? %>
+    <%= link_to t('helpers.new_offer', :default => t("helpers.links.new")),
+                new_offer_path,
+                :class => 'btn btn-primary' %>
+<% else %>
+    <strong><%= t 'helpers.sign_in_for_request' %></strong>
+<% end %>

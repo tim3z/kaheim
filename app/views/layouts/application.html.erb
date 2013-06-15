@@ -79,8 +79,11 @@
               <li>
                 <%= link_to t("helpers.links.sign_up"), new_user_registration_path %>
               </li>
-              <li>
-                <%= link_to t("helpers.links.sign_in"), new_user_session_path %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t("helpers.links.sign_in") %><strong class="caret"></strong></a>
+                <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                  <%= render :partial => "devise/sessions/new" %>
+                </div>
               </li>
           <% end %>
         </ul>
