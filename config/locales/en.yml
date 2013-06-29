@@ -38,6 +38,7 @@ en:
     show: "Show"
     actions: "Actions"
     answer: "Answer"
+    toggle: "Expand"
     mine: "Mine"
     mail: "Your email"
     password: "Password"

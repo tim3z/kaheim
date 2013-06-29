@@ -34,7 +34,6 @@
 
   .description {
     width: auto;
-    height: auto;
     padding: 5px;
     padding-top: 15px;
     clear: both;
@@ -42,7 +41,6 @@
     border: 1px solid #E5E5E5;
     border-bottom: none;
     text-align: left;
-    cursor: pointer;
   }
 
   .contact {
@@ -55,10 +53,20 @@
     border-top: none;
     text-align: right;
     border-bottom-right-radius: 10px 10px;
+
+    .inline-button {
+      color: #0088CC;
+      display: inline-block;
+      cursor: pointer;
+
+      &:hover {
+        color: #005580;
+      }
+    }
   }
 }
 
-.shorten {
+.description.shorten {
   white-space: nowrap;
   width: 100%;
   max-width: 100%;

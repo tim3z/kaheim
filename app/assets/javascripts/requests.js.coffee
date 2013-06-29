@@ -9,5 +9,6 @@ $ ->
   $('button[data-link]').click ->
     document.location = $(this).attr('data-link')
 
-  $('.description').click(
-    -> $(this).toggleClass('shorten'))
+  $('.toggle-collapse').click(
+    -> $(this).parent().parent().children('.description').toggleClass('shorten'))
+
