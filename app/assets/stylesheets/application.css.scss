@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@mixin insert-content {
+  .titel {
+    float: left;
+    width: auto;
+    height: auto;
+    text-align: left;
+    strong {
+      font-size: 24pt;
+    }
+  }
+
+  .until {
+    float: right;
+    width: auto;
+    height: auto;
+    text-align: right;
+    strong {
+      font-size: 16pt;
+    }
+  }
+
+  .description {
+    width: auto;
+    padding: 5px;
+    padding-top: 15px;
+    clear: both;
+    background-color: #fff;
+    border: 1px solid #E5E5E5;
+    border-bottom: none;
+    text-align: left;
+  }
+
+  .contact {
+    width: auto;
+    height: auto;
+    padding: 5px;
+    clear: both;
+    background-color: #fff;
+    border: 1px solid #E5E5E5;
+    border-top: none;
+    text-align: right;
+    border-bottom-right-radius: 10px 10px;
+
+    .inline-button {
+      color: #0088CC;
+      display: inline-block;
+      cursor: pointer;
+
+      &:hover {
+        color: #005580;
+      }
+    }
+  }
+}
+
+.description.shorten {
+  white-space: nowrap;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

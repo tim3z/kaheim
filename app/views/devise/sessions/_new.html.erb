@@ -1,11 +1,7 @@
-<div class="page-header">
-  <h1><%= t("helpers.links.sign_in") %></h1>
-</div>
-
 <%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
 
-  <%= f.email_field :email, :class => 'text_field' %>
-  <%= f.password_field :password, :class => 'text_field' %>
+  <%= f.email_field :email, :class => 'text_field', :label => false %>
+  <%= f.password_field :password, :class => 'text_field', :label => false %>
 
   <% if devise_mapping.rememberable? -%>
     <%= f.check_box :remember_me %>
@@ -13,7 +9,6 @@
 
   <div class="form-actions">
     <%= f.submit t("helpers.links.sign_in"), :class => 'btn btn-primary' %>
-    <div class="pull-right"><%= link_to t("helpers.links.sign_up"), new_user_registration_path %></div>
     <%= render "devise/shared/links" %>
   </div>
 

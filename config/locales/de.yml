@@ -30,6 +30,8 @@ de:
 
 
   helpers:
+    sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
+    sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
     signed_in_message: "Angemeldet als %{mail}."
     new_offer: "Neues Angebot"
     new_request: "Neues Gesuch"
@@ -37,6 +39,7 @@ de:
     show: "Anzeigen"
     actions: "Aktionen"
     answer: "Antworten"
+    toggle: "Ausklappen"
     mine: "Meins"
     mail: "Deine Email"
     password: "Passwort"

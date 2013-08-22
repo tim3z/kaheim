@@ -3,20 +3,23 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<% if current_user == @offer.user %>
-  <span class="label label-info"><%= t "helpers.mine" %></span>
-<% end %>
+<div class="offer">
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @offer.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @offer.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:until) %>:</strong></dt>
-  <dd><%= l @offer.until %></dd>
-  <dt><strong><%= t 'helpers.author' %>:</strong></dt>
-  <dd><%= @offer.user.name %></dd>
-</dl>
+  <div class="titel"><strong><%= @offer.title %></strong></div>
+
+  <div class="until"><strong><%= model_class.human_attribute_name(:until) + " " + (l @offer.until) %></strong></div>
+
+  <div class="description">
+    <%= simple_format @offer.description %>
+  </div>
+  <div class="contact">
+    <% if current_user == @offer.user %>
+        <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
+    <% else %>
+        <strong><%= t 'helpers.author' %>: <%= @offer.user.name %></strong>
+    <% end %>
+  </div>
+</div>
 
 <hr />
 

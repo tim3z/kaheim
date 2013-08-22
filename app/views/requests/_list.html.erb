@@ -1,0 +1,50 @@
+<%- model_class = Request -%>
+<div class="page-header">
+  <% if requests.count > 0 %>
+      <h1><%=t '.title', :default => model_class.model_name.human(count: requests.count) %></h1>
+  <% else %>
+      <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
+  <% end %>
+  <%= link_to t('helpers.archive'), requests_path(archive: true) unless params[:archive] %>
+</div>
+
+<% if requests.count > 0 %>
+    <% requests.each do |request| %>
+        <div class="request">
+
+          <div class="titel"><strong><%= request.title %></strong></div>
+
+          <div class="until"><strong><%= model_class.human_attribute_name(:until) + " " + (l request.until) %></strong></div>
+
+          <div class="description shorten">
+            <%= request.description %>
+          </div>
+
+          <div class="contact">
+
+            <div class="inline-button toggle-collapse"><%= t 'helpers.toggle' %></div>
+
+            <% if current_user == request.user %>
+                <div class="inline-button answer" data-link="<%= request_path request %>"><%= t 'helpers.show' %></div>
+            <% else %>
+                <div class="inline-button answer" data-link="<%= request_path request %>"><%= t 'helpers.answer' %></div>
+            <% end %>
+
+            <% if current_user == request.user %>
+                <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
+            <% else %>
+                <strong><%= t 'helpers.author' %>: <%= request.user.name %></strong>
+            <% end %>
+
+          </div>
+        </div>
+    <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+    <%= link_to t('helpers.new_request', :default => t("helpers.links.new")),
+                new_request_path,
+                :class => 'btn btn-primary' %>
+<% else %>
+    <strong><%= t 'helpers.sign_in_for_request' %></strong>
+<% end %>

@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top navbar-inverse">
+<div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container-fluid">
 
@@ -30,21 +30,36 @@
 
         <ul class="nav">
           <li class="divider-vertical"></li>
-          <li class="nav-with-note">
-            <span class="badge badge-info"><%= (c = Offer.active.count) > 0 ? c : "" %></span>
-            <%= link_to t(Offer.model_name.human count: c), offers_path %>
-          </li>
-          <li>
-            <%= link_to t("helpers.new_offer"), new_offer_path %>
-          </li>
-          <li class="divider-vertical"></li>
-          <li class="nav-with-note">
-            <span class="badge badge-info"><%= (c = Request.active.count) > 0 ? c : "" %></span>
-            <%= link_to t(Request.model_name.human count: c), requests_path %>
-          </li>
-          <li>
-            <%= link_to t("helpers.new_request"), new_request_path %>
-          </li>
+
+          <div class="btn-group">
+            <button class="btn" data-link="<%= offers_path %>">
+              <span class="badge badge-info"><%= (c = Offer.active.count) > 0 ? c : "" %></span>
+              <%= t Offer.model_name.human count: c %>
+            </button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("helpers.new_offer"), new_offer_path %>
+              </li>
+            </ul>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn" data-link="<%= requests_path %>">
+              <span class="badge badge-info"><%= (c = Request.active.count) > 0 ? c : "" %></span>
+              <%= t Request.model_name.human count: c %>
+            </button>
+            <button class="btn dropdown-toggle" data-toggle="dropdown">
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to t("helpers.new_request"), new_request_path %>
+              </li>
+            </ul>
+          </div>
         </ul>
 
         <ul class="nav  pull-right">
@@ -64,8 +79,11 @@
               <li>
                 <%= link_to t("helpers.links.sign_up"), new_user_registration_path %>
               </li>
-              <li>
-                <%= link_to t("helpers.links.sign_in"), new_user_session_path %>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t("helpers.links.sign_in") %><strong class="caret"></strong></a>
+                <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                  <%= render :partial => "devise/sessions/new" %>
+                </div>
               </li>
           <% end %>
         </ul>
@@ -89,7 +107,7 @@
       <div class="span8">
         <%= yield %>
     </div>
-      <div class="span2"></div>
+    <div class="span2"></div>
   </div>
 </div>
 
