@@ -3,7 +3,7 @@ class OffersController < ApplicationController
 
   # GET /offers
   def index
-    @offers = (params[:archive] && Offer.all) || Offer.active
+    @offers = (params[:archive] && Offer.unscoped.all) || Offer.all
   end
 
   # GET /offers/1

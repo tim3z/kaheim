@@ -5,5 +5,5 @@ class Request < ActiveRecord::Base
 
   validates_presence_of :title, :until, :description, :user
 
-  scope :active, where('requests.until >= ?', Date.today)
+  default_scope -> { where('requests.until >= ?', Date.today) }
 end
