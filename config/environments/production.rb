@@ -70,9 +70,10 @@ JeKaWg::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Deliver mails on exceptions
-  config.middleware.use ExceptionNotifier,
-                        sender_address: 'error@je-ka-wg.de',
-                        exception_recipients: 'dew.tim.zeitz@googlemail.com'
+  config.middleware.use ExceptionNotification::Rack, email: {
+      sender_address: 'error@je-ka-wg.de',
+      exception_recipients: 'dev.tim.zeitz@googlemail.com'
+  }
 
   # exception views
   config.exceptions_app = self.routes
