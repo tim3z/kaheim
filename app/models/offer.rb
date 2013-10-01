@@ -5,5 +5,5 @@ class Offer < ActiveRecord::Base
 
   validates_presence_of :title, :until, :description, :user
 
-  scope :active, where('offers.until >= ?', Date.today)
+  default_scope -> { where('offers.until >= ?', Date.today) }
 end
