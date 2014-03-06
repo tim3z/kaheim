@@ -1,6 +1,4 @@
 Recaptcha.configure do |config|
-  # just for development
-  config.public_key  = '6Ldx49cSAAAAAGU12yCsksZyRVuqV75jzkJY1cyx'
-  # open spurce private key :-)
-  config.private_key = '6Ldx49cSAAAAACjZo6LftEUkHn3rRCrLXp5I68es '
+  config.public_key  = Rails.application.secrets.recaptcha['public_key']
+  config.private_key = Rails.application.secrets.recaptcha['private_key']
 end

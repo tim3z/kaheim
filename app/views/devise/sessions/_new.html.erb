@@ -1,7 +1,13 @@
-<%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+<%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-  <%= f.email_field :email, :class => 'text_field', :label => false %>
-  <%= f.password_field :password, :class => 'text_field', :label => false %>
+  <%= f.email_field :email,
+                    placeholder: User.human_attribute_name(:email),
+                    class: 'text_field',
+                    label: false %>
+  <%= f.password_field :password,
+                    placeholder: User.human_attribute_name(:password),
+                    class: 'text_field',
+                    label: false %>
 
   <% if devise_mapping.rememberable? -%>
     <%= f.check_box :remember_me %>

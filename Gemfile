@@ -1,55 +1,63 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.1.0.rc1'
+# Use Postgresgem 'pg' as the database for Active Record
+gem 'pg'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.1'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer',  platforms: :ruby
 
-gem 'sqlite3'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass-rails'
-  gem 'bootstrap_forms'
-
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-
-end
-
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
+gem 'jquery-turbolinks'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.0'
+# bundle exec rake doc:rails generates the API under doc/api.
+gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Authentication with devise
-gem 'devise'
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
 
-# bot protection with recaptcha
-gem 'recaptcha', :require => 'recaptcha/rails'
-
-# admin stuff
-gem 'activeadmin'
-
-gem "letter_opener", :group => :development
-
-gem "exception_notification", group: :production
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
 
-# To use debugger
-# gem 'debugger'
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+
+
+gem 'bootstrap-sass-rails', '~> 2.3.2'
+gem 'bootstrap_forms'
+
+# bot protection with recaptcha
+gem 'recaptcha', :require => 'recaptcha/rails'
+
+gem 'letter_opener', :group => :development
+
+# admin stuff
+gem 'activeadmin', github: 'gregbell/active_admin'
+# Authentication with Devise
+gem 'devise', github: 'plataformatec/devise'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem 'formtastic', github: 'justinfrench/formtastic'
+gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
+
+
+
+#gem "exception_notification", group: :production
+

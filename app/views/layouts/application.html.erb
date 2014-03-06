@@ -3,10 +3,10 @@
 <head>
   <title>JeKaWg</title>
   <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -34,7 +34,7 @@
           <div class="btn-group">
             <button class="btn" data-link="<%= offers_path %>">
               <span class="badge badge-info"><%= (c = Offer.count) > 0 ? c : "" %></span>
-              <%= t Offer.model_name.human count: c %>
+              <%= Offer.model_name.human count: c %>
             </button>
             <button class="btn dropdown-toggle" data-toggle="dropdown">
               <span class="caret"></span>
@@ -49,7 +49,7 @@
           <div class="btn-group">
             <button class="btn" data-link="<%= requests_path %>">
               <span class="badge badge-info"><%= (c = Request.count) > 0 ? c : "" %></span>
-              <%= t Request.model_name.human count: c %>
+              <%= Request.model_name.human count: c %>
             </button>
             <button class="btn dropdown-toggle" data-toggle="dropdown">
               <span class="caret"></span>
@@ -70,14 +70,14 @@
                 <p class="navbar-text"><%= t "helpers.signed_in_message", :mail => current_user.email %></p>
               </li>
               <% if current_user.admin %>
-                <li><%= link_to 'Admin', '/admin' %></li>
+                  <li><%= link_to 'Admin', '/admin' %></li>
               <% end %>
               <li>
                 <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
               </li>
           <% else %>
               <li>
-                <%= link_to t("helpers.links.sign_up"), new_user_registration_path %>
+                <%= link_to t("helpers.links.sign_up"), new_user_registration_path, 'data-no-turbolink' => true %>
               </li>
               <li class="dropdown">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t("helpers.links.sign_in") %><strong class="caret"></strong></a>
@@ -104,8 +104,8 @@
     <% end %>
 
     <div class="span2"></div>
-      <div class="span8">
-        <%= yield %>
+    <div class="span8">
+      <%= yield %>
     </div>
     <div class="span2"></div>
   </div>

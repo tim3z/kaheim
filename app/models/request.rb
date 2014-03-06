@@ -1,5 +1,5 @@
 class Request < ActiveRecord::Base
-  attr_accessible :description, :title, :until
+  #TODO attr_accessible :description, :title, :until
 
   belongs_to :user
 
