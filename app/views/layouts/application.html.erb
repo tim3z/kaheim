@@ -67,7 +67,7 @@
 
           <% if user_signed_in? %>
               <li>
-                <p class="navbar-text"><%= t "helpers.signed_in_message", :mail => current_user.email %></p>
+                <%= link_to t("helpers.signed_in_message", :mail => current_user.email), edit_user_registration_path %>
               </li>
               <% if current_user.admin %>
                   <li><%= link_to 'Admin', '/admin' %></li>
