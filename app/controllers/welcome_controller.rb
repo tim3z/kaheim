@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-		@offers = Offer.all
-		@requests = Request.all
+		@offers = Offer.current
+		@requests = Request.current
   end
 end

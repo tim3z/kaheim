@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = (params[:archive] && Request.unscoped.all) || Request.all
+    @requests = (params[:archive] && Request.all) || Request.current
   end
 
   # GET /requests/1
