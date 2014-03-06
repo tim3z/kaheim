@@ -95,12 +95,15 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <% if notice || alert %>
-        <div class="alert">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <p><%= notice %></p>
-          <p><%= alert %></p>
-        </div>
+    <% { error: 'error', alert: 'error', notice: 'success', info: 'info' }.each do |k, v| %>
+        <% if flash[k] %>
+            <div class="alert alert-<%= v %>">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <div id="flash_<%= k %>">
+                <%= flash[k] %>
+              </div>
+            </div>
+        <% end %>
     <% end %>
 
     <div class="span2"></div>
