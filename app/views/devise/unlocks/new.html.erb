@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><%= t("helpers.request_unlock") %></h1>
+  <h1><%= t('.resend_unlock_instructions', :default => 'Resend unlock instructions') %></h1>
 </div>
 
 <%= bootstrap_form_for(resource, :as => resource_name, :url => unlock_path(resource_name), :html => { :method => :post, :class => 'form-horizontal' }) do |f| %>
@@ -9,7 +9,7 @@
   <%= f.email_field :email, :class => 'text_field' %>
 
   <div class="form-actions">
-    <%= f.submit t("helpers.request_unlock"), :class => 'btn btn-primary' %>
+    <%= f.submit t('.resend_unlock_instructions', :default => 'Resend unlock instructions'), :class => 'btn btn-primary' %>
     <%= render "devise/shared/links" %>
   </div>
 
