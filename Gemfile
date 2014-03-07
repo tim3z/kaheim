@@ -59,5 +59,8 @@ gem 'ransack', github: 'activerecord-hackery/ransack', branch: 'rails-4.1'
 
 
 
-#gem "exception_notification", group: :production
+gem 'exception_notification', group: :production
+gem 'rails_12factor', group: :production
+
+ruby '2.1.1'
 

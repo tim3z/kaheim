@@ -83,14 +83,14 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  #config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'je-ka-wg.herokuapp.com' }
 
-  # Deliver mails on exceptions
-  #config.middleware.use ExceptionNotification::Rack, email: {
-  #    sender_address: 'error@je-ka-wg.de',
-  #    exception_recipients: 'dev.tim.zeitz@googlemail.com'
-  #}
+  Deliver mails on exceptions
+  config.middleware.use ExceptionNotification::Rack, email: {
+      sender_address: 'error@je-ka-wg.herokuapp.com',
+      exception_recipients: 'dev.tim.zeitz@googlemail.com'
+  }
 
   # exception views
-  #config.exceptions_app = self.routes
+  config.exceptions_app = self.routes
 end

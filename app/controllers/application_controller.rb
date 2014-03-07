@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
+  http_basic_authenticate_with name: 'identity', password: Rails.application.secrets.access if Rails.env.production?
+
   def authenticate_admin_user!
     authenticate_user!
     unless current_user.admin?
