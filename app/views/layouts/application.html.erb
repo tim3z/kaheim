@@ -33,7 +33,7 @@
 
           <div class="btn-group">
             <button class="btn" data-link="<%= offers_path %>">
-              <span class="badge badge-info"><%= (c = Offer.count) > 0 ? c : "" %></span>
+              <span class="badge badge-info"><%= (c = Offer.current.count) > 0 ? c : "" %></span>
               <%= Offer.model_name.human count: c %>
             </button>
             <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -48,7 +48,7 @@
 
           <div class="btn-group">
             <button class="btn" data-link="<%= requests_path %>">
-              <span class="badge badge-info"><%= (c = Request.count) > 0 ? c : "" %></span>
+              <span class="badge badge-info"><%= (c = Request.current.count) > 0 ? c : "" %></span>
               <%= Request.model_name.human count: c %>
             </button>
             <button class="btn dropdown-toggle" data-toggle="dropdown">
