@@ -62,6 +62,7 @@ Rails.application.configure do
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )
+  config.assets.precompile << 'active_admin.css.scss'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -85,7 +86,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'je-ka-wg.herokuapp.com' }
 
-  Deliver mails on exceptions
+  # Deliver mails on exceptions
   config.middleware.use ExceptionNotification::Rack, email: {
       sender_address: 'error@je-ka-wg.herokuapp.com',
       exception_recipients: 'dev.tim.zeitz@googlemail.com'
