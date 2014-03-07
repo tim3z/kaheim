@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JeKaWg</title>
+  <title>Wohnungsbörse</title>
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -24,7 +24,7 @@
 
       </a>
 
-      <%= link_to "Wohnungsbörse", "/", :class => "brand" %>
+      <%= link_to "Wohnungsbörse", root_path, :class => "brand" %>
 
       <div class="nav-collapse collapse">
 
@@ -62,8 +62,17 @@
           </div>
         </ul>
 
-        <ul class="nav  pull-right">
-          <li class="divider-vertical"></li>
+        <ul class="nav pull-right">
+          <li class="language">
+            <%= link_to params.merge(locale: :de) do %>
+              <%= image_tag 'de.png' %>
+            <% end %>
+          </li>
+          <li class="language">
+            <%= link_to params.merge(locale: :en) do %>
+              <%= image_tag 'en.png' %>
+            <% end %>
+          </li>
 
           <% if user_signed_in? %>
               <li>
