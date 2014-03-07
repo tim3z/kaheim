@@ -61,7 +61,7 @@ de:
       back: "Zurück"
       edit: "Bearbeiten"
       send: "Absenden"
-      destroy: "%{subject} Löschen"
+      destroy: "Löschen"
       confirm: "Bist du sicher?"
       sign_in: "Anmelden"
       sign_up: "Registrieren"

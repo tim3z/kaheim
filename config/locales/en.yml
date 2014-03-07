@@ -61,7 +61,7 @@ en:
       back: "Back"
       edit: "Edit"
       send: "Send"
-      destroy: "Destroy %{subject}"
+      destroy: "Delete"
       confirm: "Are you sure?"
       sign_in: "Sign in"
       sign_up: "Sign up"

@@ -28,12 +28,12 @@
 <% end %>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => 'Back'),
+  <%= link_to t('helpers.links.back', :default => 'Back'),
               requests_path, :class => 'btn'  %>
   <% if current_user == @request.user %>
-    <%= link_to t('.edit', :default => 'edit'),
+    <%= link_to t('helpers.links.edit', :default => 'edit'),
                 edit_request_path(@request), :class => 'btn' %>
-    <%= link_to t('.destroy', :default => 'Delete'),
+    <%= link_to t('helpers.links.destroy', :default => 'Delete'),
                 request_path(@request),
                 :method => 'delete',
                 :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
