@@ -11,7 +11,7 @@
 <%= render partial: 'shared/item', collection: requests, as: :item %>
 
 <% if user_signed_in? %>
-    <%= link_to t('helpers.new_request', :default => t("helpers.links.new")),
+    <%= link_to t('helpers.new_request', :default => 'New'),
                 new_request_path,
                 :class => 'btn btn-primary' %>
 <% else %>

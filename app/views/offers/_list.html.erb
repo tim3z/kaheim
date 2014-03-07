@@ -11,7 +11,7 @@
 <%= render partial: 'shared/item', collection: offers, as: :item %>
 
 <% if user_signed_in? %>
-    <%= link_to t('helpers.new_offer', :default => t("helpers.links.new")),
+    <%= link_to t('helpers.new_offer', :default => 'New'),
                 new_offer_path,
                 :class => 'btn btn-primary' %>
 <% else %>
