@@ -8,38 +8,7 @@
   <%= link_to t('helpers.archive'), offers_path(archive: true) unless params[:archive] %>
 </div>
 
-<% if offers.count > 0 %>
-    <% offers.each do |offer| %>
-        <div class="request">
-
-          <div class="titel"><strong><%= offer.title %></strong></div>
-
-          <div class="until"><strong><%= model_class.human_attribute_name(:until) + " " + (l offer.until) %></strong></div>
-
-          <div class="description shorten">
-            <%= offer.description %>
-          </div>
-
-          <div class="contact">
-
-            <div class="inline-button toggle-collapse"><%= t 'helpers.toggle' %></div>
-
-            <% if current_user == offer.user %>
-                <div class="inline-button answer" data-link="<%= offer_path offer %>"><%= t 'helpers.show' %></div>
-            <% else %>
-                <div class="inline-button answer" data-link="<%= offer_path offer %>"><%= t 'helpers.answer' %></div>
-            <% end %>
-
-            <% if current_user == offer.user %>
-                <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
-            <% else %>
-                <strong><%= t 'helpers.author' %>: <%= offer.user.name %></strong>
-            <% end %>
-
-          </div>
-        </div>
-    <% end %>
-<% end %>
+<%= render partial: 'shared/item', collection: offers, as: :item %>
 
 <% if user_signed_in? %>
     <%= link_to t('helpers.new_offer', :default => t("helpers.links.new")),

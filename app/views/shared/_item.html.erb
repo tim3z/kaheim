@@ -1,0 +1,29 @@
+<div class="item">
+
+  <div class="titel"><strong><%= link_to item.title, item %></strong></div>
+
+  <div class="until"><strong><%= item.class.human_attribute_name(:until) + " " + (l item.until) %></strong></div>
+
+  <div class="description">
+    <div class="short"><%= truncate item.description, length: 160 %></div>
+    <div class="long"><%= simple_format item.description %></div>
+  </div>
+
+  <div class="contact">
+    <div class="inline-button toggle-collapse">
+      <div class="short"><%= t 'helpers.more' %>&#x25BC;</div>
+      <div class="long"><%= t 'helpers.less' %>&#x25B2;</div>
+    </div>
+
+    <div class="inline-button answer" data-link="<%= polymorphic_path item %>">
+      <%= t "helpers.#{current_user == item.user ? 'show' : 'answer'}" %>
+    </div>
+
+    <% if current_user == item.user %>
+        <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
+    <% else %>
+        <strong><%= t 'helpers.author' %>: <%= item.user.name %></strong>
+    <% end %>
+
+  </div>
+</div>

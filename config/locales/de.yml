@@ -39,7 +39,8 @@ de:
     show: "Anzeigen"
     actions: "Aktionen"
     answer: "Antworten"
-    toggle: "Ausklappen"
+    more: Mehr
+    less: Weniger
     mine: "Meins"
     mail: "Deine Email"
     password: "Passwort"

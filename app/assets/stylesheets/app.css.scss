@@ -1,4 +1,23 @@
-@mixin insert-content {
+div[data-link] {
+  cursor: pointer;
+}
+
+.item, .request, .offer {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  margin-bottom: 30px;
+  background-color: #F5F5F5;
+  border: 1px solid #E5E5E5;
+  box-shadow: 5px 5px 10px #D3D3D3;
+  border-top-left-radius: 10px 10px;
+  border-bottom-right-radius: 25px 25px;
+
+  &:hover {
+    background-color: #F9F9F9;
+    box-shadow: 6px 6px 12px #C3C3C3;
+  }
+
   .titel {
     float: left;
     width: auto;
@@ -6,6 +25,9 @@
     text-align: left;
     strong {
       font-size: 24pt;
+      a {
+        color: black;
+      }
     }
   }
 
@@ -17,6 +39,7 @@
     strong {
       font-size: 16pt;
     }
+    padding-top: 5px;
   }
 
   .description {
@@ -28,6 +51,9 @@
     border: 1px solid #E5E5E5;
     border-bottom: none;
     text-align: left;
+    .long, .short {
+      cursor: pointer;
+    }
   }
 
   .contact {
@@ -53,10 +79,6 @@
   }
 }
 
-.description.shorten {
-  white-space: nowrap;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.long {
+  display: none;
 }
