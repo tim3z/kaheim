@@ -86,6 +86,17 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'je-ka-wg.herokuapp.com' }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port:  587,
+    domain: 'je-ka-wg.herokuapp.com',
+    user_name: 'jekawg@gmail.com',
+    password: Rails.application.secrets.mail,
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
   # Deliver mails on exceptions
   config.middleware.use ExceptionNotification::Rack, email: {
       sender_address: 'error@je-ka-wg.herokuapp.com',
