@@ -102,7 +102,7 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" id="main">
   <div class="row-fluid">
     <% { error: 'error', alert: 'error', notice: 'success', info: 'info' }.each do |k, v| %>
         <% if flash[k] %>
@@ -125,7 +125,7 @@
 
 <footer class="footer">
   <div class="container">
-    <p>Problems, feedback and feature requests on <%= link_to 'GitHub', 'https://github.com/SDEagle/je-ka-wg/issues?state=open' %> or per <%= link_to 'E-Mail', 'mailto:dev.tim.zeitz@gmail.com' %></p>
+    <p>Problems, feedback and feature requests on <%= link_to 'GitHub', 'https://github.com/SDEagle/je-ka-wg/issues?state=open' %> or by <%= link_to 'E-Mail', 'mailto:dev.tim.zeitz@gmail.com' %></p>
     <p>Source availalbe at <%= link_to 'GitHub', 'https://github.com/SDEagle/je-ka-wg' %> - feel free to contribute</p>
     <p>Implementation by <%= link_to 'Tim Zeitz', 'https://github.com/SDEagle' %></p>
     <p>Impressum: </p>
