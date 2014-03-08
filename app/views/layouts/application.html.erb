@@ -12,114 +12,116 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
+<div id="wrap">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
 
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
 
-      </a>
+        </a>
 
-      <%= link_to "Wohnungsbörse", root_path, :class => "brand" %>
+        <%= link_to "Wohnungsbörse", root_path, :class => "brand" %>
 
-      <div class="nav-collapse collapse">
+        <div class="nav-collapse collapse">
 
-        <ul class="nav">
-          <li class="divider-vertical"></li>
+          <ul class="nav">
+            <li class="divider-vertical"></li>
 
-          <div class="btn-group">
-            <button class="btn" data-link="<%= offers_path %>">
-              <span class="badge badge-info"><%= (c = Offer.current.count) > 0 ? c : "" %></span>
-              <%= Offer.model_name.human count: c %>
-            </button>
-            <button class="btn dropdown-toggle" data-toggle="dropdown">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to t("helpers.new_offer"), new_offer_path %>
-              </li>
-            </ul>
-          </div>
+            <div class="btn-group">
+              <button class="btn" data-link="<%= offers_path %>">
+                <span class="badge badge-info"><%= (c = Offer.current.count) > 0 ? c : "" %></span>
+                <%= Offer.model_name.human count: c %>
+              </button>
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to t("helpers.new_offer"), new_offer_path %>
+                </li>
+              </ul>
+            </div>
 
-          <div class="btn-group">
-            <button class="btn" data-link="<%= requests_path %>">
-              <span class="badge badge-info"><%= (c = Request.current.count) > 0 ? c : "" %></span>
-              <%= Request.model_name.human count: c %>
-            </button>
-            <button class="btn dropdown-toggle" data-toggle="dropdown">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <%= link_to t("helpers.new_request"), new_request_path %>
-              </li>
-            </ul>
-          </div>
-        </ul>
+            <div class="btn-group">
+              <button class="btn" data-link="<%= requests_path %>">
+                <span class="badge badge-info"><%= (c = Request.current.count) > 0 ? c : "" %></span>
+                <%= Request.model_name.human count: c %>
+              </button>
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to t("helpers.new_request"), new_request_path %>
+                </li>
+              </ul>
+            </div>
+          </ul>
 
-        <ul class="nav pull-right">
-          <li class="language">
-            <%= link_to params.merge(locale: :de) do %>
-              <%= image_tag 'de.png' %>
-            <% end %>
-          </li>
-          <li class="language">
-            <%= link_to params.merge(locale: :en) do %>
-              <%= image_tag 'en.png' %>
-            <% end %>
-          </li>
-
-          <% if user_signed_in? %>
-              <li>
-                <%= link_to t("helpers.signed_in_message", :mail => current_user.email), edit_user_registration_path %>
-              </li>
-              <% if current_user.admin %>
-                  <li><%= link_to 'Admin', '/admin' %></li>
+          <ul class="nav pull-right">
+            <li class="language">
+              <%= link_to params.merge(locale: :de) do %>
+                <%= image_tag 'de.png' %>
               <% end %>
-              <li>
-                <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
-              </li>
-          <% else %>
-              <li>
-                <%= link_to t("helpers.links.sign_up"), new_user_registration_path, 'data-no-turbolink' => true %>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t("helpers.links.sign_in") %><strong class="caret"></strong></a>
-                <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                  <%= render :partial => "devise/sessions/new" %>
-                </div>
-              </li>
-          <% end %>
-        </ul>
-      </div>
+            </li>
+            <li class="language">
+              <%= link_to params.merge(locale: :en) do %>
+                <%= image_tag 'en.png' %>
+              <% end %>
+            </li>
 
+            <% if user_signed_in? %>
+                <li>
+                  <%= link_to t("helpers.signed_in_message", :mail => current_user.email), edit_user_registration_path %>
+                </li>
+                <% if current_user.admin %>
+                    <li><%= link_to 'Admin', '/admin' %></li>
+                <% end %>
+                <li>
+                  <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
+                </li>
+            <% else %>
+                <li>
+                  <%= link_to t("helpers.links.sign_up"), new_user_registration_path, 'data-no-turbolink' => true %>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t("helpers.links.sign_in") %><strong class="caret"></strong></a>
+                  <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                    <%= render :partial => "devise/sessions/new" %>
+                  </div>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container-fluid" id="main">
-  <div class="row-fluid">
-    <% { error: 'error', alert: 'error', notice: 'success', info: 'info' }.each do |k, v| %>
-        <% if flash[k] %>
-            <div class="alert alert-<%= v %>">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              <div id="flash_<%= k %>">
-                <%= flash[k] %>
+  <div class="container-fluid clear-top" id="main">
+    <div class="row-fluid">
+      <% { error: 'error', alert: 'error', notice: 'success', info: 'info' }.each do |k, v| %>
+          <% if flash[k] %>
+              <div class="alert alert-<%= v %>">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <div id="flash_<%= k %>">
+                  <%= flash[k] %>
+                </div>
               </div>
-            </div>
-        <% end %>
-    <% end %>
+          <% end %>
+      <% end %>
 
-    <div class="span2"></div>
-    <div class="span8">
-      <%= yield %>
+      <div class="span2"></div>
+      <div class="span8">
+        <%= yield %>
+      </div>
+      <div class="span2"></div>
     </div>
-    <div class="span2"></div>
   </div>
 </div>
 
