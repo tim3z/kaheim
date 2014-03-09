@@ -100,7 +100,7 @@ de:
     messages:
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden
-      confirmation: stimmt nicht mit der Bestätigung überein
+      confirmation: stimmt nicht mit %{attribute} überein
       empty: muss ausgefüllt werden
       equal_to: muss genau %{count} sein
       even: muss gerade sein
