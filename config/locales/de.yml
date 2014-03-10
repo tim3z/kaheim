@@ -66,6 +66,8 @@ de:
       sign_in: "Anmelden"
       sign_up: "Registrieren"
       sign_out: "Abmelden"
+    creation_success: "%{model} wurde erfolgreich erstellt."
+    update_success: "%{model} wurde erfolgreich aktualisiert."
 
   recaptcha:
     errors:
