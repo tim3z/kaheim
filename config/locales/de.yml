@@ -15,6 +15,7 @@ de:
         zero: "Gesuche"
         one: "Gesuch"
         other: "Gesuche"
+      user: "Benutzer"
     attributes:
       offer:
         title: "Titel"
