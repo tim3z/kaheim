@@ -69,6 +69,9 @@ de:
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
 
+  mail:
+    subject: "Antwort auf '%{title}'"
+
   recaptcha:
     errors:
       verification_failed: "Die eingegebenen Zeichen stimmen nicht mit der Sicherheitsabfrage überein. Bitte versuche es nochmal."

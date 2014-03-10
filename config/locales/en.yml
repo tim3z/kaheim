@@ -69,6 +69,9 @@ en:
     creation_success: "%{model} was successfully created."
     update_success: "%{model} was successfully updated."
 
+  mail:
+    subject: "Reply to '%{title}'"
+
   recaptcha:
     errors:
       verification_failed: "Your input didn't match the captcha - try again"
