@@ -66,6 +66,11 @@ en:
       sign_in: "Sign in"
       sign_up: "Sign up"
       sign_out: "Sign out"
+    creation_success: "%{model} was successfully created."
+    update_success: "%{model} was successfully updated."
+
+  mail:
+    subject: "Reply to '%{title}'"
 
   recaptcha:
     errors:

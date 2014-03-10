@@ -30,7 +30,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to @request, notice: t('helpers.creation_success', :model => t('activerecord.models.request.one')) }
         format.json { render action: 'show', status: :created, location: @request }
       else
         format.html { render action: 'new' }
@@ -44,7 +44,7 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+        format.html { redirect_to @request, notice: t('helpers.update_success', :model => t('activerecord.models.request.one')) }
         format.json { render action: 'show', status: :ok, location: @request }
       else
         format.html { render action: 'edit' }
