@@ -1,4 +1,9 @@
 de:
+  bootstrap_forms:
+    errors:
+      header: "Konnte %{model} nicht speichern:"
+    buttons:
+      cancel: 'Abbrechen' 
 
   activerecord:
     models:
