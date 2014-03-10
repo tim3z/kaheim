@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   ActiveAdmin.routes(self)
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users
   resources :offers
   resources :requests
 
