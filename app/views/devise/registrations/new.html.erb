@@ -8,11 +8,6 @@
   <%= f.email_field :email, :class => 'text_field' %>
   <%= f.password_field :password, :class => 'text_field' %>
   <%= f.password_field :password_confirmation, :class => 'text_field' %>
-  <div class="control-group">
-    <div class="controls">
-      <%= recaptcha_tags %>
-    </div>
-  </div>
 
   <div class="form-actions">
     <%= f.submit t('devise.basic.sign_up'), :class => 'btn btn-primary' %>
