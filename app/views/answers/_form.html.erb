@@ -13,7 +13,7 @@
   </div>
   <div class="control-group">
     <div class="controls">
-      <%= recaptcha_tags unless user_signed_in? %>
+      <%= recaptcha_tags ajax: true unless user_signed_in? %>
     </div>
   </div>
   <div class="control-group">
