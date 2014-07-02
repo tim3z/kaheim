@@ -1,4 +1,4 @@
-<%- unless controller_name == 'sessions' or no_sign_in %>
+<%- unless controller_name == 'sessions' || local_assigns[:no_sign_in] %>
     <%= link_to t('devise.basic.sign_in', :default => 'Login'), new_session_path(resource_name) %><br />
 <% end -%>
 

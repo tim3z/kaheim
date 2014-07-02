@@ -15,7 +15,7 @@
 
   <div class="form-actions">
     <%= f.submit t('devise.basic.sign_in', :default => 'Sign in'), :class => 'btn btn-primary' %><br />
-    <%= render "devise/shared/links", :no_sign_in => "yes" %>
+    <%= render 'devise/shared/links', no_sign_in: true %>
   </div>
 
 <% end %>
