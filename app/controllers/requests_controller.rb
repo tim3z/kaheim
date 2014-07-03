@@ -30,7 +30,8 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: t('helpers.creation_success', :model => t('activerecord.models.request.one')) }
+        notice = t("helpers.creation_success#{current_user.unlocked ? '' : '_unlock_required'}", :model => t('activerecord.models.request.one'))
+        format.html { redirect_to @request, notice: notice }
         format.json { render action: 'show', status: :created, location: @request }
       else
         format.html { render action: 'new' }

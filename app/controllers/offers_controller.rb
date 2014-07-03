@@ -30,7 +30,8 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to @offer, notice: t('helpers.creation_success', :model => t('activerecord.models.offer.one')) }
+        notice = t("helpers.creation_success#{current_user.unlocked ? '' : '_unlock_required'}", :model => t('activerecord.models.offer.one'))
+        format.html { redirect_to @offer, notice: notice }
         format.json { render action: 'show', status: :created, location: @offer }
       else
         format.html { render action: 'new' }
