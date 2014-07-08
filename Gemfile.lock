@@ -48,16 +48,17 @@ GEM
     arbre (1.0.1)
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (2.1.0.20140628)
+      execjs
     bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass-rails (2.3.2.1)
-      railties (>= 3.1.0)
-      sass-rails (>= 3.1.0)
-    bootstrap_forms (4.0.1)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
+    bootstrap_form (2.1.1)
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
@@ -197,10 +198,11 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  autoprefixer-rails
   better_errors
   binding_of_caller
-  bootstrap-sass-rails (~> 2.3.2)
-  bootstrap_forms
+  bootstrap-sass (~> 3.2.0)
+  bootstrap_form
   coffee-rails (~> 4.0.0)
   devise
   exception_notification

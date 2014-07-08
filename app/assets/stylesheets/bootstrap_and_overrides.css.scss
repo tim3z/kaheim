@@ -1,4 +1,5 @@
-@import "twitter/bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 .nav {
   .nav-with-note {
@@ -15,4 +16,7 @@ textarea {
 
 select {
   width: auto;
+}
+.page-header {
+  margin-top: 30px;
 }

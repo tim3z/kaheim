@@ -44,8 +44,9 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'bootstrap-sass-rails', '~> 2.3.2'
-gem 'bootstrap_forms'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'bootstrap_form'
 
 # bot protection with recaptcha
 gem 'recaptcha', :require => 'recaptcha/rails'
