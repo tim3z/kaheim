@@ -2,27 +2,18 @@
   <h2><%=t 'helpers.answer' %></h2>
 </div>
 
-<%= form_tag answers_path, class: 'form-horizontal' do %>
-  <div class="control-group">
-    <%= label_tag t('helpers.mail'), nil, class: 'control-label' %>
-    <div class="controls"><%= email_field_tag :mail, user_signed_in? ? current_user.email : "" %></div>
-  </div>
-  <div class="control-group">
-    <%= label_tag t('helpers.message'), nil, class: 'control-label' %>
-    <div class="controls"><%= text_area_tag :message, nil %></div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <%= recaptcha_tags ajax: true unless user_signed_in? %>
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <%= submit_tag t('helpers.links.send'), class: 'btn btn-primary' %>
-    </div>
-  </div>
+<%= bootstrap_form_tag url: answers_path, layout: :horizontal do |f| %>
+  <%= f.email_field :mail, value: user_signed_in? ? current_user.email : '', label: t('helpers.mail') %>
+  <%= f.text_area :message, value: user_signed_in? ? current_user.email : '', label: t('helpers.message') %>
+  <% unless user_signed_in? %>
+    <%= f.form_group label: { text: 'Captcha' } do %>
+      <%= recaptcha_tags ajax: true %>
+    <% end %>
+    <% end %>
+  <%= f.form_group do %>
+    <%= f.primary t('helpers.links.send') %>
+  <% end %>
 
   <%= hidden_field_tag :type, object.class.to_s %>
   <%= hidden_field_tag :id, object.id %>
-
 <% end %>
