@@ -11,8 +11,6 @@
   <% else %>
       <strong><%= t 'helpers.sign_in_for_request' %></strong>
   <% end %>
-  &nbsp;-&nbsp;
-  <%= link_to t('helpers.archive'), requests_path(archive: true) unless params[:archive] %>
 </div>
 
 <%= render partial: 'shared/item', collection: requests, as: :item %>
