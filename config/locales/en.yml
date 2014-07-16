@@ -14,7 +14,7 @@ en:
       offer:
         title: "Title"
         description: "Description"
-        until: "Until"
+        until: "Available until"
         created_at: "Created at"
         help:
           until: Short description of your offer
@@ -38,14 +38,14 @@ en:
     sign_in_for_offer: "You need to sign in to create a new offer."
     sign_in_for_request: "You need to sign in to create a new request."
     signed_in_message: "Signed in as %{mail}."
-    new_offer: "New offer"
-    new_request: "New request"
+    new_offer: "Create offer"
+    new_request: "Create request"
     none_found: "No %{subjects} found."
     show: "Show"
     actions: "Actions"
     answer: "Answer"
-    more: More
-    less: Less
+    more: "Description"
+    less: "close"
     mine: "Mine"
     mail: "Your email"
     password: "Password"

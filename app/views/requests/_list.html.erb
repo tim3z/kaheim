@@ -5,15 +5,14 @@
   <% else %>
       <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
   <% end %>
+  <% if user_signed_in? %>
+      <%= link_to t('helpers.new_request', :default => 'New'),
+                  new_request_path %>
+  <% else %>
+      <strong><%= t 'helpers.sign_in_for_request' %></strong>
+  <% end %>
+  &nbsp;-&nbsp;
   <%= link_to t('helpers.archive'), requests_path(archive: true) unless params[:archive] %>
 </div>
 
 <%= render partial: 'shared/item', collection: requests, as: :item %>
-
-<% if user_signed_in? %>
-    <%= link_to t('helpers.new_request', :default => 'New'),
-                new_request_path,
-                :class => 'btn btn-primary' %>
-<% else %>
-    <strong><%= t 'helpers.sign_in_for_request' %></strong>
-<% end %>

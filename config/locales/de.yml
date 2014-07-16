@@ -20,10 +20,10 @@ de:
       offer:
         title: "Titel"
         description: "Beschreibung"
-        until: "Zu besetzen bis"
+        until: "Frei bis"
         created_at: "Erstellt am"
         help:
-          until: "Zu besetzen bis"
+          until: "Frei bis"
           title: "Nette 3er WG, Zimmer mit Küchenzeile, ..."
       request:
         title: "Titel"
@@ -45,14 +45,14 @@ de:
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
     sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
     signed_in_message: "Angemeldet als %{mail}."
-    new_offer: "Neues Angebot"
-    new_request: "Neues Gesuch"
+    new_offer: "Angebot erstellen"
+    new_request: "Gesuch aufgeben"
     none_found: "Keine %{subjects} gefunden."
     show: "Anzeigen"
     actions: "Aktionen"
     answer: "Antworten"
-    more: Mehr
-    less: Weniger
+    more: "Beschreibung"
+    less: "schließen"
     mine: "Meins"
     mail: "Deine Email"
     password: "Passwort"

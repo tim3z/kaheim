@@ -1,12 +1,21 @@
-<div class="item">
+<fieldset class="item">
+  <% if current_user == item.user %>
+      <legend class="label label-info"><%= t "helpers.mine"  %></legend>
+  <% else %>
+      <legend class="label label-info"><%= item.user.name %></legend>
+  <% end %>
 
-  <div class="titel"><strong><%= link_to item.title, item %></strong></div>
-
-  <div class="until"><strong><%= item.class.human_attribute_name(:until) + " " + (l item.until) %></strong></div>
+  <div class="titel">
+    <strong><%= item.title %></strong>
+  </div>
 
   <div class="description">
-    <div class="short"><%= truncate item.description, length: 160 %></div>
+    <div class="short"></div>
     <div class="long"><%= simple_format item.description %></div>
+  </div>
+
+  <div class="until">
+    <%= item.class.human_attribute_name(:until) + " " + (l item.until) %>
   </div>
 
   <div class="contact">
@@ -18,12 +27,5 @@
     <div class="inline-button answer" data-link="<%= polymorphic_path item %>">
       <%= t "helpers.#{current_user == item.user ? 'show' : 'answer'}" %>
     </div>
-
-    <% if current_user == item.user %>
-        <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
-    <% else %>
-        <strong><%= t 'helpers.author' %>: <%= item.user.name %></strong>
-    <% end %>
-
   </div>
-</div>
+</fieldset>

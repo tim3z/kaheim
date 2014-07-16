@@ -19,3 +19,10 @@ select {
 .page-header {
   margin-top: 30px;
 }
+
+legend {
+  width: auto;
+  padding: 0 10px;
+  border-bottom: none;
+  margin-bottom: -6px;
+}

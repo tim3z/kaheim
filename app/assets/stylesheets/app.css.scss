@@ -7,17 +7,17 @@ div[data-link] {
   height: auto;
   padding: 15px;
   margin-bottom: 30px;
-  background-color: #f7f7f7;
-  border: 1px solid #d0d0d0;
-  border-bottom-right-radius: 20px 20px;
+//  background-color: #f7f7f7;
+  border-top: 1px solid #d0d0d0;
+//  border-bottom-right-radius: 20px 20px;
 
-  &:hover {
+  /*&:hover {
     background-color: #f5f5f5;
-    border: 1px solid #bcbcbc;
-  }
+    border-top: 1px solid #bcbcbc;
+  }*/
 
   .titel {
-    float: left;
+    clear: both;
     width: auto;
     height: auto;
     text-align: left;
@@ -29,40 +29,38 @@ div[data-link] {
     }
   }
 
+  .description {
+    width: auto;
+    padding: 5px;
+    clear: both;
+//    background-color: #fff;
+//    border: 1px solid #E5E5E5;
+    border-bottom: none;
+    text-align: left;
+  }
+
   .until {
-    float: right;
+    float: left;
     width: auto;
     height: auto;
-    text-align: right;
+    text-align: left;
     strong {
       font-size: 16pt;
     }
     padding-top: 5px;
   }
 
-  .description {
-    width: auto;
-    padding: 5px;
-    clear: both;
-    background-color: #fff;
-    border: 1px solid #E5E5E5;
-    border-bottom: none;
-    text-align: left;
-    .long, .short {
-      cursor: pointer;
-    }
-  }
-
   .contact {
+    bottom: 0;
     width: auto;
     height: auto;
     padding: 5px;
-    clear: both;
-    background-color: #fff;
-    border: 1px solid #E5E5E5;
+    float: right;
+//    background-color: #fff;
+//    border: 1px solid #E5E5E5;
     border-top: none;
     text-align: right;
-    border-bottom-right-radius: 10px 10px;
+//    border-bottom-right-radius: 10px 10px;
 
     .inline-button {
       color: #0088CC;
