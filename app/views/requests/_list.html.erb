@@ -13,4 +13,36 @@
   <% end %>
 </div>
 
-<%= render partial: 'shared/item', collection: requests, as: :item %>
+<% requests.each do |request| %>
+<fieldset class="item">
+  <% if current_user == request.user %>
+      <legend class="label label-danger"><%= t "helpers.mine"  %></legend>
+  <% end %>
+
+  <div class="titel">
+    <strong><%= request.title %></strong>
+  </div>
+
+  <div class="specifics">
+    <span class="label gender label-default">m/w</span>
+    <span class="label label-default">(ab)</span>
+    <span class="label time label-default"><%= request.class.human_attribute_name(:until) + " " + (l request.until) %></span>
+  </div>
+
+  <div class="description">
+    <div class="short"></div>
+    <div class="long"><%= simple_format request.description %></div>
+  </div>
+
+  <div class="contact">
+    <div class="inline-button toggle-collapse">
+      <div class="short"><%= t 'helpers.more' %>&#x25BC;</div>
+      <div class="long"><%= t 'helpers.less' %>&#x25B2;</div>
+    </div>
+
+    <div class="inline-button answer" data-link="<%= polymorphic_path request %>">
+      <%= t "helpers.#{current_user == request.user ? 'show' : 'answer'}" %>
+    </div>
+  </div>
+</fieldset>
+<% end %>

@@ -7,7 +7,15 @@
 
   <div class="titel"><strong><%= @offer.title %></strong></div>
 
-  <div class="until"><strong><%= model_class.human_attribute_name(:until) + " " + (l @offer.until) %></strong></div>
+  <div class="until"><strong>
+  <div class="specifics">
+    <span class="label gender label-default">m/w</span>
+    <span class="label money label-default">250€</span>
+    <span class="label space label-default">20m²</span>
+    <span class="label time label-default"><%= model_class.human_attribute_name(:until) + " " + (l @offer.until) %></span>
+    <span class="label label-default">(bis)</span>
+  </div>
+  </strong></div>
 
   <div class="description">
     <%= simple_format @offer.description %>

@@ -13,4 +13,38 @@
   <% end %>
 </div>
 
-<%= render partial: 'shared/item', collection: offers, as: :item %>
+<% offers.each do |offer| %>
+    <fieldset class="item">
+      <% if current_user == offer.user %>
+          <legend class="label label-danger"><%= t "helpers.mine"  %></legend>
+      <% end %>
+
+      <div class="titel">
+        <strong><%= offer.title %></strong>
+      </div>
+
+      <div class="specifics">
+        <span class="label gender label-default">m/w</span>
+        <span class="label money label-default">250€</span>
+        <span class="label space label-default">20m²</span>
+        <span class="label time label-default"><%= offer.class.human_attribute_name(:until) + " " + (l offer.until) %></span>
+        <span class="label label-default">(bis)</span>
+      </div>
+
+      <div class="description">
+        <div class="short"></div>
+        <div class="long"><%= simple_format offer.description %></div>
+      </div>
+
+      <div class="contact">
+        <div class="inline-button toggle-collapse">
+          <div class="short"><%= t 'helpers.more' %>&#x25BC;</div>
+          <div class="long"><%= t 'helpers.less' %>&#x25B2;</div>
+        </div>
+
+        <div class="inline-button answer" data-link="<%= polymorphic_path offer %>">
+          <%= t "helpers.#{current_user == offer.user ? 'show' : 'answer'}" %>
+        </div>
+      </div>
+    </fieldset>
+<% end %>

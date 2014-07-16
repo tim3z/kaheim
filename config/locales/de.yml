@@ -20,7 +20,7 @@ de:
       offer:
         title: "Titel"
         description: "Beschreibung"
-        until: "Frei bis"
+        until: "Frei ab"
         created_at: "Erstellt am"
         help:
           until: "Spätestes Datum für Einzug"
