@@ -16,11 +16,17 @@ en:
         description: "Description"
         until: "Until"
         created_at: "Created at"
+        help:
+          until: Short description of your offer
+          title: Available until
       request:
         title: "Title"
         description: "Description"
         until: "Needed until"
         created_at: "Created at"
+        help:
+          until: Short description of your request
+          title: Needed until
       user:
         email: "Email"
         password: "Password"

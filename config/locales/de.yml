@@ -22,11 +22,17 @@ de:
         description: "Beschreibung"
         until: "Zu besetzen bis"
         created_at: "Erstellt am"
+        help:
+          until: "Zu besetzen bis"
+          title: "Nette 3er WG, Zimmer mit Küchenzeile, ..."
       request:
         title: "Titel"
         description: "Beschreibung"
         until: "Gesucht bis"
         created_at: "Erstellt am"
+        help:
+          until: Zentrales Zimmer, entspannte WG, ...
+          title: Spätestes Datum für Einzug
       user:
         email: "Email"
         password: "Passwort"
