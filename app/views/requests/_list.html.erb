@@ -1,7 +1,7 @@
 <%- model_class = Request -%>
 <div class="page-header">
   <% if requests.count > 0 %>
-      <h1><%=t '.title', :default => model_class.model_name.human(count: requests.count) %></h1>
+      <h1><%=t '.title', :default => model_class.model_name.human(count: 2) %></h1>
   <% else %>
       <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
   <% end %>

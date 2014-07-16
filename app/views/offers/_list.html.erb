@@ -1,7 +1,7 @@
 <%- model_class = Offer -%>
 <div class="page-header">
   <% if offers.count > 0 %>
-      <h1><%=t '.title', :default => model_class.model_name.human(count: offers.count) %></h1>
+      <h1><%=t '.title', :default => model_class.model_name.human(count: 2) %></h1>
   <% else %>
       <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
   <% end %>

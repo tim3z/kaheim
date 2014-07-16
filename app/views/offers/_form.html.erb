@@ -1,10 +1,10 @@
 <%= bootstrap_form_for @offer do |f| %>
     <div class="offer">
       <div class="titel">
-        <%= f.text_field :title, :class => 'text_field', layout: :inline, placeholder: t('activerecord.attributes.offer.title'), help: t('activerecord.attributes.offer.help.title') %>
+        <%= f.text_field :title, :class => 'text_field', hide_label: true, layout: :inline, placeholder: t('activerecord.attributes.offer.title'), help: t('activerecord.attributes.offer.help.title') %>
       </div>
       <div class="until">
-        <%= f.date_select :until, :class => 'date_select', layout: :inline %>
+        <%= f.date_select :until, :class => 'date_select', hide_label: true, layout: :inline, help: t('activerecord.attributes.offer.help.until') %>
       </div>
       <div class="description">
         <% if @offer.description %>
