@@ -27,9 +27,9 @@
   </div>
   <div class="contact">
     <% if current_user == @request.user %>
-        <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
+        <strong><span class="label label-danger"><%= t "helpers.mine"  %></span></strong>
     <% else %>
-        <strong><%= t 'helpers.author' %>: <%= @request.user.name %></strong>
+        <strong><span class="label label-info"><%= @request.user.name  %></span></strong>
     <% end %>
   </div>
 </div>

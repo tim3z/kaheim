@@ -50,9 +50,9 @@
   </div>
   <div class="contact">
     <% if current_user == @offer.user %>
-        <strong><span class="label label-info"><%= t "helpers.mine"  %></span></strong>
+        <strong><span class="label label-danger"><%= t "helpers.mine"  %></span></strong>
     <% else %>
-        <strong><%= t 'helpers.author' %>: <%= @offer.user.name %></strong>
+        <strong><span class="label label-info"><%= @offer.user.name  %></span></strong>
     <% end %>
   </div>
 </div>
