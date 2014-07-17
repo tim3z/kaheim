@@ -48,6 +48,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 
+gem 'font-awesome-rails'
+
+
 # bot protection with recaptcha
 gem 'recaptcha', :require => 'recaptcha/rails'
 
