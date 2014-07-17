@@ -23,11 +23,18 @@
     <strong><%= request.title %></strong>
   </div>
 
-  <div class="specifics">
-    <span class="label gender label-default">m/w</span>
-    <span class="label label-default">(ab)</span>
-    <span class="label time label-default"><%= request.class.human_attribute_name(:until) + " " + (l request.until) %></span>
-  </div>
+  <table class="request-specifics">
+    <tbody>
+    <tr>
+      <td class="gender">
+        <i class="fa fa-female"></i>
+      </td>
+      <td class="time">
+        sucht vom <%= (l request.until) + ' bis ' + (l request.until) %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
   <div class="description">
     <div class="short"></div>

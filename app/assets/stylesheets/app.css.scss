@@ -22,42 +22,58 @@ div[data-link] {
     }
   }
 
-  .specifics {
+  table.offer-specifics {
     height: auto;
     width: auto;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #5f6264;
 
-    .label {
-      margin: 0 2px;
+    tr {
+      td {
+        &.icon {
+          text-align: right;
+          width: 30px;
+          padding-right: 8px;
+        }
+        &.info {
+          text-align: left;
+          width: 125px;
+        }
+
+        &.address {
+          padding-top: 10px;
+        }
+      }
     }
+  }
 
-    .label.gender {
-      background-color: #acd9ff;
-      color: #000000;
-    }
+  table.request-specifics {
+    height: auto;
+    width: auto;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #5f6264;
 
-    .label.money {
-      background-color: #ffd355;
-      color: #140004;
-    }
+    tr {
+      td {
+        &.gender {
+          padding-right: 2px;
+          text-align: right;
+          width: 20px;
+        }
 
-    .label.space {
-      background-color: #dcb77e;
-      color: #090002;
-    }
-
-    .label.time {
-      background-color: #b2ff8b;
-      color: #140004;
+        &.time {
+          padding-left: 4px;
+          text-align: left;
+          width: 300px;
+        }
+      }
     }
   }
 
   .description {
     width: auto;
-    padding: 5px;
-    margin-top: 10px;
     clear: both;
     border-bottom: none;
     text-align: left;
@@ -72,6 +88,7 @@ div[data-link] {
       font-size: 16pt;
     }
     padding-top: 5px;
+    padding-bottom: 15px;
   }
 
   .contact {
@@ -96,7 +113,14 @@ div[data-link] {
 }
 
 .long {
+  padding: 5px;
+  margin-top: 8px;
   display: none;
+}
+
+.short {
+  padding: 0px;
+  margin-top: 0px;
 }
 
 ul.nav li.language a {

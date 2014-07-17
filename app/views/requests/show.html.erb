@@ -7,13 +7,20 @@
 
   <div class="titel"><strong><%= @request.title %></strong></div>
 
-  <div class="until"><strong>
-    <div class="specifics">
-      <span class="label gender label-default">m/w</span>
-      <span class="label label-default">(ab)</span>
-      <span class="label time label-default"><%= model_class.human_attribute_name(:until) + " " + (l @request.until) %></span>
-    </div>
-  </strong></div>
+  <div class="until">
+    <table class="request-specifics">
+      <tbody>
+      <tr>
+        <td class="gender">
+          <i class="fa fa-female"></i>
+        </td>
+        <td class="time">
+          gesucht vom <%= (l @request.until) + ' bis ' + (l @request.until) %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="description">
     <%= simple_format @request.description %>

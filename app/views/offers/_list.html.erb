@@ -23,13 +23,41 @@
         <strong><%= offer.title %></strong>
       </div>
 
-      <div class="specifics">
-        <span class="label gender label-default">m/w</span>
-        <span class="label money label-default">250€</span>
-        <span class="label space label-default">20m²</span>
-        <span class="label time label-default"><%= offer.class.human_attribute_name(:until) + " " + (l offer.until) %></span>
-        <span class="label label-default">(bis)</span>
-      </div>
+      <table class="offer-specifics">
+        <tbody>
+        <tr>
+          <td class="icon">
+            <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
+          </td>
+          <td class="info">
+            egal
+          </td>
+          <td class="icon">
+            <i class="fa fa-eur"></i>
+          </td>
+          <td class="info">
+            250
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <i class="fa fa-square-o"></i>
+          </td>
+          <td class="info">
+            20m²
+          </td>
+          <td class="icon">
+            <i class="fa fa-long-arrow-right"></i>
+          </td>
+          <td class="info">
+            frei ab <%= (l offer.until) %>
+          </td>
+        </tr>
+        <tr>
+          <td class="info address" colspan="4">Innenstadt, Wienerstraße</td>
+        </tr>
+        </tbody>
+      </table>
 
       <div class="description">
         <div class="short"></div>
