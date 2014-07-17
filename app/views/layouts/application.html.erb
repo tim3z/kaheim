@@ -36,55 +36,22 @@
               <span class="badge badge-info"><%= (c = Offer.current.unlocked.count) > 0 ? c : '' %></span>
               <%= Offer.model_name.human count: c %>
             </button>
-            <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">
-              <span class="caret"></span>
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <%= link_to t('helpers.new_offer'), new_offer_path %>
-              </li>
-            </ul>
           </div>
           <div class="btn-group">
             <button type="button" class="btn btn-default navbar-btn" data-link="<%= requests_path %>">
               <span class="badge badge-info"><%= (c = Request.current.unlocked.count) > 0 ? c : '' %></span>
               <%= Request.model_name.human count: c %>
             </button>
-            <button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown">
-              <span class="caret"></span>
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <%= link_to t('helpers.new_request'), new_request_path %>
-              </li>
-            </ul>
           </div>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li class="language">
-            <%= link_to params.merge(locale: :de) do %>
-              <%= image_tag 'de.png' %>
-            <% end %>
-          </li>
-          <li class="language">
-            <%= link_to params.merge(locale: :en) do %>
-              <%= image_tag 'en.png' %>
-            <% end %>
-          </li>
+
 
           <% if user_signed_in? %>
-              <li>
-                <%= link_to t("helpers.signed_in_message", :mail => current_user.email), edit_user_registration_path %>
-              </li>
-              <% if current_user.admin %>
-                  <li><%= link_to 'Admin', '/admin' %></li>
-              <% end %>
-              <li>
-                <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
-              </li>
+            <li>
+              <%= link_to t("helpers.signed_in_message", :mail => current_user.email), edit_user_registration_path %>
+            </li>
           <% else %>
               <li>
                 <%= link_to t("helpers.links.sign_up"), new_user_registration_path %>
@@ -96,7 +63,33 @@
                 </div>
               </li>
           <% end %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-cog"></i>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="language">
+              <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
+                  <%= image_tag 'de.png' %>
+              <% end %>
+              <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
+                    <%= image_tag 'en.png' %>
+              <% end %>
+              </li>
+
+              <% if user_signed_in? %>
+                  <% if current_user.admin %>
+                      <li><%= link_to 'Admin', '/admin' %></li>
+                  <% end %>
+                  <li>
+                    <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
+                  </li>
+              <% end %>
+            </ul>
+          </li>
         </ul>
+
       </div>
 
     </div>

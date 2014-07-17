@@ -91,6 +91,11 @@ div[data-link] {
     padding-bottom: 15px;
   }
 
+
+  &:hover .contact {
+    color: #0088CC;
+  }
+
   .contact {
     bottom: 0;
     width: auto;
@@ -99,9 +104,9 @@ div[data-link] {
     float: right;
     border-top: none;
     text-align: right;
+    color: #b3cff5;
 
     .inline-button {
-      color: #0088CC;
       display: inline-block;
       cursor: pointer;
 
@@ -126,6 +131,7 @@ div[data-link] {
 ul.nav li.language a {
   padding-left: 5px;
   padding-right: 5px;
+  display: inline-block;
 }
 
 
