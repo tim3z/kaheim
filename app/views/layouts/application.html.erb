@@ -63,31 +63,34 @@
                 </div>
               </li>
           <% end %>
+          <li>
+            <% if I18n.locale == :de %>
+                <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
+                    <%= image_tag 'en.png' %>
+                <% end %>
+            <% else %>
+                <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
+                    <%= image_tag 'de.png' %>
+                <% end %>
+            <% end %>
+          </li>
+
+          <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-cog"></i>
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li class="language">
-              <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
-                  <%= image_tag 'de.png' %>
+              <% if current_user.admin %>
+                  <li><%= link_to 'Admin', '/admin' %></li>
               <% end %>
-              <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
-                    <%= image_tag 'en.png' %>
-              <% end %>
+              <li>
+                <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
               </li>
-
-              <% if user_signed_in? %>
-                  <% if current_user.admin %>
-                      <li><%= link_to 'Admin', '/admin' %></li>
-                  <% end %>
-                  <li>
-                    <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, :method => :delete %>
-                  </li>
-              <% end %>
             </ul>
           </li>
+          <% end %>
         </ul>
 
       </div>
