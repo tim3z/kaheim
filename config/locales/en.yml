@@ -14,18 +14,19 @@ en:
       offer:
         title: "Title"
         description: "Description"
-        until: "Available until"
+        to_date: "Available until"
+        from_date: "Available from"
         created_at: "Created at"
         help:
-          until: Available until
+          to_date: Available until
           title: Short description of your offer
       request:
         title: "Title"
         description: "Description"
-        until: "Needed until"
+        to_date: "Needed until"
         created_at: "Created at"
         help:
-          until: Needed until
+          to_date: Needed until
           title: Short description of your request
       user:
         email: "Email"

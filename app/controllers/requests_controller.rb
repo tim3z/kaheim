@@ -72,6 +72,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params[:request].permit(:title, :until, :description)
+      params[:request].permit(:title, :description, :from_date, :to_date, :gender)
     end
 end

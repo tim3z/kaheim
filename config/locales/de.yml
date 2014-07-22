@@ -20,18 +20,20 @@ de:
       offer:
         title: "Titel"
         description: "Beschreibung"
-        until: "Frei ab"
+        from_date: "Verfügbar ab"
+        to_date: "Verfügbar bis"
         created_at: "Erstellt am"
         help:
-          until: "Spätestes Datum für Einzug"
+          from_date: "Datum ab dem der Einzug möglich ist"
           title: "Nette 3er WG, Zimmer mit Küchenzeile, ..."
       request:
         title: "Titel"
         description: "Beschreibung"
-        until: "Gesucht bis"
+        from_date: "Gesucht ab"
+        to_date: "Gesucht bis"
         created_at: "Erstellt am"
         help:
-          until: Spätestes Datum für Einzug
+          from_date: Spätestes Datum für Einzug
           title: Zentrales Zimmer, entspannte WG, ...
       user:
         email: "Email"
