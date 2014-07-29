@@ -44,6 +44,10 @@ de:
 
 
   helpers:
+    gender:
+      dontcare: "egal"
+      female: "w"
+      male: "m"
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
     sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
     signed_in_message: "Angemeldet als %{mail}."

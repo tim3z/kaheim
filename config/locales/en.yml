@@ -36,6 +36,10 @@ en:
         name: "Name"
 
   helpers:
+    gender:
+      dontcare: "Doesn't matter"
+      female: "f"
+      male: "m"
     sign_in_for_offer: "You need to sign in to create a new offer."
     sign_in_for_request: "You need to sign in to create a new request."
     signed_in_message: "Signed in as %{mail}."

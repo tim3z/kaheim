@@ -5,4 +5,6 @@ class Request < ActiveRecord::Base
 
   scope :current, -> { where('requests.public_until >= ?', Date.today) }
   scope :unlocked, -> { joins(:user).where(users: { unlocked: true }) }
+
+  enum gender: { dontcare: 0, female: 1, male: 2 }
 end

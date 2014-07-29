@@ -5,4 +5,7 @@ class Offer < ActiveRecord::Base
 
   scope :current, -> { where('offers.to_date >= ?', Date.today) }
   scope :unlocked, -> { joins(:user).where(users: { unlocked: true }) }
+
+  enum gender: { dontcare: 0, female: 1, male: 2 }
+
 end

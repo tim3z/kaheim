@@ -34,13 +34,13 @@
             <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
           </td>
           <td class="info">
-            egal
+            <%= t "helpers.gender.#{offer.gender}" %>
           </td>
           <td class="icon">
             <i class="fa fa-eur"></i>
           </td>
-          <td class="info">
-            250
+          <td class="info" colspan="2">
+            <%= offer.rent %>
           </td>
         </tr>
         <tr>
@@ -48,17 +48,22 @@
             <i class="fa fa-square-o"></i>
           </td>
           <td class="info">
-            20m²
+            <%= offer.size %>m²
           </td>
           <td class="icon">
             <i class="fa fa-long-arrow-right"></i>
           </td>
           <td class="info">
-            frei ab <%# (l offer.from_date) %>
+            frei ab <%= (l offer.from_date) %>
+          </td>
+          <td class="info">
+            <% if offer.to_date %>
+                bis <%= (l offer.to_date) %>
+            <% end %>
           </td>
         </tr>
         <tr>
-          <td class="info address" colspan="4">Innenstadt, Wienerstraße</td>
+          <td class="info address" colspan="4"><%= offer.district + ", " + offer.street %></td>
         </tr>
         </tbody>
       </table>
