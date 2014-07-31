@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<div class="offer">
+<div class="item">
 
   <div class="titel"><strong><%= @offer.title %></strong></div>
 
@@ -15,13 +15,13 @@
           <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
         </td>
         <td class="info">
-          egal
+          <%= t "helpers.gender.#{@offer.gender}" %>
         </td>
         <td class="icon">
           <i class="fa fa-eur"></i>
         </td>
         <td class="info">
-          250
+          <%= @offer.rent %>
         </td>
       </tr>
       <tr>
@@ -29,17 +29,22 @@
           <i class="fa fa-square-o"></i>
         </td>
         <td class="info">
-          20m²
+          <%= @offer.size %>m²
         </td>
         <td class="icon">
           <i class="fa fa-long-arrow-right"></i>
         </td>
         <td class="info">
-          frei ab <%# (l @offer.until) %>
+          frei ab <%= (l @offer.from_date) %>
+        </td>
+        <td class="info">
+          <% if @offer.to_date %>
+              bis <%= (l @offer.to_date) %>
+          <% end %>
         </td>
       </tr>
       <tr>
-        <td class="info address" colspan="4">Innenstadt, Wienerstraße</td>
+        <td class="info address" colspan="5"><%= @offer.district + ", " + @offer.street %></td>
       </tr>
       </tbody>
     </table>
@@ -52,7 +57,7 @@
     <% if current_user == @offer.user %>
         <strong><span class="label label-danger"><%= t "helpers.mine"  %></span></strong>
     <% else %>
-        <strong><span class="label label-info"><%= @offer.user.name  %></span></strong>
+        <strong><span class="label label-info"><%= @offer.user.name %></span></strong>
     <% end %>
   </div>
 </div>

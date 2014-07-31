@@ -1,0 +1,55 @@
+.edit {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  margin-bottom: 22px;
+  border-top: 1px solid #d0d0d0;
+
+  .title {
+    margin: 5px;
+  }
+
+  .info {
+    margin: 5px;
+
+    .gender {
+      .gender-label {
+        margin-left: 6px;
+        margin-right: 4px;
+      }
+    }
+    .rent {
+    }
+    .size {
+    }
+  }
+
+  .date {
+    margin: 5px;
+    select {
+      float: left;
+      width: auto;
+      margin-bottom: 0px;
+      display: block;
+      font-size: 14px;
+      color: #555;
+      background-color: #FFF;
+      border: none;
+    }
+  }
+
+  .location {
+    margin: 5px;
+    clear: both;
+  }
+
+  .description {
+    margin: 5px;
+    width: 100%;
+  }
+
+  .form-control select {
+    margin-top: -3px;
+    margin-bottom: 3px;
+  }
+}

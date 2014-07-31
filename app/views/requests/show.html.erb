@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
-<div class="request">
+<div class="item">
 
   <div class="titel"><strong><%= @request.title %></strong></div>
 
@@ -12,10 +12,17 @@
       <tbody>
       <tr>
         <td class="gender">
-          <i class="fa fa-female"></i>
+          <% case @request.gender %>
+          <% when 'dontcare' %>
+              <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
+          <% when 'female' %>
+              <i class="fa fa-female"></i>
+          <% when 'male' %>
+              <i class="fa fa-male"></i>
+          <% end %>
         </td>
         <td class="time">
-          gesucht vom <%# (l @request.until) + ' bis ' + (l @request.until) %>
+          sucht vom <%# (l @request.until) + ' bis ' + (l @request.until) %>
         </td>
       </tr>
       </tbody>
@@ -29,7 +36,7 @@
     <% if current_user == @request.user %>
         <strong><span class="label label-danger"><%= t "helpers.mine"  %></span></strong>
     <% else %>
-        <strong><span class="label label-info"><%= @request.user.name  %></span></strong>
+        <strong><span class="label label-info"><%= @request.user.name %></span></strong>
     <% end %>
   </div>
 </div>

@@ -17,17 +17,16 @@ en:
         to_date: "Available until"
         from_date: "Available from"
         created_at: "Created at"
-        help:
-          to_date: Available until
-          title: Short description of your offer
+        district: 'District'
+        street: 'Streetname'
+        zip_code: 'ZIP'
+        rent: 'Rent'
+        size: 'Size'
       request:
         title: "Title"
         description: "Description"
         to_date: "Needed until"
         created_at: "Created at"
-        help:
-          to_date: Needed until
-          title: Short description of your request
       user:
         email: "Email"
         password: "Password"
@@ -40,6 +39,12 @@ en:
       dontcare: "Doesn't matter"
       female: "f"
       male: "m"
+    offer:
+      help:
+        title: "Central flat, ..."
+    request:
+      help:
+        title: Central flat, ...
     sign_in_for_offer: "You need to sign in to create a new offer."
     sign_in_for_request: "You need to sign in to create a new request."
     signed_in_message: "Signed in as %{mail}."

@@ -8,3 +8,4 @@ $ ->
   $('.toggle-collapse').click ->
     $(this).parents('.item').find('div.short').toggle()
     $(this).parents('.item').find('div.long').toggle()
+

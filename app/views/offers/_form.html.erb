@@ -1,40 +1,57 @@
-<%= bootstrap_form_for @offer do |f| %>
-    <div class="offer">
-      <div class="title">
-        <%= f.text_field :title, :class => 'text_field', hide_label: true, layout: :inline, placeholder: t('activerecord.attributes.offer.title'), help: t('activerecord.attributes.offer.help.title') %>
+<%= form_for @offer, html: {class: 'form-inline'} do |f| %>
+    <div class="edit">
+
+      <div class="input-group input-group-lg title">
+        <span class="input-group-addon"><%= t('activerecord.attributes.offer.title') %></span>
+        <%= f.text_field :title, :class => 'form-control', hide_label: true %>
       </div>
-      <div class="description">
-        <% if @offer.description %>
-            <%= f.text_area :description, :class => 'text_area', hide_label: true, placeholder: @offer.description %>
-        <% else %>
-            <%= f.text_area :description, :class => 'text_area', hide_label: true, placeholder: t('activerecord.attributes.offer.description') %>
-        <% end %>
+      <span><%= t('helpers.offer.help.title') %></span>
+
+      <div class="info">
+        <div class='form-control gender'>
+          <%= f.radio_button :gender, 'dontcare', checked: true %><span class="gender-label"><i class='fa fa-male'></i>/<i class='fa fa-female'></i></span>
+          <%= f.radio_button :gender, 'female' %><span class="gender-label"><i class='fa fa-male'></i></span>
+          <%= f.radio_button :gender, 'male' %><span class="gender-label"><i class='fa fa-female'></i></span>
+        </div>
+        <div class="input-group rent">
+          <span class="input-group-addon"><i class="fa fa-eur"></i></span>
+          <%= f.text_field :rent, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.rent') %>
+        </div>
+        <div class="input-group size">
+          <span class="input-group-addon">m²</span>
+          <%= f.text_field :size, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.size') %>
+        </div>
       </div>
-      <div class="rent">
-        <%= f.text_field :rent, :class => 'text_field' %>
+
+      <div class="date">
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon"><%= t('activerecord.attributes.offer.from_date') %></span>
+          <div class='form-control'>
+            <%= f.date_select :from_date, hide_label: true %>
+          </div>
+        </div>
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon"><%= t('activerecord.attributes.offer.to_date') %></span>
+          <div class='form-control'>
+            <%= f.date_select :to_date, hide_label: true, class: 'form-control' %>
+          </div>
+        </div>
       </div>
-      <div class="size">
-        <%= f.text_field :size, :class => 'text_field' %>
+
+      <div class="location">
+        <%= f.text_field :district, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.district') %>
+        <%= f.text_field :street, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.street') %>
+        <%= f.text_field :zip_code, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.zip_code') %>
       </div>
-      <div class="gender">
-        <%= f.text_field :gender, :class => 'text_field' %>
-      </div>
-      <div class="from_date">
-        <%= f.date_select :from_date, :class => 'date_select' %>
-      </div>
-      <div class="to_date">
-        <%= f.date_select :to_date, :class => 'date_select' %>
-      </div>
-      <div class="district">
-        <%= f.text_field :district, :class => 'text_field' %>
-      </div>
-      <div class="street">
-        <%= f.text_field :street, :class => 'text_field' %>
-      </div>
-      <div class="zip_code">
-        <%= f.text_field :zip_code, :class => 'text_field' %>
-      </div>
+
+      <% if @offer.description %>
+        <%= f.text_area :description, :class => 'form-control description', hide_label: true, placeholder: @offer.description %>
+      <% else %>
+        <%= f.text_area :description, :class => 'form-control description', hide_label: true, placeholder: t('activerecord.attributes.offer.description') %>
+      <% end %>
+
     </div>
+
     <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('helpers.links.cancel', :default => 'Cancel'),

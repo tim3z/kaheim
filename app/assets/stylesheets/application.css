@@ -9,12 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require app
- *= require answers
  *= require bootstrap_and_overrides
  *= require rails_bootstrap_forms
- *= require offers
- *= require registrations
- *= require requests
- *= require welcome
  *= require font-awesome
+ *= require listing
+ *= require edit
  */

@@ -20,21 +20,20 @@ de:
       offer:
         title: "Titel"
         description: "Beschreibung"
-        from_date: "Verfügbar ab"
-        to_date: "Verfügbar bis"
+        from_date: 'frei ab'
+        to_date: 'Einzug bis'
         created_at: "Erstellt am"
-        help:
-          from_date: "Datum ab dem der Einzug möglich ist"
-          title: "Nette 3er WG, Zimmer mit Küchenzeile, ..."
+        district: 'Stadtteil'
+        street: 'Straße'
+        zip_code: 'PLZ'
+        rent: 'Miete'
+        size: 'Fläche'
       request:
         title: "Titel"
         description: "Beschreibung"
         from_date: "Gesucht ab"
         to_date: "Gesucht bis"
         created_at: "Erstellt am"
-        help:
-          from_date: Spätestes Datum für Einzug
-          title: Zentrales Zimmer, entspannte WG, ...
       user:
         email: "Email"
         password: "Passwort"
@@ -48,6 +47,12 @@ de:
       dontcare: "egal"
       female: "w"
       male: "m"
+    offer:
+      help:
+        title: "Nette 3er WG, Zimmer mit Küchenzeile, ..."
+    request:
+      help:
+        title: Zentrales Zimmer, entspannte WG, ...
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
     sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
     signed_in_message: "Angemeldet als %{mail}."

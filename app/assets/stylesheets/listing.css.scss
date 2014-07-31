@@ -1,0 +1,126 @@
+.item {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  margin-bottom: 22px;
+  border-top: 1px solid #d0d0d0;
+
+  .titel {
+    clear: both;
+    width: auto;
+    height: auto;
+    text-align: left;
+    strong {
+      font-size: 18pt;
+      a {
+        color: black;
+      }
+    }
+  }
+
+  table.offer-specifics {
+    height: auto;
+    width: auto;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #5f6264;
+
+    tr {
+      td {
+        &.icon {
+          text-align: right;
+          width: 30px;
+          padding-right: 8px;
+        }
+        &.info {
+          text-align: left;
+          width: 125px;
+        }
+
+        &.address {
+          padding-top: 10px;
+        }
+      }
+    }
+  }
+
+  table.request-specifics {
+    height: auto;
+    width: auto;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #5f6264;
+
+    tr {
+      td {
+        &.gender {
+          padding-right: 2px;
+          text-align: right;
+          width: 20px;
+        }
+
+        &.time {
+          padding-left: 4px;
+          text-align: left;
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  .description {
+    width: auto;
+    clear: both;
+    border-bottom: none;
+    text-align: left;
+  }
+
+  .until {
+    float: left;
+    width: auto;
+    height: auto;
+    text-align: left;
+    strong {
+      font-size: 16pt;
+    }
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+
+
+  &:hover .contact {
+    color: #0088CC;
+  }
+
+  .contact {
+    bottom: 0;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    float: right;
+    border-top: none;
+    text-align: right;
+    color: #b3cff5;
+
+    .inline-button {
+      display: inline-block;
+      cursor: pointer;
+
+      &:hover {
+        color: #005580;
+      }
+    }
+  }
+}
+
+.long {
+  padding: 5px;
+  padding-left: 0px;
+  margin-top: 8px;
+  display: none;
+}
+
+.short {
+  padding: 0px;
+  margin-top: 0px;
+}

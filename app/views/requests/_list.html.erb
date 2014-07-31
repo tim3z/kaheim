@@ -31,7 +31,14 @@
     <tbody>
     <tr>
       <td class="gender">
-        <i class="fa fa-female"></i>
+        <% case request.gender %>
+        <% when 'dontcare' %>
+            <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
+        <% when 'female' %>
+            <i class="fa fa-female"></i>
+        <% when 'male' %>
+            <i class="fa fa-male"></i>
+        <% end %>
       </td>
       <td class="time">
         sucht vom <%# (l request.until) + ' bis ' + (l request.until) %>
