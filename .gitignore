@@ -16,6 +16,7 @@
 
 # Ignore IDE Files
 /.idea
+*.sublime*
 
 # Ignore save files
 *~

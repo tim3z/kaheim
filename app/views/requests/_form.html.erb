@@ -1,7 +1,7 @@
 <%= bootstrap_form_for @request do |f| %>
     <div class="request">
       <div class="titel">
-        <%= f.text_field :title, :class => 'text_field', hide_label: true, placeholder: t('activerecord.attributes.request.title'), help: t('helpers.request.help.title') %>
+        <%= f.text_field :title, :class => 'text_field', hide_label: true, placeholder: t('activerecord.attributes.request.title') %>
       </div>
       <div class="from_date">
         <%= f.date_select :from_date, :class => 'date_select', hide_label: true %>
