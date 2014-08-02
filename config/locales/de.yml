@@ -31,8 +31,8 @@ de:
         until: "Gesucht bis"
         created_at: "Erstellt am"
         help:
-          until: Zentrales Zimmer, entspannte WG, ...
-          title: Spätestes Datum für Einzug
+          until: Spätestes Datum für Einzug
+          title: Zentrales Zimmer, entspannte WG, ...
       user:
         email: "Email"
         password: "Passwort"
