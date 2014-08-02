@@ -40,13 +40,10 @@ de:
         remember_me: "Angemeldet bleiben"
         name: "Name"
 
-
   helpers:
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
     sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
     signed_in_message: "Angemeldet als %{mail}."
-    new_offer: "Neues Angebot"
-    new_request: "Neues Gesuch"
     none_found: "Keine %{subjects} gefunden."
     show: "Anzeigen"
     actions: "Aktionen"
@@ -81,6 +78,18 @@ de:
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."
+
+  offers:
+    new: 
+      title: "Neues Angebot"
+    edit: 
+      title: "Angebot bearbeiten"
+
+  requests:
+    new: 
+      title: "Neues Gesuch"
+    edit: 
+      title: "Gesuch bearbeiten"
 
   mail:
     subject: "Antwort auf '%{title}'"

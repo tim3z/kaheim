@@ -17,16 +17,16 @@ en:
         until: "Until"
         created_at: "Created at"
         help:
-          until: Short description of your offer
-          title: Available until
+          until: Available until
+          title: Short description of your offer
       request:
         title: "Title"
         description: "Description"
         until: "Needed until"
         created_at: "Created at"
         help:
-          until: Short description of your request
-          title: Needed until
+          until: Needed until
+          title: Short description of your request
       user:
         email: "Email"
         password: "Password"
@@ -38,8 +38,6 @@ en:
     sign_in_for_offer: "You need to sign in to create a new offer."
     sign_in_for_request: "You need to sign in to create a new request."
     signed_in_message: "Signed in as %{mail}."
-    new_offer: "New offer"
-    new_request: "New request"
     none_found: "No %{subjects} found."
     show: "Show"
     actions: "Actions"
@@ -75,6 +73,18 @@ en:
     creation_success: "%{model} was successfully created."
     update_success: "%{model} was successfully updated."
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
+
+  offers:
+    new: 
+      title: "New offer"
+    edit: 
+      title: "Edit offer"
+
+  requests:
+    new: 
+      title: "New request"
+    edit: 
+      title: "Edit request"
 
   mail:
     subject: "Reply to '%{title}'"
