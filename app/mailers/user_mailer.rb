@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "no-reply@je-ka-wg.herokuapp.com"
+  default from: "no-reply@kaheim.de"
 
   def answer_mail subject, content, reply_to
     @content = content
