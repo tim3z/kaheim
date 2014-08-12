@@ -106,7 +106,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
       <!--<div class="row">-->
-        <% { error: 'error', alert: 'danger', notice: 'success', info: 'info' }.each do |k, v| %>
+        <% { error: 'danger', alert: 'warning', notice: 'success', info: 'info' }.each do |k, v| %>
           <% if flash[k] %>
             <div class="alert alert-<%= v %> alert-dismissible" role="alert">
               <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
