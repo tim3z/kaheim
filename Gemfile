@@ -56,6 +56,9 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # Authentication with Devise
 gem 'devise'
 
+# static pages
+gem 'high_voltage', '~> 2.2.1'
+
 group :production do
   gem 'exception_notification'
   gem 'rails_12factor'

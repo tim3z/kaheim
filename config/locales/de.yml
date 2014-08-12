@@ -78,6 +78,7 @@ de:
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."
+    contact: Impressum/Kontakt
 
   offers:
     new: 
@@ -106,3 +107,11 @@ de:
       verification_failed: "Die eingegebenen Zeichen stimmen nicht mit der Sicherheitsabfrage überein. Bitte versuche es nochmal."
   answers:
       success: Deine Antwort wurde versendet.
+
+  pages:
+    contact:
+      responsible: Verantwortlich für diese Website
+      project: Das Kaheim-Projekt
+      source: Der Quellcode ist verfügbar auf
+      issues1: Bugs, Probleme und Feature Requests können ebenfalls auf
+      issues2: eingetragen werden
