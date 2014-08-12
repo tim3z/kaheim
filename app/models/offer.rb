@@ -3,6 +3,7 @@ class Offer < ActiveRecord::Base
 
   validates_presence_of :title, :until, :description, :user
 
-  scope :current, -> { where('offers.until >= ?', Date.today) }
+  scope :current, -> { where('offers.updated_at >= ?', 31.days.ago) }
+  scope :outdated, -> { where('offers.updated_at < ?', 31.days.ago) }
   scope :unlocked, -> { joins(:user).where(users: { unlocked: true }) }
 end

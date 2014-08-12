@@ -86,8 +86,15 @@ en:
     edit: 
       title: "Edit request"
 
-  mail:
-    subject: "Reply to '%{title}'"
+  user_mailer:
+    answer_mail:
+      subject: "Reply to '%{title}'"
+    reactivate_item_mail:
+      subject: "Update item?"
+
+  reactivation:
+      success: "Your %{model} was reactivated."
+      bad_token: "Invalid token"
 
   recaptcha:
     errors:

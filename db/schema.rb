@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702195841) do
+ActiveRecord::Schema.define(version: 20140809112219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20140702195841) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "item_reactivators", force: true do |t|
+    t.string   "token"
+    t.integer  "item_id"
+    t.string   "item_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "item_reactivators", ["item_id", "item_type"], name: "index_item_reactivators_on_item_id_and_item_type", using: :btree
+  add_index "item_reactivators", ["token"], name: "index_item_reactivators_on_token", unique: true, using: :btree
 
   create_table "offers", force: true do |t|
     t.string   "title"
