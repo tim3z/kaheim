@@ -55,7 +55,7 @@ de:
         title: Zentrales Zimmer, entspannte WG, ...
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
     sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
-    signed_in_message: "Angemeldet als %{mail}."
+    signed_in_message: "Angemeldet als %{mail}"
     none_found: "Keine %{subjects} gefunden."
     show: "Anzeigen"
     actions: "Aktionen"
