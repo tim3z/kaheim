@@ -12,14 +12,12 @@
   <%= f.password_field :current_password, :class => 'text_field', hint: t('.we_need_your_current_password_to_confirm_your_changes', :default => 'we need your current password to confirm your changes') %>
   <div class="form-actions">
     <%= f.submit t('.update', :default => 'Update'), :class => 'btn btn-primary' %>
+  <%= link_to t("helpers.links.back"), :back, :class => 'btn btn-default' %>
   </div>
 
 <% end %>
 
 <h3><%= t('.cancel_my_account', :default => 'Cancel my account') %></h3>
 
-<p><%= t('.unhappy', :default => 'Unhappy') %>? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete %>.</p>
+<p><%= t('.unhappy', :default => 'Unhappy') %>? <%= link_to t('.cancel_my_account', :default => "Cancel my account"), registration_path(resource_name), :data => { :confirm => t('.are_you_sure', :default => "Are you sure?") }, :method => :delete, :class => 'btn btn-danger' %></p>
 
-<div class="form-actions">
-  <%= link_to t("helpers.links.back"), :back, :class => 'btn' %>
-</div>
