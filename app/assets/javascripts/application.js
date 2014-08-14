@@ -19,5 +19,7 @@
 //= require bootstrap-datepicker
 
 $(document).ready(function(){
-    $('[data-behaviour~=datepicker]').datepicker();
+    $('[data-behaviour~=datepicker]').datepicker({
+        autoclose: true
+    });
 })
