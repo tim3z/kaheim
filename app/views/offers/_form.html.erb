@@ -26,15 +26,11 @@
       <div class="date">
         <div class="input-group input-group-sm">
           <span class="input-group-addon"><%= t('activerecord.attributes.offer.from_date') %></span>
-          <div class='form-control'>
-            <%= f.date_select :from_date, hide_label: true %>
-          </div>
+          <%= f.text_field :from_date, hide_label: true, :class => 'form-control', 'data-behaviour' => 'datepicker' %>
         </div>
         <div class="input-group input-group-sm">
           <span class="input-group-addon"><%= t('activerecord.attributes.offer.to_date') %></span>
-          <div class='form-control'>
-            <%= f.date_select :to_date, hide_label: true, class: 'form-control' %>
-          </div>
+          <%= f.text_field :to_date, hide_label: true, class: 'form-control', 'data-behaviour' => 'datepicker' %>
         </div>
       </div>
 

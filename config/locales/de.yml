@@ -20,13 +20,13 @@ de:
       offer:
         title: "Titel"
         description: "Beschreibung"
-        from_date: 'frei ab'
-        to_date: 'Einzug bis'
+        from_date: 'Verfügbar ab'
+        to_date: 'Verfügbar bis'
         created_at: "Erstellt am"
         district: 'Stadtteil'
         street: 'Straße'
         zip_code: 'PLZ'
-        rent: 'Miete'
+        rent: 'Miete (warm)'
         size: 'Fläche'
       request:
         title: "Titel"

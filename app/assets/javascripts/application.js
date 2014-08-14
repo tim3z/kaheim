@@ -16,3 +16,8 @@
 //= require jquery.turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
+
+$(document).ready(function(){
+    $('[data-behaviour~=datepicker]').datepicker();
+})

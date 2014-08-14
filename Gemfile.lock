@@ -56,6 +56,8 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.3.0.2)
+      railties (>= 3.0)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
     bootstrap_form (2.1.1)
@@ -203,6 +205,7 @@ DEPENDENCIES
   autoprefixer-rails
   better_errors
   binding_of_caller
+  bootstrap-datepicker-rails
   bootstrap-sass (~> 3.2.0)
   bootstrap_form
   coffee-rails (~> 4.0.0)
