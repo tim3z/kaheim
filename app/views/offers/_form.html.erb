@@ -34,9 +34,9 @@
       </div>
 
       <div class="location">
-        <%= f.text_field :district, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.district') %>
         <%= f.text_field :street, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.street') %>
         <%= f.text_field :zip_code, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.zip_code') %>
+        <%= f.text_field :district, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.offer.district') %>
       </div>
 
       <% if @offer.description %>

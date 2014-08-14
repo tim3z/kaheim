@@ -24,7 +24,7 @@ de:
         to_date: 'Verfügbar bis'
         created_at: "Erstellt am"
         district: 'Stadtteil'
-        street: 'Straße'
+        street: 'Straße und Hausnummer'
         zip_code: 'PLZ'
         rent: 'Miete (warm)'
         size: 'Fläche'

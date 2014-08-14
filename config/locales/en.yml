@@ -18,7 +18,7 @@ en:
         from_date: "Available from"
         created_at: "Created at"
         district: 'District'
-        street: 'Streetname'
+        street: 'Street'
         zip_code: 'ZIP'
         rent: 'Rent'
         size: 'Size'
