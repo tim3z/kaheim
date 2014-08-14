@@ -2,8 +2,6 @@
 
   <div class="titel"><strong><%= link_to item.title, item %></strong></div>
 
-  <div class="until"><strong><%= item.class.human_attribute_name(:until) + " " + (l item.until) %></strong></div>
-
   <div class="description">
     <div class="short"><%= truncate item.description, length: 160 %></div>
     <div class="long"><%= simple_format item.description %></div>

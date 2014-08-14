@@ -7,8 +7,6 @@
 
   <div class="titel"><strong><%= @request.title %></strong></div>
 
-  <div class="until"><strong><%= model_class.human_attribute_name(:until) + " " + (l @request.until) %></strong></div>
-
   <div class="description">
     <%= simple_format @request.description %>
   </div>
