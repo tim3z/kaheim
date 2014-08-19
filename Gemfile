@@ -67,6 +67,7 @@ gem 'high_voltage', '~> 2.2.1'
 group :production do
   gem 'exception_notification'
   gem 'rails_12factor'
+  gem 'dotenv-rails'
 end
 
 ruby '2.1.2'
