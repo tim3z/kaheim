@@ -29,4 +29,8 @@ test:
 #
 production:
   adapter: postgresql
-  url: <%= ENV["DATABASE_URL"] %>
+#  url: <%= ENV["DATABASE_URL"] %>
+  database: kaheim
+  encoding: unicode
+  username: kaheim
+  password: kaheim
