@@ -28,9 +28,7 @@ test:
 #   sqlite3://myuser:mypass@localhost/full/path/to/somedatabase
 #
 production:
-  adapter: postgresql
-#  url: <%= ENV["DATABASE_URL"] %>
+  <<: *default
   database: kaheim
-  encoding: unicode
-  username: kaheim
-  password: kaheim
+  username: <%= ENV["DATABASE_USER"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
