@@ -25,11 +25,11 @@
       <div class="date">
         <div class="input-group input-group-sm">
           <span class="input-group-addon"><%= t('activerecord.attributes.offer.from_date') %></span>
-          <%= f.text_field :from_date, hide_label: true, :class => 'form-control', 'data-behaviour' => 'datepicker' %>
+          <%= f.localized_text_field :from_date, value: (l(f.object.from_date) if f.object.from_date), hide_label: true, :class => 'form-control', 'data-behaviour' => 'datepicker' %>
         </div>
         <div class="input-group input-group-sm">
           <span class="input-group-addon"><%= t('activerecord.attributes.offer.to_date') %></span>
-          <%= f.text_field :to_date, hide_label: true, class: 'form-control', 'data-behaviour' => 'datepicker' %>
+          <%= f.localized_text_field :to_date, hide_label: true, class: 'form-control', 'data-behaviour' => 'datepicker' %>
         </div>
       </div>
 

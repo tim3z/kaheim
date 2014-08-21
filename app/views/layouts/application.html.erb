@@ -63,7 +63,7 @@
                 </div>
               </li>
           <% end %>
-          <li>
+          <li id="locale-selection" data-current-locale="<%= I18n.locale %>">
             <% if I18n.locale == :de %>
                 <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
                     <%= image_tag 'en.png' %>

@@ -17,9 +17,4 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
-
-$(document).ready(function(){
-    $('[data-behaviour~=datepicker]').datepicker({
-        autoclose: true
-    });
-})
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
