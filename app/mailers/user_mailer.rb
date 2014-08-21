@@ -11,4 +11,9 @@ class UserMailer < ActionMailer::Base
     @token = token
   	mail to: item.user.email
   end
+
+  def admin_notice_mail item, admin
+    @item = item
+    mail to: admin.email, subject: 'Nicht freigeschaltetes Item'
+  end
 end

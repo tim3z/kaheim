@@ -34,6 +34,8 @@ set :linked_files, %w{.env}
 # Default value for keep_releases is 5
 set :keep_releases, 20
 
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+
 namespace :deploy do
 
   desc 'Restart application'

@@ -68,6 +68,9 @@ gem 'devise'
 # static pages
 gem 'high_voltage', '~> 2.2.1'
 
+# cron scheduling
+gem 'whenever', :require => false
+
 group :production do
   gem 'exception_notification'
   gem 'rails_12factor'

@@ -30,8 +30,16 @@ class OffersController < ApplicationController
 
     respond_to do |format|
       if @offer.save
-        notice = t("helpers.creation_success#{current_user.unlocked ? '' : '_unlock_required'}", :model => t('activerecord.models.offer.one'))
-        format.html { redirect_to @offer, notice: notice }
+        flash = {}
+        if current_user.unlocked
+          flash[:notice] = tm 'helpers.creation_success', @offer
+        else
+          flash[:alert] = tm 'helpers.creation_success_unlock_required', @offer
+          User.admin.find_each do |admin|
+            UserMailer.admin_notice_mail(@offer, admin).deliver
+          end
+        end
+        format.html { redirect_to @offer, flash: flash }
         format.json { render action: 'show', status: :created, location: @offer }
       else
         format.html { render action: 'new' }
