@@ -30,8 +30,16 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        notice = t("helpers.creation_success#{current_user.unlocked ? '' : '_unlock_required'}", :model => t('activerecord.models.request.one'))
-        format.html { redirect_to @request, notice: notice }
+        flash = {}
+        if current_user.unlocked
+          flash[:notice] = tm 'helpers.creation_success', @request
+        else
+          flash[:alert] = tm 'helpers.creation_success_unlock_required', @request
+          User.admin.find_each do |admin|
+            UserMailer.admin_notice_mail(@request, admin).deliver
+          end
+        end
+        format.html { redirect_to @request, flash: flash }
         format.json { render action: 'show', status: :created, location: @request }
       else
         format.html { render action: 'new' }

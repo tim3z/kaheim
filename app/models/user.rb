@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
 
   has_many :offers, dependent: :destroy
   has_many :requests, dependent: :destroy
+
+  scope :admin, -> { where admin: true }
 end
