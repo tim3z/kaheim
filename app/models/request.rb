@@ -1,7 +1,7 @@
 class Request < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :title, :description, :user
+  validates_presence_of :title, :description, :user, :gender
 
   scope :current, -> { where('requests.updated_at >= ?', 31.days.ago) }
   scope :outdated, -> { where('requests.updated_at < ?', 31.days.ago) }
