@@ -51,7 +51,7 @@ end
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-gem 'bootstrap_form'
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-rails'

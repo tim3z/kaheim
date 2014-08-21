@@ -1,30 +1,29 @@
-<%=form_for @request, html: {class: 'form-inline'} do |f| %>
+<%= custom_bootstrap_form_for @request, layout: :inline do |f| %>
     <div class="edit">
-      <div class="input-group input-group-lg title">
-        <span class="input-group-addon"><%= t('activerecord.attributes.request.title') %></span>
-        <%= f.text_field :title, :class => 'form-control', hide_label: true, placeholder: t('activerecord.attributes.request.title') %>
-      </div>
+      <%= f.text_field :title,
+                       input_group_wrapper_class: 'input-group-lg',
+                       wrapper_class: 'title',
+                       prepend: t('activerecord.attributes.request.title'),
+                       hide_label: true %>
 
       <div class="info">
         <div class='form-control gender'>
           <%= f.radio_button :gender, 'female' %><span class="gender-label"><i class='fa fa-female'></i></span>
           <%= f.radio_button :gender, 'male' %><span class="gender-label"><i class='fa fa-male'></i></span>
         </div>
-        <div class="input-group input-group-sm">
-          <span class="input-group-addon"><%= t('activerecord.attributes.request.from_date') %></span>
-          <%= f.localized_text_field :from_date, hide_label: true, :class => 'form-control', 'data-behaviour' => 'datepicker' %>
-        </div>
-        <div class="input-group input-group-sm">
-          <span class="input-group-addon"><%= t('activerecord.attributes.request.to_date') %></span>
-          <%= f.localized_text_field :to_date, hide_label: true, class: 'form-control', 'data-behaviour' => 'datepicker' %>
-        </div>
+        <%= f.text_field :from_date,
+                         'data-behaviour' => 'datepicker',
+                         input_group_wrapper_class: 'input-group-sm',
+                         prepend: t('activerecord.attributes.request.from_date'),
+                         hide_label: true %>
+        <%= f.text_field :to_date,
+                         'data-behaviour' => 'datepicker',
+                         input_group_wrapper_class: 'input-group-sm',
+                         prepend: t('activerecord.attributes.request.to_date'),
+                         hide_label: true %>
       </div>
 
-      <% if @request.description %>
-          <%= f.text_area :description, :class => 'form-control description', hide_label: true, placeholder: @request.description %>
-      <% else %>
-          <%= f.text_area :description, :class => 'form-control description', hide_label: true, placeholder: t('activerecord.attributes.request.description') %>
-      <% end %>
+      <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('activerecord.attributes.request.description') %>
     </div>
 
     <div class="form-actions">

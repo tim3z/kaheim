@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
+  revision: e21a746661d851e38b5f8545af1a2eaa81c4a27c
+  specs:
+    bootstrap_form (2.1.1)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: 36edd084f277f21900a768a0384196b57d2931ee
   specs:
@@ -61,7 +67,6 @@ GEM
       railties (>= 3.0)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
-    bootstrap_form (2.1.1)
     bourbon (3.2.3)
       sass (~> 3.2)
       thor
@@ -239,7 +244,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.2.0)
-  bootstrap_form
+  bootstrap_form!
   capistrano
   capistrano-bundler
   capistrano-rails

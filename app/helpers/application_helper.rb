@@ -5,4 +5,9 @@ module ApplicationHelper
 		translate key, options
 	end
 	alias :tm :translate_with_model
+
+  def custom_bootstrap_form_for object, options = {}, &block
+    options[:builder] = Kaheim::CustomBootstrapFormBuilder
+    bootstrap_form_for object, options, &block
+  end
 end
