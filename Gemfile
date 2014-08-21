@@ -26,8 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', group: :development
-  gem 'letter_opener', :group => :development
+  gem 'spring'
+  gem 'letter_opener'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
@@ -38,8 +38,13 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  # Use Capistrano for deployment
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -60,9 +65,13 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # Authentication with Devise
 gem 'devise'
 
+# static pages
+gem 'high_voltage', '~> 2.2.1'
+
 group :production do
   gem 'exception_notification'
   gem 'rails_12factor'
+  gem 'dotenv-rails'
 end
 
 ruby '2.1.2'

@@ -83,6 +83,7 @@ en:
     creation_success: "%{model} was successfully created."
     update_success: "%{model} was successfully updated."
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
+    contact: Contact
 
   offers:
     new: 
@@ -96,8 +97,15 @@ en:
     edit: 
       title: "Edit request"
 
-  mail:
-    subject: "Reply to '%{title}'"
+  user_mailer:
+    answer_mail:
+      subject: "Reply to '%{title}'"
+    reactivate_item_mail:
+      subject: "Update item?"
+
+  reactivation:
+      success: "Your %{model} was reactivated."
+      bad_token: "Invalid token"
 
   recaptcha:
     errors:
@@ -105,3 +113,11 @@ en:
       
   answers:
       success: "Your answer has been delivered."
+
+  pages:
+      contact:
+        responsible: Responsible for this site
+        project: The Kaheim project
+        source: The sourcecode is available under
+        issues1: Bugs, problems and feature requests can also be filed on
+        issues2: ""
