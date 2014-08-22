@@ -88,8 +88,10 @@
   }
 
 
-  &:hover .contact {
-    color: #0088CC;
+  &:hover {
+    .contact, a {
+      color: #428BCA;
+    }
   }
 
   .contact {
@@ -102,8 +104,13 @@
     text-align: right;
     color: #b3cff5;
 
+    a {
+      color: inherit;
+      display: inline-block;
+      text-decoration: none;
+    }
+
     .inline-button {
-      color: #b3cff5;
       display: inline-block;
       cursor: pointer;
 
