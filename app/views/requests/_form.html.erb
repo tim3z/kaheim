@@ -11,16 +11,16 @@
           <%= f.radio_button :gender, 'female' %><span class="gender-label"><i class='fa fa-female'></i></span>
           <%= f.radio_button :gender, 'male' %><span class="gender-label"><i class='fa fa-male'></i></span>
         </div>
-        <%= f.text_field :from_date,
-                         'data-behaviour' => 'datepicker',
-                         input_group_wrapper_class: 'input-group-sm',
-                         prepend: t('activerecord.attributes.request.from_date'),
-                         hide_label: true %>
-        <%= f.text_field :to_date,
-                         'data-behaviour' => 'datepicker',
-                         input_group_wrapper_class: 'input-group-sm',
-                         prepend: t('activerecord.attributes.request.to_date'),
-                         hide_label: true %>
+        <%= f.localized_text_field :from_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.request.from_date'),
+                                   hide_label: true %>
+        <%= f.localized_text_field :to_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.request.to_date'),
+                                   hide_label: true %>
       </div>
 
       <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('activerecord.attributes.request.description') %>

@@ -27,16 +27,16 @@
       </div>
 
       <div class="date">
-        <%= f.text_field :from_date,
-                         'data-behaviour' => 'datepicker',
-                         input_group_wrapper_class: 'input-group-sm',
-                         prepend: t('activerecord.attributes.offer.from_date'),
-                         hide_label: true %>
-        <%= f.text_field :to_date,
-                         'data-behaviour' => 'datepicker',
-                         input_group_wrapper_class: 'input-group-sm',
-                         prepend: t('activerecord.attributes.offer.to_date'),
-                         hide_label: true %>
+        <%= f.localized_text_field :from_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.offer.from_date'),
+                                   hide_label: true %>
+        <%= f.localized_text_field :to_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.offer.to_date'),
+                                   hide_label: true %>
       </div>
 
       <div class="location">
