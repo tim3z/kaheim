@@ -13,6 +13,7 @@
     margin: 5px;
 
     .gender {
+
       .gender-label {
         margin-left: 6px;
         margin-right: 4px;
@@ -51,7 +52,8 @@
     }
   }
 
-  .form-control select {
+  .form-group select {
+    float: left;
     margin-top: -3px;
     margin-bottom: 3px;
   }
