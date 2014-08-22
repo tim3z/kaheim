@@ -1,3 +1,22 @@
+@media all and (min-width: 800px) {
+  #main {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 60px;
+      overflow:auto;
+      padding-bottom: 180px; /* this needs to be bigger than footer height*/
+    }
+}
+
+@media all and (max-width: 800px) {
+  #main {
+    padding-top: 60px;
+    overflow:auto;
+    padding-bottom: 180px; /* this needs to be bigger than footer height*/
+  }
+}
+
 html, body {
   height: 100%;
 }
@@ -14,12 +33,6 @@ ul.nav li.language a {
 
 #wrap {
   min-height: 100%;
-}
-
-#main {
-  padding-top: 60px;
-  overflow:auto;
-  padding-bottom: 180px; /* this needs to be bigger than footer height*/
 }
 
 .footer {
