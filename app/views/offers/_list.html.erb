@@ -78,9 +78,11 @@
           <div class="long"><%= t 'helpers.less' %>&#x25B2;</div>
         </div>
 
-        <div class="inline-button answer" data-link="<%= polymorphic_path offer %>">
-          <%= t "helpers.#{current_user == offer.user ? 'show' : 'answer'}" %>
-        </div>
+        <%= link_to offer do %>
+          <div class="inline-button answer">
+            <%= t("helpers.#{current_user == offer.user ? 'show' : 'answer'}") %>
+          </div>
+        <% end %>
       </div>
     </fieldset>
 <% end %>

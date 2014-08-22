@@ -32,16 +32,16 @@
 
         <ul class="nav navbar-nav">
           <div class="btn-group">
-            <button type="button" class="btn btn-default navbar-btn" data-link="<%= offers_path %>">
-              <span class="badge badge-info"><%= (c = Offer.current.unlocked.count) > 0 ? c : '' %></span>
-              <%= Offer.model_name.human count: c %>
-            </button>
+            <%= link_to offers_path, class: 'btn btn-default navbar-btn' do %>
+                <span class="badge badge-info"><%= (c = Offer.current.unlocked.count) > 0 ? c : '' %></span>
+                <%= Offer.model_name.human count: c %>
+            <% end %>
           </div>
           <div class="btn-group">
-            <button type="button" class="btn btn-default navbar-btn" data-link="<%= requests_path %>">
-              <span class="badge badge-info"><%= (c = Request.current.unlocked.count) > 0 ? c : '' %></span>
-              <%= Request.model_name.human count: c %>
-            </button>
+            <%= link_to requests_path, class: 'btn btn-default navbar-btn' do %>
+                <span class="badge badge-info"><%= (c = Request.current.unlocked.count) > 0 ? c : '' %></span>
+                <%= Request.model_name.human count: c %>
+            <% end %>
           </div>
         </ul>
 
