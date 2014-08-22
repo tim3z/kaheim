@@ -43,6 +43,9 @@ en:
       help:
         title: "Central flat, ..."
     request:
+      from: Searching from %{from} until %{until}
+      no_from: Searching until %{until}
+      now: now on
       help:
         title: Central flat, ...
     sign_in_for_offer: "You need to sign in to create a new offer."

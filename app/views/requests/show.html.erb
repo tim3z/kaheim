@@ -14,15 +14,19 @@
         <td class="gender">
           <% case @request.gender %>
           <% when 'dontcare' %>
-              <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
+            <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
           <% when 'female' %>
-              <i class="fa fa-female"></i>
+            <i class="fa fa-female"></i>8
           <% when 'male' %>
-              <i class="fa fa-male"></i>
+            <i class="fa fa-male"></i>
           <% end %>
         </td>
         <td class="time">
-          sucht vom <%# (l @request.until) + ' bis ' + (l @request.until) %>
+          <% if @request.from_date %>
+            <%= t "helpers.request.from", from: ((@request.from_date.past?) ? t("helpers.request.now") : l(@request.from_date)), until: l(@request.to_date) %>
+          <% else %>
+            <%= t "helpers.request.no_from", until: l(@request.to_date) %>
+          <% end %>
         </td>
       </tr>
       </tbody>
@@ -34,9 +38,9 @@
   </div>
   <div class="contact">
     <% if current_user == @request.user %>
-        <strong><span class="label label-danger"><%= t "helpers.mine"  %></span></strong>
+      <strong><span class="label label-danger"><%= t "helpers.mine"  %></span></strong>
     <% else %>
-        <strong><span class="label label-info"><%= @request.user.name %></span></strong>
+      <strong><span class="label label-info"><%= @request.user.name %></span></strong>
     <% end %>
   </div>
 </div>

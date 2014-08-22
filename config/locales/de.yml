@@ -51,6 +51,9 @@ de:
       help:
         title: "Nette 3er WG, Zimmer mit Küchenzeile, ..."
     request:
+      from: Sucht ab %{from} bis %{until}
+      no_from: Sucht bis %{until}
+      now: sofort
       help:
         title: Zentrales Zimmer, entspannte WG, ...
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
