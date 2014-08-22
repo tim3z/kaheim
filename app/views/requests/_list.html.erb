@@ -41,12 +41,12 @@
       </td>
       <td class="time">
         <% if request.from_date && !request.from_date.past? %>
-          <%=t 'requests.list.from' %> <%=l request.from_date %>
+          <%=t 'requests.show.from' %> <%=l request.from_date %>
         <% else %>
-          <%=t 'requests.list.now' %>
+          <%=t 'requests.show.now' %>
         <% end %>
         <% if request.to_date %>
-          <%=t 'requests.list.to' %> <%=l request.to_date %>
+          <%=t 'requests.show.to' %> <%=l request.to_date %>
         <% end %>
       </td>
     </tr>

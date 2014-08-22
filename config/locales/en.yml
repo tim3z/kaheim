@@ -90,13 +90,16 @@ en:
       title: "Create offer"
     edit: 
       title: "Edit offer"
+    show:
+      from: free from
+      to: til
 
   requests:
     new: 
       title: "Create request"
     edit: 
       title: "Edit request"
-    list:
+    show:
       from: Searching from
       to: Moving out at
       now: Searching from now

@@ -97,13 +97,16 @@ de:
       title: "Angebot erstellen"
     edit: 
       title: "Angebot bearbeiten"
+    show:
+      from: frei ab
+      to: bis
 
   requests:
     new: 
       title: "Gesuch aufgeben"
     edit: 
       title: "Gesuch bearbeiten"
-    list:
+    show:
       from: Sucht zum
       now: Sucht ab sofort
       to: Auszug zum

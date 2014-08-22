@@ -53,11 +53,11 @@
             <i class="fa fa-long-arrow-right"></i>
           </td>
           <td class="info">
-            frei ab <%= (l offer.from_date) %>
+            <%=t 'offers.show.from' %> <%= (l offer.from_date) %>
           </td>
           <td class="info">
             <% if offer.to_date %>
-                bis <%= (l offer.to_date) %>
+                <%=t 'offers.show.to' %> <%= (l offer.to_date) %>
             <% end %>
           </td>
         </tr>
