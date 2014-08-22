@@ -40,7 +40,11 @@
         <% end %>
       </td>
       <td class="time">
-        sucht vom <%# (l request.until) + ' bis ' + (l request.until) %>
+        <% if request.from_date %>
+          <%= t "helpers.request.from", from: ((request.from_date.past?) ? t("helpers.request.now") : l(request.from_date)), until: l(request.to_date) %>
+        <% else %>
+          <%= t "helpers.request.no_from", until: l(request.to_date) %>
+        <% end %>
       </td>
     </tr>
     </tbody>
