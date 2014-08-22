@@ -51,9 +51,6 @@ de:
       help:
         title: "Nette 3er WG, Zimmer mit Küchenzeile, ..."
     request:
-      from: Sucht ab %{from} bis %{until}
-      no_from: Sucht bis %{until}
-      now: sofort
       help:
         title: Zentrales Zimmer, entspannte WG, ...
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
@@ -106,6 +103,10 @@ de:
       title: "Gesuch aufgeben"
     edit: 
       title: "Gesuch bearbeiten"
+    list:
+      from: Sucht zum
+      now: Sucht ab sofort
+      to: Auszug zum
 
   user_mailer:
     answer_mail:

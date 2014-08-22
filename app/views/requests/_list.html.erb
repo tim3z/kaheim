@@ -40,10 +40,13 @@
         <% end %>
       </td>
       <td class="time">
-        <% if request.from_date %>
-          <%= t "helpers.request.from", from: ((request.from_date.past?) ? t("helpers.request.now") : l(request.from_date)), until: l(request.to_date) %>
+        <% if request.from_date && !request.from_date.past? %>
+          <%=t 'requests.list.from' %> <%=l request.from_date %>
         <% else %>
-          <%= t "helpers.request.no_from", until: l(request.to_date) %>
+          <%=t 'requests.list.now' %>
+        <% end %>
+        <% if request.to_date %>
+          <%=t 'requests.list.to' %> <%=l request.to_date %>
         <% end %>
       </td>
     </tr>
