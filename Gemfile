@@ -58,7 +58,7 @@ gem 'font-awesome-rails'
 
 
 # bot protection with recaptcha
-gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # admin stuff
 gem 'activeadmin', github: 'gregbell/active_admin'
@@ -69,7 +69,7 @@ gem 'devise'
 gem 'high_voltage', '~> 2.2.1'
 
 # cron scheduling
-gem 'whenever', :require => false
+gem 'whenever', require: false
 
 group :production do
   gem 'exception_notification'

@@ -53,7 +53,7 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: t('helpers.update_success', :model => t('activerecord.models.request.one')) }
+        format.html { redirect_to @request, notice: t('helpers.update_success', model: t('activerecord.models.request.one')) }
         format.json { render action: 'show', status: :ok, location: @request }
       else
         format.html { render action: 'edit' }

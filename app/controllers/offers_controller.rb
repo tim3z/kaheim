@@ -53,7 +53,7 @@ class OffersController < ApplicationController
   def update
     respond_to do |format|
       if @offer.update(offer_params)
-        format.html { redirect_to @offer, notice: t('helpers.update_success', :model => t('activerecord.models.offer.one')) }
+        format.html { redirect_to @offer, notice: t('helpers.update_success', model: t('activerecord.models.offer.one')) }
         format.json { render action: 'show', status: :ok, location: @offer }
       else
         format.html { render action: 'edit' }

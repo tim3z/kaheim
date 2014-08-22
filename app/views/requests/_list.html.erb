@@ -1,12 +1,12 @@
 <%- model_class = Request -%>
 <div class="page-header">
   <% if requests.count > 0 %>
-      <h1><%=t '.title', :default => model_class.model_name.human(count: 2) %></h1>
+      <h1><%=t '.title', default: model_class.model_name.human(count: 2) %></h1>
   <% else %>
-      <h1><%=t 'helpers.none_found', :subjects => model_class.model_name.human(count: 0) %></h1>
+      <h1><%=t 'helpers.none_found', subjects: model_class.model_name.human(count: 0) %></h1>
   <% end %>
   <% if user_signed_in? %>
-      <%= link_to t('requests.new.title'), new_request_path, :class => 'btn btn-primary' %>
+      <%= link_to t('requests.new.title'), new_request_path, class: 'btn btn-primary' %>
   <% else %>
       <strong><%= t 'helpers.sign_in_for_request' %></strong>
   <% end %>

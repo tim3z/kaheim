@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <%= f.email_field :email,
                     placeholder: User.human_attribute_name(:email),
@@ -14,7 +14,7 @@
   <% end -%>
 
   <div class="form-actions">
-    <%= f.submit t('devise.basic.sign_in', :default => 'Sign in'), :class => 'btn btn-primary' %><br />
+    <%= f.submit t('devise.basic.sign_in', default: 'Sign in'), class: 'btn btn-primary' %><br />
     <%= render 'devise/shared/links', no_sign_in: true %>
   </div>
 

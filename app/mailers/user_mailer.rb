@@ -3,7 +3,7 @@ class UserMailer < ActionMailer::Base
 
   def answer_mail subject, content, reply_to
     @content = content
-    mail to: subject.user.email, subject: t('user_mailer.answer_mail.subject', :title => subject.title), reply_to: reply_to
+    mail to: subject.user.email, subject: t('user_mailer.answer_mail.subject', title: subject.title), reply_to: reply_to
   end
 
   def reactivate_item_mail item, token
