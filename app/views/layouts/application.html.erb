@@ -66,11 +66,11 @@
           <li id="locale-selection" data-current-locale="<%= I18n.locale %>">
             <% if I18n.locale == :de %>
                 <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
-                    <%= image_tag 'en.png' %>
+                    <%= image_tag 'de.png' %>
                 <% end %>
             <% else %>
                 <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
-                    <%= image_tag 'de.png' %>
+                    <%= image_tag 'en.png' %>
                 <% end %>
             <% end %>
           </li>
