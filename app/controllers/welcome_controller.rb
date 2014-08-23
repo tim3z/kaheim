@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-		@offers = Offer.current.unlocked
-		@requests = Request.current.unlocked
+		@offers = Offer.current.unlocked.includes(:user)
   end
 end
