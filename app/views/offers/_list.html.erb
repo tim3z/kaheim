@@ -1,9 +1,5 @@
 <div class="page-header">
-  <% if offers.count > 0 %>
-      <h1><%=t '.title', default: Offer.model_name.human(count: 2) %></h1>
-  <% else %>
-      <h1><%=t 'helpers.none_found', subjects: Offer.model_name.human(count: 0) %></h1>
-  <% end %>
+  <h1><%=t 'offers.list.title', count: offers.count %></h1>
   <% if user_signed_in? %>
     <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-primary' %>
   <% else %>

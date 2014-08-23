@@ -54,7 +54,6 @@ en:
     sign_in_for_offer: "You need to sign in to create a new offer."
     sign_in_for_request: "You need to sign in to create a new request."
     signed_in_message: "Signed in as %{mail}"
-    none_found: "No %{subjects} found."
     show: "Show"
     actions: "Actions"
     answer: "Answer"
@@ -99,6 +98,11 @@ en:
     show:
       from: free from
       to: til
+    list:
+      title:
+        zero: No offers found
+        one: Offers
+        other: Offers
 
   requests:
     new: 
@@ -109,6 +113,11 @@ en:
       from: Searching from
       to: Moving out on
       now: Searching from now on
+    list:
+      title:
+        zero: No requests found
+        one: Requests
+        other: Requests
 
   item:
     invisible: Invisible

@@ -1,13 +1,9 @@
 <div class="page-header">
-  <% if requests.count > 0 %>
-      <h1><%=t '.title', default: Request.model_name.human(count: 2) %></h1>
-  <% else %>
-      <h1><%=t 'helpers.none_found', subjects: Request.model_name.human(count: 0) %></h1>
-  <% end %>
+  <h1><%=t 'requests.list.title', count: requests.count %></h1>
   <% if user_signed_in? %>
       <%= link_to t('requests.new.title'), new_request_path, class: 'btn btn-primary' %>
   <% else %>
-      <strong><%= t 'helpers.sign_in_for_request' %></strong>
+      <strong><%=t 'helpers.sign_in_for_request' %></strong>
   <% end %>
 </div>
 

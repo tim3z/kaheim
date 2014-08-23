@@ -61,7 +61,6 @@ de:
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
     sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
     signed_in_message: "Angemeldet als %{mail}"
-    none_found: "Keine %{subjects} gefunden."
     show: "Anzeigen"
     actions: "Aktionen"
     answer: "Antworten"
@@ -105,6 +104,11 @@ de:
     show:
       from: frei ab
       to: bis
+    list:
+      title:
+        zero: Keine Angebote gefunden
+        one: Angebote
+        other: Angebote
 
   requests:
     new: 
@@ -115,6 +119,11 @@ de:
       from: Sucht zum
       now: Sucht ab sofort
       to: Auszug zum
+    list:
+      title:
+        zero: Keine Gesuche gefunden
+        one: Gesuche
+        other: Gesuche
 
   item:
     invisible: Unsichtbar
