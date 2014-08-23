@@ -25,8 +25,8 @@ en:
       request:
         title: "Title"
         description: "Description"
-        from_date: Searching from
-        to_date: "Needed until"
+        from_date: Need from
+        to_date: "Moving out"
         created_at: "Created at"
       user:
         email: "Email"
@@ -48,6 +48,7 @@ en:
       help:
         title: "Say something about your request with 140 characters."
         description: "More information and detailed description."
+        temporal: '(if temporal)'
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "You need to sign in to create a new offer."
@@ -106,8 +107,8 @@ en:
       title: "Edit request"
     show:
       from: Searching from
-      to: Moving out at
-      now: Searching from now
+      to: Moving out on
+      now: Searching from now on
 
   user_mailer:
     answer_mail:

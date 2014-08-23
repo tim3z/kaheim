@@ -14,12 +14,10 @@
 
 <% offers.each do |offer| %>
     <fieldset class="item">
-      <% if user_signed_in? %>
-        <% if current_user == offer.user %>
-           <legend class="label label-danger"><%= t "helpers.mine"  %></legend>
-        <% else %>
-              <legend class="label label-info"><%= offer.user.name  %></legend>
-        <% end %>
+      <% if current_user == offer.user %>
+        <legend class="label label-info"><%= t "helpers.mine"  %></legend>
+      <% else %>
+        <legend class="label label-info"><%= offer.user.name  %></legend>
       <% end %>
 
       <div class="titel">

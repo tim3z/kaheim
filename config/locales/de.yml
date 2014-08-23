@@ -21,7 +21,7 @@ de:
         title: "Titel"
         description: "Beschreibung"
         from_date: 'Frei ab'
-        to_date: 'Frei bis (bei Zwischenmiete)'
+        to_date: 'Frei bis'
         created_at: "Erstellt am"
         district: 'Stadtteil'
         street: 'Straße und Hausnummer'
@@ -31,8 +31,8 @@ de:
       request:
         title: "Titel"
         description: "Beschreibung"
-        from_date: "Suche ab"
-        to_date: "Suche bis (bei Zwischenmiete)"
+        from_date: "Suche zum"
+        to_date: "Auszug"
         created_at: "Erstellt am"
       user:
         email: "Email"
@@ -55,6 +55,7 @@ de:
       help:
         title: "Beschreibe dein Gesuch in 140 Zeichen."
         description: "Mehr Infos und ausführliche Beschreibung."
+        temporal: '(bei Zwischenmiete)'
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
