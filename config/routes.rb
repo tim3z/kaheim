@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/items'
+
   get 'reactivate/:token' => 'item_reactivation#reactivate', as: 'reactivate'
 
   get 'welcome/index'

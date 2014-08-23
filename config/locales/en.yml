@@ -127,6 +127,10 @@ en:
         one: Requests
         other: Requests
 
+  users:
+    items:
+      title: My items
+
   item:
     invisible: Invisible
     outdated: Outdated

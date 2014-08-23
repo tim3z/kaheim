@@ -86,6 +86,9 @@
                   <li><%= link_to 'Admin', '/admin' %></li>
               <% end %>
               <li>
+                <%= link_to t('users.items.title'), users_items_path %>
+              </li>
+              <li>
                 <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, method: :delete %>
               </li>
             </ul>

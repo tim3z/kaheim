@@ -133,6 +133,10 @@ de:
         one: Gesuche
         other: Gesuche
 
+  users:
+    items:
+      title: Meine Einträge
+
   item:
     invisible: Unsichtbar
     outdated: Veraltet
