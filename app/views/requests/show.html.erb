@@ -27,6 +27,8 @@
           <% else %>
             <%=t '.now' %>
           <% end %>
+        </td>
+        <td class="time">
           <% if @request.to_date %>
             <%=t '.to' %> <%=l @request.to_date %>
           <% end %>

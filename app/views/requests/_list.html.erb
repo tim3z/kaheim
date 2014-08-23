@@ -45,6 +45,8 @@
         <% else %>
           <%=t 'requests.show.now' %>
         <% end %>
+      </td>
+      <td class="time">
         <% if request.to_date %>
           <%=t 'requests.show.to' %> <%=l request.to_date %>
         <% end %>
