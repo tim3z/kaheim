@@ -10,4 +10,14 @@ class Offer < ActiveRecord::Base
   validates_length_of :title, maximum: 140
 
   enum gender: { dontcare: 0, female: 1, male: 2 }
+
+  def current?
+    updated_at >= 31.days.ago
+  end
+  def outdated?
+    updated_at < 31.days.ago
+  end
+  def visible?
+    user.unlocked? && current?
+  end
 end

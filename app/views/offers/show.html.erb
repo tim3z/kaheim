@@ -54,11 +54,7 @@
     <%= simple_format @offer.description %>
   </div>
   <div class="contact">
-    <% if current_user == @offer.user %>
-        <strong><span class="label label-danger"><%= t "helpers.mine"  %></span></strong>
-    <% else %>
-        <strong><span class="label label-info"><%= @offer.user.name %></span></strong>
-    <% end %>
+    <%= badges_for @offer %>
   </div>
 </div>
 

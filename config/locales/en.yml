@@ -110,6 +110,10 @@ en:
       to: Moving out on
       now: Searching from now on
 
+  item:
+    invisible: Invisible
+    outdated: Outdated
+
   user_mailer:
     answer_mail:
       subject: "Reply to '%{title}'"

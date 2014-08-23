@@ -116,6 +116,10 @@ de:
       now: Sucht ab sofort
       to: Auszug zum
 
+  item:
+    invisible: Unsichtbar
+    outdated: Veraltet
+
   user_mailer:
     answer_mail:
       subject: "Antwort auf '%{title}'"

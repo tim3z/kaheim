@@ -14,13 +14,7 @@
 
 <% requests.each do |request| %>
 <fieldset class="item">
-  <% if user_signed_in? %>
-      <% if current_user == request.user %>
-          <legend class="label label-danger"><%= t "helpers.mine"  %></legend>
-      <% else %>
-          <legend class="label label-info"><%= request.user.name  %></legend>
-      <% end %>
-  <% end %>
+  <%= badges_for request %>
 
   <div class="titel">
     <strong><%= request.title %></strong>
