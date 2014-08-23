@@ -5,7 +5,6 @@ $ ->
     $(this).parents('.item').find('div.long').toggle()
 
   #short description sign counter
-  $('.short-description').next().html(140 - $('.short-description').val().length)
   $('.short-description').keyup ->
     if (140 - $('.short-description').val().length) >= 0
       $('.short-description').next().html(140 - $('.short-description').val().length)
