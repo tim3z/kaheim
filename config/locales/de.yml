@@ -104,11 +104,18 @@ de:
     show:
       from: frei ab
       to: bis
+<<<<<<< Updated upstream
     list:
       title:
         zero: Keine Angebote gefunden
         one: Angebote
         other: Angebote
+=======
+      user: Angebot von %{name}
+      title:
+        other: Angebot von %{name}
+        mine: Angebot von mir
+>>>>>>> Stashed changes
 
   requests:
     new: 
@@ -119,11 +126,18 @@ de:
       from: Sucht zum
       now: Sucht ab sofort
       to: Auszug zum
+<<<<<<< Updated upstream
     list:
       title:
         zero: Keine Gesuche gefunden
         one: Gesuche
         other: Gesuche
+=======
+      user: Gesuch von %{name}
+      title:
+        other: Gesuch von %{name}
+        mine: Gesuch von mir
+>>>>>>> Stashed changes
 
   item:
     invisible: Unsichtbar

@@ -98,11 +98,18 @@ en:
     show:
       from: free from
       to: til
+<<<<<<< Updated upstream
     list:
       title:
         zero: No offers found
         one: Offers
         other: Offers
+=======
+      user: "%{name}'s offer"
+      title:
+        other: "%{name}'s offer"
+        mine: "My Offer"
+>>>>>>> Stashed changes
 
   requests:
     new: 
@@ -113,11 +120,18 @@ en:
       from: Searching from
       to: Moving out on
       now: Searching from now on
+<<<<<<< Updated upstream
     list:
       title:
         zero: No requests found
         one: Requests
         other: Requests
+=======
+      user: "%{name}'s request"
+      title:
+        other: "%{name}'s request"
+        mine: "My Request"
+>>>>>>> Stashed changes
 
   item:
     invisible: Invisible

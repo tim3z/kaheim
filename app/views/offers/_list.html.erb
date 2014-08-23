@@ -72,6 +72,7 @@
             <%= t("helpers.#{current_user == offer.user ? 'show' : 'answer'}") %>
           <% end %>
         </div>
+        <span>&nbsp;|&nbsp;<%= t("offers.show.user", name: offer.user.name) %></span>
       </div>
     </fieldset>
 <% end %>

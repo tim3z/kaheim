@@ -92,6 +92,14 @@
     .contact, a {
       color: #428BCA;
     }
+
+    .contact span {
+      color: #333;
+
+      &.label {
+        color: #fff;
+      }
+    }
   }
 
   .contact {
@@ -108,6 +116,14 @@
       color: inherit;
       display: inline-block;
       text-decoration: none;
+    }
+
+    span {
+      color: #bbb;
+
+      &.label {
+        color: #fff;
+      }
     }
 
     .inline-button {

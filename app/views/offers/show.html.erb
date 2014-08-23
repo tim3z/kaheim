@@ -1,9 +1,16 @@
 <div class="page-header">
-  <h1><%= Offer.model_name.human %></h1>
+  <h1>
+    <% if @offer.user == current_user %>
+      <%=t '.title.mine' %>
+    <% else %>
+      <%=t '.title.other', name: @offer.user.name %>
+    <% end %>
+  </h1>
 </div>
 
 <div class="item">
 
+  <%= badges_for @offer %>
   <div class="titel"><strong><%= @offer.title %></strong></div>
 
   <div class="until">
@@ -51,9 +58,6 @@
 
   <div class="description">
     <%= simple_format @offer.description %>
-  </div>
-  <div class="contact">
-    <%= badges_for @offer %>
   </div>
 </div>
 
