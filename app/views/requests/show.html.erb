@@ -21,18 +21,20 @@
             <i class="fa fa-male"></i>
           <% end %>
         </td>
-        <td class="time">
           <% if @request.from_date && !@request.from_date.past? %>
-            <%=t '.from' %> <%=l @request.from_date %>
+            <td class="time">
+              <%=t '.from' %> <%=l @request.from_date %>
+            </td>
           <% else %>
-            <%=t '.now' %>
+            <td class="time">
+              <%=t '.now' %>
+            </td>
           <% end %>
-        </td>
-        <td class="time">
           <% if @request.to_date %>
-            <%=t '.to' %> <%=l @request.to_date %>
+            <td class="time">
+              <%=t '.to' %> <%=l @request.to_date %>
+            </td>
           <% end %>
-        </td>
       </tr>
       </tbody>
     </table>

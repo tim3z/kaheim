@@ -39,18 +39,20 @@
             <i class="fa fa-male"></i>
         <% end %>
       </td>
-      <td class="time">
         <% if request.from_date && !request.from_date.past? %>
-          <%=t 'requests.show.from' %> <%=l request.from_date %>
+          <td class="time">
+            <%=t 'requests.show.from' %> <%=l request.from_date %>
+          </td>
         <% else %>
-          <%=t 'requests.show.now' %>
+          <td class="time">
+            <%=t 'requests.show.now' %>
+          </td>
         <% end %>
-      </td>
-      <td class="time">
         <% if request.to_date %>
-          <%=t 'requests.show.to' %> <%=l request.to_date %>
+          <td class="time">
+            <%=t 'requests.show.to' %> <%=l request.to_date %>
+          </td>
         <% end %>
-      </td>
     </tr>
     </tbody>
   </table>
