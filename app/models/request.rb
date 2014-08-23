@@ -7,5 +7,7 @@ class Request < ActiveRecord::Base
   scope :outdated, -> { where('requests.updated_at < ?', 31.days.ago) }
   scope :unlocked, -> { joins(:user).where(users: { unlocked: true }) }
 
+  validates_length_of :title, maximum: 140
+
   enum gender: { dontcare: 0, female: 1, male: 2 }
 end
