@@ -25,6 +25,7 @@ en:
       request:
         title: "Title"
         description: "Description"
+        from_date: Searching from
         to_date: "Needed until"
         created_at: "Created at"
       user:
@@ -41,10 +42,12 @@ en:
       male: "m"
     offer:
       help:
-        title: "Central flat, ..."
+        title: "Say something about your offer with 140 characters."
+        description: "More information and detailed description."
     request:
       help:
-        title: Central flat, ...
+        title: "Say something about your request with 140 characters."
+        description: "More information and detailed description."
     sign_in_for_offer: "You need to sign in to create a new offer."
     sign_in_for_request: "You need to sign in to create a new request."
     signed_in_message: "Signed in as %{mail}"
