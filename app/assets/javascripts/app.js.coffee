@@ -15,3 +15,8 @@ $ ->
     autoclose: true,
     format: if $('#locale-selection').data('current-locale') == 'en' then "yyyy-mm-dd" else "dd.mm.yyyy",
     language: if $('#locale-selection').data('current-locale') == 'en' then 'en' else 'de'
+
+  $('.gender-select-item').click ->
+    $('#gender-select-button').html($(this).html())
+    $('#gender-select-button').append(" <span class='caret'></span>")
+    $('#request_gender').val($(this).data('gender'))
