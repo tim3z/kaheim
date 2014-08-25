@@ -1,1 +1,9 @@
+<div class="page-header">
+  <h1><%=t 'offers.list.title', count: @offers.count %></h1>
+  <% if user_signed_in? %>
+    <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-primary' %>
+  <% else %>
+    <strong><%= It.it('helpers.sign_in_for_offer', sign_up_link: new_user_registration_path, sign_in_link: new_user_session_path) %></strong>
+  <% end %>
+</div>
 <%= render partial: 'list', locals: {offers: @offers} %>

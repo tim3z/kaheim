@@ -56,6 +56,9 @@ gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-rails'
 
+#better links in locales yml.
+gem 'it'
+
 
 # bot protection with recaptcha
 gem 'recaptcha', require: 'recaptcha/rails'

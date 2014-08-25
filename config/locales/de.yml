@@ -51,7 +51,7 @@ de:
       help:
         title: "Beschreibe dein Angebot in 140 Zeichen."
         description: "Mehr Infos und ausführliche Beschreibung."
-        gender-selection: Bevorzugt
+        gender-selection: Gewünscht
     request:
       help:
         title: "Beschreibe dein Gesuch in 140 Zeichen."
@@ -60,8 +60,8 @@ de:
         gender-selection: Suche für
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
-    sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."
-    sign_in_for_request: "Melde dich an, um ein neues Gesuch zu erstellen."
+    sign_in_for_offer: "%{sign_up_link:Registriere dich} oder %{sign_in_link:melde dich an}, um ein neues Angebot zu erstellen."
+    sign_in_for_request: "%{sign_up_link:Registriere dich} oder %{sign_in_link:melde dich an}, um ein neues Gesuch zu erstellen."
     signed_in_message: "Angemeldet als %{mail}"
     show: "Anzeigen"
     actions: "Aktionen"

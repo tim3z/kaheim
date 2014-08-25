@@ -124,6 +124,8 @@ GEM
     inherited_resources (1.4.1)
       has_scope (~> 0.6.0.rc)
       responders (~> 1.0.0.rc)
+    it (0.2.5)
+      actionpack (>= 3.0.0)
     jbuilder (2.1.3)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -255,6 +257,7 @@ DEPENDENCIES
   exception_notification
   font-awesome-rails
   high_voltage (~> 2.2.1)
+  it
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

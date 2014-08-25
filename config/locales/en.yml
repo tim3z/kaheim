@@ -53,8 +53,8 @@ en:
         gender-selection: Search for
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
-    sign_in_for_offer: "You need to sign in to create a new offer."
-    sign_in_for_request: "You need to sign in to create a new request."
+    sign_in_for_offer: "%{sign_up_link:Sign up} or %{sign_in_link:sign in} to create an offer."
+    sign_in_for_request: "%{sign_up_link:Sign up} or %{sign_in_link:sign in} to create a request."
     signed_in_message: "Signed in as %{mail}"
     show: "Show"
     actions: "Actions"
