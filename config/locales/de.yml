@@ -51,11 +51,13 @@ de:
       help:
         title: "Beschreibe dein Angebot in 140 Zeichen."
         description: "Mehr Infos und ausführliche Beschreibung."
+        gender-selection: Bevorzugt
     request:
       help:
         title: "Beschreibe dein Gesuch in 140 Zeichen."
         description: "Mehr Infos und ausführliche Beschreibung."
         temporal: '(bei Zwischenmiete)'
+        gender-selection: Suche für
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "Melde dich an, um ein neues Angebot zu erstellen."

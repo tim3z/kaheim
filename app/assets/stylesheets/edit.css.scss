@@ -26,12 +26,39 @@
     margin: 5px;
 
     .gender {
+      margin-bottom: 15px;
+      width: 100%;
 
-      .gender-label {
-        margin-left: 6px;
-        margin-right: 4px;
+      a {
+        color: #333;
+
+        &.dontcare {
+          color: lightgrey;
+        }
+      }
+
+      span {
+        &.dontcare {
+          color: lightgrey;
+        }
+      }
+
+      .dropdown-menu-auto {
+        left: auto;
+        right: auto;
+      }
+
+      #gender-select-button {
+        padding:4px 12px;
+        color:black;
+        width:62px;
+      }
+
+      .dropdown-menu {
+        min-width: 50px;
       }
     }
+
     .rent {
     }
     .size {
@@ -62,7 +89,7 @@
     width: 100%;
     textarea {
       width: 100%;
-      height: 375px;
+      height: 350px;
     }
   }
 

@@ -20,10 +20,24 @@
 
         <div class="col-md-4">
           <div class="info">
-            <div class='form-group gender'>
-              <%= f.radio_button :gender, 'dontcare', checked: true, label: '<span class="gender-label"><i class="fa fa-male"></i>/<i class="fa fa-female"></i></span>'.html_safe %>
-              <%= f.radio_button :gender, 'female', label: '<span class="gender-label"><i class="fa fa-female"></i></span>'.html_safe %>
-              <%= f.radio_button :gender, 'male', label: '<span class="gender-label"><i class="fa fa-male"></i></span>'.html_safe %>
+            <div class="btn-group input-group input-group-sm gender">
+              <span class="input-group-addon"><%= t('helpers.request.help.gender-selection') %></span>
+              <button id="gender-select-button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <% case @request.gender %>
+                <% when 'female' %>
+                  <i class="fa fa-female"></i>
+                <% when 'male' %>
+                  <i class="fa fa-male"></i>
+                <% else %>
+                  <span class="dontcare"><i class="fa fa-female"></i>/<i class="fa fa-male"></i></span>
+                <% end %>
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-auto" role="menu">
+                <li class="gender-select-item" data-gender='female'><a href="javascript:void(0);"><span class="gender-label"><i class='fa fa-female'></i></span></a></li>
+                <li class="gender-select-item" data-gender='male'><a href="javascript:void(0);"><span class="gender-label"><i class='fa fa-male'></i></span></a></li>
+                <li class="gender-select-item" data-gender='dontcare'><a href="javascript:void(0);" class="dontcare"><span class="gender-label"><i class='fa fa-male'></i>/<i class='fa fa-female'></i></span></a></li>
+              </ul>
+              <%= f.hidden_field :gender, value: 'dontcare' %>
             </div>
             <%= f.localized_text_field :from_date,
                                        'data-behaviour' => 'datepicker',
