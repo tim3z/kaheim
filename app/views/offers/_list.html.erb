@@ -19,10 +19,16 @@
         <tbody>
         <tr>
           <td class="icon">
-            <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
           </td>
           <td class="info">
-            <%= t "helpers.gender.#{offer.gender}" %>
+            <% case offer.gender %>
+            <% when 'dontcare' %>
+              <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
+            <% when 'female' %>
+              <i class="fa fa-female"></i>
+            <% when 'male' %>
+              <i class="fa fa-male"></i>
+            <% end %>
           </td>
           <td class="icon">
             <i class="fa fa-eur"></i>
