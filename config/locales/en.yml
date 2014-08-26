@@ -91,6 +91,7 @@ en:
     update_success: "%{model} was successfully updated."
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
     contact: Contact
+    dot: dot
 
   offers:
     new: 
