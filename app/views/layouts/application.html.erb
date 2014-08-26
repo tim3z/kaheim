@@ -123,9 +123,12 @@
 <footer class="footer">
   <div class="container">
     <div class="supporters">
+      <%= link_to 'http://www.studenten-fuer-christus.de/karlsruhe' do %>
+        <%= image_tag 'logos/sfc.png' %>
+      <% end %>
       <%= link_to 'http://www.smd-karlsruhe.de' do %>
         <%= image_tag 'logos/SMD-Logo.png', height: '31' %>
-      <% end %>
+    <% end %>
     </div>
     <p><%= link_to t('helpers.contact'), page_path('contact') %></p>
   </div>
