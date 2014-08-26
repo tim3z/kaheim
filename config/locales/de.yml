@@ -62,7 +62,6 @@ de:
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "%{sign_up_link:Registriere dich} oder %{sign_in_link:melde dich an}, um ein neues Angebot zu erstellen."
     sign_in_for_request: "%{sign_up_link:Registriere dich} oder %{sign_in_link:melde dich an}, um ein neues Gesuch zu erstellen."
-    signed_in_message: "Angemeldet als %{mail}"
     show: "Anzeigen"
     actions: "Aktionen"
     answer: "Antworten"
@@ -93,6 +92,7 @@ de:
       sign_in: "Anmelden"
       sign_up: "Registrieren"
       sign_out: "Abmelden"
+      edit_user: "Account bearbeiten"
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."

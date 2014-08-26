@@ -48,9 +48,38 @@
         <ul class="nav navbar-nav navbar-right">
 
 
+          <li id="locale-selection" data-current-locale="<%= I18n.locale %>">
+            <% if I18n.locale == :de %>
+              <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
+                <%= image_tag 'de.png', alt: t("helpers.switch_to_english") %>
+              <% end %>
+            <% else %>
+              <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
+                <%= image_tag 'en.png', alt: t("helpers.switch_to_german") %>
+              <% end %>
+            <% end %>
+          </li>
           <% if user_signed_in? %>
-            <li>
-              <%= link_to t("helpers.signed_in_message", mail: current_user.email), edit_user_registration_path %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.email %>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <% if current_user.admin %>
+                  <li><%= link_to 'Admin', '/admin' %></li>
+                <% end %>
+                <li>
+                  <%= link_to t('users.items.title'), users_items_path %>
+                </li>
+                <li>
+                  <%= link_to t("helpers.links.edit_user"), edit_user_registration_path %>
+
+                </li>
+                <li>
+                  <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
             </li>
           <% else %>
             <li>
@@ -62,37 +91,6 @@
                 <%= render partial: "devise/sessions/new" %>
               </div>
             </li>
-          <% end %>
-          <li id="locale-selection" data-current-locale="<%= I18n.locale %>">
-            <% if I18n.locale == :de %>
-                <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
-                    <%= image_tag 'de.png', alt: t("helpers.switch_to_english") %>
-                <% end %>
-            <% else %>
-                <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
-                    <%= image_tag 'en.png', alt: t("helpers.switch_to_german") %>
-                <% end %>
-            <% end %>
-          </li>
-
-          <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-cog"></i>
-              <b class="caret"></b>
-            </a>
-            <ul class="dropdown-menu">
-              <% if current_user.admin %>
-                  <li><%= link_to 'Admin', '/admin' %></li>
-              <% end %>
-              <li>
-                <%= link_to t('users.items.title'), users_items_path %>
-              </li>
-              <li>
-                <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </li>
           <% end %>
         </ul>
 

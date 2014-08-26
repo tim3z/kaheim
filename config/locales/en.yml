@@ -55,7 +55,6 @@ en:
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "%{sign_up_link:Sign up} or %{sign_in_link:sign in} to create an offer."
     sign_in_for_request: "%{sign_up_link:Sign up} or %{sign_in_link:sign in} to create a request."
-    signed_in_message: "Signed in as %{mail}"
     show: "Show"
     actions: "Actions"
     answer: "Answer"
@@ -87,6 +86,7 @@ en:
       sign_in: "Sign in"
       sign_up: "Sign up"
       sign_out: "Sign out"
+      edit_user: "Edit account"
     creation_success: "%{model} was successfully created."
     update_success: "%{model} was successfully updated."
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
