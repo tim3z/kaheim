@@ -34,7 +34,10 @@
         }
         &.info {
           text-align: left;
-          width: 150px;
+          width: 100px;
+          &:last-child {
+            width: auto;
+          }
         }
 
         &.address {

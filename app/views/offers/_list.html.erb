@@ -24,7 +24,7 @@
           <td class="icon">
             <i class="fa fa-eur"></i>
           </td>
-          <td class="info" colspan="2">
+          <td class="info">
             <%= offer.rent %>
           </td>
         </tr>
@@ -40,8 +40,6 @@
           </td>
           <td class="info">
             <%=t 'offers.show.from' %> <%= (l offer.from_date) %>
-          </td>
-          <td class="info">
             <% if offer.to_date %>
                 <%=t 'offers.show.to' %> <%= (l offer.to_date) %>
             <% end %>
@@ -51,7 +49,7 @@
           <td class="icon">
             <i class="fa fa-home"></i>
           </td>
-          <td class="info" colspan="4">
+          <td class="info" colspan="3">
             <%= offer.district + ", " + offer.street %>
           </td>
         </tr>
