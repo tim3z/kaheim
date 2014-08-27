@@ -1,9 +1,12 @@
 <div class="page-header">
-  <h1><%=t 'requests.list.title', count: @requests.count %></h1>
-  <% if user_signed_in? %>
-    <%= link_to t('requests.new.title'), new_request_path, class: 'btn btn-primary' %>
-  <% else %>
-    <strong><%= It.it('helpers.sign_in_for_request', sign_up_link: new_user_registration_path, sign_in_link: new_user_session_path) %></strong>
-  <% end %>
+  <h1>
+    <%=t 'requests.list.title', count: @requests.count %>
+    <% if user_signed_in? %>
+      <%= link_to t('requests.new.title'), new_request_path, class: 'btn btn-primary' %>
+      </h1>
+    <% else %>
+      </h1>
+      <strong><%= It.it('helpers.sign_in_for_request', sign_up_link: new_user_registration_path, sign_in_link: new_user_session_path) %></strong>
+    <% end %>
 </div>
 <%= render partial: 'list', locals: {requests: @requests} %>

@@ -5,14 +5,14 @@
     <% else %>
       <%=t '.title.other', name: @offer.user.name %>
     <% end %>
-  </h1>
-  <% if current_user and current_user.is_admin? %>
-    <% if @offer.user.unlocked? %>
-      <%= link_to t('users.lock.lock'), lock_offer_path, class: 'btn btn-default' %>
-    <% else %>
-      <%= link_to t('users.lock.unlock'), unlock_offer_path, class: 'btn btn-default' %>
+    <% if current_user and current_user.is_admin? %>
+      <% if @offer.user.unlocked? %>
+        <%= link_to t('users.lock.lock'), lock_offer_path, class: 'btn btn-default' %>
+      <% else %>
+        <%= link_to t('users.lock.unlock'), unlock_offer_path, class: 'btn btn-default' %>
+      <% end %>
     <% end %>
-  <% end %>
+  </h1>
 </div>
 
 <div class="item">
