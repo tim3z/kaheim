@@ -1,10 +1,15 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_admin_user!, only: [:unlock, :lock]
 
   # GET /offers
   def index
-    @offers = (params[:archive] && Offer.unlocked.includes(:user)) || Offer.current.unlocked.includes(:user)
+    if current_user and current_user.is_admin?
+      @offers = (params[:archive] && Offer.all) || Offer.current
+    else
+      @offers = (params[:archive] && Offer.unlocked.includes(:user)) || Offer.current.unlocked.includes(:user)
+    end
   end
 
   # GET /offers/1
@@ -70,6 +75,18 @@ class OffersController < ApplicationController
       format.html { redirect_to offers_url }
       format.json { head :no_content }
     end
+  end
+
+  def unlock
+    @offer = Offer.find(params[:id])
+    @offer.user.unlock!
+    redirect_to @offer, notice: t('users.lock.unlock_done')
+  end
+
+  def lock
+    @offer = Offer.find(params[:id])
+    @offer.user.lock!
+    redirect_to @offer, notice: t('users.lock.lock_done')
   end
 
   private

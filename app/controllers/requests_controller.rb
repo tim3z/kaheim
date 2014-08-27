@@ -1,10 +1,15 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_admin_user!, only: [:unlock, :lock]
 
   # GET /requests
   def index
-    @requests = (params[:archive] && Request.unlocked.includes(:user)) || Request.current.unlocked.includes(:user)
+    if current_user and current_user.is_admin?
+      @requests = (params[:archive] && Request.all) || Request.current
+    else
+      @requests = (params[:archive] && Request.unlocked.includes(:user)) || Request.current.unlocked.includes(:user)
+    end
   end
 
   # GET /requests/1
@@ -70,6 +75,18 @@ class RequestsController < ApplicationController
       format.html { redirect_to requests_url }
       format.json { head :no_content }
     end
+  end
+
+  def unlock
+    @request = Request.find(params[:id])
+    @request.user.unlock!
+    redirect_to @request, notice: t('users.lock.unlock_done')
+  end
+
+  def lock
+    @request = Request.find(params[:id])
+    @request.user.lock!
+    redirect_to @request, notice: t('users.lock.lock_done')
   end
 
   private

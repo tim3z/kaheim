@@ -7,8 +7,18 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
-  resources :offers
-  resources :requests
+  resources :offers do
+    member do
+      get :unlock
+      get :lock
+    end
+  end
+  resources :requests do
+    member do
+      get :unlock
+      get :lock
+    end
+  end
 
   resources :answers, only: [:create]
 

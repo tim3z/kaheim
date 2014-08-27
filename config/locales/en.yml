@@ -133,6 +133,11 @@ en:
   users:
     items:
       title: My items
+    lock:
+      unlock: Unlock user
+      unlock_done: User was successfully unlocked
+      lock: Lock user
+      lock_done: User was successfully locked
 
   item:
     invisible: Invisible

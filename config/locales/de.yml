@@ -139,6 +139,11 @@ de:
   users:
     items:
       title: Meine Einträge
+    lock:
+      unlock: Benutzer freischalten
+      unlock_done: Benutzer wurde erfolgreich freigeschaltet
+      lock: Benutzer sperren
+      lock_done: Benutzer wurde erfolgreich gesperrt
 
   item:
     invisible: Unsichtbar

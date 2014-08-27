@@ -13,4 +13,19 @@ class User < ActiveRecord::Base
   has_many :requests, dependent: :destroy
 
   scope :admin, -> { where admin: true }
+
+  def unlock!
+    self.unlocked = true
+    self.save!
+  end
+
+  def lock!
+    self.unlocked = false
+    self.save!
+  end
+
+  def is_admin?
+    admin
+  end
+
 end
