@@ -87,10 +87,10 @@
 
 <div class="form-actions">
   <%= link_to t('helpers.links.back', default: 'Back'),
-              offers_path, class: 'btn' %>
+              offers_path, class: 'btn btn-default' %>
   <% if current_user == @offer.user %>
     <%= link_to t('helpers.links.edit', default: 'Edit'),
-                edit_offer_path(@offer), class: 'btn' %>
+                edit_offer_path(@offer), class: 'btn btn-default' %>
     <%= link_to t('helpers.links.destroy', default: 'Delete'),
                 offer_path(@offer),
                 method: 'delete',

@@ -66,10 +66,10 @@
 
 <div class="form-actions">
   <%= link_to t('helpers.links.back', default: 'Back'),
-              requests_path, class: 'btn'  %>
+              requests_path, class: 'btn btn-default'  %>
   <% if current_user == @request.user %>
     <%= link_to t('helpers.links.edit', default: 'edit'),
-                edit_request_path(@request), class: 'btn' %>
+                edit_request_path(@request), class: 'btn btn-default' %>
     <%= link_to t('helpers.links.destroy', default: 'Delete'),
                 request_path(@request),
                 method: 'delete',
