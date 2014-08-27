@@ -6,6 +6,7 @@ class Request < ActiveRecord::Base
   scope :current, -> { where('requests.updated_at >= ?', 31.days.ago) }
   scope :outdated, -> { where('requests.updated_at < ?', 31.days.ago) }
   scope :unlocked, -> { joins(:user).where(users: { unlocked: true }) }
+  scope :locked, -> { joins(:user).where(users: { unlocked: false }) }
 
   validates_length_of :title, maximum: 140
 
