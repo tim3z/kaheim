@@ -9,6 +9,7 @@ class OffersController < ApplicationController
       @offers = (params[:archive] && Offer.all) || Offer.current
     else
       @offers = (params[:archive] && Offer.unlocked.includes(:user)) || Offer.current.unlocked.includes(:user)
+      @offers |= Offer.where(user_id: current_user.id) if current_user
     end
   end
 

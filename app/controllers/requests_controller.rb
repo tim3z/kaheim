@@ -9,6 +9,7 @@ class RequestsController < ApplicationController
       @requests = (params[:archive] && Request.all) || Request.current
     else
       @requests = (params[:archive] && Request.unlocked.includes(:user)) || Request.current.unlocked.includes(:user)
+      @requests |= Request.where(user_id: current_user.id) if current_user
     end
   end
 
