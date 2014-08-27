@@ -16,6 +16,11 @@ class OffersController < ApplicationController
   # GET /offers/1.json
   def show
     @offer = Offer.find(params[:id])
+    unless @offer.user.unlocked?
+      unless current_user and (current_user.is_admin? or current_user == @offer.user)
+        redirect_to offers_path
+      end
+    end
   end
 
   # GET /offers/new

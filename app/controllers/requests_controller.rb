@@ -16,6 +16,11 @@ class RequestsController < ApplicationController
   # GET /requests/1.json
   def show
     @request = Request.find(params[:id])
+    unless @request.user.unlocked?
+      unless current_user and (current_user.is_admin? or current_user == @request.user)
+        redirect_to requests_path
+      end
+    end
   end
 
   # GET /requests/new
