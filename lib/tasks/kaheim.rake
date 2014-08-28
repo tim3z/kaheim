@@ -14,7 +14,7 @@ namespace :kaheim do
     if reactivator.nil?
       reactivator = ItemReactivator.create! item: item
       UserMailer.reactivate_item_mail(item, reactivator.token).deliver
-    elsif reactivator && reactivator.created_at < 31.days.ago
+    elsif reactivator && reactivator.created_at < 100.days.ago
       reactivator.destroy
       item.destroy
     end
