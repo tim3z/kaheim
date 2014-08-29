@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :check_visibility, only: [:show]
 
   # GET /requests
   def index
@@ -12,11 +13,6 @@ class RequestsController < ApplicationController
   # GET /requests/1.json
   def show
     @request = Request.find(params[:id])
-    unless @request.user.unlocked?
-      unless current_user && (current_user.is_admin? || current_user == @request.user)
-        redirect_to requests_path
-      end
-    end
   end
 
   # GET /requests/new
@@ -87,5 +83,14 @@ class RequestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params[:request].permit(:title, :description, :from_date, :to_date, :gender)
+    end
+
+    def check_visibility
+      @request = Request.find(params[:id])
+      unless @request.user.unlocked?
+        unless current_user && (current_user.is_admin? || current_user == @request.user)
+          redirect_to requests_path
+        end
+      end
     end
 end
