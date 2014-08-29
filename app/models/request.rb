@@ -1,5 +1,6 @@
 class Request < ActiveRecord::Base
   belongs_to :user
+  has_many :answers, as: :item, dependent: :destroy
 
   validates_presence_of :title, :description, :user, :gender
 

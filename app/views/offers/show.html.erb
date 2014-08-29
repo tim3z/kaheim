@@ -80,7 +80,15 @@
 <hr />
 
 <% if current_user != @offer.user %>
-  <%= render 'answers/form', object: @offer %>
+  <%= render 'answers/form', answer: @answer %>
+<% else %>
+  <h2>Antworten</h2>
+  <% @offer.answers.find_each do |answer| %>
+    <div>
+      <h4>Antwort von: <%= mail_to answer.mail %></h4>
+      <%= simple_format answer.message %>
+    </div>
+  <% end %>
 <% end %>
 
 <div class="form-actions">

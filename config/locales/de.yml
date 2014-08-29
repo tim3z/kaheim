@@ -150,6 +150,10 @@ de:
   item:
     invisible: Unsichtbar
     outdated: Veraltet
+    answers: Antworten
+
+  answers:
+    from: Antwort von
 
   user_mailer:
     answer_mail:

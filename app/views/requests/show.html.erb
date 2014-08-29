@@ -61,7 +61,10 @@
 <hr />
 
 <% if current_user != @request.user %>
-  <%= render 'answers/form', object: @request %>
+  <%= render 'answers/form', answer: @answer %>
+<% else %>
+  <h2><%=t 'item.answers' %></h2>
+  <%= render @request.answers %>
 <% end %>
 
 <div class="form-actions">

@@ -144,6 +144,10 @@ en:
   item:
     invisible: Invisible
     outdated: Outdated
+    answers: Answers
+
+  answers:
+    from: Answer from
 
   user_mailer:
     answer_mail:
