@@ -4,6 +4,7 @@ ActiveAdmin.register User do
     column :email
     column :unlocked
     column :admin
+    column :confirmed_at
     actions
   end
 
