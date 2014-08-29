@@ -139,6 +139,8 @@ de:
   users:
     items:
       title: Meine Einträge
+    locked:
+      title: Nicht freigeschaltete Einträge
     lock:
       unlock: Benutzer freischalten
       unlock_done: Benutzer wurde erfolgreich freigeschaltet

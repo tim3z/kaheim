@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/items'
+  get 'users/locked'
 
   get 'reactivate/:token' => 'item_reactivation#reactivate', as: 'reactivate'
 
@@ -7,18 +8,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
-  resources :offers do
-    member do
-      get :unlock
-      get :lock
-    end
-  end
-  resources :requests do
-    member do
-      get :unlock
-      get :lock
-    end
-  end
+  resources :offers
+  resources :requests
 
   resources :answers, only: [:create]
 

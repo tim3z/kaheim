@@ -7,9 +7,9 @@
     <% end %>
     <% if current_user and current_user.is_admin? %>
       <% if @offer.user.unlocked? %>
-        <%= link_to t('users.lock.lock'), lock_offer_path, class: 'btn btn-default' %>
+        <%= link_to t('users.lock.lock'), lock_admin_user_path(@offer.user), method: :put, class: 'btn btn-default' %>
       <% else %>
-        <%= link_to t('users.lock.unlock'), unlock_offer_path, class: 'btn btn-default' %>
+        <%= link_to t('users.lock.unlock'), unlock_admin_user_path(@offer.user), method: :put, class: 'btn btn-default' %>
       <% end %>
     <% end %>
   </h1>

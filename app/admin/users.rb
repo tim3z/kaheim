@@ -27,4 +27,13 @@ ActiveAdmin.register User do
       params.permit user: [:unlocked, :admin]
     end
   end
+
+  member_action :lock, method: :put do
+    User.find(params[:id]).lock!
+    redirect_to :back, { notice: t('users.lock.lock_done') }
+  end
+  member_action :unlock, method: :put do
+    User.find(params[:id]).unlock!
+    redirect_to :back, { notice: t('users.lock.unlock_done') }
+  end
 end

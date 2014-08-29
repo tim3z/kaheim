@@ -1,16 +1,11 @@
 class OffersController < ApplicationController
   before_action :set_offer, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :authenticate_admin_user!, only: [:unlock, :lock]
 
   # GET /offers
   def index
-    if current_user and current_user.is_admin?
-      @offers = (params[:archive] && Offer.all) || Offer.current
-    else
-      @offers = (params[:archive] && Offer.unlocked.includes(:user)) || Offer.current.unlocked.includes(:user)
-      @offers |= Offer.where(user_id: current_user.id) if current_user
-    end
+    @offers = Offer.current.unlocked.includes(:user)
+    @offers |= current_user.offers.includes(:user) if current_user
   end
 
   # GET /offers/1
@@ -18,7 +13,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     unless @offer.user.unlocked?
-      unless current_user and (current_user.is_admin? or current_user == @offer.user)
+      unless current_user && (current_user.is_admin? || current_user == @offer.user)
         redirect_to offers_path
       end
     end
@@ -81,18 +76,6 @@ class OffersController < ApplicationController
       format.html { redirect_to offers_url }
       format.json { head :no_content }
     end
-  end
-
-  def unlock
-    @offer = Offer.find(params[:id])
-    @offer.user.unlock!
-    redirect_to @offer, notice: t('users.lock.unlock_done')
-  end
-
-  def lock
-    @offer = Offer.find(params[:id])
-    @offer.user.lock!
-    redirect_to @offer, notice: t('users.lock.lock_done')
   end
 
   private

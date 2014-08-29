@@ -68,6 +68,7 @@
               <ul class="dropdown-menu">
                 <% if current_user.admin %>
                   <li><%= link_to 'Admin', '/admin' %></li>
+                  <li><%= link_to t('users.locked.title'), users_locked_path %></li>
                 <% end %>
                 <li>
                   <%= link_to t('users.items.title'), users_items_path %>
