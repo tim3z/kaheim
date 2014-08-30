@@ -170,6 +170,8 @@ en:
   answers:
     success: "Your answer has been delivered."
     from: Answer from
+    title: Answers
+    none: none
 
   pages:
       contact:

@@ -175,6 +175,8 @@ de:
   answers:
     success: Deine Antwort wurde versendet.
     from: Antwort von
+    title: Antworten
+    none: keine
 
   pages:
     contact:
