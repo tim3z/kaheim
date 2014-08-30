@@ -62,12 +62,7 @@
   <% else %>
     <h2><i class="fa fa-comments-o"></i> Antworten</h2>
     <% if @request.answers.count > 0 %>
-      <% @request.answers.find_each do |answer| %>
-        <div>
-          <h4>Antwort von: <%= mail_to answer.mail %></h4>
-          <%= simple_format answer.message %>
-        </div>
-      <% end %>
+      <%= render @request.answers %>
     <% else %>
       <h4>keine</h4>
     <% end %>
