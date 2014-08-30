@@ -24,6 +24,11 @@ select {
 .page-header {
   margin-top: 30px;
   border-bottom: none;
+  h1 {
+    a {
+      float:right;
+    }
+  }
 }
 
 legend {
