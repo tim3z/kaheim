@@ -20,3 +20,7 @@ $ ->
     $('#gender-select-button').html($(this).html())
     $('#gender-select-button').append(" <span class='caret'></span>")
     $('#request_gender').val($(this).data('gender'))
+
+  $('select.select2').select2(
+    allowClear: true
+  )

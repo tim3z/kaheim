@@ -1,7 +1,7 @@
 class Offer < ActiveRecord::Base
   belongs_to :user
 
-  validates_presence_of :title, :description, :user, :from_date, :rent, :size, :gender, :district, :street, :zip_code
+  validates_presence_of :title, :description, :user, :from_date, :rent, :size, :gender, :street, :zip_code
 
   scope :current, -> { where('offers.updated_at >= ?', 31.days.ago) }
   scope :outdated, -> { where('offers.updated_at < ?', 31.days.ago) }
@@ -20,5 +20,9 @@ class Offer < ActiveRecord::Base
   end
   def visible?
     user.unlocked? && current?
+  end
+
+  def district_or_karlsruhe
+    district || 'Karlsruhe'
   end
 end

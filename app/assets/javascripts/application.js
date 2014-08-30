@@ -18,3 +18,4 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
+//= require select2

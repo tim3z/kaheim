@@ -15,4 +15,6 @@
  *= require listing
  *= require edit
  *= require bootstrap-datepicker3
+ *= require select2
+ *= require select2-bootstrap
  */

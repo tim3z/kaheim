@@ -78,8 +78,7 @@
                              placeholder: t('activerecord.attributes.offer.zip_code'),
                              class: 'input-sm' %>
             <%= f.select :district,
-                         [[t('activerecord.attributes.offer.district'), 'Karlsruhe'],
-                          'Beiertheim-Bulach',
+                         ['Beiertheim-Bulach',
                           'Daxlanden',
                           'Innestadt',
                           'Durlach',
@@ -105,8 +104,11 @@
                           'Weiherfeld-Dammerstock',
                           'Weststadt',
                           'Wolfartsweier'],
-                         hide_label: true,
-                         class: 'input-sm' %>
+                         { placeholder: t('activerecord.attributes.offer.district'),
+                           hide_label: true,
+                           include_blank: true },
+                        class: 'input-sm select2',
+                        :"data-placeholder" => t('activerecord.attributes.offer.district') %>
           </div>
         </div>
       </div>
