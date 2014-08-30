@@ -151,6 +151,7 @@ en:
   item:
     invisible: Invisible
     outdated: Outdated
+    answers: Answers
 
   user_mailer:
     answer_mail:
@@ -167,7 +168,10 @@ en:
       verification_failed: "Your input didn't match the captcha - try again"
       
   answers:
-      success: "Your answer has been delivered."
+    success: "Your answer has been delivered."
+    from: Answer from
+    title: Answers
+    none: none
 
   pages:
       contact:

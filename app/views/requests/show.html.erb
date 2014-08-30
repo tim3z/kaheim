@@ -56,13 +56,21 @@
   <div class="description">
     <%= simple_format @request.description %>
   </div>
+
+  <% if current_user != @request.user %>
+    <%= render 'answers/form', answer: @answer %>
+  <% else %>
+    <h2><i class="fa fa-comments-o"></i> <%= t 'answers.title' %></h2>
+    <% if @request.answers.count > 0 %>
+      <%= render @request.answers %>
+    <% else %>
+      <h4><%= t 'answers.none' %></h4>
+    <% end %>
+  <% end %>
+
 </div>
 
 <hr />
-
-<% if current_user != @request.user %>
-  <%= render 'answers/form', object: @request %>
-<% end %>
 
 <div class="form-actions">
   <%= link_to t('helpers.links.back', default: 'Back'),

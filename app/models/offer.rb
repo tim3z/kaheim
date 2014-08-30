@@ -1,5 +1,6 @@
 class Offer < ActiveRecord::Base
   belongs_to :user
+  has_many :answers, as: :item, dependent: :destroy
 
   validates_presence_of :title, :description, :user, :from_date, :rent, :size, :gender, :street, :zip_code
 
