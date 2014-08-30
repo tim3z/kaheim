@@ -55,7 +55,7 @@ de:
         gender-selection: Gewünscht
         temporal: '(bei Zwischenmiete)'
         description: Bitte keine sensiblen Daten angeben, da alle Angebote öffentlich einsehbar sind!
-      explanation: Unter deinem Angebot wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein Angebot antworten können. Kaheim schickt dir dann eine Mail mit der Antwort. Deine Kontaktdaten bleiben geschützt! (solange du sie nicht oben angibst).
+      explanation: Unter deinem Angebot wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein Angebot antworten können. Kaheim schickt dir dann eine Mail mit der Antwort. Deine Kontaktdaten bleiben geschützt (solange du sie nicht oben angibst).
     request:
       placeholder:
         title: "Das wichtigste von deinem Gesuch für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
@@ -64,7 +64,7 @@ de:
         description: Bitte keine sensiblen Daten angeben, da alle Gesuche öffentlich einsehbar sind!
         temporal: '(bei Zwischenmiete)'
         gender-selection: Suche für
-      explanation: Unter deinem Gesuch wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein Gesuch antworten können. Kaheim schickt dir dann eine Mail mit der Antwort. Deine Kontaktdaten bleiben geschützt! (solange du sie nicht oben angibst).
+      explanation: Unter deinem Gesuch wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein Gesuch antworten können. Kaheim schickt dir dann eine Mail mit der Antwort. Deine Kontaktdaten bleiben geschützt (solange du sie nicht oben angibst).
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "%{sign_up_link:Registriere dich} oder %{sign_in_link:melde dich an}, um ein neues Angebot zu erstellen."
