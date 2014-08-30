@@ -56,7 +56,7 @@ en:
       help:
         temporal: '(if temporal)'
         gender-selection: Search for
-        description: Please do not share any sensible data. All offers are publicly accessible.
+        description: Please do not share any sensible data. All requests are publicly accessible.
       explanation: There is a contact form under your request on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe! (unless you put it in the description).
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
