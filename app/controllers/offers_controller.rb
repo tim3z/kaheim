@@ -14,11 +14,6 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.find(params[:id])
     @answer = @offer.answers.build
-    unless @offer.user.unlocked?
-      unless current_user && (current_user.is_admin? || current_user == @offer.user)
-        redirect_to offers_path
-      end
-    end
   end
 
   # GET /offers/new
