@@ -2,8 +2,8 @@
 <fieldset class="item">
   <%= badges_for request %>
 
-  <div class="titel">
-    <strong><%= request.title %></strong>
+  <div class="title">
+    <strong><%= link_to request.title, request %></strong>
   </div>
 
   <table class="request-specifics">

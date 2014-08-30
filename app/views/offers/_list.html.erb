@@ -2,8 +2,8 @@
     <fieldset class="item">
       <%= badges_for offer %>
 
-      <div class="titel">
-        <strong><%= offer.title %></strong>
+      <div class="title">
+        <strong><%= link_to offer.title, offer %></strong>
       </div>
 
       <table class="offer-specifics">
