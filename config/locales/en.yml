@@ -41,16 +41,23 @@ en:
       female: "f"
       male: "m"
     offer:
+      placeholder:
+        title: "Most important information for the overview. Put detailed information in the description."
+        description: "Detailed information and description."
       help:
-        title: "Say something about your offer with 140 characters."
-        description: "More information and detailed description."
+        temporal: '(if temporal)'
         gender-selection: Preferred
+        description: Please do not share any sensible data. All offers are publicly accessible.
+      explanation: There is a contact form under your offer on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe! (unless you put it in the description).
     request:
+      placeholder:
+        title: "Most important information for the overview. Put detailed information in the description."
+        description: "Detailed information and description."
       help:
-        title: "Say something about your request with 140 characters."
-        description: "More information and detailed description."
         temporal: '(if temporal)'
         gender-selection: Search for
+        description: Please do not share any sensible data. All offers are publicly accessible.
+      explanation: There is a contact form under your request on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe! (unless you put it in the description).
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "%{sign_up_link:Sign up} or %{sign_in_link:sign in} to create an offer."

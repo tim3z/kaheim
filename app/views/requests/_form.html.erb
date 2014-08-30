@@ -7,7 +7,7 @@
                          wrapper_class: 'title',
                          class: 'short-description',
                          append: (@request.title ? 140 - @request.title.length : 140).to_s,
-                         placeholder: t('helpers.request.help.title'),
+                         placeholder: t('helpers.request.placeholder.title'),
                          hide_label: true %>
       </div>
 
@@ -15,7 +15,7 @@
 
       <div class="row">
         <div class="col-md-8">
-          <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('helpers.request.help.description') %>
+          <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('helpers.request.placeholder.description'), help: ('<span class="warning"><i class="fa fa-shield"></i> ' + t('helpers.request.help.description') + '</span>').html_safe %>
         </div>
 
         <div class="col-md-4">
@@ -51,6 +51,17 @@
                                        placeholder: t('helpers.request.help.temporal'),
                                        hide_label: true %>
           </div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <div class="col-md-1 explanation">
+          <i class="fa fa-info icon"></i>
+        </div>
+        <div class="col-md-11">
+          <%= t 'helpers.request.explanation' %>
         </div>
       </div>
 
