@@ -153,9 +153,6 @@ en:
     outdated: Outdated
     answers: Answers
 
-  answers:
-    from: Answer from
-
   user_mailer:
     answer_mail:
       subject: "Reply to '%{title}'"
@@ -171,7 +168,8 @@ en:
       verification_failed: "Your input didn't match the captcha - try again"
       
   answers:
-      success: "Your answer has been delivered."
+    success: "Your answer has been delivered."
+    from: Answer from
 
   pages:
       contact:

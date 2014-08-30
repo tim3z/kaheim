@@ -159,9 +159,6 @@ de:
     outdated: Veraltet
     answers: Antworten
 
-  answers:
-    from: Antwort von
-
   user_mailer:
     answer_mail:
       subject: "Antwort auf '%{title}'"
@@ -176,7 +173,8 @@ de:
     errors:
       verification_failed: "Die eingegebenen Zeichen stimmen nicht mit der Sicherheitsabfrage überein. Bitte versuche es nochmal."
   answers:
-      success: Deine Antwort wurde versendet.
+    success: Deine Antwort wurde versendet.
+    from: Antwort von
 
   pages:
     contact:

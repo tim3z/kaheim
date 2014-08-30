@@ -56,16 +56,26 @@
   <div class="description">
     <%= simple_format @request.description %>
   </div>
+
+  <% if current_user != @request.user %>
+    <%= render 'answers/form', answer: @answer %>
+  <% else %>
+    <h2><i class="fa fa-comments-o"></i> Antworten</h2>
+    <% if @request.answers.count > 0 %>
+      <% @request.answers.find_each do |answer| %>
+        <div>
+          <h4>Antwort von: <%= mail_to answer.mail %></h4>
+          <%= simple_format answer.message %>
+        </div>
+      <% end %>
+    <% else %>
+      <h4>keine</h4>
+    <% end %>
+  <% end %>
+
 </div>
 
 <hr />
-
-<% if current_user != @request.user %>
-  <%= render 'answers/form', answer: @answer %>
-<% else %>
-  <h2><%=t 'item.answers' %></h2>
-  <%= render @request.answers %>
-<% end %>
 
 <div class="form-actions">
   <%= link_to t('helpers.links.back', default: 'Back'),
