@@ -7,27 +7,22 @@
       </div>
 
       <div class="offer-specifics">
-        <span class="icon">
-          <% case offer.gender %>
-          <% when 'dontcare' %>
-            <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
-          <% when 'female' %>
-            <i class="fa fa-female"></i>
-          <% when 'male' %>
-            <i class="fa fa-male"></i>
-          <% end %>
-        </span>
-        <span class="icon">
-          <i class="fa fa-eur"></i>
-        </span>
+        Gewünscht
+        <% case offer.gender %>
+        <% when 'dontcare' %>
+          <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
+        <% when 'female' %>
+          <i class="fa fa-female"></i>
+        <% when 'male' %>
+          <i class="fa fa-male"></i>
+        <% end %>
+        <span class="spacing" />
         <%= offer.rent %>
-        <span class="icon">
-          <i class="fa fa-square-o"></i>
-        </span>
-        <%= offer.size %>m²
-        <span class="icon">
-          <i class="fa fa-long-arrow-right"></i>
-        </span>
+        <i class="fa fa-eur"></i>
+        <span class="spacing" />
+        <%= offer.size %> m²
+        <span class="spacing" />
+        <i class="fa fa-long-arrow-right"></i>
         <%=t 'offers.show.from' %> <%= (l offer.from_date) %>
         <% if offer.to_date %>
           <%=t 'offers.show.to' %> <%= (l offer.to_date) %>
@@ -35,9 +30,7 @@
 
         <br />
 
-        <span class="icon">
-          <i class="fa fa-home"></i>
-        </span>
+        <i class="fa fa-home"></i>
         <%= offer.district_or_karlsruhe + ", " + offer.street %>
       </div>
 
