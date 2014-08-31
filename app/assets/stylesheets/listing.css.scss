@@ -22,32 +22,16 @@
     }
   }
 
-  table.offer-specifics {
+  .offer-specifics {
     height: auto;
     width: auto;
     margin-top: 5px;
     font-weight: bold;
     color: #5f6264;
 
-    tr {
-      td {
-        &.icon {
-          text-align: right;
-          width: 30px;
-          padding-right: 8px;
-        }
-        &.info {
-          text-align: left;
-          width: 100px;
-          &:last-child {
-            width: auto;
-          }
-        }
-
-        &.address {
-          padding-top: 10px;
-        }
-      }
+    .icon {
+      padding-left: 10px;
+      padding-right: 5px;
     }
   }
 
