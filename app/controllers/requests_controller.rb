@@ -89,7 +89,8 @@ class RequestsController < ApplicationController
     def check_visibility
       @request = Request.find(params[:id])
       unless @request.user.unlocked?
-        unless current_user && (current_user.is_admin? || current_user == @request.user)
+        authenticate_user!
+        unless current_user.is_admin? || current_user == @request.user
           redirect_to requests_path
         end
       end

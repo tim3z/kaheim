@@ -90,8 +90,9 @@ class OffersController < ApplicationController
     def check_visibility
       @offer = Offer.find(params[:id])
       unless @offer.user.unlocked?
-        unless current_user && (current_user.is_admin? || current_user == @offer.user)
-          redirect_to requests_path
+        authenticate_user!
+        unless current_user.is_admin? || current_user == @offer.user
+          redirect_to offers_path
         end
       end
     end
