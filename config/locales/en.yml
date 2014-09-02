@@ -64,7 +64,7 @@ en:
     sign_in_for_request: "%{sign_up_link:Sign up} or %{sign_in_link:sign in} to create a request."
     show: "Show"
     actions: "Actions"
-    answer: "Answer"
+    answer: "Reply"
     more: "Description"
     less: "close"
     mine: "Mine"
@@ -151,7 +151,7 @@ en:
   item:
     invisible: Invisible
     outdated: Outdated
-    answers: Answers
+    answers: Replies
 
   user_mailer:
     answer_mail:
@@ -168,9 +168,9 @@ en:
       verification_failed: "Your input didn't match the captcha - try again"
       
   answers:
-    success: "Your answer has been delivered."
-    from: Answer from
-    title: Answers
+    success: "Your reply has been delivered."
+    from: Reply from
+    title: Replies
     none: none
 
   pages:
