@@ -24,3 +24,4 @@ $ ->
   $('select.select2').select2(
     allowClear: true
   )
+  $('select.select2').select2("val", $('select.select2').data('value'))
