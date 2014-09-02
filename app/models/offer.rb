@@ -22,8 +22,4 @@ class Offer < ActiveRecord::Base
   def visible?
     user.unlocked? && current?
   end
-
-  def district_or_karlsruhe
-    district || 'Karlsruhe'
-  end
 end

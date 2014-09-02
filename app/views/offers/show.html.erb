@@ -65,7 +65,7 @@
           <i class="fa fa-home"></i>
         </td>
         <td class="info" colspan="4">
-          <%= @offer.district_or_karlsruhe + ", " + @offer.street %>
+          <%= value_or_karlsruhe(@offer.district) + ", " + @offer.street %>
         </td>
       </tr>
       </tbody>
