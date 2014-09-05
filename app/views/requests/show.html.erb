@@ -25,29 +25,16 @@
       <tbody>
       <tr>
         <td class="gender">
-          <% case @request.gender %>
-          <% when 'dontcare' %>
-            <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
-          <% when 'female' %>
-            <i class="fa fa-female"></i>
-          <% when 'male' %>
-            <i class="fa fa-male"></i>
-          <% end %>
+          <%= gender_icon @request.gender %>
         </td>
-          <% if @request.from_date && !@request.from_date.past? %>
-            <td class="time">
-              <%=t '.from' %> <%=l @request.from_date %>
-            </td>
-          <% else %>
-            <td class="time">
-              <%=t '.now' %>
-            </td>
-          <% end %>
-          <% if @request.to_date %>
-            <td class="time">
-              <%=t '.to' %> <%=l @request.to_date %>
-            </td>
-          <% end %>
+        <td class="time">
+          <%= from_date_info @request %>
+        </td>
+        <% if @request.to_date %>
+          <td class="time">
+            <%=t '.to' %> <%=l @request.to_date %>
+          </td>
+        <% end %>
       </tr>
       </tbody>
     </table>
@@ -58,7 +45,7 @@
   </div>
 
   <% if current_user != @request.user %>
-    <%= render 'answers/form', answer: @answer %>
+    <%= render 'answers/form', answer: @answer ||= @request.answers.build %>
   <% else %>
     <h2><i class="fa fa-comments-o"></i> <%= t 'answers.title' %></h2>
     <% if @request.answers.count > 0 %>

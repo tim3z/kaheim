@@ -13,7 +13,6 @@ class OffersController < ApplicationController
   # GET /offers/1.json
   def show
     @offer = Offer.find(params[:id])
-    @answer = @offer.answers.build
   end
 
   # GET /offers/new
@@ -83,8 +82,7 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      params[:offer].permit(:title, :description, :rent, :size, :gender, :from_date, :to_date,
-        :district, :street, :zip_code)
+      params[:offer].permit(:title, :description, :rent, :size, :gender, :from_date, :to_date, :district, :street, :zip_code)
     end
 
     def check_visibility

@@ -12,14 +12,7 @@
           <td class="icon">
           </td>
           <td class="info">
-            <% case offer.gender %>
-            <% when 'dontcare' %>
-              <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
-            <% when 'female' %>
-              <i class="fa fa-female"></i>
-            <% when 'male' %>
-              <i class="fa fa-male"></i>
-            <% end %>
+            <%= gender_icon offer.gender %>
           </td>
           <td class="icon">
             <i class="fa fa-eur"></i>
@@ -39,10 +32,7 @@
             <i class="fa fa-long-arrow-right"></i>
           </td>
           <td class="info">
-            <%=t 'offers.show.from' %> <%= (l offer.from_date) %>
-            <% if offer.to_date %>
-                <%=t 'offers.show.to' %> <%= (l offer.to_date) %>
-            <% end %>
+            <%= date_info offer %>
           </td>
         </tr>
         <tr>
@@ -50,8 +40,7 @@
             <i class="fa fa-home"></i>
           </td>
           <td class="info" colspan="3">
-            <%= "#{offer.district}, " if offer.district and offer.district != '' %>
-            <%= offer.street %>
+            <%= address_info offer %>
           </td>
         </tr>
         </tbody>

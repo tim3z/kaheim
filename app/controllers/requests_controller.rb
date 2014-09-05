@@ -13,7 +13,6 @@ class RequestsController < ApplicationController
   # GET /requests/1.json
   def show
     @request = Request.find(params[:id])
-    @answer = @request.answers.build
   end
 
   # GET /requests/new

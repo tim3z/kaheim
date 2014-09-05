@@ -10,29 +10,16 @@
     <tbody>
     <tr>
       <td class="gender">
-        <% case request.gender %>
-        <% when 'dontcare' %>
-            <i class="fa fa-female"></i>/<i class="fa fa-male"></i>
-        <% when 'female' %>
-            <i class="fa fa-female"></i>
-        <% when 'male' %>
-            <i class="fa fa-male"></i>
-        <% end %>
+        <%= gender_icon request.gender %>
       </td>
-        <% if request.from_date && !request.from_date.past? %>
-          <td class="time">
-            <%=t 'requests.show.from' %> <%=l request.from_date %>
-          </td>
-        <% else %>
-          <td class="time">
-            <%=t 'requests.show.now' %>
-          </td>
-        <% end %>
-        <% if request.to_date %>
-          <td class="time">
-            <%=t 'requests.show.to' %> <%=l request.to_date %>
-          </td>
-        <% end %>
+      <td class="time">
+        <%= from_date_info request %>
+      </td>
+      <% if request.to_date %>
+        <td class="time">
+          <%=t 'requests.show.to' %> <%=l request.to_date %>
+        </td>
+      <% end %>
     </tr>
     </tbody>
   </table>
