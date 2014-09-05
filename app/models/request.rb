@@ -22,4 +22,10 @@ class Request < ActiveRecord::Base
   def visible?
     user.unlocked? && current?
   end
+
+  def self.visible_for(user = nil)
+    query = current.unlocked
+    query.or(where(user: user)) if user
+    query
+  end
 end

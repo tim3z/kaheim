@@ -5,8 +5,7 @@ class OffersController < ApplicationController
 
   # GET /offers
   def index
-    @offers = Offer.current.unlocked.includes(:user)
-    @offers |= current_user.offers.includes(:user) if current_user
+    @offers = Offer.visible_for(current_user).order(from_date: :asc, updated_at: :desc).includes(:user)
   end
 
   # GET /offers/1

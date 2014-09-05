@@ -5,8 +5,7 @@ class RequestsController < ApplicationController
 
   # GET /requests
   def index
-    @requests = Request.current.unlocked.includes(:user)
-    @requests |= current_user.requests.includes(:user) if current_user
+    @requests = Request.visible_for(current_user).order(from_date: :asc, updated_at: :desc).includes(:user)
   end
 
   # GET /requests/1

@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-		@offers = Offer.current.unlocked.includes(:user)
-    @offers |= current_user.offers if current_user
+    @offers = Offer.visible_for(current_user).order(from_date: :asc, updated_at: :desc).includes(:user)
   end
 end
