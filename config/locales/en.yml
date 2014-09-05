@@ -99,6 +99,11 @@ en:
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
     contact: Contact
     dot: dot
+    sort: Sort
+    sort_by_from_date: By move in date
+    sort_by_rent: By rent
+    sort_by_size: By size
+    sort_by_updated_at: By last update
 
   offers:
     new: 
