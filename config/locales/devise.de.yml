@@ -19,6 +19,8 @@ de:
       invalid_token: 'Der Anmelde-Token ist ungültig.'
       timeout: 'Deine Sitzung ist abgelaufen, bitte melde Dich erneut an.'
       inactive: 'Dein Account ist nicht aktiv.'
+      user:
+        not_found_in_database: Dieser Benutzername existiert nicht.
     sessions:
       signed_in: 'Erfolgreich angemeldet.'
       signed_out: 'Erfolgreich abgemeldet.'
