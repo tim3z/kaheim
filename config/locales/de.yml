@@ -105,6 +105,11 @@ de:
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."
     contact: Impressum/Kontakt
     dot: punkt
+    sort: Sortieren
+    sort_by_from_date: Nach Einzugsdatum
+    sort_by_rent: Nach Miete
+    sort_by_size: Nach Größe
+    sort_by_updated_at: Nach letztem Update
 
   offers:
     new: 

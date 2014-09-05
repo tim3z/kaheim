@@ -21,7 +21,8 @@ $ ->
     $('#gender-select-button').append(" <span class='caret'></span>")
     $('#request_gender').val($(this).data('gender'))
 
-  $('select.select2').select2(
-    allowClear: true
-  )
+  $('select.select2').select2(allowClear: true)
   $('select.select2').select2("val", $('select.select2').data('value'))
+
+  $('.sort-trigger').click ->
+    $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
