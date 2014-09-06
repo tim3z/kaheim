@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_offer, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :check_visibility, only: [:show]
+  before_action :set_visible_offer, only: [:show]
 
   # GET /offers
   def index
@@ -10,7 +10,6 @@ class OffersController < ApplicationController
 
   # GET /offers/1
   def show
-    @offer = Offer.find(params[:id])
   end
 
   # GET /offers/new
@@ -69,13 +68,7 @@ class OffersController < ApplicationController
       params[:offer].permit(:title, :description, :rent, :size, :gender, :from_date, :to_date, :district, :street, :zip_code)
     end
 
-    def check_visibility
-      @offer = Offer.find(params[:id])
-      unless @offer.user.unlocked?
-        authenticate_user!
-        unless current_user.is_admin? || current_user == @offer.user
-          redirect_to offers_path
-        end
-      end
+    def set_visible_offer
+      @offer = Offer.visible_for(current_user).find_by(id: params[:id]) or redirect_to offers_path
     end
 end

@@ -23,9 +23,4 @@ class User < ActiveRecord::Base
     self.unlocked = false
     self.save!
   end
-
-  def is_admin?
-    admin
-  end
-
 end

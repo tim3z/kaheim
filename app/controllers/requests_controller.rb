@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_request, only: [:edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
-  before_filter :check_visibility, only: [:show]
+  before_action :set_visible_request, only: [:show]
 
   # GET /requests
   def index
@@ -10,7 +10,6 @@ class RequestsController < ApplicationController
 
   # GET /requests/1
   def show
-    @request = Request.find(params[:id])
   end
 
   # GET /requests/new
@@ -69,13 +68,7 @@ class RequestsController < ApplicationController
       params[:request].permit(:title, :description, :from_date, :to_date, :gender)
     end
 
-    def check_visibility
-      @request = Request.find(params[:id])
-      unless @request.user.unlocked?
-        authenticate_user!
-        unless current_user.is_admin? || current_user == @request.user
-          redirect_to requests_path
-        end
-      end
+    def set_visible_request
+      @request = Request.visible_for(current_user).find_by(id: params[:id]) or redirect_to requests_path
     end
 end
