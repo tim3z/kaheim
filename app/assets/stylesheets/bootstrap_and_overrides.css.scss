@@ -28,6 +28,18 @@ select {
     a {
       float:right;
     }
+
+    /* sort-dropdown alignment and positioning */
+    div {
+      button {
+        vertical-align: top;
+        margin-left: 10px;
+      }
+
+      ul {
+        top: 35px;
+      }
+    }
   }
 }
 
