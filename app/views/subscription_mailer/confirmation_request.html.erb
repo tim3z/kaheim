@@ -1,0 +1,11 @@
+Hallo,
+
+Du hast gerade ein Abonnement für Benachrichtigungen für neue <%=
+    if @subscription.offers && @subscription.requests
+      'Angebote und Gesuche'
+    elsif @subscription.offers
+      'Angebote'
+    else
+      'Gesuche'
+    end %> auf Kaheim angefordert.
+Um Deine E-Mail-Adresse zu bestätigen und das Abonnement zu aktivieren, klicke bitte auf diesen <%= link_to 'Link', subscription_activate_url(@subscription.confirmation_token, :protocol => "https") %>.

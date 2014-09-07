@@ -1,0 +1,10 @@
+Hallo,
+
+Dein Abbonement für neue <%=
+    if @subscription.offers && @subscription.requests
+      'Angebote und Gesuche'
+    elsif @subscription.offers
+      'Angebote'
+    else
+      'Gesuche'
+    end %> auf Kaheim ist jetzt aktiv.
