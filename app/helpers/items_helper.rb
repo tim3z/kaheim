@@ -14,7 +14,7 @@ module ItemsHelper
       when 'male'
         content_tag(:i, '', class: 'fa fa-male')
       else
-        content_tag(:i, '', class: 'fa fa-female') + content_tag(:i, '', class: 'fa fa-male')
+        content_tag(:i, '', class: 'fa fa-female') + '/' + content_tag(:i, '', class: 'fa fa-male')
     end
   end
 end
