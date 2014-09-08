@@ -6,9 +6,7 @@
       <%=t '.title.other', name: @request.user.name %>
     <% end %>
     <% if current_user.try :admin? %>
-      <% if @request.user.unlocked? %>
-        <%= link_to t('users.lock.lock'), lock_admin_user_path(@request.user), method: :put, class: 'btn btn-default' %>
-      <% else %>
+      <% unless @request.user.unlocked? %>
         <%= link_to t('users.lock.unlock'), unlock_admin_user_path(@request.user), method: :put, class: 'btn btn-default' %>
       <% end %>
     <% end %>
