@@ -35,4 +35,10 @@ class SubscriptionMailer < ActionMailer::Base
 
     mail to: subscription.email
   end
+
+  def new_offer_notification offer, subscriber
+    @offer = offer
+
+    mail to:subscriber.email
+  end
 end
