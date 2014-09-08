@@ -7,7 +7,9 @@ ActiveAdmin.register User do
     column :unlocked
     column :admin
     column :confirmed_at
-    actions
+    actions default: true do |user|
+      link_to( user.unlocked? ? 'Sperren' : 'Freischalten', user.unlocked? ? lock_admin_user_path(user) : unlock_admin_user_path(user), method: :put)
+    end
   end
 
   filter :email
@@ -16,7 +18,6 @@ ActiveAdmin.register User do
     f.inputs "User Details" do
       f.input :name, input_html: { disabled: true }
       f.input :email, input_html: { disabled: true }
-      f.input :unlocked
       f.input :admin
     end
     f.actions
@@ -35,14 +36,14 @@ ActiveAdmin.register User do
   member_action :unlock, method: :put do
     user = User.find(params[:id])
     user.unlock!
-    Subscription.offers.active.each do |subscriber|
+    Subscription.offers.activated.each do |subscriber|
       user.offers.each do |offer|
-        SubscriptionMailer.new_item_notification(offer, subscriber)
+        SubscriptionMailer.new_item_notification(offer, subscriber).deliver
       end
     end
-    Subscription.requests.active.each do |subscriber|
+    Subscription.requests.activated.each do |subscriber|
       user.requests.each do |request|
-        SubscriptionMailer.new_item_notification(request, subscriber)
+        SubscriptionMailer.new_item_notification(request, subscriber).deliver
       end
     end
     redirect_to :back, { notice: t('users.lock.unlock_done') }
