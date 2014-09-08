@@ -2,7 +2,7 @@ Hallo,
 
 <% if @subscription.offers || @subscription.requests %>
   Du hast Dich soeben für Dein Abonnement von neuen <%= @subscription.requests ? 'Angeboten' : 'Gesuchen' %> auf Kaheim abgemeldet.
-  Benachrichtigungen über neue <%= @subscription.offers ? 'Angebote' : 'Gesuche' %> erhältst du weiterhin. Um dich dich auch davon abzumelden, klicke auf diesen <%= link_to 'Link', subscription_sign_off_url( @subscription.offers ? 'offers' : 'requests', @subscription.email, :protocol => "https") %>.
+  Benachrichtigungen über neue <%= @subscription.offers ? 'Angebote' : 'Gesuche' %> erhältst du weiterhin. Um Dich auch davon abzumelden, klicke auf diesen <%= link_to 'Link', subscription_sign_off_url( @subscription.offers ? 'offers' : 'requests', @subscription.email, :protocol => "https") %>.
 <% else %>
   Du hast Dich soeben für Dein Abonnement von Kaheim abgemeldet und erhältst in Zukunft keine Benachrichtigungen über neue Einträge mehr.
 <% end %>

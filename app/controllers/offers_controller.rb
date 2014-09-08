@@ -30,6 +30,9 @@ class OffersController < ApplicationController
       flash = {}
       if current_user.unlocked
         flash[:notice] = tm 'helpers.creation_success', @offer
+        Subscription.offers.active.each do |subscriber|
+          SubscriptionMailer.new_item_notification(@offer, subscriber).deliver
+        end
       else
         flash[:alert] = tm 'helpers.creation_success_unlock_required', @offer
         User.admin.find_each do |admin|

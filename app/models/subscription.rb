@@ -5,7 +5,9 @@ class Subscription < ActiveRecord::Base
 
   before_validation :generate_token!, on: :create
 
-  scope :active, where("confirmation_token is null or confirmation_token = ''")
+  scope :active, -> { where("confirmation_token is null or confirmation_token = ''") }
+  scope :offers, -> { where offers: true }
+  scope :requests, -> { where requests: true }
 
   def generate_token!
     self.confirmation_token = loop do
