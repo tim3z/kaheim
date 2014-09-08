@@ -33,7 +33,18 @@ ActiveAdmin.register User do
     redirect_to :back, { notice: t('users.lock.lock_done') }
   end
   member_action :unlock, method: :put do
-    User.find(params[:id]).unlock!
+    user = User.find(params[:id])
+    user.unlock!
+    Subscription.offers.active.each do |subscriber|
+      user.offers.each do |offer|
+        SubscriptionMailer.new_item_notification(offer, subscriber)
+      end
+    end
+    Subscription.requests.active.each do |subscriber|
+      user.requests.each do |request|
+        SubscriptionMailer.new_item_notification(request, subscriber)
+      end
+    end
     redirect_to :back, { notice: t('users.lock.unlock_done') }
   end
 end

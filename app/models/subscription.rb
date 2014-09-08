@@ -22,6 +22,7 @@ class Subscription < ActiveRecord::Base
 
   def activate!
     self.confirmation_token = nil
+    self.save!
   end
 
 end
