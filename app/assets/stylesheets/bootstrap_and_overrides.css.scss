@@ -30,16 +30,29 @@ select {
       float:right;
     }
 
-    .hidden {
-      display: hidden;
-    }
-
-    .subscription-toggle {
+    .form-group {
+      top: 0px;
+      float: right;
     }
 
     button {
       vertical-align: top;
       margin-left: 10px;
+      float: right;
+    }
+
+    #subscription-email {
+      vertical-align: top;
+      margin-left: 10px;
+      float: right;
+      width: 243px;
+    }
+
+    .subscription-toggle, #subscription-submit-button, #subscription-back-button {
+      vertical-align: top;
+      margin-left: 10px;
+      float: right;
+      width: 100px;
     }
 
     /* sort-dropdown alignment and positioning */
