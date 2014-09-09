@@ -1,8 +1,11 @@
-<%= bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path) do |f| %>
+<%= bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path, layout: :inline) do |f| %>
   <%= t 'subscriptions.subscribe' %>
+  <%= f.submit t('subscriptions.subscribe'), class: 'btn btn-primary pull-right',  id: 'subscription-submit-button', style: 'display: none' %>
   <%= f.email_field :email,
-                    class: 'text_field',
-                    label: false %>
+                    class: 'pull-right',
+                    id: 'subscription-email',
+                    hide_label: true %>
   <%= f.hidden_field item_type, value: true %>
-  <%= f.submit t('subscriptions.subscribe'), class: 'btn btn-primary pull-right subscription-toggle' %>
 <% end %>
+
+<button class="btn btn-primary pull-right subscription-toggle" id="subscription-back-button"><%= t('helpers.links.back') %></button>

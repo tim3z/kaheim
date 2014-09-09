@@ -28,4 +28,13 @@ $ ->
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
 
   $('.subscription-toggle').click ->
-    $('.subscription-form-toggle').toggleClass('hidden')
+    $('.subscription-form-toggle').toggle()
+
+  $('#subscription-email').keyup ->
+    if ($(this).val())
+      $('#subscription-submit-button').show()
+      $('#subscription-back-button').hide()
+    else
+      $('#subscription-submit-button').hide()
+      $('#subscription-back-button').show()
+
