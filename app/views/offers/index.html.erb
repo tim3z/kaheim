@@ -4,7 +4,7 @@
     <!-- turn back button into subscribe button with colorchange on none empty input field -->
     <!-- refactor into partial -->
     <!-- word-smithing and icons/h1 spacing without text given - your email text size and position -->
-    <%= render partial: 'subscribe' %>
+    <%= render partial: 'subscription/subscribe', locals: { item_type: :offers } %>
   </h1>
   <h1 class="subscription-form-toggle">
     <button class="btn btn-primary pull-right subscription-toggle"><%= t 'subscriptions.subscribe' %></button>

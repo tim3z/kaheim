@@ -3,6 +3,6 @@
   <%= f.email_field :email,
                     class: 'text_field',
                     label: false %>
-  <%= f.hidden_field :offers %>
+  <%= f.hidden_field item_type, value: true %>
   <%= f.submit t('subscriptions.subscribe'), class: 'btn btn-primary pull-right subscription-toggle' %>
 <% end %>
