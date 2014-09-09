@@ -14,7 +14,7 @@
    inkscape:version="0.48.4 r9939"
    width="155.45868"
    height="36.15522"
-   sodipodi:docname="banner-white.svg"
+   sodipodi:docname="banner-grey.svg"
    inkscape:export-filename="/home/jonathan/dev/artwork/kaheim/banner.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
@@ -67,9 +67,9 @@
      inkscape:window-height="1014"
      id="namedview3041"
      showgrid="false"
-     inkscape:zoom="5.6568543"
-     inkscape:cx="43.175588"
-     inkscape:cy="15.378833"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="-7.1918503"
+     inkscape:cy="1.7393649"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -106,6 +106,10 @@
        orientation="0,1"
        position="7.8351606,-116.72088"
        id="guide4100" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="2.3846858,18.210328"
+       id="guide4300" />
   </sodipodi:namedview>
   <path
      style="fill:#777777;fill-opacity:1"
@@ -118,14 +122,14 @@
      id="path3825-34"
      inkscape:connector-curvature="0" />
   <path
-     style="fill:#777777;fill-opacity:1;stroke:#777777;stroke-width:1.89557361999999996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     style="fill:#acacac;fill-opacity:1;stroke:#acacac;stroke-width:1.89599999999999991;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
      d="M 5.8495796,16.209043 15.733545,3.752299 20.358279,5.6438635 11.561088,16.104815 20.698187,29.120733 16.637404,31.260561 12.385186,24.96156 8.1369711,19.079264 5.8095015,21.868278 z"
      id="path3965"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="cccccccccc" />
   <text
      xml:space="preserve"
-     style="font-size:45.49376678000000140px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#777777;fill-opacity:1;stroke:none;font-family:Sans"
+     style="font-size:45.49376678000000140px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#acacac;fill-opacity:1;stroke:none;font-family:Sans"
      x="30.12619"
      y="35.551414"
      id="text3953-5"
@@ -134,5 +138,5 @@
        id="tspan3955-0"
        x="30.12619"
        y="35.551414"
-       style="font-size:45.49376678000000140px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;letter-spacing:0px;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Medium;fill:#777777;fill-opacity:1">aheim</tspan></text>
+       style="font-size:45.49376678000000140px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;letter-spacing:0px;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Medium;fill:#acacac;fill-opacity:1">aheim</tspan></text>
 </svg>
