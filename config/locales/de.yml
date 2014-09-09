@@ -190,3 +190,14 @@ de:
       source: Der Quellcode ist verfügbar auf
       issues1: Bugs, Probleme und Feature Requests können ebenfalls auf
       issues2: eingetragen werden
+
+  active_admin:
+    dashboard:
+      title: Dashboard
+      not_unlocked: Nicht freigeschaltet
+    actions:
+      title: Aktionen
+      show: Anzeigen
+      show_in_admin_panel: Im Admin Panel anzeigen
+      lock: Sperren
+      unlock: Freischalten

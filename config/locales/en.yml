@@ -185,3 +185,14 @@ en:
         source: The sourcecode is available under
         issues1: Bugs, problems and feature requests can also be filed on
         issues2: ""
+
+  active_admin:
+    dashboard:
+      title: Dashboard
+      not_unlocked: Not unlocked
+    actions:
+      title: Actions
+      show: Show
+      show_in_admin_panel: Show in admin panel
+      lock: Lock
+      unlock: Unlock
