@@ -153,6 +153,10 @@ en:
       lock: Lock user
       lock_done: User was successfully locked
 
+  subscriptions:
+    subscribe: Subscribe
+    mail: Your email
+
   item:
     invisible: Invisible
     outdated: Outdated

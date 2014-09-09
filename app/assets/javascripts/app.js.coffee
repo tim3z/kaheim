@@ -26,3 +26,6 @@ $ ->
 
   $('.sort-trigger').click ->
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
+
+  $('.subscription-toggle').click ->
+    $('.subscription-form-toggle').toggleClass('hidden')

@@ -1,5 +1,7 @@
 <div class="page-header">
-  <h1>
+  <h1 class="subscription-form-toggle">
+    <button class="btn btn-default pull-right subscription-toggle"><%= t 'subscriptions.subscribe' %></button>
+
     <%=t 'offers.list.title', count: @offers.count %>
     <div class="dropdown pull-right">
       <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
@@ -13,10 +15,19 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort-trigger" data-sort-attr="data-updated-at" data-sort-order="desc"><%=t 'helpers.sort_by_updated_at' %></a></li>
       </ul>
     </div>
+
     <% if user_signed_in? %>
       <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-primary pull-right' %>
     <% end %>
   </h1>
+  <h1 class="subscription-form-toggle hidden">
+    <!-- input field for email -->
+    <!-- turn back button into subscribe button with colorchange on none empty input field -->
+    <!-- refactor into partial -->
+    <!-- word-smithing and icons/h1 spacing without text given - your email text size and position -->
+    <%= t 'subscriptions.subscribe' %><button class="btn btn-default pull-right subscription-toggle"><%= t 'helpers.links.back' %></button>
+  </h1>
+
   <% unless user_signed_in? %>
     <strong><%= It.it('helpers.sign_in_for_offer', sign_up_link: new_user_registration_path, sign_in_link: new_user_session_path) %></strong>
   <% end %>

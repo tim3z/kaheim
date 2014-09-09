@@ -29,12 +29,20 @@ select {
       float:right;
     }
 
+    .subscription-toggle {
+    }
+
+    .hidden {
+      display: hidden;
+    }
+
+    button {
+      vertical-align: top;
+      margin-left: 10px;
+    }
+
     /* sort-dropdown alignment and positioning */
     div {
-      button {
-        vertical-align: top;
-        margin-left: 10px;
-      }
 
       ul {
         top: 35px;

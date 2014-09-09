@@ -159,6 +159,10 @@ de:
       lock: Benutzer sperren
       lock_done: Benutzer wurde erfolgreich gesperrt
 
+  subscriptions:
+    subscribe: Abbonieren
+    mail: Deine Mail
+
   item:
     invisible: Unsichtbar
     outdated: Veraltet
