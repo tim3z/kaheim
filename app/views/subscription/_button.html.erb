@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+  <!-- fa-check fa-times -->
   <%= bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path, layout: :inline) do |f| %>
     <%= f.hidden_field item_type, value: true %>
     <%= f.hidden_field :email,
