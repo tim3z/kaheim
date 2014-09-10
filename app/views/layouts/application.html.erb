@@ -51,11 +51,11 @@
           <li id="locale-selection" data-current-locale="<%= I18n.locale %>">
             <% if I18n.locale == :de %>
               <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
-                <%= image_tag 'de.png', alt: t("helpers.switch_to_english") %>
+                <%= image_tag 'de.png', alt: t('helpers.switch_to_english') %>
               <% end %>
             <% else %>
               <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
-                <%= image_tag 'en.png', alt: t("helpers.switch_to_german") %>
+                <%= image_tag 'en.png', alt: t('helpers.switch_to_german') %>
               <% end %>
             <% end %>
           </li>
@@ -68,28 +68,27 @@
               <ul class="dropdown-menu">
                 <% if current_user.admin %>
                   <li><%= link_to 'Admin', '/admin' %></li>
-                  <li><%= link_to t('users.locked.title'), users_locked_path %></li>
                 <% end %>
                 <li>
                   <%= link_to t('users.items.title'), users_items_path %>
                 </li>
                 <li>
-                  <%= link_to t("helpers.links.edit_user"), edit_user_registration_path %>
+                  <%= link_to t('helpers.links.edit_user'), edit_user_registration_path %>
 
                 </li>
                 <li>
-                  <%= link_to t("helpers.links.sign_out"), destroy_user_session_path, method: :delete %>
+                  <%= link_to t('helpers.links.sign_out'), destroy_user_session_path, method: :delete %>
                 </li>
               </ul>
             </li>
           <% else %>
             <li>
-              <%= link_to t("helpers.links.sign_up"), new_user_registration_path %>
+              <%= link_to t('helpers.links.sign_up'), new_user_registration_path %>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t("helpers.links.sign_in") %><strong class="caret"></strong></a>
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t('helpers.links.sign_in') %><strong class="caret"></strong></a>
               <div class="dropdown-menu" style="padding: 15px; width: 300px;">
-                <%= render partial: "devise/sessions/new" %>
+                <%= render partial: 'devise/sessions/new' %>
               </div>
             </li>
           <% end %>

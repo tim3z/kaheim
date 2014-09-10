@@ -1,0 +1,10 @@
+<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+  <%=t 'sort.action' %>
+  <span class="caret"></span>
+</button>
+<ul class="dropdown-menu" role="menu" data-no-turbolink>
+  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort-trigger" data-sort-attr="data-from-date" data-sort-order="asc"><%=t 'sort.by_from_date' %></a></li>
+  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort-trigger" data-sort-attr="data-rent" data-sort-order="asc"><%=t 'sort.by_rent' %></a></li>
+  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort-trigger" data-sort-attr="data-size" data-sort-order="asc"><%=t 'sort.by_size' %></a></li>
+  <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort-trigger" data-sort-attr="data-updated-at" data-sort-order="desc"><%=t 'sort.by_updated_at' %></a></li>
+</ul>

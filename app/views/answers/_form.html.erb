@@ -3,8 +3,8 @@
 </div>
 
 <%= bootstrap_form_for answer, layout: :horizontal do |f| %>
-  <%= f.email_field :mail, value: user_signed_in? ? current_user.email : '', label: t('helpers.mail') %>
-  <%= f.text_area :message, label: t('helpers.message') %>
+  <%= f.email_field :mail, value: user_signed_in? ? current_user.email : '' %>
+  <%= f.text_area :message %>
   <% unless user_signed_in? %>
     <%= f.form_group label: { text: 'Captcha' } do %>
       <%= recaptcha_tags ajax: true %>

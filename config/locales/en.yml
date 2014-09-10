@@ -34,30 +34,11 @@ en:
         password_confirmation: "Confirm password"
         remember_me: "Remember me"
         name: "Name"
+      answer:
+        message: "Message"
+        mail: "Your email"
 
   helpers:
-    gender:
-      dontcare: "Doesn't matter"
-      female: "f"
-      male: "m"
-    offer:
-      placeholder:
-        title: "Most important information for the overview. Put detailed information in the description."
-        description: "Detailed information and description."
-      help:
-        temporal: '(if temporal)'
-        gender_selection: Preferred
-        description: Please do not share any sensible data. All offers are publicly accessible.
-      explanation: There is a contact form under your offer on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe (unless you put it in the description).
-    request:
-      placeholder:
-        title: "Most important information for the overview. Put detailed information in the description."
-        description: "Detailed information and description."
-      help:
-        temporal: '(if temporal)'
-        gender_selection: Search for
-        description: Please do not share any sensible data. All requests are publicly accessible.
-      explanation: There is a contact form under your request on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe (unless you put it in the description).
     switch_to_english: Switch to english
     switch_to_german: Zu Deutsch wechseln
     sign_in_for_offer: "%{sign_up_link:Sign up} or %{sign_in_link:sign in} to create an offer."
@@ -68,7 +49,6 @@ en:
     more: "Description"
     less: "close"
     mine: "Mine"
-    mail: "Your email"
     password: "Password"
     password_confirm: "Confirm password"
     forgot_password: "Forgot your password?"
@@ -79,9 +59,6 @@ en:
     request_unlock: "Resend unlock instructions"
     no_unlock: "Didn't receive unlock instructions?"
     remember_me: "Remember me"
-    message: "Message"
-    author: "Contact"
-    archive: "Show past"
     links:
       new: "New"
       cancel: "Cancel"
@@ -99,11 +76,17 @@ en:
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
     contact: Contact
     dot: dot
-    sort: Sort
-    sort_by_from_date: By move in date
-    sort_by_rent: By rent
-    sort_by_size: By size
-    sort_by_updated_at: By last update
+
+  privacy:
+    warning: Please do not share any sensible data. All %{model} are publicly accessible.
+    explanation: There is a contact form under your %{model} on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe (unless you put it in the description).
+
+  sort:
+    action: Sort
+    by_from_date: By move in date
+    by_rent: By rent
+    by_size: By size
+    by_updated_at: By last update
 
   offers:
     new: 
@@ -122,6 +105,9 @@ en:
         zero: No offers found
         one: Offers
         other: Offers
+    help:
+      gender_selection: Preferred
+
 
   requests:
     new: 
@@ -141,6 +127,8 @@ en:
         zero: No requests found
         one: Requests
         other: Requests
+    help:
+      gender_selection: Search for
 
   users:
     items:
@@ -159,10 +147,13 @@ en:
     sign_off: Sign off
     mail: Your email
 
-  item:
+  items:
     invisible: Invisible
     outdated: Outdated
-    answers: Replies
+    placeholder:
+      title: "Most important information for the overview. Put detailed information in the description."
+      description: "Detailed information and description."
+      temporal: '(if temporal)'
 
   user_mailer:
     answer_mail:

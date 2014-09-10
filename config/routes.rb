@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'subscription/sign_off/:item_type/:email' => 'subscription#sign_off', as: 'subscription_sign_off', :constraints => { :email => /.+@.+\..+/ }
 
   get 'users/items'
-  get 'users/locked'
 
   get 'reactivate/:token' => 'item_reactivation#reactivate', as: 'reactivate'
 
