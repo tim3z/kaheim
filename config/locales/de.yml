@@ -148,15 +148,19 @@ de:
       lock_done: Benutzer wurde erfolgreich gesperrt
 
   subscriptions:
-    subscribe: Abonnieren
     subscribed: Abonniert
-    sign_off: Abmelden
-    create:
+    actions:
+      subscribe: Abonnieren
+      unsubscribe: Abmelden
+    subscribe:
       save_error: Abonnement konnte nicht erstellt werden.
-      success: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung deiner E-Mail-Adresse.
+      success:
+        confirmed: Abonnement wurde erfolgreich erstellt.
+        unconfirmed: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung Deiner E-Mail-Adresse.
     unsubscribe:
       bad_token: Dieser Link zur Abmeldung ist ungültig.
       bad_item_type: Dieses Abonnement existiert nicht.
+      not_subscribed: Dieses Abonnement existiert nicht.
       success: Dein Abonnement wurde erfolgreich beendet.
     activation:
       bad_token: Dieser Link zur Bestätigung ist ungültig.
@@ -175,7 +179,7 @@ de:
     invisible: Unsichtbar
     outdated: Veraltet
     placeholder:
-      title: "Das wichtigste von deinem %{model} für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
+      title: "Das Wichtigste von deinem %{model} für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
       description: "Detaillierte Infos und ausführliche Beschreibung."
       temporal: '(bei Zwischenmiete)'
 

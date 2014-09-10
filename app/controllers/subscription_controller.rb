@@ -1,6 +1,7 @@
 class SubscriptionController < ApplicationController
 
   before_filter :check_offers_or_requests, only: [:create]
+  before_filter :authenticate_user!, only: [:unsubscribe_user]
 
   def create
     @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
@@ -8,13 +9,39 @@ class SubscriptionController < ApplicationController
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if @subscription.changed?
       unless @subscription.save
-        redirect_to :back, flash: { error: t('subscriptions.create.save_error')}
+        redirect_to :back, flash: { error: t('subscriptions.subscribe.save_error')}
         return
       end
-      SubscriptionMailer.subscribe_notification(@subscription).deliver if @subscription.active?
+      if @subscription.active?
+        SubscriptionMailer.subscribe_notification(@subscription).deliver
+        redirect_to :back, notice: t('subscriptions.subscribe.success.confirmed')
+        return
+      end
     end
-    SubscriptionMailer.confirmation_request(@subscription).deliver unless @subscription.active?
-    redirect_to :back, notice: t('subscriptions.create.success')
+    if user_signed_in? && current_user.email == @subscription.email
+      @subscription.activate!
+    end
+    if @subscription.active?
+      redirect_to :back
+    else
+      SubscriptionMailer.confirmation_request(@subscription).deliver
+      redirect_to :back, notice: t('subscriptions.subscribe.success.unconfirmed')
+    end
+  end
+
+  def unsubscribe_user
+    @subscription = Subscription.find_by_email(current_user.email)
+    unless @subscription
+      redirect_to :back, notice: t('subscriptions.unsubscribe.not_subscribed')
+    end
+    @subscription.offers = false if subscription_params[:offers] == 'true'
+    @subscription.requests = false if subscription_params[:requests] == 'true'
+    if @subscription.offers || @subscription.requests
+      @subscription.save! if @subscription.changed?
+    else
+      @subscription.destroy
+    end
+    redirect_to root_path
   end
 
   def destroy

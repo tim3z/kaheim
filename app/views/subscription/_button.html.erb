@@ -1,25 +1,24 @@
 <% if user_signed_in? %>
-  <!-- if user_subscribed(item_type) -->
+  <% if user_subscribed(current_user, item_type) %>
 
-    <!--DESTRUCTION custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_destroy_path, layout: :inline) do |f| -->
-
-    <!--
-    <button class="btn btn-default pull-right" id="subscribed-button">
-      <span class="subscribed-button-content"><i class='fa fa-check'></i> <%= t('subscriptions.subscribed') %></span>
-      <span class="subscribed-button-content" style="display:none;"><i class='fa fa-times'></i> <%= t('subscriptions.sign_off') %></span>
-    </button>
-    -->
-  <!-- else -->
+    <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_unsubscribe_user_path, method: :delete, layout: :inline) do |f| %>
+      <%= f.hidden_field item_type, value: true %>
+      <button class="btn btn-default pull-right" id="subscribed-button">
+        <span class="subscribed-button-content"><i class='fa fa-check'></i> <%= t('subscriptions.subscribed') %></span>
+        <span class="subscribed-button-content" style="display:none;"><i class='fa fa-times'></i> <%= t('subscriptions.actions.unsubscribe') %></span>
+      </button>
+    <% end %>
+  <% else %>
     <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path, layout: :inline) do |f| %>
       <%= f.hidden_field item_type, value: true %>
       <%= f.hidden_field :email,
                          value: current_user.email %>
       <button class="btn btn-primary pull-right" id="subscribe-button">
-        <%= t('subscriptions.subscribe') %>
+        <%= t('subscriptions.actions.subscribe') %>
       </button>
-  <!-- end -->
-
+    <% end %>
   <% end %>
+
 <% else %>
-  <button class="btn btn-primary pull-right subscription-toggle"><%= t 'subscriptions.subscribe' %></button>
+  <button class="btn btn-primary pull-right subscription-toggle"><%= t 'subscriptions.actions.subscribe' %></button>
 <% end %>

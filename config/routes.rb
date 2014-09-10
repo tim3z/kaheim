@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   delete 'subscription/destroy'
   get 'subscription/activate/:confirmation_token' => 'subscription#activate', as: 'subscription_activate'
   get 'subscription/unsubscribe/:item_type/:unsubscribe_token' => 'subscription#destroy', as: 'subscription_unsubscribe'
+  delete 'subscription/unsubscribe' => 'subscription#unsubscribe_user', as: 'subscription_unsubscribe_user'
 
   get 'users/items'
 
