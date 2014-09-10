@@ -154,11 +154,22 @@ de:
     create:
       save_error: Abonnement konnte nicht erstellt werden.
       success: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung deiner E-Mail-Adresse.
-    destroyed: Dein Abonnement wurde erfolgreich beendet.
+    unsubscribe:
+      bad_token: Dieser Link zur Abmeldung ist ungültig.
+      bad_item_type: Dieses Abonnement existiert nicht.
+      success: Dein Abonnement wurde erfolgreich beendet.
     activation:
       bad_token: Dieser Link zur Bestätigung ist ungültig.
       success: Dein Abonnement wurde erfolgreich bestätigt und ist jetzt aktiv.
     mail: Deine Mail
+    confirmation_request:
+      subject: "Bestätigung Deiner E-Mail-Adresse nötig"
+    unsubscribe_notification:
+      subject: "Abonnement beendet"
+    subscribe_notification:
+      subject: "Abonnement erstellt"
+    new_item_notification:
+      subject: "Neuer Eintrag auf Kaheim"
 
   items:
     invisible: Unsichtbar

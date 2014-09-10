@@ -1,6 +1,6 @@
 class SubscriptionController < ApplicationController
 
-  before_filter :check_offers_or_requests, only: [:create, :destroy]
+  before_filter :check_offers_or_requests, only: [:create]
 
   def create
     @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
@@ -11,35 +11,43 @@ class SubscriptionController < ApplicationController
         redirect_to :back, flash: { error: t('subscriptions.create.save_error')}
         return
       end
-      SubscriptionMailer.sign_up_notification(@subscription).deliver if @subscription.active?
+      SubscriptionMailer.subscribe_notification(@subscription).deliver if @subscription.active?
     end
     SubscriptionMailer.confirmation_request(@subscription).deliver unless @subscription.active?
     redirect_to :back, notice: t('subscriptions.create.success')
   end
 
-  def sign_off
-    @subscription = Subscription.new(email: params[:email])
-    set_item_type
-  end
-
   def destroy
-    @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
-    @subscription.offers = false if subscription_params[:offers] == 'true'
-    @subscription.requests = false if subscription_params[:requests] == 'true'
+    @subscription = Subscription.find_by_unsubscribe_token(params[:unsubscribe_token])
+    unless @subscription
+      redirect_to root_path, flash: { error: t('subscriptions.unsubscribe.bad_token')}
+    end
+    case params[:item_type]
+      when 'offers'
+        @subscription.offers = false
+      when 'requests'
+        @subscription.requests = false
+      when 'all'
+        @subscription.offers = false
+        @subscription.requests = false
+      else
+        redirect_to root_path, flash: { error: t('subscriptions.unsubscribe.bad_item_type')}
+        return
+    end
     if @subscription.offers || @subscription.requests
       @subscription.save! if @subscription.changed?
     else
       @subscription.destroy
     end
-    SubscriptionMailer.sign_off_notification(@subscription).deliver
-    redirect_to root_path, notice: t('subscriptions.destroyed')
+    SubscriptionMailer.unsubscribe_notification(@subscription).deliver
+    redirect_to root_path, notice: t('subscriptions.unsubscribe.success')
   end
 
   def activate
     @subscription = Subscription.find_by(confirmation_token: params[:confirmation_token])
     @subscription or return redirect_to root_path, flash: { error: t('subscriptions.activation.bad_token') }
     @subscription.activate!
-    SubscriptionMailer.sign_up_notification(@subscription).deliver
+    SubscriptionMailer.subscribe_notification(@subscription).deliver
     redirect_to root_path, notice: t('subscriptions.activation.success')
   end
 
@@ -54,19 +62,6 @@ class SubscriptionController < ApplicationController
     unless subscription_params[:offers] || subscription_params[:requests]
       redirect_to root_path
     end
-  end
-
-  def set_item_type
-    case params[:item_type]
-      when 'offers'
-        @subscription.offers = true
-      when 'requests'
-        @subscription.requests = true
-      else
-        redirect_to :back, flash: { error: t('subscription.sign_off.bad_item_type')}
-        return false
-    end
-    true
   end
 
 end

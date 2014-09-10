@@ -148,11 +148,22 @@ en:
     create:
       save_error: Subscription could not be created.
       success: Subscription was successfully created. You will receive an email containing a link to confirm your email address.
-    destroyed: Your subscription was successfully deleted.
+    unsubscribe:
+      bad_token: This unsubscribe link is invalid.
+      bad_item_type: This subscription does not exist.
+      success: Your subscription was successfully deleted.
     activation:
       bad_token: This confirmation link is invalid.
       success: Your subscription was successfully confirmed and is now active.
     mail: Your email
+    confirmation_request:
+      subject: "Please confirm your email address"
+    unsubscribe_notification:
+      subject: "Subscription deleted"
+    subscribe_notification:
+      subject: "Subscription created"
+    new_item_notification:
+      subject: "New item on Kaheim"
 
   items:
     invisible: Invisible

@@ -10,4 +10,4 @@ Dein Abonnement für neue <%=
     end %> auf Kaheim ist jetzt aktiv.
 
 Um Dich davon wieder abzumelden, klicke auf diesen
-<%= link_to 'Link', subscription_sign_off_url( @subscription.offers ? 'offers' : 'requests', @subscription.email, :protocol => "https") %>.
+<%= link_to 'Link', subscription_unsubscribe_url( @subscription.subscribed_types, @subscription.unsubscribe_token, :protocol => "https") %>.

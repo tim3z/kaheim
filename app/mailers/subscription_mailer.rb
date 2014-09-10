@@ -1,45 +1,24 @@
 class SubscriptionMailer < ActionMailer::Base
   default from: "Kaheim <no-reply@kaheim.de>"
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.subscriptions.confirmation_token.subject
-  #
   def confirmation_request subscription
     @subscription = subscription
-
-    mail to: subscription.email
+    mail to: subscription.email, subject: t('subscriptions.confirmation_request.subject')
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.subscriptions.sign_off_notification.subject
-  #
-  def sign_off_notification subscription
+  def unsubscribe_notification subscription
     @subscription = subscription
-
-    # check if fully signed off and tell user if he/she is not
-
-    mail to: subscription.email
+    mail to: subscription.email, subject: t('subscriptions.unsubscribe_notification.subject')
   end
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.subscriptions.sign_up_notification.subject
-  #
-  def sign_up_notification subscription
+  def subscribe_notification subscription
     @subscription = subscription
-
-    mail to: subscription.email
+    mail to: subscription.email, subject: t('subscriptions.subscribe_notification.subject')
   end
 
   def new_item_notification item, subscriber
     @item = item
     @subscriber = subscriber
-
-    mail to:subscriber.email
+    mail to:subscriber.email, subject: t('subscriptions.new_item_notification.subject')
   end
 end
