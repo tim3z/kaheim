@@ -46,7 +46,7 @@ en:
         description: "Detailed information and description."
       help:
         temporal: '(if temporal)'
-        gender-selection: Preferred
+        gender_selection: Preferred
         description: Please do not share any sensible data. All offers are publicly accessible.
       explanation: There is a contact form under your offer on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe (unless you put it in the description).
     request:
@@ -55,7 +55,7 @@ en:
         description: "Detailed information and description."
       help:
         temporal: '(if temporal)'
-        gender-selection: Search for
+        gender_selection: Search for
         description: Please do not share any sensible data. All requests are publicly accessible.
       explanation: There is a contact form under your request on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe (unless you put it in the description).
     switch_to_english: Switch to english
@@ -191,3 +191,14 @@ en:
         source: The sourcecode is available under
         issues1: Bugs, problems and feature requests can also be filed on
         issues2: ""
+
+  active_admin:
+    dashboard:
+      title: Dashboard
+      not_unlocked: Not unlocked
+    actions:
+      title: Actions
+      show: Show
+      show_in_admin_panel: Show in admin panel
+      lock: Lock
+      unlock: Unlock
