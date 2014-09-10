@@ -1,21 +1,20 @@
-<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= custom_bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <%= f.email_field :email,
                     placeholder: User.human_attribute_name(:email),
                     class: 'text_field',
-                    label: false %>
+                    hide_label: true %>
   <%= f.password_field :password,
                     placeholder: User.human_attribute_name(:password),
                     class: 'text_field',
-                    label: false %>
+                    hide_label: true %>
 
   <% if devise_mapping.rememberable? -%>
     <%= f.check_box :remember_me %>
   <% end -%>
-
   <div class="form-actions">
-    <%= f.submit t('devise.basic.sign_in', default: 'Sign in'), class: 'btn btn-primary' %><br />
-    <%= render 'devise/shared/links', no_sign_in: true %>
+    <%= f.submit t('devise.basic.sign_in'), class: 'btn btn-primary' %><br />
+    <%= link_to t('helpers.forgot_password'), new_password_path(resource_name) %>
   </div>
 
 <% end %>

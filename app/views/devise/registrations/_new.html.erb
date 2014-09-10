@@ -1,0 +1,21 @@
+<%= custom_bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <%= f.text_field :name,
+                   placeholder: User.human_attribute_name(:name),
+                   class: 'text_field',
+                   hide_label: true %>
+  <%= f.email_field :email,
+                    placeholder: User.human_attribute_name(:email),
+                    class: 'text_field',
+                    hide_label: true %>
+  <%= f.password_field :password,
+                       placeholder: User.human_attribute_name(:password),
+                       class: 'text_field',
+                       hide_label: true %>
+
+  <div class="form-actions">
+    <%= f.submit t('devise.basic.sign_up'), class: 'btn btn-primary' %><br />
+    <%= link_to t('helpers.no_confirmation'), new_confirmation_path(resource_name) %>
+  </div>
+
+<% end %>
