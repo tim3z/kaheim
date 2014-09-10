@@ -84,7 +84,7 @@ de:
     dot: punkt
 
   privacy:
-    warning: Bitte keine sensiblen Daten angeben, da alle ${model} öffentlich einsehbar sind!
+    warning: Bitte keine sensiblen Daten angeben, da alle %{model} öffentlich einsehbar sind!
     explanation: Unter deinem %{model} wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein %{model} antworten können. Kaheim schickt dir dann eine Mail mit der Antwort. Deine Kontaktdaten bleiben geschützt (solange du sie nicht oben angibst).
 
   sort:
