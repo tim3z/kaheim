@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path, layout: :inline) do |f| %>
+<%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path, layout: :inline) do |f| %>
   <%= t 'subscriptions.subscribe' %>
   <%= f.hidden_field item_type, value: true %>
   <%= f.submit t('subscriptions.subscribe'), class: 'btn btn-primary pull-right',  id: 'subscription-submit-button', style: 'display: none' %>

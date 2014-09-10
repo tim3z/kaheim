@@ -161,6 +161,8 @@ de:
 
   subscriptions:
     subscribe: Abonnieren
+    subscribed: Abonniert
+    sign_off: Abmelden
     mail: Deine Mail
 
   item:

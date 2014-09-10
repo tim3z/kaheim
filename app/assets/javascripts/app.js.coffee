@@ -40,3 +40,9 @@ $ ->
       $('#subscription-submit-button').hide()
       $('#subscription-back-button').show()
 
+  #change appearance and text of sign off subscription button on hover
+  $('#subscribed-button').hover (event) ->
+     $('.subscribed-button-content').toggle()
+
+
+

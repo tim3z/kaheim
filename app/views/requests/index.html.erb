@@ -6,6 +6,7 @@
   <h1 class="subscription-form-toggle">
     <!-- button to subscribe. switches headline to subscribe form if user is not logged in -->
     <%= render partial: 'subscription/button', locals: { item_type: :requests } %>
+
     <%=t 'requests.list.title', count: @requests.count %>
     <% if user_signed_in? %>
       <%= link_to t('requests.new.title'), new_request_path, class: 'btn btn-default' %>
