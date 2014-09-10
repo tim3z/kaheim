@@ -69,6 +69,6 @@ class RequestsController < ApplicationController
     end
 
     def set_visible_request
-      @request = Request.visible_for(current_user).find_by(id: params[:id]) or redirect_to requests_path
+      @request = Request.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to requests_path)
     end
 end

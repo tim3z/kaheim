@@ -69,6 +69,6 @@ class OffersController < ApplicationController
     end
 
     def set_visible_offer
-      @offer = Offer.visible_for(current_user).find_by(id: params[:id]) or redirect_to offers_path
+      @offer = Offer.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to offers_path)
     end
 end
