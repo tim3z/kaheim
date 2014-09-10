@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <%= bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path, layout: :inline) do |f| %>
+    <%= f.hidden_field item_type, value: true %>
+    <%= f.hidden_field :email,
+                       value: current_user.email %>
+    <%= f.submit t('subscriptions.subscribe'), class: 'btn btn-primary pull-right', id: 'subscription-submit-button' %>
+  <% end %>
+<% else %>
+  <button class="btn btn-primary pull-right subscription-toggle"><%= t 'subscriptions.subscribe' %></button>
+<% end %>

@@ -1,5 +1,11 @@
 <div class="page-header">
-  <h1>
+  <h1 class="subscription-form-toggle" style="display: none;">
+    <!-- form for subscribing. see button below for how to access it -->
+    <%= render partial: 'subscription/form', locals: { item_type: :offers } %>
+  </h1>
+  <h1 class="subscription-form-toggle">
+    <!-- button to subscribe. switches headline to subscribe form if user is not logged in -->
+    <%= render partial: 'subscription/button', locals: { item_type: :offers } %>
     <%=t 'offers.list.title', count: @offers.count %>
     <div class="dropdown pull-right">
       <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">

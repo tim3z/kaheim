@@ -27,9 +27,11 @@ $ ->
   $('.sort-trigger').click ->
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
 
+  #toggle the subscription form in the page-headder
   $('.subscription-toggle').click ->
     $('.subscription-form-toggle').toggle()
 
+  #disabling the subscribe button and enabling the back button if no email is put in
   $('#subscription-email').keyup ->
     if ($(this).val())
       $('#subscription-submit-button').show()
