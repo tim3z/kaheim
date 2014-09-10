@@ -2,21 +2,19 @@ class SubscriptionController < ApplicationController
 
   before_filter :check_offers_or_requests, only: [:create, :destroy]
 
-  def sign_up
-    @subscription = Subscription.new
-    set_item_type
-  end
-
   def create
     @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
     @subscription.offers = true if subscription_params[:offers] == 'true'
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if @subscription.changed?
-      @subscription.save or return
+      unless @subscription.save
+        redirect_to :back, flash: { error: t('subscriptions.create.save_error')}
+        return
+      end
       SubscriptionMailer.sign_up_notification(@subscription).deliver if @subscription.active?
     end
     SubscriptionMailer.confirmation_request(@subscription).deliver unless @subscription.active?
-    redirect_to root_path, notice: t('subscription.activated')
+    redirect_to :back, notice: t('subscriptions.create.success')
   end
 
   def sign_off
@@ -34,15 +32,15 @@ class SubscriptionController < ApplicationController
       @subscription.destroy
     end
     SubscriptionMailer.sign_off_notification(@subscription).deliver
-    redirect_to root_path, notice: t('subscription.destroyed')
+    redirect_to root_path, notice: t('subscriptions.destroyed')
   end
 
   def activate
     @subscription = Subscription.find_by(confirmation_token: params[:confirmation_token])
-    @subscription or return redirect_to root_path, flash: { error: t('subscription.activation.bad_token') }
+    @subscription or return redirect_to root_path, flash: { error: t('subscriptions.activation.bad_token') }
     @subscription.activate!
     SubscriptionMailer.sign_up_notification(@subscription).deliver
-    redirect_to root_path, notice: t('subscription.activation.success')
+    redirect_to root_path, notice: t('subscriptions.activation.success')
   end
 
   private
@@ -65,7 +63,7 @@ class SubscriptionController < ApplicationController
       when 'requests'
         @subscription.requests = true
       else
-        redirect_to root_path, flash: { error: t('subscription.sign_off.bad_item_type')}
+        redirect_to :back, flash: { error: t('subscription.sign_off.bad_item_type')}
         return false
     end
     true

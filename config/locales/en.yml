@@ -145,6 +145,13 @@ en:
     subscribe: Subscribe
     subscribed: Subscribed
     sign_off: Sign off
+    create:
+      save_error: Subscription could not be created.
+      success: Subscription was successfully created. You will receive an email containing a link to confirm your email address.
+    destroyed: Your subscription was successfully deleted.
+    activation:
+      bad_token: This confirmation link is invalid.
+      success: Your subscription was successfully confirmed and is now active.
     mail: Your email
 
   items:

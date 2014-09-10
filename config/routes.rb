@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   post 'subscription/create'
   delete 'subscription/destroy'
   get 'subscription/activate/:confirmation_token' => 'subscription#activate', as: 'subscription_activate'
-  get 'subscription/sign_up/:item_type' => 'subscription#sign_up', as: 'subscription_sign_up'
   get 'subscription/sign_off/:item_type/:email' => 'subscription#sign_off', as: 'subscription_sign_off', :constraints => { :email => /.+@.+\..+/ }
 
   get 'users/items'

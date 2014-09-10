@@ -151,6 +151,13 @@ de:
     subscribe: Abonnieren
     subscribed: Abonniert
     sign_off: Abmelden
+    create:
+      save_error: Abonnement konnte nicht erstellt werden.
+      success: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung deiner E-Mail-Adresse.
+    destroyed: Dein Abonnement wurde erfolgreich beendet.
+    activation:
+      bad_token: Dieser Link zur Bestätigung ist ungültig.
+      success: Dein Abonnement wurde erfolgreich bestätigt und ist jetzt aktiv.
     mail: Deine Mail
 
   items:
