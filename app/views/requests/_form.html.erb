@@ -7,7 +7,7 @@
                          wrapper_class: 'title',
                          class: 'short-description',
                          append: (@request.title ? 140 - @request.title.length : 140).to_s,
-                         placeholder: t('items.placeholder.title'),
+                         placeholder: tm('items.placeholder.title', Request),
                          hide_label: true %>
       </div>
 
