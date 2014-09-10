@@ -32,7 +32,7 @@ $ ->
     $('.subscription-form-toggle').toggle()
 
   #disabling the subscribe button and enabling the back button if no email is put in
-  $('#subscription-email').keyup ->
+  $('#subscription-email').on ('input'), ->
     if ($(this).val())
       $('#subscription-submit-button').show()
       $('#subscription-back-button').hide()
