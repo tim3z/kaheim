@@ -13,13 +13,8 @@
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#" class="sort-trigger" data-sort-attr="data-updated-at" data-sort-order="desc"><%=t 'helpers.sort_by_updated_at' %></a></li>
       </ul>
     </div>
-    <% if user_signed_in? %>
-      <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-primary pull-right' %>
-    <% end %>
+    <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-primary pull-right' %>
   </h1>
-  <% unless user_signed_in? %>
-    <strong><%= It.it('helpers.sign_in_for_offer', sign_up_link: new_user_registration_path, sign_in_link: new_user_session_path) %></strong>
-  <% end %>
 </div>
 <div class="row">
   <div class="col-md-12 sort">
