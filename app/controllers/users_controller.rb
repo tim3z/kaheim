@@ -6,9 +6,4 @@ class UsersController < ApplicationController
     @offers = current_user.offers.includes(:user)
     @requests = current_user.requests.includes(:user)
   end
-
-  def locked
-    @offers = Offer.locked
-    @requests = Request.locked
-  end
 end

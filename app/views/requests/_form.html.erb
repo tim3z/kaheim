@@ -7,7 +7,7 @@
                          wrapper_class: 'title',
                          class: 'short-description',
                          append: (@request.title ? 140 - @request.title.length : 140).to_s,
-                         placeholder: t('helpers.request.placeholder.title'),
+                         placeholder: t('items.placeholder.title'),
                          hide_label: true %>
       </div>
 
@@ -15,29 +15,15 @@
 
       <div class="row">
         <div class="col-md-8">
-          <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('helpers.request.placeholder.description'), help: ('<span class="warning"><i class="fa fa-shield"></i> ' + t('helpers.request.help.description') + '</span>').html_safe %>
+          <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('items.placeholder.description'), help: ('<span class="warning"><i class="fa fa-shield"></i> ' + tm('privacy.warning', Request, count: 2) + '</span>').html_safe %>
         </div>
 
         <div class="col-md-4">
           <div class="info">
             <div class="btn-group input-group input-group-sm gender">
-              <span class="input-group-addon"><%= t('helpers.request.help.gender-selection') %></span>
-              <button id="gender-select-button" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <% case @request.gender %>
-                <% when 'female' %>
-                  <i class="fa fa-female"></i>
-                <% when 'male' %>
-                  <i class="fa fa-male"></i>
-                <% else %>
-                  <span class="dontcare"><i class="fa fa-female"></i>/<i class="fa fa-male"></i></span>
-                <% end %>
-                <span class="caret"></span></button>
-              <ul class="dropdown-menu dropdown-menu-auto" role="menu">
-                <li class="gender-select-item" data-gender='female'><a href="javascript:void(0);"><span class="gender-label"><i class='fa fa-female'></i></span></a></li>
-                <li class="gender-select-item" data-gender='male'><a href="javascript:void(0);"><span class="gender-label"><i class='fa fa-male'></i></span></a></li>
-                <li class="gender-select-item" data-gender='dontcare'><a href="javascript:void(0);" class="dontcare"><span class="gender-label"><i class='fa fa-male'></i>/<i class='fa fa-female'></i></span></a></li>
-              </ul>
-              <%= f.hidden_field :gender, value: 'dontcare' %>
+              <span class="input-group-addon"><%= t('requests.help.gender_selection') %></span>
+              <%= gender_select @request.gender %>
+              <%= f.hidden_field :gender %>
             </div>
             <%= f.localized_text_field :from_date,
                                        'data-behaviour' => 'datepicker',
@@ -48,7 +34,7 @@
                                        'data-behaviour' => 'datepicker',
                                        input_group_wrapper_class: 'input-group-sm',
                                        prepend: t('activerecord.attributes.request.to_date'),
-                                       placeholder: t('helpers.request.help.temporal'),
+                                       placeholder: t('items.placeholder.temporal'),
                                        hide_label: true %>
           </div>
         </div>
@@ -61,7 +47,7 @@
           <i class="fa fa-info icon"></i>
         </div>
         <div class="col-md-11">
-          <%= t 'helpers.request.explanation' %>
+          <%= tm 'privacy.explanation', @request %>
         </div>
       </div>
 
@@ -72,7 +58,7 @@
           <div class="form-actions">
             <% if user_signed_in? %>
               <%= f.submit nil, class: 'btn btn-primary' %>
-              <%= link_to t('helpers.links.cancel', default: 'Cancel'), requests_path, class: 'btn btn-default' %>
+              <%= link_to t('helpers.links.cancel'), requests_path, class: 'btn btn-default' %>
             <% else %>
               <%= render partial: 'users/combi_form' %>
             <% end %>

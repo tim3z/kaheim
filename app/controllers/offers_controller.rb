@@ -1,7 +1,6 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :new]
-  before_action :set_offer, only: [:edit, :update, :destroy]
-  before_action :set_visible_offer, only: [:show]
+  before_action :set_editable_offer, only: [:edit, :update, :destroy]
 
   # GET /offers
   def index
@@ -10,6 +9,7 @@ class OffersController < ApplicationController
 
   # GET /offers/1
   def show
+    @offer = Offer.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to offers_path)
   end
 
   # GET /offers/new
@@ -45,7 +45,7 @@ class OffersController < ApplicationController
   # PATCH/PUT /offers/1
   def update
     if @offer.update(offer_params)
-      redirect_to @offer, notice: t('helpers.update_success', model: t('activerecord.models.offer.one'))
+      redirect_to @offer, notice: tm('helpers.update_success', @offer)
     else
       render action: 'edit'
     end
@@ -58,17 +58,12 @@ class OffersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_offer
+    def set_editable_offer
       @offer = current_user.offers.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
       params[:offer].permit(:title, :description, :rent, :size, :gender, :from_date, :to_date, :district, :street, :zip_code)
-    end
-
-    def set_visible_offer
-      @offer = Offer.visible_for(current_user).find_by(id: params[:id]) or redirect_to offers_path
     end
 end
