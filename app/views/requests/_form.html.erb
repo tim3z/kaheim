@@ -70,8 +70,12 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-actions">
-            <%= f.submit nil, class: 'btn btn-primary' %>
-            <%= link_to t('helpers.links.cancel', default: 'Cancel'), requests_path, class: 'btn btn-default' %>
+            <% if user_signed_in? %>
+              <%= f.submit nil, class: 'btn btn-primary' %>
+              <%= link_to t('helpers.links.cancel', default: 'Cancel'), requests_path, class: 'btn btn-default' %>
+            <% else %>
+              <%= render partial: 'users/combi_form' %>
+            <% end %>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :new]
   before_action :set_offer, only: [:edit, :update, :destroy]
   before_action :set_visible_offer, only: [:show]
 

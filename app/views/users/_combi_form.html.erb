@@ -1,0 +1,15 @@
+<div class="combi-form">
+  <%= bootstrap_form_tag url: '', layout: :inline do |f| %>
+    <%= f.email_field :email, placeholder: 'Deine Email', hide_label: true, class: 'text-field', id: 'email' %>
+    <div class="password-form" style="display: none;">
+      <%= f.password_field :password, placeholder: 'Passwort', hide_label: true, class: 'password-field', id: 'pw-for-password-form' %>
+    </div>
+    <div class="name-password-form" style="display: none;">
+      <%= f.text_field :name, placeholder: 'Dein Name', hide_label: true, class: 'text-field', id: 'name-for-password-form' %>
+      <%= f.password_field :password, placeholder: 'Passwort', hide_label: true, class: 'password-field', id: 'pw-for-password-form' %>
+      <%= f.password_field :password, placeholder: 'Passwort wiederholen', hide_label: true, class: 'password-field', id: 're-pw-for-password-form' %>
+    </div>
+    <%= f.submit 'Absenden', class: 'btn btn-primary pull-right', id: 'combi-submit', style: 'display: none;' %>
+    <span class="btn btn-primary pull-right" id="continue">weiter</span>
+  <% end %>
+</div>
