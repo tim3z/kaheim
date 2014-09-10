@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :new]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_editable_offer, only: [:edit, :update, :destroy]
 
   # GET /offers
