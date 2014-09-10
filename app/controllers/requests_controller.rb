@@ -1,7 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_request, only: [:edit, :update, :destroy]
-  before_action :set_visible_request, only: [:show]
+  before_action :set_editable_request, only: [:edit, :update, :destroy]
 
   # GET /requests
   def index
@@ -10,6 +9,7 @@ class RequestsController < ApplicationController
 
   # GET /requests/1
   def show
+    @request = Request.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to requests_path)
   end
 
   # GET /requests/new
@@ -45,7 +45,7 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   def update
     if @request.update(request_params)
-      redirect_to @request, notice: t('helpers.update_success', model: t('activerecord.models.request.one'))
+      redirect_to @request, notice: tm('helpers.update_success', @request)
     else
       render action: 'edit'
     end
@@ -58,17 +58,12 @@ class RequestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_request
+    def set_editable_request
       @request = current_user.requests.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
       params[:request].permit(:title, :description, :from_date, :to_date, :gender)
-    end
-
-    def set_visible_request
-      @request = Request.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to requests_path)
     end
 end
