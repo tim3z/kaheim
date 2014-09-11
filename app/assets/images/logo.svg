@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg3039"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   width="36.110001"
+   height="36.110001"
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/jonathan/dev/artwork/kaheim/banner.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
+  <title
+     id="title4102">Kaheim Banner</title>
+  <metadata
+     id="metadata3045">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Kaheim Banner</dc:title>
+        <cc:license
+           rdf:resource="copyright.txt" />
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jonathan Kieling</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:language>German</dc:language>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>daheim</rdf:li>
+            <rdf:li>kaheim</rdf:li>
+            <rdf:li>banner</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+        <dc:contributor>
+          <cc:Agent>
+            <dc:title>Miram Frank, Jonathan Kieling</dc:title>
+          </cc:Agent>
+        </dc:contributor>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3043" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1283"
+     inkscape:window-height="914"
+     id="namedview3041"
+     showgrid="false"
+     inkscape:zoom="9.0836025"
+     inkscape:cx="23.593098"
+     inkscape:cy="17.478031"
+     inkscape:window-x="1674"
+     inkscape:window-y="149"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg3039"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:object-paths="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-bbox-edge-midpoints="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <sodipodi:guide
+       orientation="1,0"
+       position="-4e-09,88.814591"
+       id="guide3918" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="8.0797206,59.924571"
+       id="guide4094" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="7.3388896,4.9516172e-07"
+       id="guide4096" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="8.1122876,-56.318714"
+       id="guide4098" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="7.7477566,-116.72275"
+       id="guide4100" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="2.2972818,18.208456"
+       id="guide4300" />
+  </sodipodi:namedview>
+  <g
+     id="g3024"
+     transform="translate(3.6002383,0)">
+    <path
+       inkscape:connector-curvature="0"
+       id="path3825"
+       d="M 4.9857742,16.461134 6.5192241,0.05051433 9.6542796,0.03326656 5.2439309,17.384222 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3827"
+       d="M 4.9882957,16.461873 12.023089,0.09106419 14.904538,0.29354102 5.1295664,16.97529 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3829"
+       d="M 5.3809246,17.229269 24.868263,4.9981862 26.920982,8.7369733 4.9741719,18.331541 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path3831"
+       d="M 6.9599821,17.463397 27.892217,12.118662 28.909524,15.801304 7.1000097,18.662671 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3833"
+       d="M 6.1887718,17.80055 28.855816,19.93076 28.381015,23.83989 5.6632595,18.03029 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path3835"
+       d="M 6.4147871,19.28613 15.19607,35.452017 11.086577,36.109999 4.967006,19.486743 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path3837"
+       d="m 6.3257747,20.569546 2.7241647,15.540453 -2.9729246,0 -1.1396582,-15.245565 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3839"
+       d="M 6.3157949,17.745019 26.977344,26.036925 25.581648,29.367036 6.2808604,18.188229 z"
+       style="fill:#777777;fill-opacity:1;stroke:none" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path2999"
+       d="M 0,0.00284897 5.5041744,0.08931412 5.2518875,36.109999 l -5.2518873,0 z"
+       style="fill:#acacac;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3769"
+       d="M 4.9864584,16.350842 16.705594,0.64528563 22.393574,2.9681983 4.9509471,22.07559 z"
+       style="fill:#acacac;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3773"
+       d="M 4.93537,20.093962 18.259524,34.580955 23.978769,31.16851 4.9768195,14.479587 z"
+       style="fill:#acacac;fill-opacity:1;stroke:none" />
+  </g>
+</svg>
