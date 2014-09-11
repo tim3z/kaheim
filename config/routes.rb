@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'users/items'
-  get 'users/locked'
 
   get 'reactivate/:token' => 'item_reactivation#reactivate', as: 'reactivate'
 

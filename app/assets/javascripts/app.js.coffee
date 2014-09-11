@@ -20,9 +20,17 @@ $ ->
     $('#gender-select-button').html($(this).html())
     $('#gender-select-button').append(" <span class='caret'></span>")
     $('#request_gender').val($(this).data('gender'))
+    $('#offer_gender').val($(this).data('gender'))
 
   $('select.select2').select2(allowClear: true)
   $('select.select2').select2("val", $('select.select2').data('value'))
 
   $('.sort-trigger').click ->
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
+
+  $('#continue', '.combi-form').click ->
+    $(this).hide()
+    $('#combi-submit').show()
+    #ajax and js-logic for showing name and password or two password fields comes here
+    #PLACEHOLDER
+    $('.name-password-form').show()

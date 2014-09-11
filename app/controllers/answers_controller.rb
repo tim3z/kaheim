@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
   end
 
   def block_spam
-    unless user_signed_in? || verify_recaptcha
+    unless (user_signed_in? && current_user.confirmed?) || verify_recaptcha
       flash[:error] = t('recaptcha.errors.verification_failed')
       render_item
     end

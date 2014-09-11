@@ -8,6 +8,7 @@ module Item
 
     base.scope :unlocked, -> { base.joins(:user).where(users: { unlocked: true }) }
     base.scope :locked, -> { base.joins(:user).where(users: { unlocked: false }) }
+    base.scope :confirmed, -> { base.joins(:user).where.not(users: { confirmed_at: nil }) }
     base.scope :current, -> { base.where("#{base.table_name}.updated_at >= ?", base.outdating_date) }
     base.scope :outdated, -> { base.where("#{base.table_name}.updated_at < ?", base.outdating_date) }
   end
@@ -21,7 +22,7 @@ module Item
   end
 
   def visible?
-    user.unlocked? && current?
+    user.unlocked? && user.confirmed? && current?
   end
 
   module ClassMethods
@@ -31,7 +32,7 @@ module Item
 
     def visible_for(user = nil)
       return current if user.try :admin?
-      query = current.unlocked
+      query = current.unlocked.confirmed
       query = query.or(where(user: user)) if user
       query
     end
