@@ -153,8 +153,8 @@ de:
       subscribe: Abonnieren
       unsubscribe: Abmelden
     subscribe:
-      save_error: Abonnement konnte nicht erstellt werden.
-      existing: Es existiert bereits ein Abonnement für diese E-Mail-Adresse.
+      error_save: Abonnement konnte nicht erstellt werden.
+      error_existing: Es existiert bereits ein Abonnement für diese E-Mail-Adresse.
       success:
         confirmed: Abonnement wurde erfolgreich erstellt.
         unconfirmed: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung Deiner E-Mail-Adresse.

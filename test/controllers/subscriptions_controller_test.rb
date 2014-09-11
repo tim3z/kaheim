@@ -1,6 +1,6 @@
 class SubscriptionsControllerTest < ActionController::TestCase
 
-  test 'subscribe non user' do
+  test 'subscribe offers with non user' do
     email_address = 'donald.duck@duckburg.com'
     request.env['HTTP_REFERER'] = 'localhost'
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
@@ -20,8 +20,8 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_not subscription.confirmed?
   end
 
-  test 'confirm user' do
-    subscription = subscriptions(:unconfirmed)
+  test 'confirm offer subscriber' do
+    subscription = subscriptions(:offer_subscriber_unconfirmed)
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
       get :confirm, confirmation_token: subscription.confirmation_token
     end
@@ -32,6 +32,40 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
     assert_equal subscription.email, subscribe_email.to[0]
     assert_match(/.*Dein Abonnement für neue Angebote auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
+
+    subscription = Subscription.find_by_email(subscription.email)
+    assert subscription.confirmed?
+  end
+
+  test 'confirm request subscriber' do
+    subscription = subscriptions(:request_subscriber_unconfirmed)
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      get :confirm, confirmation_token: subscription.confirmation_token
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.activation.success'), flash[:notice]
+
+    subscribe_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
+    assert_equal subscription.email, subscribe_email.to[0]
+    assert_match(/.*Dein Abonnement für neue Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
+
+    subscription = Subscription.find_by_email(subscription.email)
+    assert subscription.confirmed?
+  end
+
+  test 'confirm everything subscriber' do
+    subscription = subscriptions(:everything_subscriber_unconfirmed)
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      get :confirm, confirmation_token: subscription.confirmation_token
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.activation.success'), flash[:notice]
+
+    subscribe_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
+    assert_equal subscription.email, subscribe_email.to[0]
+    assert_match(/.*Dein Abonnement für neue Angebote und Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
 
     subscription = Subscription.find_by_email(subscription.email)
     assert subscription.confirmed?
@@ -104,7 +138,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
       post :create, subscription: { email: subscriber.email, offers: 'true' }
     end
     assert_redirected_to 'localhost'
-    assert_equal I18n.t('subscriptions.subscribe.existing'), flash[:error]
+    assert_equal I18n.t('subscriptions.subscribe.error_existing'), flash[:error]
 
     subscription = Subscription.find_by_email(subscriber.email)
     assert subscription.offers
@@ -120,11 +154,54 @@ class SubscriptionsControllerTest < ActionController::TestCase
       post :create, subscription: { email: subscriber.email, offers: 'true' }
     end
     assert_redirected_to 'localhost'
-    assert_equal I18n.t('subscriptions.subscribe.existing'), flash[:error]
+    assert_equal I18n.t('subscriptions.subscribe.error_existing'), flash[:error]
 
     subscription = Subscription.find_by_email(subscriber.email)
     assert subscription.offers
     assert subscription.requests
+  end
+
+  test 'subscribe offers for existing user without existing subscriptions and user is logged in' do
+    user = users(:david)
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+
+    sign_in(user)
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post :create, subscription: { email: user.email, offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_nil flash[:notice]
+    assert_nil flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert_not subscription.requests
+    assert subscription.confirmed?
+  end
+
+  test 'subscribe offers for existing user without existing subscriptions and user is not logged in' do
+    user = users(:david)
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      post :create, subscription: { email: user.email, offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed'), flash[:notice]
+
+    confirm_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.confirmation_request.subject'), confirm_email.subject
+    assert_equal user.email, confirm_email.to[0]
+    assert_match(/.*Um Deine E-Mail-Adresse zu bestätigen.*/, confirm_email.body.to_s)
+
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert_not subscription.requests
+    assert_not subscription.confirmed?
   end
 
 end

@@ -25,8 +25,22 @@ request_subscriber:
   offers: false
   unsubscribe_token: 7ac657a2d0b948094
 
+request_subscriber_unconfirmed:
+  email: send.me.your.requests@unconfirmed.de
+  offers: false
+  requests: true
+  confirmation_token: e86b0e3ddd7280e4
+  unsubscribe_token: 293a4b176c9c0e1e9329
+
 everything_subscriber:
   email: send.me.everything@kaheim.de
   requests: true
   offers: true
   unsubscribe_token: 3d3e9b453c7ea8da2acb20
+
+everything_subscriber_unconfirmed:
+  email: send.me.everything@unconfirmed.de
+  offers: true
+  requests: true
+  confirmation_token: 69ce80a9404b29549f3025
+  unsubscribe_token: 7177108c3ad1ede99

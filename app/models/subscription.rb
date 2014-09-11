@@ -34,8 +34,8 @@ class Subscription < ActiveRecord::Base
     if self.offers && self.requests
       'all'
     else
-      'requests' if self.requests
-      'offers' if self.offers
+      return 'requests' if self.requests
+      return 'offers' if self.offers
     end
   end
 
