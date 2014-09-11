@@ -14,7 +14,7 @@
    inkscape:version="0.48.4 r9939"
    width="155.45868"
    height="36.15522"
-   sodipodi:docname="banner-faecher2.svg"
+   sodipodi:docname="banner-faecher.svg"
    inkscape:export-filename="/home/jonathan/dev/artwork/kaheim/banner.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
@@ -63,15 +63,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="905"
-     inkscape:window-height="898"
+     inkscape:window-width="1283"
+     inkscape:window-height="914"
      id="namedview3041"
      showgrid="false"
      inkscape:zoom="9.0836025"
-     inkscape:cx="27.126439"
+     inkscape:cx="43.726025"
      inkscape:cy="17.479903"
-     inkscape:window-x="1366"
-     inkscape:window-y="0"
+     inkscape:window-x="1693"
+     inkscape:window-y="89"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg3039"
      showguides="true"
@@ -138,15 +138,17 @@
      id="path3833"
      inkscape:connector-curvature="0" />
   <path
-     style="fill:#777777;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
-     d="M 6.5021911,19.329479 15.283474,35.495366 10.293273,36.153348 5.05441,19.530092 z"
+     style="fill:#777777;fill-opacity:1;stroke:none"
+     d="M 6.5021911,19.329479 15.283474,35.495366 11.173981,36.153348 5.05441,19.530092 z"
      id="path3835"
-     inkscape:connector-curvature="0" />
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccc" />
   <path
-     style="fill:#777777;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
-     d="M 6.4131787,20.612895 8.0364586,36.155017 5.6139764,36.120194 5.0247606,20.907783 z"
+     style="fill:#777777;fill-opacity:1;stroke:none"
+     d="m 6.4131787,20.612895 2.7241647,15.540453 -2.9729246,0 -1.1396582,-15.245565 z"
      id="path3837"
-     inkscape:connector-curvature="0" />
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccc" />
   <path
      style="fill:#777777;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
      d="M 6.4031989,17.788368 27.064748,26.080274 25.669052,29.410385 6.3682644,18.231578 z"
