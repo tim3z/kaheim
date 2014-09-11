@@ -82,13 +82,11 @@
               </ul>
             </li>
           <% else %>
-            <li>
-              <%= link_to t('helpers.links.sign_up'), new_user_registration_path %>
-            </li>
             <li class="dropdown">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown"><%= t('helpers.links.sign_in') %><strong class="caret"></strong></a>
               <div class="dropdown-menu" style="padding: 15px; width: 300px;">
                 <%= render partial: 'devise/sessions/new' %>
+                <%= link_to t('helpers.links.sign_up'), new_user_session_path %>
               </div>
             </li>
           <% end %>

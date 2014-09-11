@@ -10,13 +10,8 @@
     <div class="dropdown pull-right">
       <%= render 'shared/sort_menu' %>
     </div>
-    <% if user_signed_in? %>
-      <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-default pull-right' %>
-    <% end %>
+    <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-default pull-right' %>
   </h1>
-  <% unless user_signed_in? %>
-    <strong><%= It.it('helpers.sign_in_for_offer', sign_up_link: new_user_registration_path, sign_in_link: new_user_session_path) %></strong>
-  <% end %>
 </div>
 <div class="row">
   <div class="col-md-12 sort">

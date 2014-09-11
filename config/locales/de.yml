@@ -183,6 +183,7 @@ de:
       description: "Detaillierte Infos und ausführliche Beschreibung."
       temporal: '(bei Zwischenmiete)'
 
+    unconfirmed: "Unbestätigt"
   user_mailer:
     answer_mail:
       subject: "Antwort auf '%{title}'"

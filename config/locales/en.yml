@@ -177,6 +177,7 @@ en:
       description: "Detailed information and description."
       temporal: '(if temporal)'
 
+    unconfirmed: "Unconfirmed"
   user_mailer:
     answer_mail:
       subject: "Reply to '%{title}'"

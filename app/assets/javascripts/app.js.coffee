@@ -45,5 +45,9 @@ $ ->
   $('#subscribed-button').hover (event) ->
      $('.subscribed-button-content').toggle()
 
-
-
+  $('#continue', '.combi-form').click ->
+    $(this).hide()
+    $('#combi-submit').show()
+    #ajax and js-logic for showing name and password or two password fields comes here
+    #PLACEHOLDER
+    $('.name-password-form').show()
