@@ -82,5 +82,7 @@ group :production do
   gem 'dotenv-rails'
 end
 
+gem 'simplecov', :require => false, :group => :test
+
 ruby '2.1.2'
 
