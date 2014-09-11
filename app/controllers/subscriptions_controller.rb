@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if @subscription.changed?
       unless @subscription.save
-        redirect_to :back, flash: { error: t('subscriptions.subscribe.error_save') + @subscription.errors}
+        redirect_to :back, flash: { error: t('subscriptions.subscribe.error_save')}
         return
       end
       if @subscription.confirmed?
@@ -32,7 +32,8 @@ class SubscriptionsController < ApplicationController
   def unsubscribe_user
     @subscription = Subscription.find_by_email(current_user.email)
     unless @subscription
-      redirect_to :back, notice: t('subscriptions.unsubscribe.not_subscribed')
+      redirect_to :back, flash: { error: t('subscriptions.unsubscribe.not_subscribed')}
+      return
     end
     @subscription.offers = false if subscription_params[:offers] == 'true'
     @subscription.requests = false if subscription_params[:requests] == 'true'
@@ -41,13 +42,14 @@ class SubscriptionsController < ApplicationController
     else
       @subscription.destroy
     end
-    redirect_to root_path
+    redirect_to :back
   end
 
   def destroy
     @subscription = Subscription.find_by_unsubscribe_token(params[:unsubscribe_token])
     unless @subscription
       redirect_to root_path, flash: { error: t('subscriptions.unsubscribe.bad_token')}
+      return
     end
     case params[:item_type]
       when 'offers'
@@ -66,7 +68,9 @@ class SubscriptionsController < ApplicationController
     else
       @subscription.destroy
     end
-    SubscriptionMailer.unsubscribe_notification(@subscription).deliver
+    unless user_signed_in?
+      SubscriptionMailer.unsubscribe_notification(@subscription).deliver
+    end
     redirect_to root_path, notice: t('subscriptions.unsubscribe.success')
   end
 
@@ -86,8 +90,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def check_offers_or_requests
-    unless subscription_params[:offers] || subscription_params[:requests]
-      redirect_to root_path
+    unless subscription_params[:offers] == 'true' || subscription_params[:requests] == 'true'
+      redirect_to :back, flash: { error: t('subscriptions.subscribe.nothing_selected')}
     end
   end
 

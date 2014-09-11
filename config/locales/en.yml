@@ -149,6 +149,7 @@ en:
     subscribe:
       error_save: Subscription could not be created.
       error_existing: There is already a subscription for this email address.
+      nothing_selected: No valid item type selected.
       success:
         confirmed: Subscription was successfully created.
         unconfirmed: Subscription was successfully created. You will receive an email containing a link to confirm your email address.

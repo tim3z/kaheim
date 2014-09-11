@@ -20,6 +20,19 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_not subscription.confirmed?
   end
 
+  test 'subscribe offers with invalid email address' do
+    email_address = 'donald.duck(at)duckburg.com'
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post :create, subscription: { email: email_address, offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_equal I18n.t('subscriptions.subscribe.error_save'), flash[:error]
+
+    subscription = Subscription.find_by_email(email_address)
+    assert_nil subscription
+  end
+
   test 'confirm offer subscriber' do
     subscription = subscriptions(:offer_subscriber_unconfirmed)
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
@@ -161,7 +174,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscription.requests
   end
 
-  test 'subscribe offers for existing user without existing subscriptions and user is logged in' do
+  test 'subscribe offers for existing user without existing subscriptions and user is signed in' do
     user = users(:david)
     subscription = Subscription.find_by_email(user.email)
     assert_nil subscription
@@ -181,7 +194,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscription.confirmed?
   end
 
-  test 'subscribe offers for existing user without existing subscriptions and user is not logged in' do
+  test 'subscribe offers for existing user without existing subscriptions and user is not signed in' do
     user = users(:david)
     subscription = Subscription.find_by_email(user.email)
     assert_nil subscription
@@ -203,5 +216,288 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_not subscription.requests
     assert_not subscription.confirmed?
   end
+
+  test 'subscribe nothing for existing user without existing subscriptions' do
+    user = users(:david)
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post :create, subscription: { email: user.email, offers: 'no' }
+    end
+    assert_redirected_to 'localhost'
+    assert_equal I18n.t('subscriptions.subscribe.nothing_selected'), flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+  end
+
+  test 'subscribe nothing for everything subscriber' do
+    subscriber = subscriptions(:everything_subscriber)
+    assert subscriber.offers
+    assert subscriber.requests
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post :create, subscription: { email: subscriber.email, offers: 'no' }
+    end
+    assert_redirected_to 'localhost'
+    assert_equal I18n.t('subscriptions.subscribe.nothing_selected'), flash[:error]
+
+    subscription = Subscription.find_by_email(subscriber.email)
+    assert subscription.offers
+    assert subscription.requests
+  end
+
+  # ==================== Unsubscribe User ====================
+
+  # ========== user not signed in ==========
+
+  test 'unsubscribe everything user from offers when signed in' do
+    user = users(:everything_subscriber)
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert subscription.requests
+    sign_in(user)
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :unsubscribe_user, subscription: { offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_nil flash[:notice]
+    assert_nil flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert_not subscription.offers
+    assert subscription.requests
+  end
+
+  test 'unsubscribe everything user from requests when signed in' do
+    user = users(:everything_subscriber)
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert subscription.requests
+    sign_in(user)
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :unsubscribe_user, subscription: { requests: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_nil flash[:notice]
+    assert_nil flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert_not subscription.requests
+  end
+
+  test 'unsubscribe offer user from offers when signed in' do
+    user = users(:offer_subscriber)
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert_not subscription.requests
+    sign_in(user)
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :unsubscribe_user, subscription: { offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_nil flash[:notice]
+    assert_nil flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+  end
+
+  test 'unsubscribe request user from requests when signed in' do
+    user = users(:request_subscriber)
+    subscription = Subscription.find_by_email(user.email)
+    assert_not subscription.offers
+    assert subscription.requests
+    sign_in(user)
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :unsubscribe_user, subscription: { requests: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_nil flash[:notice]
+    assert_nil flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+  end
+
+  test 'unsubscribe not subscribed user when signed in' do
+    user = users(:david)
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+    sign_in(user)
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :unsubscribe_user, subscription: { offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_nil flash[:notice]
+    assert_equal I18n.t('subscriptions.unsubscribe.not_subscribed'), flash[:error]
+  end
+
+  test 'unsubscribe offer user by token when signed in' do
+    user = users(:offer_subscriber)
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert_not subscription.requests
+    sign_in(user)
+
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :destroy, {unsubscribe_token: subscription.unsubscribe_token, item_type: 'offers' }
+    end
+    assert_redirected_to root_path
+    assert_nil flash[:error]
+    assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+  end
+
+  # ========== user not signed in ==========
+
+  test 'unsubscribe everything user from offers when not signed in' do
+    subscriber = subscriptions(:everything_subscriber)
+    assert subscriber.offers
+    assert subscriber.requests
+
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'offers' }
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
+    assert_nil flash[:error]
+
+    unsubscribe_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal subscriber.email, unsubscribe_email.to[0]
+    assert_match(/.*Benachrichtigungen über neue Gesuche erhältst.*/, unsubscribe_email.body.to_s)
+
+    subscription = Subscription.find_by_email(subscriber.email)
+    assert_not subscription.offers
+    assert subscription.requests
+  end
+
+  test 'unsubscribe everything user from requests when not signed in' do
+    subscriber = subscriptions(:everything_subscriber)
+    assert subscriber.offers
+    assert subscriber.requests
+
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'requests' }
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
+    assert_nil flash[:error]
+
+    unsubscribe_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal subscriber.email, unsubscribe_email.to[0]
+    assert_match(/.*Benachrichtigungen über neue Angebote erhältst.*/, unsubscribe_email.body.to_s)
+
+    subscription = Subscription.find_by_email(subscriber.email)
+    assert_not subscription.requests
+    assert subscription.offers
+  end
+
+  test 'unsubscribe everything user from offers and requests when not signed in' do
+    subscriber = subscriptions(:everything_subscriber)
+    assert subscriber.offers
+    assert subscriber.requests
+
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'all' }
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
+    assert_nil flash[:error]
+
+    unsubscribe_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal subscriber.email, unsubscribe_email.to[0]
+    assert_match(/.*erhältst in Zukunft keine Benachrichtigungen über neue Einträge.*/, unsubscribe_email.body.to_s)
+
+    subscription = Subscription.find_by_email(subscriber.email)
+    assert_nil subscription
+  end
+
+  test 'unsubscribe offer user from offers when not signed in' do
+    subscriber = subscriptions(:offer_subscriber)
+    assert subscriber.offers
+
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'offers' }
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
+    assert_nil flash[:error]
+
+    unsubscribe_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal subscriber.email, unsubscribe_email.to[0]
+    assert_match(/.*erhältst in Zukunft keine Benachrichtigungen über neue Einträge.*/, unsubscribe_email.body.to_s)
+
+    subscription = Subscription.find_by_email(subscriber.email)
+    assert_nil subscription
+  end
+
+  test 'unsubscribe request user from requests when not signed in' do
+    subscriber = subscriptions(:request_subscriber)
+    assert subscriber.requests
+
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'requests' }
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
+    assert_nil flash[:error]
+
+    unsubscribe_email = ActionMailer::Base.deliveries.last
+    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal subscriber.email, unsubscribe_email.to[0]
+    assert_match(/.*erhältst in Zukunft keine Benachrichtigungen über neue Einträge.*/, unsubscribe_email.body.to_s)
+
+    subscription = Subscription.find_by_email(subscriber.email)
+    assert_nil subscription
+  end
+
+  test 'unsubscribe user with bad token when not signed in' do
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :destroy, {unsubscribe_token: '59ac3233c0c663bc07e3c3aa4b', item_type: 'requests' }
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.unsubscribe.bad_token'), flash[:error]
+    assert_nil flash[:notice]
+  end
+
+  test 'unsubscribe everything user from invalid item type when not signed in' do
+    subscriber = subscriptions(:everything_subscriber)
+    assert subscriber.offers
+    assert subscriber.requests
+
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'foobar' }
+    end
+    assert_redirected_to root_path
+    assert_equal I18n.t('subscriptions.unsubscribe.bad_item_type'), flash[:error]
+    assert_nil flash[:notice]
+
+    subscription = Subscription.find_by_email(subscriber.email)
+    assert subscription.offers
+    assert subscription.requests
+  end
+
 
 end

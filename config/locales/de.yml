@@ -155,6 +155,7 @@ de:
     subscribe:
       error_save: Abonnement konnte nicht erstellt werden.
       error_existing: Es existiert bereits ein Abonnement für diese E-Mail-Adresse.
+      nothing_selected: Es wurde kein gültiges Abonnement ausgewählt.
       success:
         confirmed: Abonnement wurde erfolgreich erstellt.
         unconfirmed: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung Deiner E-Mail-Adresse.

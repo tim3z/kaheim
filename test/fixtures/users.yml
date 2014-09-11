@@ -2,3 +2,16 @@
 david:
   name: David Hansson
   email: david@hansson-family.com
+
+offer_subscriber:
+  name: offer subscriber
+  email: send.me.your.offers@kaheim.de
+
+request_subscriber:
+  name: request subscriber
+  email: send.me.your.requests@kaheim.de
+
+everything_subscriber:
+  name: everything subscriber
+  email: send.me.everything@kaheim.de
+
