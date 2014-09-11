@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if @subscription.changed?
       unless @subscription.save
-        redirect_to :back, flash: { error: t('subscriptions.subscribe.save_error')}
+        redirect_to :back, flash: { error: t('subscriptions.subscribe.save_error') + @subscription.errors}
         return
       end
       if @subscription.confirmed?
@@ -22,7 +22,7 @@ class SubscriptionsController < ApplicationController
       @subscription.confirm!
     end
     if @subscription.confirmed?
-      redirect_to :back
+      redirect_to :back, flash: { error: t('subscriptions.subscribe.existing')}
     else
       SubscriptionMailer.confirmation_request(@subscription).deliver
       redirect_to :back, notice: t('subscriptions.subscribe.success.unconfirmed')

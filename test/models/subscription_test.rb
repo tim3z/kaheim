@@ -37,4 +37,9 @@ class SubscriptionTest < ActiveSupport::TestCase
     assert_not subscription2.save
   end
 
+  test 'user without confirmation token is confirmed' do
+    subscriber = subscriptions(:offer_subscriber)
+    assert subscriber.confirmed?
+  end
+
 end

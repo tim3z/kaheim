@@ -5,3 +5,28 @@ unconfirmed:
   requests: false
   confirmation_token: 119a3824346aaa94441ca
   unsubscribe_token: 1923d1ad7077cdc66e
+
+offer_subscriber:
+  email: send.me.your.offers@kaheim.de
+  offers: true
+  requests: false
+  unsubscribe_token: bcb77b98222dc346ee4e
+
+offer_subscriber_unconfirmed:
+  email: send.me.your.offers@unconfirmed.de
+  offers: true
+  requests: false
+  confirmation_token: 4e6bd5842d427ec5778b4
+  unsubscribe_token: 1a4f5d9bf68519d23fa9a783
+
+request_subscriber:
+  email: send.me.your.requests@kaheim.de
+  requests: true
+  offers: false
+  unsubscribe_token: 7ac657a2d0b948094
+
+everything_subscriber:
+  email: send.me.everything@kaheim.de
+  requests: true
+  offers: true
+  unsubscribe_token: 3d3e9b453c7ea8da2acb20
