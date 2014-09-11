@@ -8,4 +8,4 @@ Du hast gerade ein Abonnement für Benachrichtigungen für neue <%=
     else
       'Gesuche'
     end %> auf Kaheim angefordert.
-Um Deine E-Mail-Adresse zu bestätigen und das Abonnement zu aktivieren, klicke bitte auf diesen <%= link_to 'Link', subscription_activate_url(@subscription.confirmation_token, :protocol => "https") %>.
+Um Deine E-Mail-Adresse zu bestätigen und das Abonnement zu aktivieren, klicke bitte auf diesen <%= link_to 'Link', subscriptions_confirm_url(@subscription.confirmation_token, :protocol => "https") %>.

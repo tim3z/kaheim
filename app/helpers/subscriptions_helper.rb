@@ -1,4 +1,4 @@
-module SubscriptionHelper
+module SubscriptionsHelper
   def user_subscribed(user, item_type)
     subscription = Subscription.find_by_email(user.email) or return false
     case item_type

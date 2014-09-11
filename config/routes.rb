@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  post 'subscription/create'
-  delete 'subscription/destroy'
-  get 'subscription/activate/:confirmation_token' => 'subscription#activate', as: 'subscription_activate'
-  get 'subscription/unsubscribe/:item_type/:unsubscribe_token' => 'subscription#destroy', as: 'subscription_unsubscribe'
-  delete 'subscription/unsubscribe' => 'subscription#unsubscribe_user', as: 'subscription_unsubscribe_user'
+  post 'subscriptions/create'
+  delete 'subscriptions/destroy'
+  get 'subscription/confirm/:confirmation_token' => 'subscriptions#confirm', as: 'subscriptions_confirm'
+  get 'subscription/unsubscribe/:item_type/:unsubscribe_token' => 'subscriptions#destroy', as: 'subscriptions_unsubscribe'
+  delete 'subscription/unsubscribe' => 'subscriptions#unsubscribe_user', as: 'subscriptions_unsubscribe_user'
 
   get 'users/items'
 

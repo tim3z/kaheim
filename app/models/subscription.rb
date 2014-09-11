@@ -6,7 +6,7 @@ class Subscription < ActiveRecord::Base
 
   before_validation :generate_tokens!, on: :create
 
-  scope :activated, -> { where("confirmation_token is null or confirmation_token = ''") }
+  scope :confirmed, -> { where("confirmation_token is null or confirmation_token = ''") }
   scope :offers, -> { where offers: true }
   scope :requests, -> { where requests: true }
 
@@ -21,11 +21,11 @@ class Subscription < ActiveRecord::Base
     end
   end
 
-  def active?
+  def confirmed?
     confirmation_token.blank?
   end
 
-  def activate!
+  def confirm!
     self.confirmation_token = nil
     self.save!
   end

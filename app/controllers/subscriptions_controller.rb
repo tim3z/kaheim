@@ -1,4 +1,4 @@
-class SubscriptionController < ApplicationController
+class SubscriptionsController < ApplicationController
 
   before_filter :check_offers_or_requests, only: [:create]
   before_filter :authenticate_user!, only: [:unsubscribe_user]
@@ -12,16 +12,16 @@ class SubscriptionController < ApplicationController
         redirect_to :back, flash: { error: t('subscriptions.subscribe.save_error')}
         return
       end
-      if @subscription.active?
+      if @subscription.confirmed?
         SubscriptionMailer.subscribe_notification(@subscription).deliver
         redirect_to :back, notice: t('subscriptions.subscribe.success.confirmed')
         return
       end
     end
     if user_signed_in? && current_user.email == @subscription.email
-      @subscription.activate!
+      @subscription.confirm!
     end
-    if @subscription.active?
+    if @subscription.confirmed?
       redirect_to :back
     else
       SubscriptionMailer.confirmation_request(@subscription).deliver
@@ -70,10 +70,10 @@ class SubscriptionController < ApplicationController
     redirect_to root_path, notice: t('subscriptions.unsubscribe.success')
   end
 
-  def activate
+  def confirm
     @subscription = Subscription.find_by(confirmation_token: params[:confirmation_token])
     @subscription or return redirect_to root_path, flash: { error: t('subscriptions.activation.bad_token') }
-    @subscription.activate!
+    @subscription.confirm!
     SubscriptionMailer.subscribe_notification(@subscription).deliver
     redirect_to root_path, notice: t('subscriptions.activation.success')
   end

@@ -1,0 +1,7 @@
+
+unconfirmed:
+  email: unconfirmed.user@kaheim.de
+  offers: true
+  requests: false
+  confirmation_token: 119a3824346aaa94441ca
+  unsubscribe_token: 1923d1ad7077cdc66e

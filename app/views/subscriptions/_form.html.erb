@@ -1,7 +1,7 @@
-<%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscription_create_path, layout: :inline) do |f| %>
-  <%= t 'subscriptions.subscribe' %>
+<%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_create_path, layout: :inline) do |f| %>
+  <%= t 'subscriptions.actions.subscribe' %>
   <%= f.hidden_field item_type, value: true %>
-  <%= f.submit t('subscriptions.subscribe'), class: 'btn btn-primary pull-right',  id: 'subscription-submit-button', style: 'display: none' %>
+  <%= f.submit t('subscriptions.actions.subscribe'), class: 'btn btn-primary pull-right',  id: 'subscription-submit-button', style: 'display: none' %>
   <span class="btn btn-default pull-right subscription-toggle" id="subscription-back-button"><%= t('helpers.links.back') %></span>
   <%= f.email_field :email,
                     id: 'subscription-email',
