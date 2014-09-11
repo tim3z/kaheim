@@ -31,3 +31,8 @@ admin:
 jim:
   name: Jim Fisher
   email: jim.f@gmail.com
+
+jane:
+  name: Jane Vaider
+  email: jane@darth.vaider.com
+  unlocked: true

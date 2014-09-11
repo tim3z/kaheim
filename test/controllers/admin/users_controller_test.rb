@@ -10,7 +10,8 @@ class Admin::UsersControllerTest < ActionController::TestCase
     user = users(:tina)
     assert_not user.unlocked
 
-    assert_difference 'ActionMailer::Base.deliveries.size', +2 do
+    num_subscribers = Subscription.offers.confirmed.count
+    assert_difference 'ActionMailer::Base.deliveries.size', +num_subscribers do
       put :unlock, id: user.id
     end
 
@@ -26,7 +27,8 @@ class Admin::UsersControllerTest < ActionController::TestCase
     user = users(:jim)
     assert_not user.unlocked
 
-    assert_difference 'ActionMailer::Base.deliveries.size', +2 do
+    num_subscribers = Subscription.offers.confirmed.count
+    assert_difference 'ActionMailer::Base.deliveries.size', +num_subscribers do
       put :unlock, id: user.id
     end
 
@@ -42,7 +44,8 @@ class Admin::UsersControllerTest < ActionController::TestCase
     user = users(:john)
     assert_not user.unlocked
 
-    assert_difference 'ActionMailer::Base.deliveries.size', +4 do
+    num_subscribers = Subscription.offers.confirmed.count
+    assert_difference 'ActionMailer::Base.deliveries.size', +(num_subscribers * 2) do
       put :unlock, id: user.id
     end
 
