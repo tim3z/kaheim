@@ -15,3 +15,19 @@ everything_subscriber:
   name: everything subscriber
   email: send.me.everything@kaheim.de
 
+john:
+  name: John Ericson
+  email: john.ericson@example.com
+
+tina:
+  name: Tina Simpson
+  email: tina@my-company.co
+
+admin:
+  name: The Administrator
+  email: admin@kaheim.de
+  admin: true
+
+jim:
+  name: Jim Fisher
+  email: jim.f@gmail.com
