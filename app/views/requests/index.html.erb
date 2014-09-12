@@ -11,4 +11,8 @@
     <%= link_to t('requests.new.title'), new_request_path, class: 'btn btn-default top-align' %>
   </h1>
 </div>
-<%= render partial: 'list', locals: {requests: @requests} %>
+<div class="row">
+  <div class="col-md-12 sort">
+    <%= render partial: 'list', locals: {requests: @requests} %>
+  </div>
+</div>

@@ -83,10 +83,10 @@ en:
 
   sort:
     action: Sort
-    by_from_date: By move in date
-    by_rent: By rent
-    by_size: By size
-    by_updated_at: By last update
+    by_from_date: Earliest move-in date
+    by_rent: Cheapest first
+    by_size: Smalles first
+    by_updated_at: Newest first
 
   offers:
     new: 

@@ -14,6 +14,11 @@
     <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-default pull-right top-align' %>
   </h1>
 </div>
-<div class="sort">
-  <%= render partial: 'list', locals: { offers: @offers } %>
+<div class="row">
+  <div class="dropdown pull-right" id="sort-button">
+    <%= render 'shared/sort_menu' %>
+  </div>
+  <div class="col-md-12 sort">
+    <%= render partial: 'list', locals: { offers: @offers } %>
+  </div>
 </div>
