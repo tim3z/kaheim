@@ -4,19 +4,18 @@ $ ->
     $(this).parents('.item').find('div.short').toggle()
     $(this).parents('.item').find('div.long').toggle()
 
-  #short description sign counter
-  $('.short-description').keyup ->
-    short_description_length_check()
-
-  short_description_length_check = ->
+  set_short_description_length_indicator = ->
     if (140 - $('.short-description').val().length) >= 0
       $('.short-description').next().html(140 - $('.short-description').val().length)
     else
       $('.short-description').val($('.short-description').val().substr(0, 140))
       $('.short-description').next().html(140)
 
+  #short description sign counter
+  $('.short-description').keyup(set_short_description_length_indicator)
+
   if ($('.short-description').length > 0)
-    short_description_length_check()
+    set_short_description_length_indicator()
 
 
   $('[data-behaviour~=datepicker]').datepicker
@@ -37,9 +36,10 @@ $ ->
     $('#current-sort-type').text($(this).text())
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
 
-  #toggle the subscription form in the page-headder
+  # toggle the subscription form in the page-headder
   $('.subscription-toggle-button').click ->
     $('.subscription-toggle').toggle()
+    $('#subscription-email').focus()
 
   #disabling the subscribe button and enabling the back button if no email is put in
   $('#subscription-email').on ('input'), ->
