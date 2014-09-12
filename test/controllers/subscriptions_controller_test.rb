@@ -174,7 +174,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscription.requests
   end
 
-  test 'subscribe offers for existing user without existing subscriptions and user is signed in' do
+  test 'subscribe offers for confirmed user without existing subscriptions and user is signed in' do
     user = users(:david)
     subscription = Subscription.find_by_email(user.email)
     assert_nil subscription
@@ -194,7 +194,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscription.confirmed?
   end
 
-  test 'subscribe offers for existing user without existing subscriptions and user is not signed in' do
+  test 'subscribe offers for confirmed user without existing subscriptions and user is not signed in' do
     user = users(:david)
     subscription = Subscription.find_by_email(user.email)
     assert_nil subscription
@@ -217,7 +217,44 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_not subscription.confirmed?
   end
 
-  test 'subscribe nothing for existing user without existing subscriptions' do
+  test 'subscribe offers for unconfirmed user without existing subscriptions and user is signed in' do
+    user = users(:tina)
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+
+    sign_in(user)
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post :create, subscription: { email: user.email, offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed_user'), flash[:notice]
+    assert_nil flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert_not subscription.requests
+    assert_not subscription.confirmed?
+  end
+
+  test 'subscribe nothing for existing user without existing subscriptions and user is signed in' do
+    user = users(:david)
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+
+    sign_in(user)
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post :create, subscription: { email: user.email, offers: 'no' }
+    end
+    assert_redirected_to 'localhost'
+    assert_equal I18n.t('subscriptions.subscribe.nothing_selected'), flash[:error]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert_nil subscription
+  end
+
+  test 'subscribe nothing for existing user without existing subscriptions and user is not signed in' do
     user = users(:david)
     subscription = Subscription.find_by_email(user.email)
     assert_nil subscription

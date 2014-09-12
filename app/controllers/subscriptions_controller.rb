@@ -19,8 +19,12 @@ class SubscriptionsController < ApplicationController
       end
     end
     if user_signed_in? && current_user.email == @subscription.email
-      @subscription.confirm!
-      redirect_to :back
+      if current_user.confirmed?
+        @subscription.confirm!
+        redirect_to :back
+      else
+        redirect_to :back, notice: t('subscriptions.subscribe.success.unconfirmed_user')
+      end
     elsif @subscription.confirmed?
       redirect_to :back, flash: { error: t('subscriptions.subscribe.error_existing')}
     else

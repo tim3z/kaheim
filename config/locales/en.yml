@@ -153,6 +153,7 @@ en:
       success:
         confirmed: Subscription was successfully created.
         unconfirmed: Subscription was successfully created. You will receive an email containing a link to confirm your email address.
+        unconfirmed_user: Subscription was successfully created. The subscription will be activated when you confirm your account using the link you received by email after registration.
     unsubscribe:
       bad_token: This unsubscribe link is invalid.
       bad_item_type: This subscription does not exist.

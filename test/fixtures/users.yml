@@ -2,6 +2,7 @@
 david:
   name: David Hansson
   email: david@hansson-family.com
+  confirmed_at: 14-12-2013
 
 offer_subscriber:
   name: offer subscriber

@@ -23,4 +23,10 @@ class User < ActiveRecord::Base
     self.unlocked = false
     self.save!
   end
+
+  def after_confirmation
+    subscription = Subscription.find_by_email(self.email)
+    subscription.confirm! if subscription
+  end
+
 end

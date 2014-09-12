@@ -159,6 +159,7 @@ de:
       success:
         confirmed: Abonnement wurde erfolgreich erstellt.
         unconfirmed: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung Deiner E-Mail-Adresse.
+        unconfirmed_user: Abonnement wurde erfolgreich erstellt. Es wird aktiv, sobald du deinen Account über den Link in der Mail, die du nach der Registrierung bekommen hast, bestätigt hast.
     unsubscribe:
       bad_token: Dieser Link zur Abmeldung ist ungültig.
       bad_item_type: Dieses Abonnement existiert nicht.

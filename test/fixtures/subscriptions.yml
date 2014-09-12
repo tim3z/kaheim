@@ -44,3 +44,10 @@ everything_subscriber_unconfirmed:
   requests: true
   confirmation_token: 69ce80a9404b29549f3025
   unsubscribe_token: 7177108c3ad1ede99
+
+jim_unconfirmed:
+  email: jim.f@gmail.com
+  offers: false
+  requests: true
+  confirmation_token: a3e9742e423204a950263
+  unsubscribe_token: 6319659bd198b4141
