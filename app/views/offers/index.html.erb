@@ -8,9 +8,6 @@
     <%= render partial: 'subscriptions/button', locals: { item_type: :offers } %>
 
     <%=t 'offers.list.title', count: @offers.count %>
-    <div class="dropdown pull-right top-align">
-      <%= render 'shared/sort_menu' %>
-    </div>
     <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-default pull-right top-align' %>
   </h1>
 </div>
