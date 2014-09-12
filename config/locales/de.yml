@@ -88,7 +88,7 @@ de:
     explanation: Unter deinem %{model} wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein %{model} antworten können. Kaheim schickt dir dann eine Mail mit der Antwort. Deine Kontaktdaten bleiben geschützt (solange du sie nicht oben angibst).
 
   sort:
-    action: Sortieren nach
+    sorted: Sortiert nach
     by_from_date: Einzugsdatum
     by_rent: Preis
     by_size: Größe
