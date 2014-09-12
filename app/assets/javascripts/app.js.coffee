@@ -1,5 +1,5 @@
 $ ->
-  #list view details toggle
+  # list view details toggle
   $('.toggle-collapse').click ->
     $(this).parents('.item').find('div.short').toggle()
     $(this).parents('.item').find('div.long').toggle()
@@ -11,7 +11,7 @@ $ ->
       $('.short-description').val($('.short-description').val().substr(0, 140))
       $('.short-description').next().html(140)
 
-  #short description sign counter
+  # short description sign counter
   $('.short-description').keyup(set_short_description_length_indicator)
 
   if ($('.short-description').length > 0)
@@ -41,7 +41,7 @@ $ ->
     $('.subscription-toggle').toggle()
     $('#subscription-email').focus()
 
-  #disabling the subscribe button and enabling the back button if no email is put in
+  # disabling the subscribe button and enabling the back button if no email is put in
   $('#subscription-email').on ('input'), ->
     if ($(this).val())
       $('#subscription-submit-button').show()
@@ -50,13 +50,6 @@ $ ->
       $('#subscription-submit-button').hide()
       $('#subscription-back-button').show()
 
-  #change appearance and text of sign off subscription button on hover
+  # change appearance and text of sign off subscription button on hover
   $('#subscribed-button').hover (event) ->
      $('.subscribed-button-content').toggle()
-
-  $('#continue', '.combi-form').click ->
-    $(this).hide()
-    $('#combi-submit').show()
-    #ajax and js-logic for showing name and password or two password fields comes here
-    #PLACEHOLDER
-    $('.name-password-form').show()
