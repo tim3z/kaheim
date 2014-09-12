@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.dropdown-menu {
+  min-width: 0;
+}
+
 .nav {
   .nav-with-note {
     a {
