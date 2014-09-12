@@ -36,10 +36,3 @@ $ ->
   $('.sort-trigger').click ->
     $('#current-sort-type').text($(this).text())
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
-
-  $('#continue', '.combi-form').click ->
-    $(this).hide()
-    $('#combi-submit').show()
-    #ajax and js-logic for showing name and password or two password fields comes here
-    #PLACEHOLDER
-    $('.name-password-form').show()
