@@ -13,11 +13,11 @@
       <%= f.hidden_field item_type, value: true %>
       <%= f.hidden_field :email,
                          value: current_user.email %>
-      <button class="btn btn-primary" id="subscribe-button">
+      <button class="btn btn-default" id="subscribe-button">
         <%= t('subscriptions.actions.subscribe') %>
       </button>
     <% end %>
   <% end %>
 <% else %>
-  <button class="btn btn-primary subscription-toggle-button"><%= t 'subscriptions.actions.subscribe' %></button>
+  <button class="btn btn-default subscription-toggle-button"><%= t 'subscriptions.actions.subscribe' %></button>
 <% end %>
