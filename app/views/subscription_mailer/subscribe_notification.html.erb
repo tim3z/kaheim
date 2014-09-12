@@ -1,0 +1,13 @@
+<p>Hallo,</p>
+
+<p>Dein Abonnement für neue <%=
+    if @subscription.offers && @subscription.requests
+      'Angebote und Gesuche'
+    elsif @subscription.offers
+      'Angebote'
+    else
+      'Gesuche'
+    end %> auf Kaheim ist jetzt aktiv.</p>
+
+<p>Um Dich davon wieder abzumelden, klicke auf diesen
+<%= link_to 'Link', subscriptions_unsubscribe_url( @subscription.subscribed_types, @subscription.unsubscribe_token, :protocol => "https") %>.</p>

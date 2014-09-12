@@ -147,11 +147,42 @@ de:
       lock: Benutzer sperren
       lock_done: Benutzer wurde erfolgreich gesperrt
 
+  subscriptions:
+    subscribed: Abonniert
+    actions:
+      subscribe: Abonnieren
+      unsubscribe: Abmelden
+    subscribe:
+      error_save: Abonnement konnte nicht erstellt werden.
+      error_existing: Es existiert bereits ein Abonnement für diese E-Mail-Adresse.
+      nothing_selected: Es wurde kein gültiges Abonnement ausgewählt.
+      success:
+        confirmed: Abonnement wurde erfolgreich erstellt.
+        unconfirmed: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung Deiner E-Mail-Adresse.
+        unconfirmed_user: Abonnement wurde erfolgreich erstellt. Es wird aktiv, sobald du deinen Account über den Link in der Mail, die du nach der Registrierung bekommen hast, bestätigt hast.
+    unsubscribe:
+      bad_token: Dieser Link zur Abmeldung ist ungültig.
+      bad_item_type: Dieses Abonnement existiert nicht.
+      not_subscribed: Dieses Abonnement existiert nicht.
+      success: Dein Abonnement wurde erfolgreich beendet.
+    activation:
+      bad_token: Dieser Link zur Bestätigung ist ungültig.
+      success: Dein Abonnement wurde erfolgreich bestätigt und ist jetzt aktiv.
+    mail: Deine Mail
+    confirmation_request:
+      subject: "Bestätigung Deiner E-Mail-Adresse nötig"
+    unsubscribe_notification:
+      subject: "Abonnement beendet"
+    subscribe_notification:
+      subject: "Abonnement erstellt"
+    new_item_notification:
+      subject: "Neuer Eintrag auf Kaheim"
+
   items:
     invisible: Unsichtbar
     outdated: Veraltet
     placeholder:
-      title: "Das wichtigste von deinem %{model} für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
+      title: "Das Wichtigste von deinem %{model} für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
       description: "Detaillierte Infos und ausführliche Beschreibung."
       temporal: '(bei Zwischenmiete)'
 

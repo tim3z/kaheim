@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  post 'subscriptions/create'
+  delete 'subscriptions/destroy'
+  get 'subscription/confirm/:confirmation_token' => 'subscriptions#confirm', as: 'subscriptions_confirm'
+  get 'subscription/unsubscribe/:item_type/:unsubscribe_token' => 'subscriptions#destroy', as: 'subscriptions_unsubscribe'
+  delete 'subscription/unsubscribe' => 'subscriptions#unsubscribe_user', as: 'subscriptions_unsubscribe_user'
+
   get 'users/items'
 
   get 'reactivate/:token' => 'item_reactivation#reactivate', as: 'reactivate'
@@ -6,7 +13,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   ActiveAdmin.routes(self)
 
-  devise_for :users
+  devise_for :users, :controllers => {confirmations: 'confirmations'}
   resources :offers
   resources :requests
 

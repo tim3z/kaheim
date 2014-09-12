@@ -30,6 +30,9 @@ class RequestsController < ApplicationController
       flash = {}
       if current_user.unlocked
         flash[:notice] = tm 'helpers.creation_success', @request
+        Subscription.requests.confirmed.each do |subscriber|
+          SubscriptionMailer.new_item_notification(@request, subscriber).deliver
+        end
       else
         flash[:alert] = tm 'helpers.creation_success_unlock_required', @request
         User.admin.find_each do |admin|

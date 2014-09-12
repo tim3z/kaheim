@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   validates_presence_of :name
 
-
   has_many :offers, dependent: :destroy
   has_many :requests, dependent: :destroy
 
@@ -23,4 +22,5 @@ class User < ActiveRecord::Base
     self.unlocked = false
     self.save!
   end
+
 end

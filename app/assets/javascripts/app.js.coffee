@@ -36,3 +36,27 @@ $ ->
   $('.sort-trigger').click ->
     $('#current-sort-type').text($(this).text())
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
+
+  #toggle the subscription form in the page-headder
+  $('.subscription-toggle-button').click ->
+    $('.subscription-toggle').toggle()
+
+  #disabling the subscribe button and enabling the back button if no email is put in
+  $('#subscription-email').on ('input'), ->
+    if ($(this).val())
+      $('#subscription-submit-button').show()
+      $('#subscription-back-button').hide()
+    else
+      $('#subscription-submit-button').hide()
+      $('#subscription-back-button').show()
+
+  #change appearance and text of sign off subscription button on hover
+  $('#subscribed-button').hover (event) ->
+     $('.subscribed-button-content').toggle()
+
+  $('#continue', '.combi-form').click ->
+    $(this).hide()
+    $('#combi-submit').show()
+    #ajax and js-logic for showing name and password or two password fields comes here
+    #PLACEHOLDER
+    $('.name-password-form').show()

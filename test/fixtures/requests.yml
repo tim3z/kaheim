@@ -1,0 +1,6 @@
+
+need_room:
+  title: I need a room
+  description: Hi there, does anyone have a room for me?
+  gender: 2
+  user: jim

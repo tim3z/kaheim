@@ -1,3 +1,39 @@
 
 david:
   name: David Hansson
+  email: david@hansson-family.com
+  confirmed_at: 14-12-2013
+
+offer_subscriber:
+  name: offer subscriber
+  email: send.me.your.offers@kaheim.de
+
+request_subscriber:
+  name: request subscriber
+  email: send.me.your.requests@kaheim.de
+
+everything_subscriber:
+  name: everything subscriber
+  email: send.me.everything@kaheim.de
+
+john:
+  name: John Ericson
+  email: john.ericson@example.com
+
+tina:
+  name: Tina Simpson
+  email: tina@my-company.co
+
+admin:
+  name: The Administrator
+  email: admin@kaheim.de
+  admin: true
+
+jim:
+  name: Jim Fisher
+  email: jim.f@gmail.com
+
+jane:
+  name: Jane Vaider
+  email: jane@darth.vaider.com
+  unlocked: true

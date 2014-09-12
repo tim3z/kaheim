@@ -1,11 +1,6 @@
-<div class="page-header">
-  <h1>
-    <%=t 'requests.list.title', count: @requests.count %>
-    <%= link_to t('requests.new.title'), new_request_path, class: 'btn btn-primary' %>
-  </h1>
-</div>
+<%= render partial: 'shared/list_page_header', locals: { count: @requests.count, item: 'request'} %>
 <div class="row">
-  <div class="col-md-12 sort">
+  <div class="sort">
     <%= render partial: 'list', locals: {requests: @requests} %>
   </div>
 </div>

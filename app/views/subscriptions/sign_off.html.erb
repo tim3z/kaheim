@@ -1,0 +1,6 @@
+<%= bootstrap_form_for @subscription, layout: :horizontal, url: subscriptions_destroy_path, method: :delete do |f| %>
+  <%= f.email_field :email, value: @subscription.email, label: t('helpers.mail') %>
+
+  <%= f.hidden_field :offers %>
+  <%= f.hidden_field :requests %>
+<% end %>

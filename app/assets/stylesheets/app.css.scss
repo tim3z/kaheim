@@ -27,11 +27,6 @@
 
   .sperate-right {
   }
-
-  /* Rule prevents sort button to overlap with firts items headline */
-  .sort {
-    margin-top: 17px;
-  }
 }
 
 html, body {
@@ -57,7 +52,6 @@ ul.nav li.language a {
 }
 
 #sort-button {
-  margin-right: 15px;
   margin-bottom: -17px;
   z-index: 100;
 }
@@ -65,6 +59,7 @@ ul.nav li.language a {
 #backdrop {
   width: 100%;
   margin-top: 25px;
+  bottom: 0px;
 }
 
 #banner {
@@ -74,6 +69,7 @@ ul.nav li.language a {
 
 .footer {
   position: relative;
+  bottom: 0px;
   padding: 20px 0px;
   clear: both;
 

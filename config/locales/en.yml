@@ -141,6 +141,37 @@ en:
       lock: Lock user
       lock_done: User was successfully locked
 
+  subscriptions:
+    subscribed: Subscribed
+    actions:
+      subscribe: Subscribe
+      unsubscribe: Sign off
+    subscribe:
+      error_save: Subscription could not be created.
+      error_existing: There is already a subscription for this email address.
+      nothing_selected: No valid item type selected.
+      success:
+        confirmed: Subscription was successfully created.
+        unconfirmed: Subscription was successfully created. You will receive an email containing a link to confirm your email address.
+        unconfirmed_user: Subscription was successfully created. The subscription will be activated when you confirm your account using the link you received by email after registration.
+    unsubscribe:
+      bad_token: This unsubscribe link is invalid.
+      bad_item_type: This subscription does not exist.
+      not_subscribed: This subscription does not exist.
+      success: Your subscription was successfully deleted.
+    activation:
+      bad_token: This confirmation link is invalid.
+      success: Your subscription was successfully confirmed and is now active.
+    mail: Your email
+    confirmation_request:
+      subject: "Please confirm your email address"
+    unsubscribe_notification:
+      subject: "Subscription deleted"
+    subscribe_notification:
+      subject: "Subscription created"
+    new_item_notification:
+      subject: "New item on Kaheim"
+
   items:
     invisible: Invisible
     outdated: Outdated

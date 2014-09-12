@@ -1,14 +1,11 @@
-<div class="page-header">
-  <h1>
-    <%=t 'offers.list.title', count: @offers.count %>
-    <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-primary pull-right' %>
-  </h1>
-</div>
+<%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer'} %>
 <div class="row">
   <div class="dropdown pull-right" id="sort-button">
     <%= render 'shared/sort_menu' %>
   </div>
-  <div class="col-md-12 sort">
+</div>
+<div class="row">
+  <div class="sort">
     <%= render partial: 'offers/list', locals: { offers: @offers } %>
   </div>
 </div>

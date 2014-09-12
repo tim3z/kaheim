@@ -1,0 +1,33 @@
+
+tworooms:
+  title: Two Rooms in small flat
+  description: We offer two rooms for two guys in a flat close to the next supermarket.
+  rent: 240
+  size: 31
+  gender: 2
+  from_date: 01-01-2012
+  street: 80 Main St.
+  zip_code: 45876
+  user: john
+
+roommate_wanted:
+  title: Roommate wanted
+  description: We are looking for a roommate! Please answer or just come by.
+  rent: 420
+  size: 18
+  gender: 0
+  from_date: 01-03-2012
+  street: S Columbus
+  zip_code: 45876
+  user: john
+
+nice_appartment:
+  title: Nice appartment
+  description: I have a nice appartment and I'm looking for a roommate.
+  rent: 310
+  size: 14
+  gender: 0
+  from_date: 01-01-2016
+  street: Nicolai Ave.
+  zip_code: 12846
+  user: tina
