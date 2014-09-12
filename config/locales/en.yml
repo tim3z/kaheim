@@ -82,11 +82,11 @@ en:
     explanation: There is a contact form under your %{model} on the website. People can use it to contact you. Kaheim will then send you an Email with the answer. Your contact data is safe (unless you put it in the description).
 
   sort:
-    action: Sort
-    by_from_date: Earliest move-in date
-    by_rent: Cheapest first
-    by_size: Smalles first
-    by_updated_at: Newest first
+    action: Sort by
+    by_from_date: Move-in date
+    by_rent: Prize
+    by_size: Size
+    by_updated_at: Newest
 
   offers:
     new: 
