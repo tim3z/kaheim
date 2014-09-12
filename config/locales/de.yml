@@ -89,10 +89,10 @@ de:
 
   sort:
     action: Sortieren
-    by_from_date: Nach Einzugsdatum
-    by_rent: Nach Miete
-    by_size: Nach Größe
-    by_updated_at: Nach letztem Update
+    by_from_date: Frühstes Einzugsdatum zuerst
+    by_rent: Günstigstes zuerst
+    by_size: Kleinstes zuerst
+    by_updated_at: Neustes zuerst
 
   offers:
     new: 

@@ -26,6 +26,7 @@ $ ->
   $('select.select2').select2("val", $('select.select2').data('value'))
 
   $('.sort-trigger').click ->
+    $('#current-sort-type').text($(this).text())
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
 
   $('#continue', '.combi-form').click ->

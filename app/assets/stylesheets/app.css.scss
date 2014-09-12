@@ -27,6 +27,11 @@
 
   .sperate-right {
   }
+
+  /* Rule prevents sort button to overlap with firts items headline */
+  .sort {
+    margin-top: 17px;
+  }
 }
 
 html, body {
@@ -44,6 +49,17 @@ ul.nav li.language a {
 }
 
 #wrap {
+}
+
+.sort-trigger {
+  width: 100%;
+  text-align: right;
+}
+
+#sort-button {
+  margin-right: 15px;
+  margin-bottom: -17px;
+  z-index: 100;
 }
 
 #backdrop {
