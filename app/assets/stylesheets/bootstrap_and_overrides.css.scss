@@ -26,6 +26,11 @@ select {
   border-bottom: none;
 
   h1 {
+    .top-align {
+      vertical-align: top;
+      margin-top: 3px;
+    }
+
     a {
       float:right;
     }
@@ -36,20 +41,17 @@ select {
     }
 
     button {
-      vertical-align: top;
       margin-left: 10px;
       float: right;
     }
 
     #subscription-email {
-      vertical-align: top;
       margin-left: 10px;
       float: right;
       width: 243px;
     }
 
     .subscription-toggle, #subscription-submit-button, #subscription-back-button {
-      vertical-align: top;
       margin-left: 10px;
       float: right;
       width: 102px;
@@ -57,7 +59,6 @@ select {
 
     /* sort-dropdown alignment and positioning */
     div {
-
       ul {
         top: 35px;
       }
