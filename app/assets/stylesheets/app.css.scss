@@ -70,7 +70,6 @@ ul.nav li.language a {
 .footer {
   position: relative;
   bottom: 0px;
-  padding: 20px 0px;
   clear: both;
 
   text-align: center;
@@ -81,13 +80,28 @@ ul.nav li.language a {
     color: #777;
   }
   div.groups {
-    margin-bottom: 20px;
-    img {
-      margin: 5px 50px;
-    }
+    margin-top: 50px;
+    margin-bottom: 50px;
+    .group-image {
+      position: relative;
+      img {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
 
-    a {
-      text-decoration: none;
+        &.bw-group-image {
+          z-index: 2;
+        }
+
+        &.colored-group-image {
+          z-index: 1;
+        }
+      }
+
+      &:hover img.bw-group-image {
+        z-index: 0;
+      }
     }
   }
 }
