@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   ActiveAdmin.routes(self)
 
-  devise_for :users
+  devise_for :users, :controllers => {confirmations: 'confirmations'}
   resources :offers
   resources :requests
 
