@@ -27,7 +27,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
       post :create, subscription: { email: email_address, offers: 'true' }
     end
     assert_redirected_to 'localhost'
-    assert_equal I18n.t('subscriptions.subscribe.error_save'), flash[:error]
+    assert_match(/#{I18n.t('subscriptions.subscribe.error_save')}.*/, flash[:error])
 
     subscription = Subscription.find_by_email(email_address)
     assert_nil subscription
