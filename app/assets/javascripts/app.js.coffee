@@ -6,10 +6,18 @@ $ ->
 
   #short description sign counter
   $('.short-description').keyup ->
+    short_description_length_check()
+
+  short_description_length_check = ->
     if (140 - $('.short-description').val().length) >= 0
       $('.short-description').next().html(140 - $('.short-description').val().length)
     else
       $('.short-description').val($('.short-description').val().substr(0, 140))
+      $('.short-description').next().html(140)
+
+  if ($('.short-description').length > 0)
+    short_description_length_check()
+
 
   $('[data-behaviour~=datepicker]').datepicker
     autoclose: true,
