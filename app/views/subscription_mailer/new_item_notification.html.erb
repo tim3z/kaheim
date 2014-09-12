@@ -1,7 +1,9 @@
-Hallo,
+<p>Hallo,</p>
 
-auf Kaheim wurde ein neues <%= @item.class.model_name.human %> eingetragen:
-<%= @item.title %>
+<p>auf Kaheim wurde ein neues <%= @item.class.model_name.human %> eingetragen:
+<i><%= @item.title %></i>
+</p>
 
-Du erhältst diese Nachricht, da Du Benachrichtigungen über neue <%= @item.class.model_name.human(count: 2) %> abonniert hast.
-Um Dich davon abzumelden, klicke auf diesen <%= link_to 'Link', subscriptions_unsubscribe_url( @item.class.model_name.plural, @subscriber.unsubscribe_token, :protocol => "https") %>.
+<p>Du erhältst diese Nachricht, da Du Benachrichtigungen über neue <%= @item.class.model_name.human(count: 2) %> abonniert hast.
+Um Dich davon abzumelden, klicke auf diesen
+  <%= link_to 'Link', subscriptions_unsubscribe_url( @item.class.model_name.plural, @subscriber.unsubscribe_token, :protocol => "https") %>.</p>
