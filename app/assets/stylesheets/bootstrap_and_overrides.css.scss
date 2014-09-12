@@ -25,44 +25,36 @@ select {
   margin-top: 30px;
   border-bottom: none;
 
-  h1 {
-    .top-align {
-      vertical-align: top;
-      margin-top: 3px;
-    }
+    &.list-header {
+      .subscription-toggle {
+        /* sort-dropdown alignment and positioning */
+        div {
+          ul {
+            top: 35px;
+          }
+        }
 
-    a {
-      float:right;
-    }
+        /* headline text */
+        span.left {
+          font-size: 36px;
+          left: 0;
+        }
 
-    .form-group {
-      top: 0px;
-      float: right;
-    }
+        /* buttons and fields */
+        div.right {
+          margin-top: 9px;
+          right: 0;
+          float: right;
 
-    button {
-      margin-left: 10px;
-      float: right;
-    }
+          .subscription-toggle-button {
+            width: 103px;
+          }
 
-    #subscription-email {
-      margin-left: 10px;
-      float: right;
-      width: 243px;
-    }
-
-    .subscription-toggle, #subscription-submit-button, #subscription-back-button {
-      margin-left: 10px;
-      float: right;
-      width: 102px;
-    }
-
-    /* sort-dropdown alignment and positioning */
-    div {
-      ul {
-        top: 35px;
+          #subscription-email {
+            width: 275px;
+          }
+        }
       }
-    }
   }
 }
 

@@ -1,20 +1,9 @@
-<div class="page-header">
-  <h1 class="subscription-form-toggle" style="display: none;">
-    <!-- form for subscribing. see button below for how to access it -->
-    <%= render partial: 'subscriptions/form', locals: { item_type: :offers } %>
-  </h1>
-  <h1 class="subscription-form-toggle">
-    <!-- button to subscribe. switches headline to subscribe form if user is not logged in -->
-    <%= render partial: 'subscriptions/button', locals: { item_type: :offers } %>
-    <%=t 'offers.list.title', count: @offers.count %>
-    <%= link_to t('offers.new.title'), new_offer_path, class: 'btn btn-default pull-right top-align' %>
-  </h1>
-</div>
+<%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer'} %>
 <div class="row">
   <div class="dropdown pull-right" id="sort-button">
     <%= render 'shared/sort_menu' %>
   </div>
-  <div class="col-md-12 sort">
+  <div class="sort">
     <%= render partial: 'offers/list', locals: { offers: @offers } %>
   </div>
 </div>

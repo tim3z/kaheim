@@ -1,0 +1,21 @@
+<div class="page-header list-header">
+  <div class="row">
+    <div class="subscription-toggle" style="display: none;">
+      <!-- form for subscribing. see button below for how to access it -->
+      <span class="left">
+        <%= t 'subscriptions.actions.subscribe' %>
+      </span>
+      <div class="right">
+        <%= render partial: 'subscriptions/form', locals: { item_type: :"#{item}s" } %>
+      </div>
+    </div>
+    <div class="subscription-toggle">
+      <span class="left"><%= t ("#{item}s.list.title"), count: count %></span>
+      <!-- button to subscribe. switches headline to subscribe form if user is not logged in -->
+      <div class="right">
+        <%= link_to t("#{item}s.new.title"), send("new_#{item}_path"), class: 'btn btn-default' %>
+        <%= render partial: 'subscriptions/button', locals: { item_type: :"#{item}s" } %>
+      </div>
+    </div>
+  </div>
+</div>
