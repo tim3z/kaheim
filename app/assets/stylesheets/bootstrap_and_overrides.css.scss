@@ -31,6 +31,7 @@ select {
         div {
           ul {
             top: 35px;
+            z-index: 100;
           }
         }
 
@@ -46,21 +47,24 @@ select {
           right: 0;
           float: right;
 
+          /* subscribe button if user is not logged in, aswell as back button of the form */
           .subscription-toggle-button {
             width: 103px;
           }
 
           #subscription-email {
             width: 275px;
+            float: left;
+            margin-left: 0;
+          }
+
+          /* subscribe/unsubscribe button if user is logged in */
+          form.one-button-form {
+              float: right;
+              width: 103px;
+              margin-left: 4px;
           }
         }
       }
   }
-}
-
-legend {
-  width: auto;
-  padding: 0 10px;
-  border-bottom: none;
-  margin-bottom: -6px;
 }

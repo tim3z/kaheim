@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <% if user_subscribed(current_user, item_type) %>
 
-    <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_unsubscribe_user_path, method: :delete, layout: :inline) do |f| %>
+    <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_unsubscribe_user_path, method: :delete, layout: :inline, html: { class: 'one-button-form' }) do |f| %>
       <%= f.hidden_field item_type, value: true %>
       <button class="btn btn-default" id="subscribed-button">
         <span class="subscribed-button-content"><i class='fa fa-check'></i> <%= t('subscriptions.subscribed') %></span>
@@ -9,7 +9,7 @@
       </button>
     <% end %>
   <% else %>
-    <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_create_path, layout: :inline) do |f| %>
+    <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_create_path, layout: :inline, html: { class: 'one-button-form' }) do |f| %>
       <%= f.hidden_field item_type, value: true %>
       <%= f.hidden_field :email,
                          value: current_user.email %>
@@ -18,7 +18,6 @@
       </button>
     <% end %>
   <% end %>
-
 <% else %>
   <button class="btn btn-primary subscription-toggle-button"><%= t 'subscriptions.actions.subscribe' %></button>
 <% end %>
