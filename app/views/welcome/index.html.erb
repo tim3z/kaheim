@@ -1,9 +1,13 @@
 <h1>Kaheim</h1>
 <p>
-  Daheim in Karlsruhe? Oder noch kein Heim in Karlsruhe? <br />
-  Auf jeden Fall bist Du hier richtig, wenn Du auf der Suche nach einem Zimmer in Karlsruhe oder nach Mitbewohnern bist.
-  Du kannst in bestehenden Angeboten und Gesuchen stöbern oder ein <%= link_to 'neues Gesuch', new_request_path %> erstellen
-  oder ein <%= link_to 'Zimmer anbieten', new_offer_path %>.
+  <h3>Daheim in Karlsruhe?</h3>
+Und auf der Suche nach Mitbewohnern? Dann wirf doch mal einen Blick in die <%= link_to 'Gesuche', requests_path %>
+oder erstelle ein <%= link_to 'neues Angebot', new_offer_path %>.
+
+  <h3>Oder noch kein Heim in Karlsruhe?</h3>
+Du kannst in den bestehenden Angeboten stöbern oder ein <%= link_to 'neues Gesuch', new_request_path %> erstellen.
+Wenn Dich nichts sofort begeistert, dann schau doch mal in unsere kleine Zusammenstellung
+an <%= link_to 'Tipps zum Weitersuchen', page_path('alternatives') %>.
 </p>
 <%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer'} %>
 <div class="row">
