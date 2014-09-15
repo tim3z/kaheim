@@ -78,7 +78,6 @@ gem 'whenever', require: false
 
 group :production do
   gem 'exception_notification'
-  gem 'rails_12factor'
   gem 'dotenv-rails'
 end
 
