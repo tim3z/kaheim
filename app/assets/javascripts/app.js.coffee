@@ -1,8 +1,8 @@
 $ ->
   # list view details toggle
   $('.toggle-collapse').click ->
-    $(this).parents('.item').find('div.short').toggle()
-    $(this).parents('.item').find('div.long').toggle()
+    $(this).parents('.item').find('div.short:not(.transition), div.long:not(.transition)').toggle()
+    $(this).parents('.item').find('div.short.transition, div.long.transition').slideToggle(300)
 
   set_short_description_length_indicator = ->
     if (140 - $('.short-description').val().length) >= 0
