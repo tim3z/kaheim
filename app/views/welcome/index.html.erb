@@ -1,14 +1,20 @@
-<h1>Kaheim</h1>
-<p>
-  <h3>Daheim in Karlsruhe?</h3>
-Und auf der Suche nach Mitbewohnern? Dann wirf doch mal einen Blick in die <%= link_to 'Gesuche', requests_path %>
-oder erstelle ein <%= link_to 'neues Angebot', new_offer_path %>.
+<div class="alert alert-info alert-dismissible" role="alert">
+  <div id="flash_info %>">
 
-  <h3>Oder noch kein Heim in Karlsruhe?</h3>
-Du kannst in den bestehenden Angeboten stöbern oder ein <%= link_to 'neues Gesuch', new_request_path %> erstellen.
-Wenn Dich nichts sofort begeistert, dann schau doch mal in unsere kleine Zusammenstellung
-an <%= link_to 'Tipps zum Weitersuchen', page_path('alternatives') %>.
-</p>
+    <h1>Kaheim</h1>
+    <p>
+    <h3>Daheim in Karlsruhe?</h3>
+    Und auf der Suche nach Mitbewohnern? Dann wirf doch mal einen Blick in die <%= link_to 'Gesuche', requests_path %>
+    oder erstelle ein <%= link_to 'neues Angebot', new_offer_path %>.
+
+    <h3>Oder noch kein Heim in Karlsruhe?</h3>
+    Du kannst in den bestehenden Angeboten stöbern oder ein <%= link_to 'neues Gesuch', new_request_path %> erstellen.
+    Wenn Dich nichts sofort begeistert, dann schau doch mal in unsere kleine Zusammenstellung
+    an <%= link_to 'Tipps zum Weitersuchen', page_path('alternatives') %>.
+    </p>
+  </div>
+</div>
+
 <%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer'} %>
 <div class="row">
   <div class="dropdown pull-right" id="sort-button">
