@@ -36,9 +36,9 @@ html, body {
 .header-message {
   padding: 20px;
   padding-top: 50px;
-  border-bottom: 1px solid #070707;
+  border-bottom: 1px solid #D0D0D0;
 
-  .center {
+  &.center {
     width: 768px;
     margin-left: auto;
     margin-right: auto;
