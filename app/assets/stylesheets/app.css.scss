@@ -37,6 +37,13 @@ html, body {
   padding: 20px;
   padding-top: 50px;
   border-bottom: 1px solid #070707;
+
+  .center {
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow:auto;
+  }
 }
 
 div[data-link] {
