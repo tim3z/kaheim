@@ -33,6 +33,12 @@ html, body {
   height: 100%;
 }
 
+.header-message {
+  padding: 20px;
+  padding-top: 50px;
+  border-bottom: 1px solid #070707;
+}
+
 div[data-link] {
    cursor: pointer;
  }
