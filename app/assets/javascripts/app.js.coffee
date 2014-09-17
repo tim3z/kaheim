@@ -53,3 +53,6 @@ $ ->
   # change appearance and text of sign off subscription button on hover
   $('#subscribed-button').hover (event) ->
      $('.subscribed-button-content').toggle()
+
+  $('a.js-content-change').click ->
+    $('div.js-content-container').html($('div.js-content[data-content-id=' + $(this).data('show') + ']').html())

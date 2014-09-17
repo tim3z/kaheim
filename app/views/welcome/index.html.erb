@@ -1,17 +1,36 @@
 <% content_for :header_message do %>
   <div class="header-message center">
-
       <h1>Kaheim</h1>
-      <p>
-      <h3>Daheim in Karlsruhe?</h3>
-      Und auf der Suche nach Mitbewohnern? Dann wirf doch mal einen Blick in die <%= link_to 'Gesuche', requests_path %>
-      oder erstelle ein <%= link_to 'neues Angebot', new_offer_path %>.
-
-      <h3>Oder noch kein Heim in Karlsruhe?</h3>
-      Du kannst in den bestehenden Angeboten stöbern oder ein <%= link_to 'neues Gesuch', new_request_path %> erstellen.
-      Wenn Dich nichts sofort begeistert, dann schau doch mal in unsere kleine Zusammenstellung
-      an <%= link_to 'Tipps zum Weitersuchen', page_path('alternatives') %>.
+      <p data-no-turbolink>
+        <%= link_to 'Über Kaheim', '#', class: 'js-content-change', data: { show: 'about' } %>
+        <%= link_to 'Alternativen', '#', class: 'js-content-change', data: { show: 'alternatives' } %>
       </p>
+      <div class="js-content-container"></div>
+      <div class="js-content" data-content-id="about">
+        <p>
+          Kaheim entstand im Sommer 2014 als Projekt mehrerer christlicher Gruppen in Karlsruhe mit dem Ziel,
+          gruppeninterne Zimmerbörsen, die weitgehend manuell verwaltet wurden, abzulösen und eine gemeinsame Plattform zu schaffen.
+          Als solche soll sie jungen Erwachsenen die Möglichkeit bieten, freie Zimmer in WGs zu finden oder sich zu vernetzen, um zusammen
+          neue WGs zu eröffnen.
+        </p>
+      </div>
+      <div class="js-content" data-content-id="alternatives">
+        <p>
+          Da in Karlsruhe das Wohnungsangebot zum Semesteranfang knapp ist oder Du vielleicht gar nicht unbedingt in eine WG willst,
+          hier noch ein paar Alternativen zum Weitersuchen:
+        </p>
+        <p>
+          Es gibt einige Wohnheime in Karlsruhe. Zum einen Wohnheime kirchlicher Träger
+          (<%= link_to 'HEK', 'https://www.hek.uni-karlsruhe.de/' %>,
+          <%= link_to 'ABH/RSH', 'https://www.abh.uni-karlsruhe.de/site/' %>,
+          <%= link_to 'Evangelisches Studentinnenwohnheim', 'http://www.ev-studentinnenwohnheim.de/' %>),
+          zum anderen auch das <%= link_to 'HaDiKo', 'http://www.hadiko.de/'%> und einige Wohnheime des <%= link_to 'Studierendenwerks', 'https://www.sw-ka.de/de/wohnen/' %>.
+        </p>
+        <p>
+          Vielleicht hast Du auch Interesse an einer 'Wohnpartnerschaft'. Dann lohnt sich ein Besuch der
+          <%= link_to 'PARITÄTischen Wohnpartnerbörse', 'http://www.paritaet-ka.de/frames/dienste-weitere-/wohnen.htm' %>.
+        </p>
+      </div>
   </div>
 <% end %>
 
