@@ -1,6 +1,6 @@
 <% content_for :header_message do %>
   <div class="header-message center">
-      <h1>Kaheim</h1>
+      <h1><%= image_tag 'banner-faecher-inverted.svg', alt: 'Kaheim' %></h1>
       <p data-no-turbolink>
         <%= link_to 'Über Kaheim', '#', class: 'js-content-change', data: { show: 'about' } %>
         <%= link_to 'Alternativen', '#', class: 'js-content-change', data: { show: 'alternatives' } %>
