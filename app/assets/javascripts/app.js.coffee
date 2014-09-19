@@ -53,3 +53,7 @@ $ ->
   # change appearance and text of sign off subscription button on hover
   $('#subscribed-button').hover (event) ->
      $('.subscribed-button-content').toggle()
+
+  $('.group-logo').hover ->
+    $('img', this).first().toggle()
+    $('img', this).last().toggle()
