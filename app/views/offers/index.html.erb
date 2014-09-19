@@ -1,9 +1,11 @@
 <%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer'} %>
-<div class="row">
-  <div class="dropdown pull-right" id="sort-button">
-    <%= render 'shared/sort_menu' %>
+<% if @offers.count > 0 %>
+  <div class="row">
+    <div class="dropdown pull-right" id="sort-button">
+      <%= render 'shared/sort_menu' %>
+    </div>
   </div>
-</div>
+<% end %>
 <div class="row">
   <div class="sort">
     <%= render partial: 'list', locals: { offers: @offers } %>
