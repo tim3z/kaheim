@@ -54,7 +54,7 @@ $ ->
   $('#subscribed-button').hover (event) ->
      $('.subscribed-button-content').toggle()
 
-  # ?
+  # welcome message: show additional info or about text
   $('a.js-content-change').click ->
     $('div.js-content-container').html($('div.js-content[data-content-id=' + $(this).data('show') + ']').html())
 
