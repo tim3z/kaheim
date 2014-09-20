@@ -1,8 +1,8 @@
 $ ->
   # list view details toggle
   $('.toggle-collapse').click ->
-    $(this).parents('.item').find('div.short').toggle()
-    $(this).parents('.item').find('div.long').toggle()
+    $(this).parents('.item').find('div.short:not(.transition), div.long:not(.transition)').toggle()
+    $(this).parents('.item').find('div.short.transition, div.long.transition').slideToggle(300)
 
   set_short_description_length_indicator = ->
     if (140 - $('.short-description').val().length) >= 0
@@ -54,5 +54,14 @@ $ ->
   $('#subscribed-button').hover (event) ->
      $('.subscribed-button-content').toggle()
 
+  # ?
   $('a.js-content-change').click ->
     $('div.js-content-container').html($('div.js-content[data-content-id=' + $(this).data('show') + ']').html())
+
+  # show colored version of group logos on hover
+  $('.group-logo').hover ->
+    # first img is black-white
+    $('img', this).first().toggle()
+    # last (second) img is the colored version
+    $('img', this).last().toggle()
+
