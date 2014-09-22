@@ -66,4 +66,7 @@ $ ->
     $('img', this).last().toggle()
 
   $('a[href*=#]:not([href=#])').on 'click', ->
-    $('html,body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 500)
+    href = $(this).attr('href')
+    id = href.substring(href.indexOf('#'))
+    if ($(id).length)
+      $('html,body').animate({ scrollTop: $(id).offset().top }, 500)
