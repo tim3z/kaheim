@@ -19,13 +19,6 @@
 </div>
 
 <%= render partial: 'shared/list_page_header', locals: { count: @requests.count, item: 'request'} %>
-<% if @requests.count > 1 %>
-  <div class="row">
-    <div class="dropdown pull-right" id="sort-button">
-      <%= render 'shared/sort_menu' %>
-    </div>
-  </div>
-<% end %>
 <div class="row">
   <div class="sort">
     <%= render partial: 'requests/list', locals: { requests: @requests } %>

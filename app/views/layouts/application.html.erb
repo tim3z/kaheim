@@ -35,13 +35,13 @@
 
         <ul class="nav navbar-nav">
           <div class="btn-group">
-            <%= link_to '/#offers-part', class: 'btn btn-default navbar-btn' do %>
+            <%= link_to '/#offers', class: 'btn btn-default navbar-btn' do %>
                 <span class="badge badge-info"><%= (c = Offer.visible_for(current_user).count) > 0 ? c : '' %></span>
                 <%= Offer.model_name.human count: c %>
             <% end %>
           </div>
           <div class="btn-group">
-            <%= link_to '/#requests-part', class: 'btn btn-default navbar-btn' do %>
+            <%= link_to '/#requests', class: 'btn btn-default navbar-btn' do %>
                 <span class="badge badge-info"><%= (c = Request.visible_for(current_user).count) > 0 ? c : '' %></span>
                 <%= Request.model_name.human count: c %>
             <% end %>

@@ -80,7 +80,7 @@ de:
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."
-    contact: Über Kaheim
+    contact: Über Kaheim / Kontakt
     dot: punkt
 
   privacy:

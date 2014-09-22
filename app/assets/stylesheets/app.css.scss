@@ -124,8 +124,6 @@ div.js-content {
 
 .centered-content {
   text-align: center;
-  color: #3a3a3a;
-  text-decoration: none;
   margin-left: auto;
   margin-right: auto;
 }
@@ -134,4 +132,14 @@ div.js-content {
   padding-top: 120px;
   border-top: 1px solid #D0D0D0;
   margin-top: 80px;
+}
+
+.welcome-section {
+  a {
+    color: #3a3a3a;
+  }
+  a, a:hover {
+    color: #242424;
+    text-decoration: none;
+  }
 }
