@@ -1,8 +1,6 @@
-<% content_for :header_message do %>
-  <div class="header-message center">
-    <%= render 'welcome_message' %>
-  </div>
-<% end %>
+<div class="header-message center">
+  <%= render 'welcome_message' %>
+</div>
 
 <%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer'} %>
 <% if @offers.count > 1 %>
