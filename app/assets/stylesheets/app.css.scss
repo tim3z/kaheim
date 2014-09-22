@@ -112,10 +112,7 @@ div.js-content {
 }
 
 .banner-welcome {
-  margin-top: 50px;
-  margin-bottom: 80px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 50px auto 80px;
 }
 
 .welcome-icon {
@@ -127,12 +124,6 @@ div.js-content {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
-
-.welcome-item-list {
-  padding-top: 80px;
-  border-top: 1px solid #b6b6b6;
-  margin-top: 80px;
 }
 
 .welcome-section {
