@@ -2,7 +2,7 @@
   <%= render 'welcome_message' %>
 </div>
 
-<%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer'} %>
+<%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer', header_class: 'welcome-list-header'} %>
 <% if @offers.count > 1 %>
   <div class="row">
     <div class="dropdown pull-right" id="sort-button">
@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<%= render partial: 'shared/list_page_header', locals: { count: @requests.count, item: 'request'} %>
+<%= render partial: 'shared/list_page_header', locals: { count: @requests.count, item: 'request', header_class: 'welcome-list-header'} %>
 <div class="row">
   <div class="sort">
     <%= render partial: 'requests/list', locals: { requests: @requests } %>

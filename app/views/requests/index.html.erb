@@ -1,4 +1,4 @@
-<%= render partial: 'shared/list_page_header', locals: { count: @requests.count, item: 'request'} %>
+<%= render partial: 'shared/list_page_header', locals: { count: @requests.count, item: 'request', header_class: 'page-header'} %>
 <div class="row">
   <div class="sort">
     <%= render partial: 'list', locals: {requests: @requests} %>
