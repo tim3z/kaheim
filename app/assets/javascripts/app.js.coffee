@@ -65,3 +65,5 @@ $ ->
     # last (second) img is the colored version
     $('img', this).last().toggle()
 
+  $('a[href*=#]:not([href=#])').on 'click', ->
+    $('html,body').animate({ scrollTop: $($(this).attr('href')).offset().top }, 500)
