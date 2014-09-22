@@ -182,7 +182,7 @@ de:
     invisible: Unsichtbar
     outdated: Veraltet
     placeholder:
-      title: "Das Wichtigste von deinem %{model} für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
+      title: "Das Wichtigste Deines %{model}s für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
       description: "Detaillierte Infos und ausführliche Beschreibung."
       temporal: '(bei Zwischenmiete)'
 
