@@ -73,6 +73,8 @@ ul.nav li.language a {
   width: 100%;
   margin-top: 25px;
   bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #banner {
@@ -109,10 +111,11 @@ div.js-content {
   display: none;
 }
 
-#banner-welcome {
-  height: 90px;
+.banner-welcome {
   margin-top: 50px;
   margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .welcome-icon {
@@ -133,6 +136,9 @@ div.js-content {
 }
 
 .welcome-section {
+  max-width: 223px;
+  margin-left: auto;
+  margin-right: auto;
   a {
     color: #333;
   }
