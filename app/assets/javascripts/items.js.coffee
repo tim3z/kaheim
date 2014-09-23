@@ -23,17 +23,20 @@ $ ->
     format: if $('#locale-selection').data('current-locale') == 'en' then "yyyy-mm-dd" else "dd.mm.yyyy",
     language: if $('#locale-selection').data('current-locale') == 'en' then 'en' else 'de'
 
-  $('.gender-select-item').click ->
+  $('.gender-select-item').click (event) ->
     $('#gender-select-button').html($(this).html())
     $('#gender-select-button').append(" <span class='caret'></span>")
     $('#request_gender').val($(this).data('gender'))
     $('#offer_gender').val($(this).data('gender'))
+    event.preventDefault()
+
 
   # district select
   $('select.select2').select2(allowClear: true)
   $('select.select2').select2("val", $('select.select2').data('value'))
 
   # item sorting
-  $('.sort-trigger').click ->
+  $('.sort-trigger').click (event) ->
     $('#current-sort-type').text($(this).text())
     $('.sort .sort-item').tsort(order: $(this).data('sort-order'), attr: $(this).data('sort-attr'))
+    event.preventDefault()
