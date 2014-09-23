@@ -1,6 +1,6 @@
 <div class="list-header <%= header_class %>" id="<%= "#{item}s" %>">
   <div class="row">
-    <div class="subscription-toggle" style="display: none;">
+    <div class="subscription-toggle <%= "#{item}s" %>" style="display: none;">
       <!-- form for subscribing. see button below for how to access it -->
       <span class="left">
         <%= t 'subscriptions.actions.subscribe' %>
@@ -9,7 +9,7 @@
         <%= render partial: 'subscriptions/form', locals: { item_type: :"#{item}s" } %>
       </div>
     </div>
-    <div class="subscription-toggle">
+    <div class="subscription-toggle <%= "#{item}s" %>">
       <span class="left"><%= t ("#{item}s.list.title"), count: count %></span>
       <!-- button to subscribe. switches headline to subscribe form if user is not logged in -->
       <div class="right">
