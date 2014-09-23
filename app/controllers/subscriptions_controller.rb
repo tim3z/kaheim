@@ -82,7 +82,6 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find_by(confirmation_token: params[:confirmation_token])
     @subscription or return redirect_to root_path, flash: { error: t('subscriptions.activation.bad_token') }
     @subscription.confirm!
-    SubscriptionMailer.subscribe_notification(@subscription).deliver
     redirect_to root_path, notice: t('subscriptions.activation.success')
   end
 

@@ -35,16 +35,11 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
   test 'confirm offer subscriber' do
     subscription = subscriptions(:offer_subscriber_unconfirmed)
-    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
       get :confirm, confirmation_token: subscription.confirmation_token
     end
     assert_redirected_to root_path
     assert_equal I18n.t('subscriptions.activation.success'), flash[:notice]
-
-    subscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
-    assert_equal subscription.email, subscribe_email.to[0]
-    assert_match(/.*Dein Abonnement für neue Angebote auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
 
     subscription = Subscription.find_by_email(subscription.email)
     assert subscription.confirmed?
@@ -52,16 +47,11 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
   test 'confirm request subscriber' do
     subscription = subscriptions(:request_subscriber_unconfirmed)
-    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
       get :confirm, confirmation_token: subscription.confirmation_token
     end
     assert_redirected_to root_path
     assert_equal I18n.t('subscriptions.activation.success'), flash[:notice]
-
-    subscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
-    assert_equal subscription.email, subscribe_email.to[0]
-    assert_match(/.*Dein Abonnement für neue Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
 
     subscription = Subscription.find_by_email(subscription.email)
     assert subscription.confirmed?
@@ -69,16 +59,11 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
   test 'confirm everything subscriber' do
     subscription = subscriptions(:everything_subscriber_unconfirmed)
-    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
       get :confirm, confirmation_token: subscription.confirmation_token
     end
     assert_redirected_to root_path
     assert_equal I18n.t('subscriptions.activation.success'), flash[:notice]
-
-    subscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
-    assert_equal subscription.email, subscribe_email.to[0]
-    assert_match(/.*Dein Abonnement für neue Angebote und Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
 
     subscription = Subscription.find_by_email(subscription.email)
     assert subscription.confirmed?
