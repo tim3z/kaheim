@@ -274,7 +274,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
 
   # ==================== Unsubscribe User ====================
 
-  # ========== user not signed in ==========
+  # ========== user signed in ==========
 
   test 'unsubscribe everything user from offers when signed in' do
     user = users(:everything_subscriber)
