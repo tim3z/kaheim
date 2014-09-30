@@ -13,7 +13,7 @@ class SubscriptionsController < ApplicationController
         return
       end
       if @subscription.confirmed?
-        SubscriptionMailer.subscribe_notification(@subscription).deliver
+        SubscriptionMailer.subscribe_notification(@subscription).deliver unless user_signed_in?
         redirect_to :back, notice: t('subscriptions.subscribe.success.confirmed')
         return
       end

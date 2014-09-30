@@ -272,6 +272,25 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscription.requests
   end
 
+  test 'subscribe offers for existing user with requests subscribed and user is signed in' do
+    user = users(:request_subscriber)
+    subscription = Subscription.find_by_email(user.email)
+    assert_not subscription.offers
+    assert subscription.requests
+
+    sign_in(user)
+    request.env['HTTP_REFERER'] = 'localhost'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post :create, subscription: { email: user.email, offers: 'true' }
+    end
+    assert_redirected_to 'localhost'
+    assert_equal I18n.t('subscriptions.subscribe.success.confirmed'), flash[:notice]
+
+    subscription = Subscription.find_by_email(user.email)
+    assert subscription.offers
+    assert subscription.requests
+  end
+
   # ==================== Unsubscribe User ====================
 
   # ========== user signed in ==========
