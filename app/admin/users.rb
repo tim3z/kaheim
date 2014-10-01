@@ -36,14 +36,16 @@ ActiveAdmin.register User do
   member_action :unlock, method: :put do
     user = User.find(params[:id])
     user.unlock!
-    Subscription.offers.confirmed.each do |subscriber|
-      user.offers.each do |offer|
-        SubscriptionMailer.new_item_notification(offer, subscriber).deliver
+    if user.confirmed?
+      Subscription.offers.confirmed.each do |subscriber|
+        user.offers.each do |offer|
+          SubscriptionMailer.new_item_notification(offer, subscriber).deliver
+        end
       end
-    end
-    Subscription.requests.confirmed.each do |subscriber|
-      user.requests.each do |request|
-        SubscriptionMailer.new_item_notification(request, subscriber).deliver
+      Subscription.requests.confirmed.each do |subscriber|
+        user.requests.each do |request|
+          SubscriptionMailer.new_item_notification(request, subscriber).deliver
+        end
       end
     end
     redirect_to :back, { notice: t('users.lock.unlock_done') }
