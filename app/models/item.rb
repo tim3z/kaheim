@@ -37,7 +37,11 @@ module Item
     end
 
     def visible_for(user = nil)
-      return all if user.try :admin?
+      if user.try :admin?
+        query = current
+        query = query.or(where(user: user)) if user
+        return query
+      end
       query = current.unlocked.confirmed
       query = query.or(where(user: user)) if user
       query
