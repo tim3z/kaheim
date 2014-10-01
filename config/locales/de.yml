@@ -179,14 +179,14 @@ de:
       subject: "Neuer Eintrag auf Kaheim"
 
   items:
-    invisible: Unsichtbar
-    outdated: Veraltet
+    locked: Benutzer nicht freigeschaltet
+    outdated: Abgelaufen
     placeholder:
       title: "Das Wichtigste Deines %{model}s für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
       description: "Detaillierte Infos und ausführliche Beschreibung."
       temporal: '(bei Zwischenmiete)'
+    unconfirmed: E-Mail-Adresse unbestätigt
 
-    unconfirmed: "Unbestätigt"
   user_mailer:
     answer_mail:
       subject: "Antwort auf '%{title}'"

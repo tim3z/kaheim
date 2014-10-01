@@ -173,14 +173,14 @@ en:
       subject: "New item on Kaheim"
 
   items:
-    invisible: Invisible
+    locked: User not unlocked
     outdated: Outdated
     placeholder:
       title: "Most important information for the overview. Put detailed information in the description."
       description: "Detailed information and description."
       temporal: '(if temporal)'
+    unconfirmed: Unconfirmed email address
 
-    unconfirmed: "Unconfirmed"
   user_mailer:
     answer_mail:
       subject: "Reply to '%{title}'"
