@@ -1,3 +1,8 @@
-Ist dein <%= @item.class.model_name.human %> <%= @item.title %> noch aktuell?
-Falls nicht, wird es jetzt automatisch ausgeblendet.
-Um es zu verlängern, folge diesem <%= link_to 'Link', reactivate_url(@token) %>.
+<p>Hallo,</p>
+
+<p>
+  Dein <%= @item.class.model_name.human %> auf Kaheim <i><%= @item.title %></i> wurde seit einem Monat nicht mehr verändert
+  und wird daher ab sofort ausgeblendet.
+  Wenn es noch aktuell ist, dann klicke auf diesen <%= link_to 'Link', reactivate_url(@token) %>, um es für einen weiteren Monat zu verlängern.
+  Andernfalls wird es in zwei Monaten automatisch gelöscht.
+</p>
