@@ -6,6 +6,6 @@ class ItemReactivationController < ApplicationController
     end
     reactivator.item.touch
     reactivator.destroy
-    redirect_to root_path, notice: tm('reactivation.success', reactivator.item.class)
+    redirect_to reactivator.item, notice: tm('reactivation.success', reactivator.item.class)
   end
 end
