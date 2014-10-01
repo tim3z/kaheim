@@ -5,6 +5,7 @@ module Item
     base.belongs_to :user
     base.validates_presence_of :user
     base.has_many :answers, as: :item, dependent: :destroy
+    base.has_one :item_reactivator, as: :item, dependent: :destroy
 
     base.scope :unlocked, -> { base.joins(:user).where(users: { unlocked: true }) }
     base.scope :locked, -> { base.joins(:user).where(users: { unlocked: false }) }
@@ -23,6 +24,11 @@ module Item
 
   def visible?
     user.unlocked? && user.confirmed? && current?
+  end
+
+  def get_or_create_reactivator
+    return item_reactivator if item_reactivator
+    ItemReactivator.create! item: self
   end
 
   module ClassMethods

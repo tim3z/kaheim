@@ -186,6 +186,7 @@ de:
       description: "Detaillierte Infos und ausführliche Beschreibung."
       temporal: '(bei Zwischenmiete)'
     unconfirmed: E-Mail-Adresse unbestätigt
+    reactivate: Wieder aktivieren
 
   user_mailer:
     answer_mail:

@@ -180,6 +180,7 @@ en:
       description: "Detailed information and description."
       temporal: '(if temporal)'
     unconfirmed: Unconfirmed email address
+    reactivate: Reactivate
 
   user_mailer:
     answer_mail:

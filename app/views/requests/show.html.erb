@@ -60,6 +60,9 @@
 <div class="form-actions">
   <%= link_to t('helpers.links.back'), requests_path, class: 'btn btn-default'  %>
   <% if current_user == @request.user %>
+    <% if @request.outdated? %>
+      <%= link_to t('items.reactivate'), reactivate_path(@request.get_or_create_reactivator.token), class: 'btn btn-primary' %>
+    <% end %>
     <%= link_to t('helpers.links.edit'), edit_request_path(@request), class: 'btn btn-default' %>
     <%= link_to t('helpers.links.destroy'),
                 request_path(@request),
