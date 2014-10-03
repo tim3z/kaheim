@@ -101,10 +101,8 @@ en:
         other: "%{name}'s offer"
         mine: "My Offer"
     list:
-      title:
-        zero: No offers found
-        one: Offers
-        other: Offers
+      title: Offers
+      none: There are currently no offers available.
     help:
       gender_selection: Preferred
 
@@ -123,10 +121,8 @@ en:
         other: "%{name}'s request"
         mine: "My Request"
     list:
-      title:
-        zero: No requests found
-        one: Requests
-        other: Requests
+      title: Requests
+      none: There are currently no requests available.
     help:
       gender_selection: Search for
 

@@ -1,3 +1,8 @@
+<% if offers.count == 0 %>
+  <div>
+    <%= t 'offers.list.none' %>
+  </div>
+<% end %>
 <% offers.each do |offer| %>
     <fieldset class="item sort-item" data-rent="<%= offer.rent %>" data-size="<%= offer.size %>" data-from-date="<%= offer.from_date.to_time.to_i %>" data-updated-at="<%= offer.updated_at.to_i %>">
       <%= badges_for offer %>

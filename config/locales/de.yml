@@ -107,10 +107,8 @@ de:
         other: Angebot von %{name}
         mine: Angebot von mir
     list:
-      title:
-        zero: Keine Angebote gefunden
-        one: Angebote
-        other: Angebote
+      title: Angebote
+      none: Momentan sind keine Angebote vorhanden.
     help:
       gender_selection: Gewünscht
 
@@ -128,10 +126,8 @@ de:
         other: Gesuch von %{name}
         mine: Gesuch von mir
     list:
-      title:
-        zero: Keine Gesuche gefunden
-        one: Gesuche
-        other: Gesuche
+      title: Gesuche
+      none: Momentan sind keine Gesuche vorhanden.
     help:
       gender_selection: Suche für
 

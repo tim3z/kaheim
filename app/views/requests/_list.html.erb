@@ -1,3 +1,8 @@
+<% if requests.count == 0 %>
+  <div>
+    <%= t 'requests.list.none' %>
+  </div>
+<% end %>
 <% requests.each do |request| %>
 <fieldset class="item">
   <%= badges_for request %>
