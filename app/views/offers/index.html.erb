@@ -1,5 +1,5 @@
 <%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer', header_class: 'page-header'} %>
-<% if @offers.count > 1 %>
+<% if @offers.count > 2 %>
   <div class="row">
     <div class="dropdown pull-right" id="sort-button">
       <%= render 'shared/sort_menu' %>
