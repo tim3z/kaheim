@@ -15,7 +15,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       end
     end
     # send notifications about a user's items if the user confirms their email address for the first time
-    if old_unconfirmed_email.blank?
+    if old_unconfirmed_email.blank? && self.resource.unlocked?
       user = self.resource
       Subscription.offers.confirmed.each do |subscriber|
         user.offers.each do |offer|
