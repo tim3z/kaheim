@@ -37,3 +37,18 @@ jane:
   name: Jane Vaider
   email: jane@darth.vaider.com
   unlocked: true
+
+lisa:
+  name: Lisa Ericson
+  email: lisa.ericson@example.com
+  confirmed_at: 14-12-2013
+
+richard:
+  name: Richard Simpson
+  email: richard@my-company.co
+  confirmed_at: 14-12-2013
+
+rachel:
+  name: Rachel Simpson
+  email: rachel@my-company.co
+  confirmed_at: 14-12-2013
