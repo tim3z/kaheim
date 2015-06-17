@@ -84,5 +84,5 @@ end
 
 gem 'simplecov', :require => false, :group => :test
 
-ruby '2.1.5'
+ruby '2.1.6'
 
