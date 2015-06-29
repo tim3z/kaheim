@@ -65,9 +65,9 @@
     <% end %>
     <%= link_to t('helpers.links.edit'), edit_request_path(@request), class: 'btn btn-default' %>
     <% if @request.active? %>
-      <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('helpers.links.deactivate'), toggle_active_request_path(@request), class: 'btn btn-default' %>
+      <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('helpers.links.deactivate'), toggle_active_request_path(@request), method: :put, class: 'btn btn-default' %>
     <% else %>
-      <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('helpers.links.activate'), toggle_active_request_path(@request), class: 'btn btn-default' %>
+      <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('helpers.links.activate'), toggle_active_request_path(@request), method: :put, class: 'btn btn-default' %>
     <% end %>
     <%= link_to t('helpers.links.destroy'),
                 request_path(@request),

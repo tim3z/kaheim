@@ -17,13 +17,13 @@ Rails.application.routes.draw do
 
   resources :offers do
     member do
-      get :toggle_active
+      put :toggle_active
     end
   end
 
   resources :requests do
     member do
-      get :toggle_active
+      put :toggle_active
     end
   end
 
