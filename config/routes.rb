@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :offers
   resources :requests
 
+  get '/offers/:id/toggle' => 'offers#change_active', as: 'toggle_offer'
+  get '/requests/:id/toggle' => 'requests#change_active', as: 'toggle_request'
+
   resources :answers, only: [:create]
 
   # Error handling

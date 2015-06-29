@@ -60,6 +60,20 @@ class RequestsController < ApplicationController
     redirect_to requests_url
   end
 
+  def change_active
+    request = Request.find(params[:id])
+    if request.toggle!(:active)
+      if request.active?
+        notice = tm('helpers.activate_success', request)
+      else
+        notice = tm('helpers.deactivate_success', request)
+      end
+      redirect_to request, notice: notice
+    else
+      render action: 'show'
+    end
+  end
+
   private
     def set_editable_request
       @request = current_user.requests.find(params[:id])

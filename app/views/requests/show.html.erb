@@ -64,6 +64,11 @@
       <%= link_to t('items.reactivate'), reactivate_path(@request.get_or_create_reactivator.token), class: 'btn btn-primary' %>
     <% end %>
     <%= link_to t('helpers.links.edit'), edit_request_path(@request), class: 'btn btn-default' %>
+    <% if @request.active? %>
+      <%= link_to t('helpers.links.deactivate'), toggle_offer_path(@request), class: 'btn btn-default' %>
+    <% else %>
+      <%= link_to t('helpers.links.activate'), toggle_offer_path(@request), class: 'btn btn-default' %>
+    <% end %>
     <%= link_to t('helpers.links.destroy'),
                 request_path(@request),
                 method: 'delete',

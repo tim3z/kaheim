@@ -60,6 +60,20 @@ class OffersController < ApplicationController
     redirect_to offers_url
   end
 
+  def change_active
+    offer = Offer.find(params[:id])
+    if offer.toggle!(:active)
+      if offer.active?
+        notice = tm('helpers.activate_success', offer)
+      else
+        notice = tm('helpers.deactivate_success', offer)
+      end
+      redirect_to offer, notice: notice
+    else
+      render action: 'show'
+    end
+  end
+
   private
     def set_editable_offer
       @offer = current_user.offers.find(params[:id])

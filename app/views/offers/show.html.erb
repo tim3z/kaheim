@@ -11,6 +11,9 @@
       <% end %>
     <% end %>
   </h1>
+  <% unless @offer.active? %>
+    <h3><i class="fa fa-eye-slash"></i> <%= t 'helpers.hidden' %></h3>
+  <% end %>
 </div>
 
 <div class="item">
@@ -85,6 +88,11 @@
       <%= link_to t('items.reactivate'), reactivate_path(@offer.get_or_create_reactivator.token), class: 'btn btn-primary' %>
     <% end %>
     <%= link_to t('helpers.links.edit'), edit_offer_path(@offer), class: 'btn btn-default' %>
+    <% if @offer.active? %>
+      <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('helpers.links.deactivate'), toggle_offer_path(@offer), class: 'btn btn-default' %>
+    <% else %>
+      <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('helpers.links.activate'), toggle_offer_path(@offer), class: 'btn btn-default' %>
+    <% end %>
     <%= link_to t('helpers.links.destroy'),
                 offer_path(@offer),
                 method: 'delete',
