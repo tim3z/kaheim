@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_editable_request, only: [:edit, :update, :destroy]
+  before_action :set_editable_request, only: [:edit, :update, :destroy, :toggle_active]
 
   # GET /requests
   def index
@@ -61,14 +61,13 @@ class RequestsController < ApplicationController
   end
 
   def toggle_active
-    request = Request.find(params[:id])
-    if request.toggle!(:active)
-      if request.active?
-        notice = tm('helpers.activate_success', request)
+    if @request.toggle!(:active)
+      if @request.active?
+        notice = tm('helpers.activate_success', @request)
       else
-        notice = tm('helpers.deactivate_success', request)
+        notice = tm('helpers.deactivate_success', @request)
       end
-      redirect_to request, notice: notice
+      redirect_to @request, notice: notice
     else
       render action: 'show'
     end

@@ -1,6 +1,6 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_editable_offer, only: [:edit, :update, :destroy]
+  before_action :set_editable_offer, only: [:edit, :update, :destroy, :toggle_active]
 
   # GET /offers
   def index
@@ -61,14 +61,13 @@ class OffersController < ApplicationController
   end
 
   def toggle_active
-    offer = Offer.find(params[:id])
-    if offer.toggle!(:active)
-      if offer.active?
-        notice = tm('helpers.activate_success', offer)
+    if @offer.toggle!(:active)
+      if @offer.active?
+        notice = tm('helpers.activate_success', @offer)
       else
-        notice = tm('helpers.deactivate_success', offer)
+        notice = tm('helpers.deactivate_success', @offer)
       end
-      redirect_to offer, notice: notice
+      redirect_to @offer, notice: notice
     else
       render action: 'show'
     end
