@@ -70,8 +70,8 @@ de:
       cancel: "Abbrechen"
       back: "Zurück"
       edit: "Bearbeiten"
-      deactivate: "Verstecken"
-      activate: "Sichtbar machen"
+      hide: "Verstecken"
+      make_public: "Öffentlich machen"
       send: "Absenden"
       destroy: "Löschen"
       confirm: "Bist du sicher?"
@@ -81,9 +81,9 @@ de:
       edit_user: "Account bearbeiten"
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
-    activate_success: "%{model} wurde erfolgreich sichtbar gemacht."
-    deactivate_success: "%{model} wurde erfolgreich versteckt."
-    hidden: "Versteckt"
+    make_public_success: "%{model} wurde erfolgreich veröffentlicht."
+    hide_success: "%{model} wurde erfolgreich versteckt."
+    hidden: "Nicht öffentlich"
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."
     contact: Über Kaheim / Kontakt
     dot: punkt

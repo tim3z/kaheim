@@ -64,8 +64,8 @@ en:
       cancel: "Cancel"
       back: "Back"
       edit: "Edit"
-      deactivate: "Hide"
-      activate: "Make visible"
+      hide: "Hide"
+      make_public: "Make public"
       send: "Send"
       destroy: "Delete"
       confirm: "Are you sure?"
@@ -75,9 +75,9 @@ en:
       edit_user: "Edit account"
     creation_success: "%{model} was successfully created."
     update_success: "%{model} was successfully updated."
-    activate_success: "%{model} successfully made visible."
-    deactivate_success: "%{model} successfully hidden."
-    hidden: "Hidden"
+    make_public_success: "%{model} successfully published."
+    hide_success: "%{model} successfully hidden."
+    hidden: "Not public"
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
     contact: Contact
     dot: dot

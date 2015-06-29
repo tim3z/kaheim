@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629133931) do
+ActiveRecord::Schema.define(version: 20150629215516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150629133931) do
     t.string   "district"
     t.string   "street"
     t.string   "zip_code"
-    t.boolean  "active",      default: true
+    t.boolean  "is_public",   default: true
   end
 
   create_table "requests", force: true do |t|
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20150629133931) do
     t.integer  "user_id",     default: 0,    null: false
     t.date     "from_date"
     t.integer  "gender",      default: 0
-    t.boolean  "active",      default: true
+    t.boolean  "is_public",   default: true
   end
 
   create_table "subscriptions", force: true do |t|

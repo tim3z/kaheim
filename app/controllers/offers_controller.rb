@@ -61,11 +61,11 @@ class OffersController < ApplicationController
   end
 
   def toggle_active
-    if @offer.toggle!(:active)
-      if @offer.active?
-        notice = tm('helpers.activate_success', @offer)
+    if @offer.toggle!(:is_public)
+      if @offer.is_public?
+        notice = tm('helpers.make_public_success', @offer)
       else
-        notice = tm('helpers.deactivate_success', @offer)
+        notice = tm('helpers.hide_success', @offer)
       end
       redirect_to @offer, notice: notice
     else

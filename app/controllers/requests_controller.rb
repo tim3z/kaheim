@@ -61,11 +61,11 @@ class RequestsController < ApplicationController
   end
 
   def toggle_active
-    if @request.toggle!(:active)
-      if @request.active?
-        notice = tm('helpers.activate_success', @request)
+    if @request.toggle!(:is_public)
+      if @request.is_public?
+        notice = tm('helpers.make_public_success', @request)
       else
-        notice = tm('helpers.deactivate_success', @request)
+        notice = tm('helpers.hide_success', @request)
       end
       redirect_to @request, notice: notice
     else
