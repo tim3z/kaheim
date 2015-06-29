@@ -14,11 +14,18 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users, :controllers => {confirmations: 'confirmations'}
-  resources :offers
-  resources :requests
 
-  get '/offers/:id/toggle' => 'offers#change_active', as: 'toggle_offer'
-  get '/requests/:id/toggle' => 'requests#change_active', as: 'toggle_request'
+  resources :offers do
+    member do
+      get :toggle_active
+    end
+  end
+
+  resources :requests do
+    member do
+      get :toggle_active
+    end
+  end
 
   resources :answers, only: [:create]
 

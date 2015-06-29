@@ -60,7 +60,7 @@ class OffersController < ApplicationController
     redirect_to offers_url
   end
 
-  def change_active
+  def toggle_active
     offer = Offer.find(params[:id])
     if offer.toggle!(:active)
       if offer.active?

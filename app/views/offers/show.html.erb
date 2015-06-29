@@ -89,9 +89,9 @@
     <% end %>
     <%= link_to t('helpers.links.edit'), edit_offer_path(@offer), class: 'btn btn-default' %>
     <% if @offer.active? %>
-      <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('helpers.links.deactivate'), toggle_offer_path(@offer), class: 'btn btn-default' %>
+      <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('helpers.links.deactivate'), toggle_active_offer_path(@offer), class: 'btn btn-default' %>
     <% else %>
-      <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('helpers.links.activate'), toggle_offer_path(@offer), class: 'btn btn-default' %>
+      <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('helpers.links.activate'), toggle_active_offer_path(@offer), class: 'btn btn-default' %>
     <% end %>
     <%= link_to t('helpers.links.destroy'),
                 offer_path(@offer),

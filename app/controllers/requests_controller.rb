@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
     redirect_to requests_url
   end
 
-  def change_active
+  def toggle_active
     request = Request.find(params[:id])
     if request.toggle!(:active)
       if request.active?
