@@ -56,4 +56,35 @@ class ConfirmationsControllerTest < ActionController::TestCase
     assert subscription.confirmed?
   end
 
+  test 'confirming new email sends notifications for existing items if user is unlocked' do
+    raw, enc = Devise.token_generator.generate(User, :confirmation_token)
+    user = users(:jim)
+    user.confirmation_token = enc
+    user.unlocked = true
+    user.save!
+    assert_not user.confirmed?
+
+    assert_difference 'ActionMailer::Base.deliveries.size', +2 do
+      get :show, confirmation_token: raw
+    end
+
+    # don't send notifications if link is clicked again
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      get :show, confirmation_token: raw
+    end
+  end
+
+  test "confirming new email doesn't send notifications for existing items if user is not unlocked" do
+    raw, enc = Devise.token_generator.generate(User, :confirmation_token)
+    user = users(:jim)
+    user.confirmation_token = enc
+    user.unlocked = false
+    user.save!
+    assert_not user.confirmed?
+
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      get :show, confirmation_token: raw
+    end
+  end
+
 end

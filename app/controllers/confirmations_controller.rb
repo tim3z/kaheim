@@ -4,7 +4,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     confirmation_token = Devise.token_generator.digest(self, :confirmation_token, params[:confirmation_token])
     old_resource = resource_class.find_or_initialize_with_error_by(:confirmation_token, confirmation_token)
     old_email = old_resource.email
-    old_unconfirmed_email = old_resource.unconfirmed_email
+    old_confirmed_at = old_resource.confirmed_at
     super
     # update existing subscription if the user confirmed a new email address
     if self.resource.email != old_email
@@ -15,7 +15,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       end
     end
     # send notifications about a user's items if the user confirms their email address for the first time
-    if old_unconfirmed_email.blank? && self.resource.unlocked?
+    if old_confirmed_at == nil && self.resource.unlocked?
       user = self.resource
       Subscription.offers.confirmed.each do |subscriber|
         user.offers.each do |offer|
