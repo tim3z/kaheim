@@ -17,13 +17,11 @@ class User < ActiveRecord::Base
   scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   def unlock!
-    self.unlocked = true
-    self.save!
+    update!(unlocked: true)
   end
 
   def lock!
-    self.unlocked = false
-    self.save!
+    update!(unlocked: false)
   end
 
 end

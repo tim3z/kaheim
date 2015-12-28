@@ -6,9 +6,9 @@ class Subscription < ActiveRecord::Base
 
   before_validation :generate_tokens!, on: :create
 
-  scope :confirmed, -> { where("confirmation_token is null or confirmation_token = ''") }
-  scope :offers, -> { where offers: true }
-  scope :requests, -> { where requests: true }
+  scope :confirmed, -> { where(confirmation_token: [nil, '']) }
+  scope :offers, -> { where(offers: true) }
+  scope :requests, -> { where(requests: true) }
 
   def generate_tokens!
     self.confirmation_token = loop do
@@ -26,17 +26,14 @@ class Subscription < ActiveRecord::Base
   end
 
   def confirm!
-    self.confirmation_token = nil
-    self.save!
+    update!(confirmation_token: nil)
   end
 
   def subscribed_types
-    if self.offers && self.requests
-      'all'
-    else
-      return 'requests' if self.requests
-      return 'offers' if self.offers
-    end
+    return 'all' if offers? && requests?
+    return 'requests' if requests?
+    return 'offers' if offers?
+    nil
   end
 
 end
