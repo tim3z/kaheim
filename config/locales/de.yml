@@ -207,6 +207,7 @@ de:
   answers:
     success: Deine Antwort wurde versendet.
     from: Antwort von
+    on_date: "am %{date}"
     title: Antworten
     none: keine
 
