@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :requests, dependent: :destroy
 
   scope :admin, -> { where admin: true }
+  scope :unlocked, -> { where(unlocked: true) }
+  scope :locked, -> { where(unlocked: false) }
+  scope :confirmed, -> { where.not(confirmed_at: nil) }
 
   def unlock!
     self.unlocked = true

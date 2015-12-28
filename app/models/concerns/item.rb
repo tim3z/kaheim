@@ -9,9 +9,9 @@ module Item
     has_many :answers, as: :item, dependent: :destroy
     has_one :item_reactivator, as: :item, dependent: :destroy
 
-    scope :unlocked, -> { joins(:user).where(users: { unlocked: true }) }
-    scope :locked, -> { joins(:user).where(users: { unlocked: false }) }
-    scope :confirmed, -> { joins(:user).where.not(users: { confirmed_at: nil }) }
+    scope :unlocked, -> { joins(:user).merge(User.unlocked) }
+    scope :locked, -> { joins(:user).merge(User.locked) }
+    scope :confirmed, -> { joins(:user).merge(User.confirmed) }
     scope :current, -> { where("#{table_name}.updated_at >= ?", outdating_date) }
     scope :outdated, -> { where("#{table_name}.updated_at < ?", outdating_date) }
     scope :is_public, -> { where(is_public: true) }
