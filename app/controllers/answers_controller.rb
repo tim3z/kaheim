@@ -5,6 +5,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.save or (render_item and return)
     UserMailer.answer_mail(@answer).deliver
+    UserMailer.answer_mail_notification(@answer).deliver
     redirect_to @answer.item, notice: t('answers.success')
   end
 

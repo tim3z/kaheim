@@ -192,6 +192,8 @@ de:
   user_mailer:
     answer_mail:
       subject: "Antwort auf '%{title}'"
+    answer_mail_notification:
+      subject: "Deine Nachricht über Kaheim"
     reactivate_item_mail:
       subject: "Eintrag verlängern?"
 

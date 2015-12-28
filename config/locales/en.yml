@@ -186,6 +186,8 @@ en:
   user_mailer:
     answer_mail:
       subject: "Reply to '%{title}'"
+    answer_mail_notification:
+      subject: "Your message sent through kaheim.de"
     reactivate_item_mail:
       subject: "Update item?"
 
