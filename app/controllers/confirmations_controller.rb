@@ -19,12 +19,12 @@ class ConfirmationsController < Devise::ConfirmationsController
       user = self.resource
       Subscription.offers.confirmed.each do |subscriber|
         user.offers.each do |offer|
-          SubscriptionMailer.new_item_notification(offer, subscriber).deliver
+          SubscriptionMailer.new_item_notification(offer, subscriber).deliver_later
         end
       end
       Subscription.requests.confirmed.each do |subscriber|
         user.requests.each do |request|
-          SubscriptionMailer.new_item_notification(request, subscriber).deliver
+          SubscriptionMailer.new_item_notification(request, subscriber).deliver_later
         end
       end
     end

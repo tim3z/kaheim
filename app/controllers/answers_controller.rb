@@ -4,8 +4,8 @@ class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
     @answer.save or (render_item and return)
-    UserMailer.answer_mail(@answer).deliver
-    UserMailer.answer_mail_notification(@answer).deliver
+    UserMailer.answer_mail(@answer).deliver_later
+    UserMailer.answer_mail_notification(@answer).deliver_later
     redirect_to @answer.item, notice: t('answers.success')
   end
 

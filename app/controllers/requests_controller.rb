@@ -31,12 +31,12 @@ class RequestsController < ApplicationController
       if current_user.unlocked
         flash[:notice] = tm 'helpers.creation_success', @request
         Subscription.requests.confirmed.each do |subscriber|
-          SubscriptionMailer.new_item_notification(@request, subscriber).deliver
+          SubscriptionMailer.new_item_notification(@request, subscriber).deliver_later
         end
       else
         flash[:alert] = tm 'helpers.creation_success_unlock_required', @request
         User.admin.find_each do |admin|
-          UserMailer.admin_notice_mail(@request, admin).deliver
+          UserMailer.admin_notice_mail(@request, admin).deliver_later
         end
       end
       redirect_to @request, flash: flash
