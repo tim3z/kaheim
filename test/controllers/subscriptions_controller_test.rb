@@ -459,7 +459,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscriber.requests
 
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'all' }
+      delete :destroy, { unsubscribe_token: subscriber.unsubscribe_token, item_type: 'all' }
     end
     assert_redirected_to root_path
     assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
@@ -479,7 +479,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscriber.offers
 
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'offers' }
+      delete :destroy, { unsubscribe_token: subscriber.unsubscribe_token, item_type: 'offers' }
     end
     assert_redirected_to root_path
     assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]
@@ -499,7 +499,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert subscriber.requests
 
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      delete :destroy, {unsubscribe_token: subscriber.unsubscribe_token, item_type: 'requests' }
+      delete :destroy, { unsubscribe_token: subscriber.unsubscribe_token, item_type: 'requests' }
     end
     assert_redirected_to root_path
     assert_equal I18n.t('subscriptions.unsubscribe.success'), flash[:notice]

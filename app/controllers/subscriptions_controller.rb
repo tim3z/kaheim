@@ -73,7 +73,7 @@ class SubscriptionsController < ApplicationController
       @subscription.destroy
     end
     unless user_signed_in?
-      SubscriptionMailer.unsubscribe_notification(@subscription).deliver_later
+      SubscriptionMailer.unsubscribe_notification(@subscription.id, @subscription.email).deliver_later
     end
     redirect_to root_path, notice: t('subscriptions.unsubscribe.success')
   end

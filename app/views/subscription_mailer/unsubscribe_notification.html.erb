@@ -1,6 +1,6 @@
 <p>Hallo,</p>
 
-<% if @subscription.offers || @subscription.requests %>
+<% if @subscription %>
 <p>Du hast Dich soeben für Dein Abonnement von neuen <%= @subscription.requests ? 'Angeboten' : 'Gesuchen' %> auf Kaheim abgemeldet.</p>
 <p>Benachrichtigungen über neue <%= @subscription.offers ? 'Angebote' : 'Gesuche' %> erhältst Du weiterhin. Um Dich auch davon abzumelden, klicke auf diesen
   <%= link_to 'Link', subscriptions_unsubscribe_url( @subscription.subscribed_types, @subscription.unsubscribe_token) %>.</p>

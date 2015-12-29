@@ -6,9 +6,9 @@ class SubscriptionMailer < ActionMailer::Base
     mail to: subscription.email, subject: t('subscriptions.confirmation_request.subject')
   end
 
-  def unsubscribe_notification subscription
-    @subscription = subscription
-    mail to: subscription.email, subject: t('subscriptions.unsubscribe_notification.subject')
+  def unsubscribe_notification subscription_id, email
+    @subscription = Subscription.find_by(id: subscription_id)
+    mail to: email, subject: t('subscriptions.unsubscribe_notification.subject')
   end
 
   def subscribe_notification subscription
