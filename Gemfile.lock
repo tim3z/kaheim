@@ -190,8 +190,7 @@ GEM
       i18n
       polyamorous (~> 1.2)
     rdoc (4.2.1)
-    recaptcha (1.0.2)
-      json
+    recaptcha (0.4.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     sass (3.4.20)
@@ -266,7 +265,7 @@ DEPENDENCIES
   letter_opener
   pg
   rails (~> 4.1.0)
-  recaptcha
+  recaptcha (~> 0.4.0)
   sass-rails
   sdoc
   select2-rails (~> 3.5)
