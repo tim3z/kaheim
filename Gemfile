@@ -78,9 +78,10 @@ gem 'high_voltage'
 # cron scheduling
 gem 'whenever', require: false
 
+gem 'dotenv-rails'
+
 group :production do
   gem 'exception_notification'
-  gem 'dotenv-rails'
 end
 
 gem 'simplecov', :require => false, :group => :test
