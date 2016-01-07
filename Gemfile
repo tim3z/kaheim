@@ -62,7 +62,7 @@ gem 'font-awesome-rails'
 gem 'it'
 
 # cool js selects
-gem 'select2-rails'
+gem 'select2-rails', '~> 3.5'
 
 # bot protection with recaptcha
 gem 'recaptcha', require: 'recaptcha/rails'
