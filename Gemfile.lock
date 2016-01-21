@@ -1,12 +1,12 @@
 GIT
   remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
-  revision: 39552762ff9a58d6228a92c67c5c27c0de872008
+  revision: 941edb9535f4cc38f175368439453294618bd501
   specs:
     bootstrap_form (2.3.0)
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 557d143e8a48d0e1ebe94be7923835ee98c94a91
+  revision: bf29c0e6ac786bbaa98ce08d3d5c6074e0cbc948
   specs:
     activeadmin (1.0.0.pre2)
       arbre (~> 1.0, >= 1.0.2)
@@ -82,7 +82,7 @@ GEM
       sshkit (~> 1.2)
     capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
-    capistrano-rails (1.1.5)
+    capistrano-rails (1.1.6)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
     capistrano-rvm (0.1.2)
@@ -99,7 +99,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
-    devise (3.5.3)
+    devise (3.5.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
