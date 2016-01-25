@@ -265,7 +265,7 @@ DEPENDENCIES
   letter_opener
   pg
   rails (~> 4.1.0)
-  recaptcha (~> 0.4.0)
+  recaptcha
   sass-rails
   sdoc
   select2-rails

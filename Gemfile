@@ -65,7 +65,7 @@ gem 'it'
 gem 'select2-rails'
 
 # bot protection with recaptcha
-gem 'recaptcha', '~> 0.4.0'
+gem 'recaptcha', require: "recaptcha/rails"
 
 # admin stuff
 gem 'activeadmin', github: 'gregbell/active_admin'
