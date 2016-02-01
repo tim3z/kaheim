@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: bf29c0e6ac786bbaa98ce08d3d5c6074e0cbc948
+  revision: ca94d1ccb1894ccbaedc40f6a6b948d1423b90bb
   specs:
     activeadmin (1.0.0.pre2)
       arbre (~> 1.0, >= 1.0.2)
@@ -190,7 +190,7 @@ GEM
       i18n
       polyamorous (~> 1.2)
     rdoc (4.2.1)
-    recaptcha (1.0.2)
+    recaptcha (1.1.0)
       json
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
@@ -232,7 +232,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    warden (1.2.4)
+    warden (1.2.6)
       rack (>= 1.0)
     whenever (0.9.4)
       chronic (>= 0.6.3)
