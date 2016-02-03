@@ -1,3 +1,5 @@
+require 'test_helper'
+
 class ConfirmationsControllerTest < ActionController::TestCase
 
   def setup
@@ -67,6 +69,9 @@ class ConfirmationsControllerTest < ActionController::TestCase
     assert_difference 'ActionMailer::Base.deliveries.size', +2 do
       get :show, confirmation_token: raw
     end
+
+    user = User.find_by_email(user.email)
+    assert user.confirmed?
 
     # don't send notifications if link is clicked again
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
