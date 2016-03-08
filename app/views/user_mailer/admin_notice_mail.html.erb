@@ -2,4 +2,4 @@
 Bitte überprüfe das <%= @item.class.model_name.human %> und schalte den Nutzer gegebenenfalls im Adminpanel frei.</p>
 
 <p><span style="font-weight: bold">Text des <%= @item.class.model_name.human %>s:</span></p>
-<p><%= @item.description %></p>
+<div><%= simple_format @item.description %></div>
