@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'stats/counts' => 'stats#counts'
+
   post 'subscriptions/create'
   delete 'subscriptions/destroy'
   get 'subscription/confirm/:confirmation_token' => 'subscriptions#confirm', as: 'subscriptions_confirm'
