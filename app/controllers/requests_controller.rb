@@ -2,26 +2,21 @@ class RequestsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_editable_request, only: [:edit, :update, :destroy, :toggle_active]
 
-  # GET /requests
   def index
     @requests = Request.visible_for(current_user).order(from_date: :asc, updated_at: :desc).includes(:user)
   end
 
-  # GET /requests/1
   def show
     @request = Request.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to requests_path)
   end
 
-  # GET /requests/new
   def new
     @request = Request.new
   end
 
-  # GET /requests/1/edit
   def edit
   end
 
-  # POST /requests
   def create
     @request = Request.new(request_params)
     @request.user = current_user
@@ -45,7 +40,6 @@ class RequestsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /requests/1
   def update
     if @request.update(request_params)
       redirect_to @request, notice: tm('helpers.update_success', @request)
@@ -54,7 +48,6 @@ class RequestsController < ApplicationController
     end
   end
 
-  # DELETE /requests/1
   def destroy
     @request.destroy
     redirect_to requests_url

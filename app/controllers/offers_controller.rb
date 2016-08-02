@@ -2,26 +2,21 @@ class OffersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_editable_offer, only: [:edit, :update, :destroy, :toggle_active]
 
-  # GET /offers
   def index
     @offers = Offer.visible_for(current_user).order(from_date: :asc, updated_at: :desc).includes(:user)
   end
 
-  # GET /offers/1
   def show
     @offer = Offer.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to offers_path)
   end
 
-  # GET /offers/new
   def new
     @offer = Offer.new
   end
 
-  # GET /offers/1/edit
   def edit
   end
 
-  # POST /offers
   def create
     @offer = Offer.new(offer_params)
     @offer.user = current_user
@@ -45,7 +40,6 @@ class OffersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /offers/1
   def update
     if @offer.update(offer_params)
       redirect_to @offer, notice: tm('helpers.update_success', @offer)
@@ -54,7 +48,6 @@ class OffersController < ApplicationController
     end
   end
 
-  # DELETE /offers/1
   def destroy
     @offer.destroy
     redirect_to offers_url
