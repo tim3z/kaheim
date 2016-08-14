@@ -13,7 +13,7 @@ class SubscriptionsController < ApplicationController
         return
       end
       if @subscription.confirmed?
-        SubscriptionMailer.subscribe_notification(@subscription).deliver unless user_signed_in?
+        SubscriptionMailer.subscribe_notification(@subscription).deliver_now unless user_signed_in?
         redirect_to :back, notice: t('subscriptions.subscribe.success.confirmed')
         return
       end
@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
     elsif @subscription.confirmed?
       redirect_to :back, flash: { error: t('subscriptions.subscribe.error_existing')}
     else
-      SubscriptionMailer.confirmation_request(@subscription).deliver
+      SubscriptionMailer.confirmation_request(@subscription).deliver_now
       redirect_to :back, notice: t('subscriptions.subscribe.success.unconfirmed')
     end
   end
@@ -73,7 +73,7 @@ class SubscriptionsController < ApplicationController
       @subscription.destroy
     end
     unless user_signed_in?
-      SubscriptionMailer.unsubscribe_notification(@subscription).deliver
+      SubscriptionMailer.unsubscribe_notification(@subscription).deliver_now
     end
     redirect_to root_path, notice: t('subscriptions.unsubscribe.success')
   end

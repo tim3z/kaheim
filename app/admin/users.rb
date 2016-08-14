@@ -39,12 +39,12 @@ ActiveAdmin.register User do
     if user.confirmed?
       Subscription.offers.confirmed.each do |subscriber|
         user.offers.each do |offer|
-          SubscriptionMailer.new_item_notification(offer, subscriber).deliver
+          SubscriptionMailer.new_item_notification(offer, subscriber).deliver_now
         end
       end
       Subscription.requests.confirmed.each do |subscriber|
         user.requests.each do |request|
-          SubscriptionMailer.new_item_notification(request, subscriber).deliver
+          SubscriptionMailer.new_item_notification(request, subscriber).deliver_now
         end
       end
     end

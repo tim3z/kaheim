@@ -7,7 +7,7 @@ $ ->
     $('img', this).last().toggle()
 
   # smooth scrolling for hash links
-  $('a[href*=#]:not([href=#])').on 'click', ->
+  $('a[href*=\\#]:not([href=\\#])').on 'click', ->
     href = $(this).attr('href')
     id = href.substring(href.indexOf('#'))
     if ($(id).length)
