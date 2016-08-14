@@ -68,7 +68,7 @@ gem 'select2-rails'
 gem 'recaptcha', require: "recaptcha/rails"
 
 # admin stuff
-gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activeadmin', github: 'activeadmin'
 # Authentication with Devise
 gem 'devise'
 
