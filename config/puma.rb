@@ -17,6 +17,15 @@ port        ENV.fetch('PORT') { 3000 }
 #
 environment ENV.fetch('RAILS_ENV') { 'development' }
 
+# Store the pid of the server in the file at "path".
+#
+pidfile 'tmp/pids/puma.pid'
+
+# Use "path" as the file to store the server info state. This is
+# used by "pumactl" to query and control the server.
+#
+state_path 'tmp/pids/puma.state'
+
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together
 # the concurrency of the application would be max `threads` * `workers`.
