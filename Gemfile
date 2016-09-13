@@ -12,6 +12,8 @@ end
 gem 'rails', '~> 4.2.0'
 # Use Postgresgem 'pg' as the database for Active Record
 gem 'pg'
+# Use Puma as the app server
+gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -50,8 +52,7 @@ group :development do
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
-  gem 'capistrano-rvm'
-  gem 'capistrano-passenger'
+  gem 'capistrano3-puma'
 end
 
 # Use debugger
