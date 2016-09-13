@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/activeadmin/activeadmin.git
+  remote: https://github.com/activeadmin/activeadmin.git
   revision: d01155f73a0e2cc27d712792270357e2b3759d05
   specs:
     activeadmin (1.0.0.pre4)
@@ -18,7 +18,7 @@ GIT
       sprockets (< 4.1)
 
 GIT
-  remote: git://github.com/bootstrap-ruby/rails-bootstrap-forms.git
+  remote: https://github.com/bootstrap-ruby/rails-bootstrap-forms.git
   revision: 572b03844f08d4e775914c04c445558e4d213a8c
   specs:
     bootstrap_form (2.5.0)
