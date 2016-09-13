@@ -19,7 +19,7 @@ test:
 # instead read the configuration from the environment.
 production:
   <<: *default
-  database: kaheim
+  database: rails
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
   min_messages: warning
