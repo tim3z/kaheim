@@ -79,7 +79,8 @@ en:
     hide_success: "%{model} successfully hidden."
     hidden: "Not public"
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
-    contact: Contact
+    about: Contact
+    kaheim: About Kaheim
     dot: dot
 
   privacy:
@@ -207,12 +208,13 @@ en:
     none: none
 
   pages:
-      contact:
-        responsible: Responsible for this site
-        project: The Kaheim project
-        source: The sourcecode is available under
-        issues1: Bugs, problems and feature requests can also be filed on
-        issues2: ""
+    about:
+      responsible: Responsible for this site
+    kaheim:
+      project: The Kaheim project
+      source: The source code is available on
+      issues1: Bugs, problems and feature requests can also be filed on
+      issues2: ""
 
   active_admin:
     dashboard:

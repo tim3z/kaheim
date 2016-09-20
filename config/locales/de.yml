@@ -85,7 +85,8 @@ de:
     hide_success: "%{model} wurde erfolgreich versteckt."
     hidden: "Nicht öffentlich"
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."
-    contact: Über Kaheim / Kontakt
+    about: Impressum / Datenschutz
+    kaheim: Über Kaheim
     dot: punkt
 
   privacy:
@@ -159,7 +160,7 @@ de:
       nothing_selected: Es wurde kein gültiges Abonnement ausgewählt.
       success:
         confirmed: Abonnement wurde erfolgreich erstellt.
-        unconfirmed: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung Deiner E-Mail-Adresse.
+        unconfirmed: Abonnement wurde erfolgreich erstellt. Du bekommst eine Mail mit einem Link zur Bestätigung deiner E-Mail-Adresse.
         unconfirmed_user: Abonnement wurde erfolgreich erstellt. Es wird aktiv, sobald du deinen Account über den Link in der Mail, die du nach der Registrierung bekommen hast, bestätigt hast.
     unsubscribe:
       bad_token: Dieser Link zur Abmeldung ist ungültig.
@@ -171,7 +172,7 @@ de:
       success: Dein Abonnement wurde erfolgreich bestätigt und ist jetzt aktiv.
     mail: Deine Mail
     confirmation_request:
-      subject: "Bestätigung Deiner E-Mail-Adresse nötig"
+      subject: "Bestätigung deiner E-Mail-Adresse nötig"
     unsubscribe_notification:
       subject: "Abonnement beendet"
     subscribe_notification:
@@ -183,7 +184,7 @@ de:
     locked: Benutzer nicht freigeschaltet
     outdated: Abgelaufen
     placeholder:
-      title: "Das Wichtigste Deines %{model}s für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
+      title: "Das Wichtigste deines %{model}s für die Übersicht. Detailliertere Infos kommen in die Beschreibung."
       description: "Detaillierte Infos und ausführliche Beschreibung."
       temporal: '(bei Zwischenmiete)'
     unconfirmed: E-Mail-Adresse unbestätigt
@@ -212,11 +213,12 @@ de:
     none: keine
 
   pages:
-    contact:
+    about:
       responsible: Verantwortlich für diese Website
+    kaheim:
       project: Das Kaheim-Projekt
       source: Der Quellcode ist verfügbar auf
-      issues1: Bugs, Probleme und Feature Requests können ebenfalls auf
+      issues1: Bugs, Probleme und Feature Requests können auf
       issues2: eingetragen werden
 
   active_admin:

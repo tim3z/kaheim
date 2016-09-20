@@ -1,0 +1,72 @@
+<h1><%=t 'helpers.kaheim' %></h1>
+
+<p>
+  Kaheim entstand im Sommer 2014 als Projekt mehrerer christlicher Gruppen in Karlsruhe mit dem Ziel,
+  gruppeninterne Zimmerbörsen, die weitgehend manuell verwaltet wurden, abzulösen und eine gemeinsame Plattform zu schaffen.
+  Als solche soll sie jungen Erwachsenen die Möglichkeit bieten, freie Zimmer in WGs zu finden oder sich zu vernetzen, um zusammen
+  neue WGs zu gründen.
+</p>
+
+<h3><%=t '.project' %></h3>
+<p>
+  Zur einfacheren Verwaltung der Zimmerbörse kümmert sich Kaheim darum, dass...
+<ul>
+  <li>jeder einfach und schnell Angebote und Gesuche online stellen kann.</li>
+  <li>jeder auf Einträge antworten kann, ohne dass E-Mail-Adressen öffentlich sichtbar sind. <i>(Der Kontakt läuft über ein Kontaktformular.)</i></li>
+  <li>Benutzer keine Rechtschreibfehler in ihren E-Mail-Adressen haben. <i>(Einträge werden erst öffentlich sichtbar, wenn der Besitzer seine E-Mail-Adresse über einen Link verifiziert hat.)</i></li>
+  <li>veraltete Einträge gelöscht werden.
+    <i>(Nach 30 Tagen wird ein Eintrag unsichtbar. Der Besitzer bekommt einen Link zugeschickt, mit dem er seinen Eintrag mit einem Klick wieder sichtbar machen kann.
+      Bleibt ein Eintrag unsichtbar, wird er nach 100 Tagen gelöscht.)</i>
+  </li>
+  <li>Spam vermieden wird. <i>(Bevor der erste Eintrag eines Benutzers veröffentlicht wird, muss der Benutzer von einem Moderator freigeschaltet werden.)</i></li>
+  <li>sich jeder über neue Angebote und Gesuche auf dem Laufenden halten lassen kann. <i>(Auf der Startseite lassen sich Benachrichtigungen für neue Einträge abonnieren.)</i></li>
+</ul>
+</p>
+<p>
+  Kaheim ist eine Ruby on Rails Anwendung, deren Quellcode auf <%= link_to 'GitHub', 'https://github.com/SDEagle/kaheim' %>
+  verfügbar ist.
+
+  <br />
+  <%=t '.issues1' %> <%= link_to 'GitHub', 'https://github.com/SDEagle/kaheim/issues?state=open' %> <%=t '.issues2' %>.
+</p>
+
+<h3>Kaheim am Leben halten</h3>
+<p>
+  Die Entwicklung und Pflege der Webseite macht ein ehrenamtliches Team, das aus Jonathan, Matthias und Tim besteht.
+  Kaheim läuft auf einem Server von <%= link_to 'uberspace.de', 'https://uberspace.de' %>, den wir über Spenden finanzieren.
+  Wenn du Kaheim unterstützen möchtest, kannst du das tun, indem du etwas auf unser Konto dort lädst.
+  Das funktioniert durch eine Überweisung an:
+<table class="table">
+  <tr>
+    <td>Kontoinhaber</td>
+    <td>Jonas Pasche</td>
+  </tr>
+  <tr>
+    <td>IBAN</td>
+    <td>DE35 5505 0120 0200 0039 78</td>
+  </tr>
+  <tr>
+    <td>Institut</td>
+    <td>Sparkasse Mainz</td>
+  </tr>
+  <tr>
+    <td>BIC</td>
+    <td>MALADE51MNZ</td>
+  </tr>
+  <tr>
+    <td><strong>Verwendungszweck</strong></td>
+    <td><strong>Uberspace kaheim</strong></td>
+  </tr>
+</table>
+Wir freuen uns auch über geringe Beiträge, die uns zeigen, dass ihr Kaheim unterstützenswert findet.
+Da wir nicht sehen, von wem eine Aufladung stammt und uns daher nicht persönlich bei euch bedanken können,
+sagen wir schon einmal hier: Danke für alles, was ihr beitragt!
+</p>
+
+<h3>Kaheim auch in deiner Stadt?</h3>
+<p>
+  Du bist nicht aus Karlsruhe, aber dir gefällt Kaheim und wünschst dir, dass es das auch in deiner Stadt gibt?
+  Dann <%= mail_to 'team@kaheim.de', 'schreib uns an', encode: 'hex' %>!
+  Wenn du Kontakte zu christlichen Gruppen vor Ort hast, die so eine Zimmerbörse wollen, bist du schon halb fertig.
+  Und für die technische Seite finden wir dann sicher auch noch eine Lösung. :-)
+</p>
