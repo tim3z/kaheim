@@ -8,20 +8,26 @@
 </p>
 
 <h3><%=t '.project' %></h3>
+<div id="kaheim-features">
 <p>
   Zur einfacheren Verwaltung der Zimmerbörse kümmert sich Kaheim darum, dass...
+</p>
 <ul>
   <li>jeder einfach und schnell Angebote und Gesuche online stellen kann.</li>
-  <li>jeder auf Einträge antworten kann, ohne dass E-Mail-Adressen öffentlich sichtbar sind. <i>(Der Kontakt läuft über ein Kontaktformular.)</i></li>
-  <li>Benutzer keine Rechtschreibfehler in ihren E-Mail-Adressen haben. <i>(Einträge werden erst öffentlich sichtbar, wenn der Besitzer seine E-Mail-Adresse über einen Link verifiziert hat.)</i></li>
-  <li>veraltete Einträge gelöscht werden.
-    <i>(Nach 30 Tagen wird ein Eintrag unsichtbar. Der Besitzer bekommt einen Link zugeschickt, mit dem er seinen Eintrag mit einem Klick wieder sichtbar machen kann.
-      Bleibt ein Eintrag unsichtbar, wird er nach 100 Tagen gelöscht.)</i>
+  <li>jeder auf Einträge antworten kann, ohne dass E-Mail-Adressen öffentlich sichtbar sind:
+    <i>Der Kontakt läuft über ein Kontaktformular.</i></li>
+  <li>Benutzer keine Rechtschreibfehler in ihren E-Mail-Adressen haben:
+    <i>Einträge werden erst öffentlich sichtbar, wenn der Besitzer seine E-Mail-Adresse über einen Link verifiziert hat.</i></li>
+  <li>veraltete Einträge gelöscht werden:
+    <i>Nach 30 Tagen wird ein Eintrag unsichtbar. Der Besitzer bekommt einen Link zugeschickt, mit dem er seinen Eintrag mit einem Klick wieder sichtbar machen kann.
+      Bleibt ein Eintrag unsichtbar, wird er nach 100 Tagen gelöscht.</i>
   </li>
-  <li>Spam vermieden wird. <i>(Bevor der erste Eintrag eines Benutzers veröffentlicht wird, muss der Benutzer von einem Moderator freigeschaltet werden.)</i></li>
-  <li>sich jeder über neue Angebote und Gesuche auf dem Laufenden halten lassen kann. <i>(Auf der Startseite lassen sich Benachrichtigungen für neue Einträge abonnieren.)</i></li>
+  <li>Spam vermieden wird:
+    <i>Bevor der erste Eintrag eines Benutzers veröffentlicht wird, muss der Benutzer von einem Moderator freigeschaltet werden.</i></li>
+  <li>sich jeder über neue Angebote und Gesuche auf dem Laufenden halten lassen kann:
+    <i>Auf der Startseite lassen sich Benachrichtigungen für neue Einträge abonnieren.</i></li>
 </ul>
-</p>
+</div>
 <p>
   Kaheim ist eine Ruby on Rails Anwendung, deren Quellcode auf <%= link_to 'GitHub', 'https://github.com/SDEagle/kaheim' %>
   verfügbar ist.
@@ -67,6 +73,6 @@ sagen wir schon einmal hier: Danke für alles, was ihr beitragt!
 <p>
   Du bist nicht aus Karlsruhe, aber dir gefällt Kaheim und wünschst dir, dass es das auch in deiner Stadt gibt?
   Dann <%= mail_to 'team@kaheim.de', 'schreib uns an', encode: 'hex' %>!
-  Wenn du Kontakte zu christlichen Gruppen vor Ort hast, die so eine Zimmerbörse wollen, bist du schon halb fertig.
-  Und für die technische Seite finden wir dann sicher auch noch eine Lösung. :-)
+  Der Ausgangspunkt wäre, dass du Kontakte zu christlichen Gruppen vor Ort hast, die so eine Zimmerbörse wollen.
+  Und für die technische Seite finden wir dann sicher auch eine Lösung. :-)
 </p>

@@ -148,3 +148,22 @@ div.js-content {
   border-top: 1px solid #b6b6b6;
   margin: 58px -15px 20px;
 }
+
+#kaheim-features {
+  $padding-left: 3.5em;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    padding-left: $padding-left;
+    padding-bottom: 5px;
+  }
+  li:before {
+    content: "\2026\00a0";
+    display: inline-block;
+    margin-left: -$padding-left;
+    width: $padding-left;
+    text-align: right;
+  }
+}
