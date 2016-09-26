@@ -1,2 +1,0 @@
-{<img src="https://gemnasium.com/SDEagle/kaheim.svg" alt="Dependency Status" />}[https://gemnasium.com/SDEagle/kaheim]
-

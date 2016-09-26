@@ -71,6 +71,8 @@ gem 'it'
 # cool js selects
 gem 'select2-rails'
 
+gem 'actionview-encoded_mail_to'
+
 # bot protection with recaptcha
 gem 'recaptcha', require: "recaptcha/rails"
 
