@@ -61,7 +61,7 @@
   </div>
 
   <div class="description">
-    <%= simple_format @offer.description %>
+    <%= auto_link simple_format(@offer.description) %>
   </div>
 
   <% if current_user != @offer.user %>

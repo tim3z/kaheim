@@ -72,6 +72,7 @@ gem 'it'
 gem 'select2-rails'
 
 gem 'actionview-encoded_mail_to'
+gem 'rails_autolink'
 
 # bot protection with recaptcha
 gem 'recaptcha', require: "recaptcha/rails"

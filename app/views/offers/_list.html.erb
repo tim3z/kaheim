@@ -53,7 +53,7 @@
 
       <div class="description">
         <div class="short transition"></div>
-        <div class="long transition"><%= simple_format offer.description %></div>
+        <div class="long transition"><%= auto_link simple_format(offer.description) %></div>
       </div>
 
       <div class="contact">
