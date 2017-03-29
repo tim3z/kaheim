@@ -35,7 +35,7 @@ de:
         to_date: "Auszug"
         created_at: "Erstellt am"
       user:
-        email: "Email"
+        email: "E-Mail"
         password: "Passwort"
         password_confirmation: "Passwort wiederholen"
         current_password: "Aktuelles Passwort"
@@ -43,7 +43,7 @@ de:
         name: "Name"
       answer:
         message: Nachricht
-        mail: "Deine Email"
+        mail: "Deine E-Mail"
 
   helpers:
     switch_to_english: Switch to english
