@@ -3,9 +3,18 @@
 </div>
 
 <style>
-  #main {
-    width: calc(100% - 50px);
-    max-width: 1500px;
+  @media all and (min-width: 768px) {
+    #main {
+      width: calc(100% - 50px);
+      max-width: 1500px;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    #main {
+      width: 100%;
+      padding: 0 0;
+    }
   }
 </style>
 
