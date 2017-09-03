@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h1><%= t('stats.statistics.title') %></h1>
+</div>
+
+<style>
+  #main {
+    width: calc(100% - 50px);
+    max-width: 1500px;
+  }
+</style>
+
+<h2><%= t('stats.statistics.day_of_year_averages') %></h2>
+<div class="chart">
+  <%= line_chart [{name: Offer.model_name.human(count: 2), data: create_day_of_year_averages(:offers_count)},
+                 {name: Request.model_name.human(count: 2), data: create_day_of_year_averages(:requests_count)}],
+                 colors: ["#0b8262", "#770ba5"] %>
+</div>
+
+<h2><%= t('stats.statistics.month_averages') %></h2>
+<div class="chart">
+  <%= line_chart [{name: Offer.model_name.human(count: 2), data: create_month_averages(:offers_count)},
+                  {name: Request.model_name.human(count: 2), data: create_month_averages(:requests_count)}],
+                 colors: ["#0b8262", "#770ba5"] %>
+</div>

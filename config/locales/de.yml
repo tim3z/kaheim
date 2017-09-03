@@ -221,6 +221,13 @@ de:
       issues1: Bugs, Probleme und Feature Requests können auf
       issues2: eingetragen werden
 
+  stats:
+    statistics:
+      title: Statistiken
+      day_of_year_averages: Durchschnittliche Anzahl im Jahresverlauf
+      month_averages: Durchschnittliche Anzahl pro Monat
+      date_format: '%e. %B'
+
   active_admin:
     dashboard:
       title: Dashboard

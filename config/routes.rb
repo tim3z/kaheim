@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'stats/counts' => 'stats#counts'
+  get 'stats/statistiken' => 'stats#statistics'
 
   post 'subscriptions/create'
   delete 'subscriptions/destroy'

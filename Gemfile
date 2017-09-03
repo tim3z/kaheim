@@ -71,6 +71,9 @@ gem 'it'
 # cool js selects
 gem 'select2-rails'
 
+gem 'groupdate'
+gem 'chartkick'
+
 gem 'actionview-encoded_mail_to'
 gem 'rails_autolink'
 

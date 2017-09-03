@@ -216,6 +216,13 @@ en:
       issues1: Bugs, problems and feature requests can also be filed on
       issues2: ""
 
+  stats:
+    statistics:
+      title: Statistics
+      day_of_year_averages: Average count over year
+      month_averages: Average count per month
+      date_format: '%B %e'
+
   active_admin:
     dashboard:
       title: Dashboard

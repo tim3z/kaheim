@@ -20,3 +20,14 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 //= require select2
 //= require jquery.tinysort
+//= require highcharts
+//= require chartkick
+
+Highcharts.setOptions({
+    global: {
+        useUTC: false
+    },
+    tooltip: {
+        valueDecimals: 0
+    }
+});

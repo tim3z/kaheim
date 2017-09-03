@@ -9,6 +9,13 @@ namespace :kaheim do
     end
   end
 
+  desc 'creates new history item'
+  task create_history_item: :environment do
+    offers_count = Offer.visible_for(nil).count
+    requests_count = Request.visible_for(nil).count
+    HistoryItem.create({offers_count: offers_count, requests_count: requests_count})
+  end
+
   def handle_obsolete item
     reactivator = ItemReactivator.find_by item: item
     if reactivator.nil?

@@ -8,4 +8,8 @@ class StatsController < ApplicationController
     render json: counts.to_json
   end
 
+  def statistics
+
+  end
+
 end
