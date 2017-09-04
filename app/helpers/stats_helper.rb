@@ -1,6 +1,7 @@
 module StatsHelper
   def create_day_of_year_averages(type)
     oldest_item = HistoryItem.order(created_at: :asc).first
+    return [] unless oldest_item
     start_date = oldest_item.created_at.at_beginning_of_year.next_year
     start_date = 1.year.ago if start_date > 1.year.ago
     data = HistoryItem.all.where('created_at > ?', start_date).sort_by {|item| item.created_at.yday}
