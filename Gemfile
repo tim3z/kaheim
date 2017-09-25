@@ -81,7 +81,7 @@ gem 'rails_autolink'
 gem 'recaptcha', require: "recaptcha/rails"
 
 # admin stuff
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin'
 # Authentication with Devise
 gem 'devise'
 
