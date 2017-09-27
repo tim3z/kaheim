@@ -11,7 +11,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
 # Use Postgresgem 'pg' as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.20.0' # TODO remove lock when upgrading rails
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
