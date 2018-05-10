@@ -1,11 +1,11 @@
-<%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_create_path, layout: :inline) do |f| %>
+<%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_create_path, layout: :inline, html: {id: "new_subscription_#{item_type}"}) do |f| %>
   <%= f.hidden_field item_type, value: true %>
   <%= f.email_field :email,
-                    id: 'subscription-email',
+                    id: "subscription-email-#{item_type}",
                     placeholder: t('subscriptions.mail'),
                     hide_label: true,
                     class: "subscription-email #{item_type}",
                     data: { :"item-type" => item_type } %>
-  <%= f.submit t('subscriptions.actions.subscribe'), class: "btn btn-primary #{item_type}",  id: 'subscription-submit-button', style: 'display: none' %>
-  <span class="btn btn-default subscription-toggle-button <%= item_type %>" data-item-type="<%= item_type %>" id="subscription-back-button"><%= t('helpers.links.back') %></span>
+  <%= f.submit t('subscriptions.actions.subscribe'), class: "btn btn-primary #{item_type} subscription-submit-button", style: 'display: none' %>
+  <span class="btn btn-default subscription-toggle-button <%= item_type %>" data-item-type="<%= item_type %>"><%= t('helpers.links.back') %></span>
 <% end %>
