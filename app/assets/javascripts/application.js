@@ -16,7 +16,7 @@
 //= require jquery.turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 //= require select2
 //= require jquery.tinysort
