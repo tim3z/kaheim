@@ -22,6 +22,9 @@ require 'capistrano/rails/migrations'
 require 'capistrano/puma'
 require 'capistrano/puma/workers' # if you want to control the workers (in cluster mode)
 
+require 'capistrano/scm/git'
+install_plugin Capistrano::SCM::Git
+
 require 'whenever/capistrano'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
