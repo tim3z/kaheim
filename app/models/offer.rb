@@ -1,4 +1,4 @@
-class Offer < ActiveRecord::Base
+class Offer < ApplicationRecord
   include Item
 
   validates_presence_of :title, :description, :from_date, :rent, :size, :gender, :street, :zip_code

@@ -1,10 +1,7 @@
 require 'test_helper'
 
-class ConfirmationsControllerTest < ActionController::TestCase
-
-  def setup
-    @request.env['devise.mapping'] = Devise.mappings[:user]
-  end
+class ConfirmationsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
 
   test 'confirm user' do
     raw, enc = Devise.token_generator.generate(User, :confirmation_token)
@@ -12,7 +9,7 @@ class ConfirmationsControllerTest < ActionController::TestCase
     user.confirmation_token = enc
     user.save!
     assert_not user.confirmed?
-    get :show, confirmation_token: raw
+    get user_confirmation_path(confirmation_token: raw)
     user = User.find_by_email(user.email)
     assert user.confirmed?
   end
@@ -26,7 +23,7 @@ class ConfirmationsControllerTest < ActionController::TestCase
     assert_not user.confirmed?
     assert_not subscription.confirmed?
 
-    get :show, confirmation_token: raw
+    get user_confirmation_path(confirmation_token: raw)
 
     user = User.find_by_email(user.email)
     subscription = Subscription.find_by_email(user.email)
@@ -47,7 +44,7 @@ class ConfirmationsControllerTest < ActionController::TestCase
     assert_not_nil subscription
     assert_not subscription.confirmed?
 
-    get :show, confirmation_token: raw
+    get user_confirmation_path(confirmation_token: raw)
 
     user = User.find_by_email(new_email)
     subscription = Subscription.find_by_email(old_email)
@@ -67,7 +64,7 @@ class ConfirmationsControllerTest < ActionController::TestCase
     assert_not user.confirmed?
 
     assert_difference 'ActionMailer::Base.deliveries.size', +2 do
-      get :show, confirmation_token: raw
+      get user_confirmation_path(confirmation_token: raw)
     end
 
     user = User.find_by_email(user.email)
@@ -75,7 +72,7 @@ class ConfirmationsControllerTest < ActionController::TestCase
 
     # don't send notifications if link is clicked again
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      get :show, confirmation_token: raw
+      get subscriptions_confirm_path(confirmation_token: raw)
     end
   end
 
@@ -88,7 +85,7 @@ class ConfirmationsControllerTest < ActionController::TestCase
     assert_not user.confirmed?
 
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      get :show, confirmation_token: raw
+      get user_confirmation_path(confirmation_token: raw)
     end
   end
 

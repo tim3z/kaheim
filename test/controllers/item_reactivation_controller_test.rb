@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ItemReactivationControllerTest < ActionController::TestCase
+class ItemReactivationControllerTest < ActionDispatch::IntegrationTest
 
   test 'reactivate item' do
     offer = offers(:roommate_wanted)
@@ -8,7 +8,7 @@ class ItemReactivationControllerTest < ActionController::TestCase
     offer.save
     reactivator = ItemReactivator.create! item: offer
 
-    post :reactivate, :token => reactivator.token
+    get reactivate_path(token: reactivator.token)
 
     offer = Offer.find(offer.id)
     assert offer.updated_at > 5.minutes.ago
@@ -23,7 +23,7 @@ class ItemReactivationControllerTest < ActionController::TestCase
     user = users(:john)
     assert_nil user.confirmed_at
 
-    post :reactivate, :token => reactivator.token
+    get reactivate_path(token: reactivator.token)
 
     offer = Offer.find(offer.id)
     user = User.find(user.id)

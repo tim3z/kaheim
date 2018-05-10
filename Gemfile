@@ -9,9 +9,9 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.0'
+gem 'rails', '~> 5.0.0'
 # Use Postgresgem 'pg' as the database for Active Record
-gem 'pg', '~> 0.20.0' # TODO remove lock when upgrading rails
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

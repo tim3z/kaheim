@@ -32,7 +32,7 @@ class AnswersController < ApplicationController
       @offer = @answer.item
       render 'offers/show'
     else
-      redirect_to :back, flash: { error: 'Invalid params' }
+      redirect_back(fallback_location: root_path, flash: { error: 'Invalid params' })
     end
   end
 end

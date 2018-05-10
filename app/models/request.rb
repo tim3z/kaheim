@@ -1,4 +1,4 @@
-class Request < ActiveRecord::Base
+class Request < ApplicationRecord
   include Item
 
   validates_presence_of :title, :description, :gender

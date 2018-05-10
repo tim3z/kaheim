@@ -1,4 +1,4 @@
-class ItemReactivator < ActiveRecord::Base
+class ItemReactivator < ApplicationRecord
   belongs_to :item, polymorphic: true
   validates :token, uniqueness: true, presence: true
   validates_presence_of :item

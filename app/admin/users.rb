@@ -31,7 +31,7 @@ ActiveAdmin.register User do
 
   member_action :lock, method: :put do
     User.find(params[:id]).lock!
-    redirect_to :back, { notice: t('users.lock.lock_done') }
+    redirect_back(fallback_location: root_path, notice: t('users.lock.lock_done'))
   end
   member_action :unlock, method: :put do
     user = User.find(params[:id])
@@ -48,6 +48,6 @@ ActiveAdmin.register User do
         end
       end
     end
-    redirect_to :back, { notice: t('users.lock.unlock_done') }
+    redirect_back(fallback_location: root_path, notice: t('users.lock.unlock_done'))
   end
 end

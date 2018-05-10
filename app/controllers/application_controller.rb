@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   delegate :tm, to: :view_context
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
-  after_filter :store_location
+  after_action :store_location
 
   def authenticate_admin_user!
     authenticate_user!

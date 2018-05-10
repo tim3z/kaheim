@@ -10,3 +10,9 @@ need_room2:
   description: Hi there, does anyone have a room for me?
   gender: 2
   user: rachel
+
+need_room3:
+  title: I need a room
+  description: Hi there, does anyone have a room for me?
+  gender: 2
+  user: maren

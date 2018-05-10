@@ -42,13 +42,22 @@ lisa:
   name: Lisa Ericson
   email: lisa.ericson@example.com
   confirmed_at: 14-12-2013
+  unlocked: false
 
 richard:
   name: Richard Simpson
   email: richard@my-company.co
   confirmed_at: 14-12-2013
+  unlocked: false
 
 rachel:
   name: Rachel Simpson
   email: rachel@my-company.co
   confirmed_at: 14-12-2013
+  unlocked: false
+
+maren:
+  name: Maren Simpson
+  email: maren@my-company.co
+  confirmed_at: 14-12-2013
+  unlocked: true

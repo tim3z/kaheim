@@ -1,10 +1,11 @@
-module Admin
-  class UsersControllerTest < ActionController::TestCase
+require 'test_helper'
 
-    def setup
+module Admin
+  class UsersControllerTest < ActionDispatch::IntegrationTest
+
+    setup do
       assert users(:admin).admin
       sign_in(users(:admin))
-      request.env['HTTP_REFERER'] = 'localhost'
     end
 
     test 'unlocking confirmed user with offer sends notifications to subscribers' do
@@ -13,7 +14,7 @@ module Admin
 
       num_subscribers = Subscription.offers.confirmed.count
       assert_difference 'ActionMailer::Base.deliveries.size', +num_subscribers do
-        put :unlock, id: user.id
+        put unlock_admin_user_path(id: user.id), headers: { 'HTTP_REFERER': 'localhost' }
       end
 
       notification_email = ActionMailer::Base.deliveries.last
@@ -30,7 +31,7 @@ module Admin
 
       num_subscribers = Subscription.offers.confirmed.count
       assert_difference 'ActionMailer::Base.deliveries.size', +num_subscribers do
-        put :unlock, id: user.id
+        put unlock_admin_user_path(id: user.id), headers: { 'HTTP_REFERER': 'localhost' }
       end
 
       notification_email = ActionMailer::Base.deliveries.last
@@ -47,7 +48,7 @@ module Admin
 
       num_subscribers = Subscription.offers.confirmed.count
       assert_difference 'ActionMailer::Base.deliveries.size', +(num_subscribers * 2) do
-        put :unlock, id: user.id
+        put unlock_admin_user_path(id: user.id), headers: { 'HTTP_REFERER': 'localhost' }
       end
 
       user = User.find(user.id)
@@ -57,14 +58,11 @@ module Admin
     test "unlocking unconfirmed user with offer doesn't send notifications to subscribers" do
       user = users(:tina)
       assert_not user.unlocked
+      assert user.offers.count.positive?
 
       assert_no_difference 'ActionMailer::Base.deliveries.size' do
-        put :unlock, id: user.id
+        put unlock_admin_user_path(id: user.id), headers: { 'HTTP_REFERER': 'localhost' }
       end
-
-      notification_email = ActionMailer::Base.deliveries.last
-      assert_equal '[Kaheim] ' + I18n.t('subscriptions.new_item_notification.subject'), notification_email.subject
-      assert_match(/.*wurde ein neues Angebot eingetragen.*/, notification_email.body.to_s)
 
       user = User.find(user.id)
       assert user.unlocked
@@ -75,7 +73,7 @@ module Admin
       assert_not user.unlocked
 
       assert_no_difference 'ActionMailer::Base.deliveries.size' do
-        put :unlock, id: user.id
+        put unlock_admin_user_path(id: user.id), headers: { 'HTTP_REFERER': 'localhost' }
       end
 
       user = User.find(user.id)
@@ -87,7 +85,7 @@ module Admin
       assert_not user.unlocked
 
       assert_no_difference 'ActionMailer::Base.deliveries.size' do
-        put :unlock, id: user.id
+        put unlock_admin_user_path(id: user.id), headers: { 'HTTP_REFERER': 'localhost' }
       end
 
       user = User.find(user.id)

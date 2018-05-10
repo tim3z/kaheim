@@ -22,10 +22,10 @@ module Item
       31.days.ago
     end
 
-    def visible_for(user = nil)
+    def visible_for(user = nil, scope)
       return current.or(where(user: user)) if user&.admin?
-      query = current.unlocked.confirmed.is_public
-      query = query.or(where(user: user)) if user
+      query = scope.current.unlocked.confirmed.is_public
+      query = query.or(scope.joins(:user).joins(:user).where(user: user)) if user
       query
     end
   end

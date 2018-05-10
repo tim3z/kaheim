@@ -11,8 +11,8 @@ namespace :kaheim do
 
   desc 'creates new history item'
   task create_history_item: :environment do
-    offers_count = Offer.visible_for(nil).count
-    requests_count = Request.visible_for(nil).count
+    offers_count = Offer.visible_for(nil, Offer).count
+    requests_count = Request.visible_for(nil, Request).count
     HistoryItem.create({offers_count: offers_count, requests_count: requests_count})
   end
 

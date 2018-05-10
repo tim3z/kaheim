@@ -3,11 +3,11 @@ class OffersController < ApplicationController
   before_action :set_editable_offer, only: [:edit, :update, :destroy, :toggle_active]
 
   def index
-    @offers = Offer.visible_for(current_user).order(from_date: :asc, updated_at: :desc).includes(:user)
+    @offers = Offer.visible_for(current_user, Offer) #.order(from_date: :asc, updated_at: :desc).includes(:user)
   end
 
   def show
-    @offer = Offer.visible_for(current_user).find_by(id: params[:id]) or (authenticate_user! and redirect_to offers_path)
+    @offer = Offer.visible_for(current_user, Offer).find_by(id: params[:id]) or (authenticate_user! and redirect_to offers_path)
   end
 
   def new

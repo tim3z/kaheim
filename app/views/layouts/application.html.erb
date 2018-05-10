@@ -36,13 +36,13 @@
         <ul class="nav navbar-nav">
           <div class="btn-group">
             <%= link_to '/#offers', class: 'btn btn-default navbar-btn' do %>
-                <span class="badge badge-info"><%= (c = Offer.visible_for(current_user).count) > 0 ? c : '' %></span>
+                <span class="badge badge-info"><%= (c = Offer.visible_for(current_user, Offer).count) > 0 ? c : '' %></span>
                 <%= Offer.model_name.human count: c %>
             <% end %>
           </div>
           <div class="btn-group">
             <%= link_to '/#requests', class: 'btn btn-default navbar-btn' do %>
-                <span class="badge badge-info"><%= (c = Request.visible_for(current_user).count) > 0 ? c : '' %></span>
+                <span class="badge badge-info"><%= (c = Request.visible_for(current_user, Request).count) > 0 ? c : '' %></span>
                 <%= Request.model_name.human count: c %>
             <% end %>
           </div>
@@ -53,11 +53,11 @@
 
           <li id="locale-selection" data-current-locale="<%= I18n.locale %>">
             <% if I18n.locale == :de %>
-              <%= link_to params.merge(locale: :en), class: 'locale_img' do %>
+              <%= link_to url_for(locale: :en), class: 'locale_img' do %>
                 <%= image_tag 'de.png', alt: t('helpers.switch_to_english') %>
               <% end %>
             <% else %>
-              <%= link_to params.merge(locale: :de), class: 'locale_img' do %>
+              <%= link_to url_for(locale: :de), class: 'locale_img' do %>
                 <%= image_tag 'en.png', alt: t('helpers.switch_to_german') %>
               <% end %>
             <% end %>

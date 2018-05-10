@@ -1,7 +1,7 @@
 class SubscriptionsController < ApplicationController
 
-  before_filter :check_offers_or_requests, only: [:create]
-  before_filter :authenticate_user!, only: [:unsubscribe_user]
+  before_action :check_offers_or_requests, only: [:create]
+  before_action :authenticate_user!, only: [:unsubscribe_user]
 
   def create
     @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
@@ -9,34 +9,34 @@ class SubscriptionsController < ApplicationController
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if @subscription.changed?
       unless @subscription.save
-        redirect_to :back, flash: { error: t('subscriptions.subscribe.error_save') + ' ' + @subscription.errors.full_messages.join('. ') + '.'}
+        redirect_back(fallback_location: root_path, flash: { error: t('subscriptions.subscribe.error_save') + ' ' + @subscription.errors.full_messages.join('. ') + '.'})
         return
       end
       if @subscription.confirmed?
         SubscriptionMailer.subscribe_notification(@subscription).deliver_now unless user_signed_in?
-        redirect_to :back, notice: t('subscriptions.subscribe.success.confirmed')
+        redirect_back(fallback_location: root_path, notice: t('subscriptions.subscribe.success.confirmed'))
         return
       end
     end
     if user_signed_in? && current_user.email == @subscription.email
       if current_user.confirmed?
         @subscription.confirm!
-        redirect_to :back
+        redirect_back(fallback_location: root_path)
       else
-        redirect_to :back, notice: t('subscriptions.subscribe.success.unconfirmed_user')
+        redirect_back(fallback_location: root_path, notice: t('subscriptions.subscribe.success.unconfirmed_user'))
       end
     elsif @subscription.confirmed?
-      redirect_to :back, flash: { error: t('subscriptions.subscribe.error_existing')}
+      redirect_back(fallback_location: root_path, flash: { error: t('subscriptions.subscribe.error_existing')})
     else
       SubscriptionMailer.confirmation_request(@subscription).deliver_now
-      redirect_to :back, notice: t('subscriptions.subscribe.success.unconfirmed')
+      redirect_back(fallback_location: root_path, notice: t('subscriptions.subscribe.success.unconfirmed'))
     end
   end
 
   def unsubscribe_user
     @subscription = Subscription.find_by_email(current_user.email)
     unless @subscription
-      redirect_to :back, flash: { error: t('subscriptions.unsubscribe.not_subscribed')}
+      redirect_back(fallback_location: root_path, flash: { error: t('subscriptions.unsubscribe.not_subscribed')})
       return
     end
     @subscription.offers = false if subscription_params[:offers] == 'true'
@@ -46,7 +46,7 @@ class SubscriptionsController < ApplicationController
     else
       @subscription.destroy
     end
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
@@ -94,7 +94,7 @@ class SubscriptionsController < ApplicationController
 
   def check_offers_or_requests
     unless subscription_params[:offers] == 'true' || subscription_params[:requests] == 'true'
-      redirect_to :back, flash: { error: t('subscriptions.subscribe.nothing_selected')}
+      redirect_back(fallback_location: root_path, flash: { error: t('subscriptions.subscribe.nothing_selected')})
     end
   end
 
