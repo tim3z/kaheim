@@ -36,5 +36,3 @@ set :keep_releases, 20
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 set :puma_init_active_record, true
-
-after 'deploy:publishing', 'deploy:restart'
