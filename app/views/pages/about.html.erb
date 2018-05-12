@@ -10,9 +10,9 @@ Das Kaheim-Team kannst du <%= mail_to 'team@kaheim.de', 'per Mail', encode: 'hex
   <br />
   dev (<%=t 'helpers.dot' %>) tim (<%=t 'helpers.dot' %>) zeitz (at) gmail (<%=t 'helpers.dot' %>) com
   <br />
-  <%= Rails.application.secrets.contact[:street] %>
+  <%= Rails.application.credentials[:contact][:street] %>
   <br />
-  <%= Rails.application.secrets.contact[:city] %>
+  <%= Rails.application.credentials[:contact][:city] %>
 </p>
 
 <h3>Datenschutz</h3>
