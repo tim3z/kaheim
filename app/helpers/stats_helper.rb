@@ -6,7 +6,7 @@ module StatsHelper
     start_date = 1.year.ago if start_date > 1.year.ago
     data = HistoryItem.all.where('created_at > ?', start_date).sort_by {|item| item.created_at.yday}
     data = data.group_by {|item| l(item.created_at, format: t('stats.statistics.date_format'))}
-    data.each { |date, items| data[date] = (items.sum(&type) / items.count)}
+    data.each { |date, items| data[date] = (items.sum(&type).to_f / items.count)}
   end
 
   def create_month_averages(type)
