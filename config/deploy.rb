@@ -28,7 +28,7 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 
 rubyversion = File.open('.ruby-version', &:readline).gsub(/\n/, '')
 # Default value for default_env is {}
-set :default_env, { path: "/package/host/localhost/#{rubyversion}/bin:$PATH" }
+set :default_env, { path: "/package/host/localhost/nodejs-0.12/bin:/package/host/localhost/#{rubyversion}/bin:$PATH" }
 
 # Default value for keep_releases is 5
 set :keep_releases, 20
