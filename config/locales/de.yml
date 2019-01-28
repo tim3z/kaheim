@@ -79,6 +79,7 @@ de:
       sign_up: "Registrieren"
       sign_out: "Abmelden"
       edit_user: "Account bearbeiten"
+      to_item: "Zum Eintrag"
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
     make_public_success: "%{model} wurde erfolgreich veröffentlicht."
