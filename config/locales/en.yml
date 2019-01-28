@@ -73,6 +73,7 @@ en:
       sign_up: "Sign up"
       sign_out: "Sign out"
       edit_user: "Edit account"
+      to_item: "To the item"
     creation_success: "%{model} was successfully created."
     update_success: "%{model} was successfully updated."
     make_public_success: "%{model} successfully published."

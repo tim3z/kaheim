@@ -9,6 +9,7 @@ class UserMailer < ActionMailer::Base
   def answer_mail_notification answer
     @content = answer.message
     @item_username = answer.item.user.name
+    @item = answer.item
     mail to: answer.mail, subject: t('user_mailer.answer_mail_notification.subject')
   end
 
