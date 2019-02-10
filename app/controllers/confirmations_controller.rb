@@ -24,12 +24,12 @@ class ConfirmationsController < Devise::ConfirmationsController
     if old_confirmed_at == nil && self.resource.unlocked?
       user = self.resource
       Subscription.offers.confirmed.each do |subscriber|
-        user.offers.each do |offer|
+        user.offers.is_public.each do |offer|
           SubscriptionMailer.new_item_notification(offer, subscriber).deliver_now
         end
       end
       Subscription.requests.confirmed.each do |subscriber|
-        user.requests.each do |request|
+        user.requests.is_public.each do |request|
           SubscriptionMailer.new_item_notification(request, subscriber).deliver_now
         end
       end

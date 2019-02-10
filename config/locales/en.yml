@@ -80,6 +80,7 @@ en:
     hide_success: "%{model} successfully hidden."
     hidden: "Not public"
     creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
+    creation_success_confirmation_required: "%{model} was successfully created. It becomes visible after you have confirmed your email address."
     about: Contact
     kaheim: About Kaheim
     dot: dot
@@ -96,9 +97,9 @@ en:
     by_updated_at: Newest
 
   offers:
-    new: 
+    new:
       title: "Create offer"
-    edit: 
+    edit:
       title: "Edit offer"
     show:
       from: free from
@@ -115,9 +116,9 @@ en:
 
 
   requests:
-    new: 
+    new:
       title: "Create request"
-    edit: 
+    edit:
       title: "Edit request"
     show:
       from: Searching from
@@ -200,7 +201,7 @@ en:
   recaptcha:
     errors:
       verification_failed: "Your input didn't match the captcha - try again"
-      
+
   answers:
     success: "Your reply has been delivered."
     from: Reply from

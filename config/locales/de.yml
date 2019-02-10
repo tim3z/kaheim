@@ -3,7 +3,7 @@ de:
     errors:
       header: "Konnte %{model} nicht speichern:"
     buttons:
-      cancel: 'Abbrechen' 
+      cancel: 'Abbrechen'
 
   activerecord:
     models:
@@ -86,6 +86,7 @@ de:
     hide_success: "%{model} wurde erfolgreich versteckt."
     hidden: "Nicht öffentlich"
     creation_success_unlock_required: "%{model} wurde erfolgreich erstellt. Da das dein erstes %{model} ist, muss es noch von einem Admin freigeschaltet werden."
+    creation_success_confirmation_required: "%{model} wurde erfolgreich erstellt. Bevor es sichtbar wird, musst du erst noch deine E-Mail-Adresse bestätigen."
     about: Impressum / Datenschutz
     kaheim: Über Kaheim
     dot: punkt
@@ -102,9 +103,9 @@ de:
     by_updated_at: Neuestes
 
   offers:
-    new: 
+    new:
       title: "Angebot erstellen"
-    edit: 
+    edit:
       title: "Angebot bearbeiten"
     show:
       from: frei ab
@@ -120,9 +121,9 @@ de:
       gender_selection: Gewünscht
 
   requests:
-    new: 
+    new:
       title: "Gesuch aufgeben"
-    edit: 
+    edit:
       title: "Gesuch bearbeiten"
     show:
       from: Sucht zum

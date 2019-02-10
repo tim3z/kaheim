@@ -23,15 +23,20 @@ class RequestsController < ApplicationController
 
     if @request.save
       flash = {}
-      if current_user.unlocked
+      if current_user.unlocked && current_user.confirmed?
         flash[:notice] = tm 'helpers.creation_success', @request
         Subscription.requests.confirmed.each do |subscriber|
           SubscriptionMailer.new_item_notification(@request, subscriber).deliver_now
         end
       else
-        flash[:alert] = tm 'helpers.creation_success_unlock_required', @request
-        User.admin.find_each do |admin|
-          UserMailer.admin_notice_mail(@request, admin).deliver_now
+        if !current_user.unlocked
+          flash[:alert] = tm 'helpers.creation_success_unlock_required', @request
+          User.admin.find_each do |admin|
+            UserMailer.admin_notice_mail(@request, admin).deliver_now
+          end
+        elsif !current_user.confirmed?
+          flash[:alert] = tm 'helpers.creation_success_confirmation_required', @request
+          current_user.send_confirmation_instructions
         end
       end
       redirect_to @request, flash: flash

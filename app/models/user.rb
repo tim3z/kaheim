@@ -24,4 +24,8 @@ class User < ApplicationRecord
     update!(unlocked: false)
   end
 
+  def confirmed?
+    confirmed_at != nil
+  end
+
 end

@@ -23,15 +23,20 @@ class OffersController < ApplicationController
 
     if @offer.save
       flash = {}
-      if current_user.unlocked
+      if current_user.unlocked && current_user.confirmed?
         flash[:notice] = tm 'helpers.creation_success', @offer
         Subscription.offers.confirmed.each do |subscriber|
           SubscriptionMailer.new_item_notification(@offer, subscriber).deliver_now
         end
       else
-        flash[:alert] = tm 'helpers.creation_success_unlock_required', @offer
-        User.admin.find_each do |admin|
-          UserMailer.admin_notice_mail(@offer, admin).deliver_now
+        if !current_user.unlocked
+          flash[:alert] = tm 'helpers.creation_success_unlock_required', @offer
+          User.admin.find_each do |admin|
+            UserMailer.admin_notice_mail(@offer, admin).deliver_now
+          end
+        elsif !current_user.confirmed?
+           flash[:alert] = tm 'helpers.creation_success_confirmation_required', @offer
+           current_user.send_confirmation_instructions
         end
       end
       redirect_to @offer, flash: flash
