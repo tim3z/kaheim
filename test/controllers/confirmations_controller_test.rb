@@ -76,6 +76,25 @@ class ConfirmationsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test 'confirming new email does not send notifications for hidden items' do
+    raw, enc = Devise.token_generator.generate(User, :confirmation_token)
+    user = users(:jane)
+    user.confirmation_token = enc
+    user.unlocked = true
+    user.save!
+    assert_not user.confirmed?
+    assert user.offers.count > 0
+    assert user.requests.count == 0
+    assert user.offers.all? { |offer| !offer.is_public }
+
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      get user_confirmation_path(confirmation_token: raw)
+    end
+
+    user = User.find_by_email(user.email)
+    assert user.confirmed?
+  end
+
   test "confirming new email doesn't send notifications for existing items if user is not unlocked" do
     raw, enc = Devise.token_generator.generate(User, :confirmation_token)
     user = users(:jim)

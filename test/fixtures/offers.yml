@@ -75,3 +75,15 @@ other_appartment:
   street: Nicolai Ave.
   zip_code: 12846
   user: maren
+
+hidden_offer:
+  title: Other appartment
+  description: I have another appartment and I'm looking for a roommate.
+  rent: 310
+  size: 14
+  gender: 0
+  from_date: 01-01-2016
+  street: Nicolai Ave.
+  zip_code: 12846
+  is_public: false
+  user: jane
