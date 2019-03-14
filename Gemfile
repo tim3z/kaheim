@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '2.5.4'
 
 # can be deleted after upgrade to Bundler 2.0
 git_source(:github) do |repo_name|
