@@ -19,27 +19,20 @@ class RequestsController < ApplicationController
 
   def create
     @request = Request.new(request_params)
-    @request.user = current_user
 
     if @request.save
-      flash = {}
-      if current_user.unlocked && current_user.confirmed?
-        flash[:notice] = tm 'helpers.creation_success', @request
-        Subscription.requests.confirmed.each do |subscriber|
-          SubscriptionMailer.new_item_notification(@request, subscriber).deliver_now
-        end
-      else
-        if !current_user.unlocked
-          flash[:alert] = tm 'helpers.creation_success_unlock_required', @request
-          User.admin.find_each do |admin|
-            ItemMailer.admin_notice_mail(@request, admin).deliver_now
-          end
-        elsif !current_user.confirmed?
-          flash[:alert] = tm 'helpers.creation_success_confirmation_required', @request
-          current_user.send_confirmation_instructions
-        end
+      flash = { alert: tm('helpers.creation_success_confirmation_required', @request) } # TODO text aktualisieren
+
+      ItemMailer.item_creation_mail(@request).deliver_now
+      User.admin.find_each do |admin|
+        ItemMailer.admin_notice_mail(@request, admin).deliver_now
       end
-      redirect_to @request, flash: flash
+
+      # TODO make sure on activation subscriptions notified
+      # TODO let admins deactivate items
+
+      # TODO infoseite
+      redirect_to :index, flash: flash
     else
       render action: 'new'
     end
@@ -73,6 +66,7 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params[:request].permit(:title, :description, :from_date, :to_date, :gender)
+      # TODO disallow name and email for update or invalidate activation
+      params[:request].permit(:owner_name, :email, :title, :description, :from_date, :to_date, :gender)
     end
 end
