@@ -1,0 +1,17 @@
+<p>Hallo <%= @item.owner_name %>,</p>
+
+<p>
+  wir haben Kaheim umgebaut. Dabei sind die Accounts gelöscht worden. Aber keine Sorge: Das ist Absicht.
+</p>
+<p>
+  Mit folgendem Link kannst du dein <%= @item.class.model_name.human %> bearbeiten und Antworten einsehen:
+</p>
+<p>
+  <%= link_to 'Link', polymorphic_url(@item, action: :owner_show, token: @item.to_sgid(expires_in: nil, for: :owner).to_s) %>
+</p>
+<p>
+  Bearbeiten und Antworten einsehen klappt ab jetzt ausschließlich über diesen Link; also bewahre diese E-Mail auf!
+</p>
+<p>
+  Dein Kaheim-Team
+</p>

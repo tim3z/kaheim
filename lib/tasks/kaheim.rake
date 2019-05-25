@@ -26,5 +26,19 @@ namespace :kaheim do
       item.destroy
     end
   end
+
+  desc 'sends out token mails to existing users'
+  task send_token_mails: :environment do
+    Offer.confirmed do |offer|
+      send_token_mail offer
+    end
+    Request.confirmed do |request|
+      send_token_mail request
+    end
+  end
+
+  def send_token_mail item
+    ItemMailer.send_token_mail(item).deliver_now
+  end
 end
 

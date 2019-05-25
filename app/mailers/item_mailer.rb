@@ -29,4 +29,9 @@ class ItemMailer < ActionMailer::Base
     mail to: admin.email, subject: 'Nicht freigeschaltetes Item'
   end
 
+  def send_token_mail item
+    @item = item
+    mail to: item.user.email, subject: "Dein #{@item.class.model_name.human} auf Kaheim"
+  end
+
 end
