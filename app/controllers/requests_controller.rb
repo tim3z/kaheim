@@ -10,6 +10,20 @@ class RequestsController < ApplicationController
   end
 
   def owner_show
+    flash = {}
+
+    unless @request.confirmed?
+      @request.confirm_email!
+
+      Subscription.requests.confirmed.each do |subscriber|
+        SubscriptionMailer.new_item_notification(@request, subscriber).deliver_now
+      end
+
+      # TODO flash not working
+      flash[:notice] = tm('helpers.email_verified', @request)
+    end
+
+    render :owner_show, flash: flash
   end
 
   def new
@@ -31,7 +45,7 @@ class RequestsController < ApplicationController
       # TODO make sure on activation subscriptions notified
 
       @item = @request
-      render 'pages/item_created', flash
+      render 'pages/item_created', flash: flash
     else
       render action: 'new'
     end
@@ -60,8 +74,8 @@ class RequestsController < ApplicationController
 
   private
     def set_editable_request
-      @offer = GlobalID::Locator.locate_signed(params[:token], for: :owner)
-      redirect_to root_path, flash: { error: t('requests.invalid_token')} unless @offer
+      @request = GlobalID::Locator.locate_signed(params[:token], for: :owner)
+      redirect_to root_path, flash: { error: t('requests.invalid_token')} unless @request
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

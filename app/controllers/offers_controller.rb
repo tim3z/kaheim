@@ -10,6 +10,20 @@ class OffersController < ApplicationController
   end
 
   def owner_show
+    flash = {}
+
+    unless @offer.confirmed?
+      @offer.confirm_email!
+
+      Subscription.offers.confirmed.each do |subscriber|
+        SubscriptionMailer.new_item_notification(@offer, subscriber).deliver_now
+      end
+
+      # TODO flash not working
+      flash[:notice] = tm('helpers.email_verified', @offer)
+    end
+
+    render :owner_show, flash: flash
   end
 
   def new
@@ -30,8 +44,8 @@ class OffersController < ApplicationController
 
       # TODO make sure on activation subscriptions notified
 
-      @item = @request
-      render 'pages/item_created', flash
+      @item = @offer
+      render 'pages/item_created', flash: flash
     else
       render action: 'new'
     end

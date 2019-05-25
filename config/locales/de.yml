@@ -84,6 +84,7 @@ de:
       to_item: "Zum Eintrag"
     creation_success: "%{model} wurde erfolgreich erstellt."
     update_success: "%{model} wurde erfolgreich aktualisiert."
+    email_verified: "E-Mail bestätigt. Dein %{model} ist jetzt öffentlich."
     make_public_success: "%{model} wurde erfolgreich veröffentlicht."
     hide_success: "%{model} wurde erfolgreich versteckt."
     hidden: "Nicht öffentlich"

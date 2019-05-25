@@ -78,6 +78,7 @@ en:
       to_item: "To the item"
     creation_success: "%{model} was successfully created."
     update_success: "%{model} was successfully updated."
+    email_verified: "Email confirmed. Your %{model} is now public."
     make_public_success: "%{model} successfully published."
     hide_success: "%{model} successfully hidden."
     hidden: "Not public"

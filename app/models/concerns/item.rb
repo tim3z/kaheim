@@ -43,8 +43,12 @@ module Item
     !blocked && confirmed? && current?
   end
 
-  def confirmed?
+  def confirmed? # TODO wtf name
     !email_confirmed_at.nil?
+  end
+
+  def confirm_email!
+    update!(email_confirmed_at: Time.now)
   end
 
   def get_or_create_reactivator
