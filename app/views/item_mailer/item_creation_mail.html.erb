@@ -1,0 +1,13 @@
+<p>Hallo <%= @item.owner_name %>,</p>
+
+<p>
+  herzlich willkommen auf Kaheim!
+</p>
+<p>
+  Soeben hast du auf ein <%= @item.class.model_name.human %> mit dem Titel <i><%= @item.title %></i> angelegt.
+  Bisher ist es noch nicht öffentlich, aber du kannst es mit einem Klick auf diesen <%= link_to 'Link', TODO_url(@item) %>
+  aktivieren.
+</p>
+<p>
+  Dein Kaheim-Team
+</p>

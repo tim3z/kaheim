@@ -186,7 +186,9 @@ en:
     unconfirmed: Unconfirmed email address
     reactivate: Reactivate
 
-  user_mailer:
+  item_mailer:
+    item_creation_mail:
+      subject: "Activate your '%{item_type}'"
     answer_mail:
       subject: "Reply to '%{title}'"
     answer_mail_notification:

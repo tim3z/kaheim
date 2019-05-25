@@ -1,0 +1,5 @@
+<p>Hallo <%= @item.owner_name %>,</p>
+
+<p>du hast gerade auf Kaheim eine Nachricht zu deinem <% @item.class.model_name.human %> "<%= @item.title %>" bekommen:</p>
+
+<%= simple_format @content %>

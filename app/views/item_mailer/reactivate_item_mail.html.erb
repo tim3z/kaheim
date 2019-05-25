@@ -1,7 +1,7 @@
-<p>Hallo,</p>
+<p>Hallo <%= @item.owner_name %>,</p>
 
 <p>
-  Dein <%= @item.class.model_name.human %> auf Kaheim <i><%= @item.title %></i> wurde seit einem Monat nicht mehr verändert
+  Dein <%= @item.class.model_name.human %> auf Kaheim <i><%= @item.title %></i> wurde seit einem Monat nicht mehr bearbeitet
   und wird daher ab sofort ausgeblendet.
   Wenn es noch aktuell ist, dann klicke auf diesen <%= link_to 'Link', reactivate_url(@token) %>, um es für einen weiteren Monat zu verlängern.
   Andernfalls wird es in zwei Monaten automatisch gelöscht.

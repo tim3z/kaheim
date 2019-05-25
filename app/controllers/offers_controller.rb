@@ -32,7 +32,7 @@ class OffersController < ApplicationController
         if !current_user.unlocked
           flash[:alert] = tm 'helpers.creation_success_unlock_required', @offer
           User.admin.find_each do |admin|
-            UserMailer.admin_notice_mail(@offer, admin).deliver_now
+            ItemMailer.admin_notice_mail(@offer, admin).deliver_now
           end
         elsif !current_user.confirmed?
            flash[:alert] = tm 'helpers.creation_success_confirmation_required', @offer

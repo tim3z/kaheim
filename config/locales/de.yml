@@ -192,7 +192,9 @@ de:
     unconfirmed: E-Mail-Adresse unbestätigt
     reactivate: Wieder aktivieren
 
-  user_mailer:
+  item_mailer:
+    item_creation_mail:
+      subject: "Aktiviere dein '%{item_type}'"
     answer_mail:
       subject: "Antwort auf '%{title}'"
     answer_mail_notification:
@@ -202,7 +204,7 @@ de:
 
   reactivation:
     success: "Dein %{model} wurde reaktiviert."
-    bad_token: "Invalider token"
+    bad_token: "Ungültiges Token"
 
   recaptcha:
     errors:

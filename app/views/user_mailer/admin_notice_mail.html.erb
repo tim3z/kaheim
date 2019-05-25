@@ -1,5 +1,0 @@
-<p>Der unbestätigte Nutzer <%= @item.user.name %> hat das <%= @item.class.model_name.human %> <%= link_to @item.title, polymorphic_url(@item) %> angelegt.
-Bitte überprüfe das <%= @item.class.model_name.human %> und schalte den Nutzer gegebenenfalls im Adminpanel frei.</p>
-
-<p><span style="font-weight: bold">Text des <%= @item.class.model_name.human %>s:</span></p>
-<div><%= simple_format @item.description %></div>
