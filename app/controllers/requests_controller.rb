@@ -33,7 +33,6 @@ class RequestsController < ApplicationController
       end
 
       # TODO make sure on activation subscriptions notified
-      # TODO let admins deactivate items
 
       # TODO infoseite
       redirect_to :index, flash: flash

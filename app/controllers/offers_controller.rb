@@ -33,7 +33,6 @@ class OffersController < ApplicationController
       end
 
       # TODO make sure on activation subscriptions notified
-      # TODO let admins deactivate items
 
       # TODO infoseite
       redirect_to offers_url, flash: flash

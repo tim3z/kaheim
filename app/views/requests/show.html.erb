@@ -4,9 +4,7 @@
   <h1>
     <%=t '.title.other', name: @request.owner_name %>
     <% if current_user&.admin? %>
-      <% unless @request.user.unlocked? %>
-        <%= link_to t('users.lock.unlock'), unlock_admin_user_path(@request.user), method: :put, class: 'btn btn-default' %>
-      <% end %>
+      <%= link_to @request.blocked? ? 'Freischalten' : 'Sperren', @request.blocked? ? unblock_admin_request_path(@request) : block_admin_request_path(@request), method: :put, class: 'btn btn-default' %>
     <% end %>
   </h1>
 </div>

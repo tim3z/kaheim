@@ -51,4 +51,12 @@ module Item
     return item_reactivator if item_reactivator
     ItemReactivator.create! item: self
   end
+
+  def unblock!
+    update!(blocked: false)
+  end
+
+  def block!
+    update!(blocked: true)
+  end
 end
