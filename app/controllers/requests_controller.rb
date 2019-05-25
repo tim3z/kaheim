@@ -33,7 +33,7 @@ class RequestsController < ApplicationController
       # TODO make sure on activation subscriptions notified
 
       # TODO infoseite
-      redirect_to :index, flash: flash
+      redirect_to requests_url, flash: flash
     else
       render action: 'new'
     end
