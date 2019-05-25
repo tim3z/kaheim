@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1><%=t '.title' %></h1>
 </div>
-<%= custom_bootstrap_form_for @offer do |f| %>
+<%= custom_bootstrap_form_for @request do |f| %>
   <%= render partial: 'form', locals: {f: f} %>
 <% end %>
