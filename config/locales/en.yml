@@ -28,6 +28,9 @@ en:
         from_date: Need from
         to_date: "Moving out"
         created_at: "Created at"
+      item:
+        owner_name: "Your name"
+        email: "Your email"
       user:
         email: "Email"
         password: "Password"

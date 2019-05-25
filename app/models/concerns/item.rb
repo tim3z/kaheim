@@ -4,8 +4,8 @@ module Item
   extend ActiveSupport::Concern
 
   included do
-    belongs_to :user
-    validates_presence_of :user
+    validates_presence_of :email, :owner_name
+
     has_many :answers, as: :item, dependent: :destroy
     has_one :item_reactivator, as: :item, dependent: :destroy
 

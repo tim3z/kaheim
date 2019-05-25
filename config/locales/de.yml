@@ -34,6 +34,9 @@ de:
         from_date: "Suche zum"
         to_date: "Auszug"
         created_at: "Erstellt am"
+      item:
+        owner_name: "Dein Name"
+        email: "Deine E-Mail"
       user:
         email: "E-Mail"
         password: "Passwort"
