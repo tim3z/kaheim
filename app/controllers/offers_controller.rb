@@ -1,6 +1,5 @@
 class OffersController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_editable_offer, only: [:edit, :update, :destroy, :toggle_active]
+  before_action :set_editable_offer, only: [:edit, :update, :destroy, :toggle_active, :owner_show]
 
   def index
     @offers = Offer.visible_for(current_user, Offer).order(from_date: :asc, updated_at: :desc)
@@ -11,7 +10,6 @@ class OffersController < ApplicationController
   end
 
   def owner_show
-    @offer = GlobalID::Locator.locate_signed(params[:token], for: :owner)
   end
 
   def new
@@ -64,7 +62,8 @@ class OffersController < ApplicationController
 
   private
     def set_editable_offer
-      @offer = current_user.offers.find(params[:id])
+      @offer = GlobalID::Locator.locate_signed(params[:token], for: :owner)
+      redirect_to root_path, flash: { error: t('offers.invalid_token')} unless @offer
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

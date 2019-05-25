@@ -99,6 +99,7 @@ en:
     by_updated_at: Newest
 
   offers:
+    invalid_token: Offer not found
     new:
       title: "Create offer"
     edit:
@@ -125,6 +126,7 @@ en:
 
 
   requests:
+    invalid_token: Request not found
     new:
       title: "Create request"
     edit:

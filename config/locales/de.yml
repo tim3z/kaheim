@@ -105,6 +105,7 @@ de:
     by_updated_at: Neuestes
 
   offers:
+    invalid_token: Angebot nicht gefunden
     new:
       title: "Angebot erstellen"
     edit:
@@ -130,6 +131,7 @@ de:
       gender_selection: Gewünscht
 
   requests:
+    invalid_token: Gesuch nicht gefunden
     new:
       title: "Gesuch aufgeben"
     edit:

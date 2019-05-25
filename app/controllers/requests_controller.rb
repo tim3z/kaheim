@@ -1,6 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_editable_request, only: [:edit, :update, :destroy, :toggle_active]
+  before_action :set_editable_request, only: [:edit, :update, :destroy, :toggle_active, :owner_show]
 
   def index
     @requests = Request.visible_for(current_user, Request).order(Arel.sql('from_date IS NOT NULL, from_date ASC'), updated_at: :desc)
@@ -11,7 +10,6 @@ class RequestsController < ApplicationController
   end
 
   def owner_show
-    @request = GlobalID::Locator.locate_signed(params[:token], for: :owner)
   end
 
   def new
@@ -64,7 +62,8 @@ class RequestsController < ApplicationController
 
   private
     def set_editable_request
-      @request = current_user.requests.find(params[:id])
+      @offer = GlobalID::Locator.locate_signed(params[:token], for: :owner)
+      redirect_to root_path, flash: { error: t('requests.invalid_token')} unless @offer
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
