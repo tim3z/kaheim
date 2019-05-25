@@ -3,16 +3,19 @@ need_room:
   title: I need a room
   description: Hi there, does anyone have a room for me?
   gender: 2
-  user: jim
+  owner_name: Jim Fisher
+  email: jim.f@gmail.com
 
 need_room2:
   title: I need a room
   description: Hi there, does anyone have a room for me?
   gender: 2
-  user: rachel
+  owner_name: Rachel Simpson
+  email: rachel@my-company.co
 
 need_room3:
   title: I need a room
   description: Hi there, does anyone have a room for me?
   gender: 2
-  user: maren
+  owner_name: Maren Simpson
+  email: maren@my-company.co

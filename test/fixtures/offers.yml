@@ -8,7 +8,8 @@ tworooms:
   from_date: 01-01-2012
   street: 80 Main St.
   zip_code: 45876
-  user: john
+  owner_name: John Ericson
+  email: john.ericson@example.com
 
 roommate_wanted:
   title: Roommate wanted
@@ -19,7 +20,8 @@ roommate_wanted:
   from_date: 01-03-2012
   street: S Columbus
   zip_code: 45876
-  user: john
+  owner_name: John Ericson
+  email: john.ericson@example.com
 
 nice_appartment:
   title: Nice appartment
@@ -30,7 +32,8 @@ nice_appartment:
   from_date: 01-01-2016
   street: Nicolai Ave.
   zip_code: 12846
-  user: tina
+  owner_name: Tina Simpson
+  email: tina@my-company.co
 
 tworooms2:
   title: Two Rooms in small flat
@@ -41,7 +44,8 @@ tworooms2:
   from_date: 01-01-2012
   street: 80 Main St.
   zip_code: 45876
-  user: lisa
+  owner_name: Lisa Ericson
+  email: lisa.ericson@example.com
 
 roommate_wanted2:
   title: Roommate wanted
@@ -52,7 +56,8 @@ roommate_wanted2:
   from_date: 01-03-2012
   street: S Columbus
   zip_code: 45876
-  user: lisa
+  owner_name: Lisa Ericson
+  email: lisa.ericson@example.com
 
 nice_appartment2:
   title: Nice appartment
@@ -63,7 +68,8 @@ nice_appartment2:
   from_date: 01-01-2016
   street: Nicolai Ave.
   zip_code: 12846
-  user: richard
+  owner_name: Richard Simpson
+  email: richard@my-company.co
 
 other_appartment:
   title: Other appartment
@@ -74,7 +80,8 @@ other_appartment:
   from_date: 01-01-2016
   street: Nicolai Ave.
   zip_code: 12846
-  user: maren
+  owner_name: Maren Simpson
+  email: maren@my-company.co
 
 hidden_offer:
   title: Other appartment
@@ -86,4 +93,5 @@ hidden_offer:
   street: Nicolai Ave.
   zip_code: 12846
   is_public: false
-  user: jane
+  owner_name: Jane Vaider
+  email: jane@darth.vaider.com
