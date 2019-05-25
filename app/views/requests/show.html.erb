@@ -2,11 +2,7 @@
 
 <div class="page-header">
   <h1>
-    <% if @request.user == current_user %>
-      <%=t '.title.mine' %>
-    <% else %>
-      <%=t '.title.other', name: @request.user.name %>
-    <% end %>
+    <%=t '.title.other', name: @request.owner_name %>
     <% if current_user&.admin? %>
       <% unless @request.user.unlocked? %>
         <%= link_to t('users.lock.unlock'), unlock_admin_user_path(@request.user), method: :put, class: 'btn btn-default' %>
@@ -44,37 +40,11 @@
     <%= auto_link simple_format(@request.description) %>
   </div>
 
-  <% if current_user != @request.user %>
-    <%= render 'answers/form', answer: @answer ||= @request.answers.build %>
-  <% else %>
-    <h2><i class="fa fa-comments-o"></i> <%= t 'answers.title' %></h2>
-    <% if @request.answers.count > 0 %>
-      <%= render @request.answers %>
-    <% else %>
-      <h4><%= t 'answers.none' %></h4>
-    <% end %>
-  <% end %>
-
+  <%= render 'answers/form', answer: @answer ||= @request.answers.build %>
 </div>
 
 <hr />
 
 <div class="form-actions">
   <%= link_to t('helpers.links.back'), requests_path, class: 'btn btn-default'  %>
-  <% if current_user == @request.user %>
-    <% if @request.outdated? %>
-      <%= link_to t('items.reactivate'), reactivate_path(@request.get_or_create_reactivator.token), class: 'btn btn-primary' %>
-    <% end %>
-    <%= link_to t('helpers.links.edit'), edit_request_path(@request), class: 'btn btn-default' %>
-    <% if @request.is_public? %>
-      <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('helpers.links.hide'), toggle_active_request_path(@request), method: :put, class: 'btn btn-default' %>
-    <% else %>
-      <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('helpers.links.make_public'), toggle_active_request_path(@request), method: :put, class: 'btn btn-default' %>
-    <% end %>
-    <%= link_to t('helpers.links.destroy'),
-                request_path(@request),
-                method: 'delete',
-                data: { confirm: t('helpers.links.confirm') },
-                class: 'btn btn-danger' %>
-  <% end %>
 </div>
