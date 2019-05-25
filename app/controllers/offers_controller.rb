@@ -60,12 +60,7 @@ class OffersController < ApplicationController
 
   def toggle_active
     if @offer.toggle!(:is_public)
-      if @offer.is_public?
-        notice = tm('helpers.make_public_success', @offer)
-      else
-        notice = tm('helpers.hide_success', @offer)
-      end
-      redirect_to @offer, notice: notice
+      redirect_to @offer, notice: tm("helpers.#{@offer.is_public? ? 'make_public_success' : 'hide_success'}")
     else
       render action: 'show'
     end
