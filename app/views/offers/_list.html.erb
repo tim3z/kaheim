@@ -64,10 +64,10 @@
 
         <div class="inline-button answer">
           <%= link_to offer do %>
-            <%= t("helpers.#{current_user == offer.user ? 'show' : 'answer'}") %>
+            <%= t("helpers.answer") %>
           <% end %>
         </div>
-        <span>&nbsp;|&nbsp;<%= t("offers.show.user", name: offer.user.name) %></span>
+        <span>&nbsp;|&nbsp;<%= t("offers.show.user", name: offer.owner_name) %></span>
       </div>
     </fieldset>
 <% end %>

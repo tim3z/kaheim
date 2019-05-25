@@ -1,11 +1,10 @@
 module ItemsHelper
   def badges_for item
     result = ''
-    result << content_tag(:span, t('helpers.mine'), class: 'label label-info') << ' ' if current_user == item.user
     result << content_tag(:span, t('helpers.hidden'), class: 'label label-default') << ' ' unless item.is_public?
     result << content_tag(:span, t('items.outdated'), class: 'label label-danger') << ' ' if item.outdated?
-    result << content_tag(:span, t('items.unconfirmed'), class: 'label label-danger') << ' ' unless item.user.confirmed?
-    result << content_tag(:span, t('items.locked'), class: 'label label-danger') unless item.user.unlocked?
+    result << content_tag(:span, t('items.unconfirmed'), class: 'label label-danger') << ' ' unless item.confirmed?
+    result << content_tag(:span, t('items.locked'), class: 'label label-danger') if item.blocked?
     result.html_safe
   end
 

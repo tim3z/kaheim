@@ -51,7 +51,6 @@ en:
     answer: "Reply"
     more: "Description"
     less: "close"
-    mine: "Mine"
     password: "Password"
     password_confirm: "Confirm password"
     forgot_password: "Forgot your password?"

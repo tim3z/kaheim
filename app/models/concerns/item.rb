@@ -44,7 +44,7 @@ module Item
   end
 
   def confirmed?
-    !confirmed_at.nil?
+    !email_confirmed_at.nil?
   end
 
   def get_or_create_reactivator
