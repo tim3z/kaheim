@@ -1,4 +1,4 @@
-<%= custom_bootstrap_form_for @offer do |f| %>
+<%= custom_bootstrap_form_for @offer, url: offer_path(token: params[:token]) do |f| %>
     <div class="edit container-fluid">
       <div class="row">
         <div class="col-md-12">

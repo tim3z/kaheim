@@ -1,4 +1,4 @@
-<%= custom_bootstrap_form_for @request do |f| %>
+<%= custom_bootstrap_form_for @request, url: request_path(token: params[:token]) do |f| %>
     <div class="edit">
 
       <div class="row">
