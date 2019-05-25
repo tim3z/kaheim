@@ -9,9 +9,9 @@ module Item
     has_many :answers, as: :item, dependent: :destroy
     has_one :item_reactivator, as: :item, dependent: :destroy
 
-    scope :unlocked, -> { joins(:user).merge(User.unlocked) }
-    scope :locked, -> { joins(:user).merge(User.locked) }
-    scope :confirmed, -> { joins(:user).merge(User.confirmed) }
+    scope :not_blocked, -> { where(blocked: false) }
+    scope :blocked, -> { where(blocked: false) }
+    scope :confirmed, -> { where.not(email_confirmed_at: nil) }
     scope :current, -> { where("#{table_name}.updated_at >= ?", outdating_date) }
     scope :outdated, -> { where("#{table_name}.updated_at < ?", outdating_date) }
     scope :is_public, -> { where(is_public: true) }
@@ -23,10 +23,11 @@ module Item
     end
 
     def visible_for(user = nil, scope)
-      return current.or(where(user: user)) if user&.admin?
-      query = scope.current.unlocked.confirmed.is_public
-      query = query.or(scope.joins(:user).joins(:user).where(user: user)) if user
-      query
+      if user&.admin?
+        scope.current
+      else
+        scope.current.not_blocked.confirmed.is_public
+      end
     end
   end
 
@@ -39,7 +40,11 @@ module Item
   end
 
   def visible?
-    user.unlocked? && user.confirmed? && current?
+    !blocked && confirmed? && current?
+  end
+
+  def confirmed?
+    !confirmed_at.nil?
   end
 
   def get_or_create_reactivator
