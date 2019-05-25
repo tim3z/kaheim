@@ -19,27 +19,20 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
-    @offer.user = current_user
 
     if @offer.save
-      flash = {}
-      if current_user.unlocked && current_user.confirmed?
-        flash[:notice] = tm 'helpers.creation_success', @offer
-        Subscription.offers.confirmed.each do |subscriber|
-          SubscriptionMailer.new_item_notification(@offer, subscriber).deliver_now
-        end
-      else
-        if !current_user.unlocked
-          flash[:alert] = tm 'helpers.creation_success_unlock_required', @offer
-          User.admin.find_each do |admin|
-            ItemMailer.admin_notice_mail(@offer, admin).deliver_now
-          end
-        elsif !current_user.confirmed?
-           flash[:alert] = tm 'helpers.creation_success_confirmation_required', @offer
-           current_user.send_confirmation_instructions
-        end
+      flash = { alert: tm('helpers.creation_success_confirmation_required', @offer) } # TODO text aktualisieren
+
+      ItemMailer.item_creation_mail(@offer).deliver_now
+      User.admin.find_each do |admin|
+        ItemMailer.admin_notice_mail(@offer, admin).deliver_now
       end
-      redirect_to @offer, flash: flash
+
+      # TODO make sure on activation subscriptions notified
+      # TODO let admins deactivate items
+
+      # TODO infoseite
+      redirect_to :index, flash: flash
     else
       render action: 'new'
     end
