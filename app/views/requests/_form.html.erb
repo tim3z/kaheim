@@ -1,84 +1,81 @@
-<%= custom_bootstrap_form_for @request, url: request_path(token: params[:token]) do |f| %>
-    <div class="edit">
+<div class="edit">
 
-      <div class="row">
-        <div class="col-md-12">
-          <%= f.text_area :title,
-                           input_group_wrapper_class: 'input-group-lg title-group',
-                           wrapper_class: 'title',
-                           class: 'short-description',
-                           append: (@request.title ? 140 - @request.title.length : 140).to_s,
-                           placeholder: tm('items.placeholder.title', Request),
-                           hide_label: true %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.text_area :title,
+                      input_group_wrapper_class: 'input-group-lg title-group',
+                      wrapper_class: 'title',
+                      class: 'short-description',
+                      append: (@request.title ? 140 - @request.title.length : 140).to_s,
+                      placeholder: tm('items.placeholder.title', Request),
+                      hide_label: true %>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('items.placeholder.description'), help: ('<span class="warning"><i class="fa fa-shield"></i> ' + tm('privacy.warning', Request, count: 2) + '</span>').html_safe %>
+    </div>
+
+    <div class="col-md-4">
+      <div class="info">
+        <div class="btn-group input-group input-group-sm gender">
+          <span class="input-group-addon"><%= t('requests.help.gender_selection') %></span>
+          <%= gender_select @request.gender %>
+          <%= f.hidden_field :gender %>
         </div>
+        <%= f.localized_text_field :from_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.request.from_date'),
+                                   hide_label: true %>
+        <%= f.localized_text_field :to_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.request.to_date'),
+                                   placeholder: t('items.placeholder.temporal'),
+                                   hide_label: true %>
       </div>
+    </div>
+  </div>
 
-      <hr/>
+  <hr/>
 
-      <div class="row">
-        <div class="col-md-8">
-          <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('items.placeholder.description'), help: ('<span class="warning"><i class="fa fa-shield"></i> ' + tm('privacy.warning', Request, count: 2) + '</span>').html_safe %>
-        </div>
+  <h2>Kontakt</h2>
+  <!-- TODO pretty -->
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.text_field :owner_name,
+                       placeholder: t('activerecord.attributes.item.owner_name'),
+                       hide_label: true %>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :email,
+                       placeholder: t('activerecord.attributes.item.email'),
+                       hide_label: true %>
+    </div>
+  </div>
 
-        <div class="col-md-4">
-          <div class="info">
-            <div class="btn-group input-group input-group-sm gender">
-              <span class="input-group-addon"><%= t('requests.help.gender_selection') %></span>
-              <%= gender_select @request.gender %>
-              <%= f.hidden_field :gender %>
-            </div>
-            <%= f.localized_text_field :from_date,
-                                       'data-behaviour' => 'datepicker',
-                                       input_group_wrapper_class: 'input-group-sm',
-                                       prepend: t('activerecord.attributes.request.from_date'),
-                                       hide_label: true %>
-            <%= f.localized_text_field :to_date,
-                                       'data-behaviour' => 'datepicker',
-                                       input_group_wrapper_class: 'input-group-sm',
-                                       prepend: t('activerecord.attributes.request.to_date'),
-                                       placeholder: t('items.placeholder.temporal'),
-                                       hide_label: true %>
-          </div>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-1 explanation">
+      <i class="fa fa-info icon"></i>
+    </div>
+    <div class="col-md-11">
+      <%= tm 'privacy.explanation', @request %>
+    </div>
+  </div>
 
-      <hr/>
+  <hr/>
 
-      <h2>Kontakt</h2>
-      <!-- TODO pretty -->
-      <div class="row">
-        <div class="col-md-6">
-          <%= f.text_field :owner_name,
-                           placeholder: t('activerecord.attributes.item.owner_name'),
-                           hide_label: true %>
-        </div>
-        <div class="col-md-6">
-          <%= f.text_field :email,
-                           placeholder: t('activerecord.attributes.item.email'),
-                           hide_label: true %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-1 explanation">
-          <i class="fa fa-info icon"></i>
-        </div>
-        <div class="col-md-11">
-          <%= tm 'privacy.explanation', @request %>
-        </div>
-      </div>
-
-      <hr/>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-actions">
-            <%= f.submit nil, class: 'btn btn-primary' %>
-            <%= link_to t('helpers.links.cancel'), requests_path, class: 'btn btn-default' %>
-          </div>
-        </div>
-
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-actions">
+        <%= f.submit nil, class: 'btn btn-primary' %>
+        <%= link_to t('helpers.links.cancel'), requests_path, class: 'btn btn-default' %>
       </div>
     </div>
 
-<% end %>
+  </div>
+</div>

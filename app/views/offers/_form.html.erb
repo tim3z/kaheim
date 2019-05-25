@@ -1,152 +1,149 @@
-<%= custom_bootstrap_form_for @offer, url: offer_path(token: params[:token]) do |f| %>
-    <div class="edit container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <%= f.text_area :title,
-                          input_group_wrapper_class: 'input-group-lg title-group',
-                          wrapper_class: 'title',
-                          class: 'short-description',
-                          append: (@offer.title ? 140 - @offer.title.length : 140).to_s,
-                          placeholder: tm('items.placeholder.title', Offer),
-                          hide_label: true %>
-        </div>
-      </div>
+<div class="edit container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.text_area :title,
+                      input_group_wrapper_class: 'input-group-lg title-group',
+                      wrapper_class: 'title',
+                      class: 'short-description',
+                      append: (@offer.title ? 140 - @offer.title.length : 140).to_s,
+                      placeholder: tm('items.placeholder.title', Offer),
+                      hide_label: true %>
+    </div>
+  </div>
 
-      <hr/>
+  <hr/>
 
-      <div class="row">
-        <div class="col-md-8">
-          <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('items.placeholder.description'), help: ('<span class="warning"><i class="fa fa-shield"></i> ' + tm('privacy.warning', Offer, count: 2) + '</span>').html_safe %>
-        </div>
-
-        <div class="col-md-4">
-          <div class="info">
-            <div class="btn-group input-group input-group-sm gender">
-              <span class="input-group-addon"><%= t('offers.help.gender_selection') %></span>
-              <%= gender_select @offer.gender %>
-              <%= f.hidden_field :gender %>
-            </div>
-
-            <%= f.text_field :rent,
-                             placeholder: t('activerecord.attributes.offer.rent'),
-                             wrapper_class: 'rent',
-                             input_group_wrapper_class: 'input-group-sm',
-                             prepend: '<i class="fa fa-eur"></i>'.html_safe,
-                             hide_label: true %>
-            <%= f.text_field :size,
-                             placeholder: t('activerecord.attributes.offer.size'),
-                             wrapper_class: 'size',
-                             input_group_wrapper_class: 'input-group-sm',
-                             prepend: 'm²',
-                             hide_label: true %>
-          </div>
-
-          <div class="date">
-            <%= f.localized_text_field :from_date,
-                                       'data-behaviour' => 'datepicker',
-                                       input_group_wrapper_class: 'input-group-sm',
-                                       prepend: t('activerecord.attributes.offer.from_date'),
-                                       hide_label: true %>
-            <%= f.localized_text_field :to_date,
-                                       'data-behaviour' => 'datepicker',
-                                       input_group_wrapper_class: 'input-group-sm',
-                                       prepend: t('activerecord.attributes.offer.to_date'),
-                                       placeholder: t('items.placeholder.temporal'),
-                                       hide_label: true %>
-          </div>
-
-          <div class="location">
-            <%= f.text_field :street,
-                             hide_label: true,
-                             placeholder: t('activerecord.attributes.offer.street'),
-                             class: 'input-sm' %>
-            <%= f.text_field :zip_code,
-                             hide_label: true,
-                             placeholder: t('activerecord.attributes.offer.zip_code'),
-                             class: 'input-sm' %>
-            <%= f.select :district,
-                         grouped_options_for_select([["Der Westen", [
-                             "Daxlanden",
-                             "Grünwinkel",
-                             "Mühlburg",
-                             "Oberreut",
-                             "Weststadt",
-                         ]],
-                         ["Die Innenstadt", ["Innenstadt"]],
-                         ["Der Osten", [
-                             "Durlach",
-                             "Grötzingen",
-                             "Hagsfeld",
-                             "Oststadt",
-                             "Rintheim",
-                         ]],
-                         ["Der Norden", [
-                             "Knielingen",
-                             "Neureut",
-                             "Nordstadt",
-                             "Nordweststadt",
-                             "Waldstadt",
-                         ]],
-                         ["Der Süden", [
-                             "Beiertheim-Bulach",
-                             "Rüppurr",
-                             "Südstadt",
-                             "Südweststadt",
-                             "Weiherfeld-Dammerstock",
-                         ]],
-                         ["Die Bergdörfer", [
-                             "Grünwettersbach",
-                             "Hohenwettersbach",
-                             "Stupferich",
-                             "Palmbach",
-                             "Wolfartsweier",
-                         ]]], @offer.district),
-                         { placeholder: t('activerecord.attributes.offer.district'),
-                           hide_label: true,
-                           include_blank: true },
-                        class: 'input-sm select2',
-                        'data-placeholder' => t('activerecord.attributes.offer.district') %>
-          </div>
-        </div>
-      </div>
-
-      <hr/>
-
-      <h2>Kontakt</h2>
-      <!-- TODO pretty -->
-      <div class="row">
-        <div class="col-md-6">
-          <%= f.text_field :owner_name,
-                           placeholder: t('activerecord.attributes.item.owner_name'),
-                           hide_label: true %>
-        </div>
-        <div class="col-md-6">
-          <%= f.text_field :email,
-                           placeholder: t('activerecord.attributes.item.email'),
-                           hide_label: true %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-1 explanation">
-          <i class="fa fa-info icon"></i>
-        </div>
-        <div class="col-md-11">
-          <%= tm 'privacy.explanation', @offer %>
-        </div>
-      </div>
-
-      <hr/>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-actions">
-            <%= f.submit nil, class: 'btn btn-primary' %>
-            <%= link_to t('helpers.links.cancel'), offers_path, class: 'btn btn-default' %>
-          </div>
-        </div>
-      </div>
-
+  <div class="row">
+    <div class="col-md-8">
+      <%= f.text_area :description, wrapper_class: 'description', hide_label: true, placeholder: t('items.placeholder.description'), help: ('<span class="warning"><i class="fa fa-shield"></i> ' + tm('privacy.warning', Offer, count: 2) + '</span>').html_safe %>
     </div>
 
-<% end %>
+    <div class="col-md-4">
+      <div class="info">
+        <div class="btn-group input-group input-group-sm gender">
+          <span class="input-group-addon"><%= t('offers.help.gender_selection') %></span>
+          <%= gender_select @offer.gender %>
+          <%= f.hidden_field :gender %>
+        </div>
+
+        <%= f.text_field :rent,
+                         placeholder: t('activerecord.attributes.offer.rent'),
+                         wrapper_class: 'rent',
+                         input_group_wrapper_class: 'input-group-sm',
+                         prepend: '<i class="fa fa-eur"></i>'.html_safe,
+                         hide_label: true %>
+        <%= f.text_field :size,
+                         placeholder: t('activerecord.attributes.offer.size'),
+                         wrapper_class: 'size',
+                         input_group_wrapper_class: 'input-group-sm',
+                         prepend: 'm²',
+                         hide_label: true %>
+      </div>
+
+      <div class="date">
+        <%= f.localized_text_field :from_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.offer.from_date'),
+                                   hide_label: true %>
+        <%= f.localized_text_field :to_date,
+                                   'data-behaviour' => 'datepicker',
+                                   input_group_wrapper_class: 'input-group-sm',
+                                   prepend: t('activerecord.attributes.offer.to_date'),
+                                   placeholder: t('items.placeholder.temporal'),
+                                   hide_label: true %>
+      </div>
+
+      <div class="location">
+        <%= f.text_field :street,
+                         hide_label: true,
+                         placeholder: t('activerecord.attributes.offer.street'),
+                         class: 'input-sm' %>
+        <%= f.text_field :zip_code,
+                         hide_label: true,
+                         placeholder: t('activerecord.attributes.offer.zip_code'),
+                         class: 'input-sm' %>
+        <%= f.select :district,
+                     grouped_options_for_select([["Der Westen", [
+                         "Daxlanden",
+                         "Grünwinkel",
+                         "Mühlburg",
+                         "Oberreut",
+                         "Weststadt",
+                     ]],
+                                                 ["Die Innenstadt", ["Innenstadt"]],
+                                                 ["Der Osten", [
+                                                     "Durlach",
+                                                     "Grötzingen",
+                                                     "Hagsfeld",
+                                                     "Oststadt",
+                                                     "Rintheim",
+                                                 ]],
+                                                 ["Der Norden", [
+                                                     "Knielingen",
+                                                     "Neureut",
+                                                     "Nordstadt",
+                                                     "Nordweststadt",
+                                                     "Waldstadt",
+                                                 ]],
+                                                 ["Der Süden", [
+                                                     "Beiertheim-Bulach",
+                                                     "Rüppurr",
+                                                     "Südstadt",
+                                                     "Südweststadt",
+                                                     "Weiherfeld-Dammerstock",
+                                                 ]],
+                                                 ["Die Bergdörfer", [
+                                                     "Grünwettersbach",
+                                                     "Hohenwettersbach",
+                                                     "Stupferich",
+                                                     "Palmbach",
+                                                     "Wolfartsweier",
+                                                 ]]], @offer.district),
+                     {placeholder: t('activerecord.attributes.offer.district'),
+                      hide_label: true,
+                      include_blank: true},
+                     class: 'input-sm select2',
+                     'data-placeholder' => t('activerecord.attributes.offer.district') %>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <h2>Kontakt</h2>
+  <!-- TODO pretty -->
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.text_field :owner_name,
+                       placeholder: t('activerecord.attributes.item.owner_name'),
+                       hide_label: true %>
+    </div>
+    <div class="col-md-6">
+      <%= f.text_field :email,
+                       placeholder: t('activerecord.attributes.item.email'),
+                       hide_label: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1 explanation">
+      <i class="fa fa-info icon"></i>
+    </div>
+    <div class="col-md-11">
+      <%= tm 'privacy.explanation', @offer %>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-actions">
+        <%= f.submit nil, class: 'btn btn-primary' %>
+        <%= link_to t('helpers.links.cancel'), offers_path, class: 'btn btn-default' %>
+      </div>
+    </div>
+  </div>
+
+</div>
