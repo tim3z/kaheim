@@ -110,6 +110,13 @@ en:
       title:
         other: "%{name}'s offer"
         mine: "My Offer"
+    owner_show:
+      from: free from
+      to: til
+      user: "%{name}'s offer"
+      title:
+        other: "%{name}'s offer"
+        mine: "My Offer"
     list:
       title: Offers
       none: There are currently no offers available.

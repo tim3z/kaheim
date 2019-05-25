@@ -21,12 +21,14 @@ Rails.application.routes.draw do
   resources :offers do
     member do
       put :toggle_active
+      get :owner_show
     end
   end
 
   resources :requests do
     member do
       put :toggle_active
+      get :owner_show
     end
   end
 

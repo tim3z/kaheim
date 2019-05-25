@@ -5,7 +5,7 @@
 </p>
 <p>
   Soeben hast du auf ein <%= @item.class.model_name.human %> mit dem Titel <i><%= @item.title %></i> angelegt.
-  Bisher ist es noch nicht öffentlich, aber du kannst es mit einem Klick auf diesen <%= link_to 'Link', TODO_url(@item) %>
+  Bisher ist es noch nicht öffentlich, aber du kannst es mit einem Klick auf diesen <%= link_to 'Link', polymorphic_url(@item, action: :owner_show, token: @item.to_sgid(expires_in: nil, for: :owner).to_s) %>
   aktivieren.
 </p>
 <p>

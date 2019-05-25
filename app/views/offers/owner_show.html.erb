@@ -1,0 +1,85 @@
+<% content_for :title, @offer.title %>
+
+<div class="page-header">
+  <h1>
+    <%=t '.title.mine' %>
+  </h1>
+</div>
+
+<div class="item">
+  <%= @token.to_s %>
+  <%= badges_for @offer %>
+  <div class="title"><strong><%= @offer.title %></strong></div>
+
+  <div class="until">
+    <table class="offer-specifics">
+      <tbody>
+      <tr>
+        <td class="icon">
+        </td>
+        <td class="info">
+          <%= gender_icon @offer.gender %>
+        </td>
+        <td class="icon">
+          <i class="fa fa-eur"></i>
+        </td>
+        <td class="info">
+          <%= @offer.rent %>
+        </td>
+      </tr>
+      <tr>
+        <td class="icon">
+          <i class="fa fa-square-o"></i>
+        </td>
+        <td class="info">
+          <%= @offer.size %>m²
+        </td>
+        <td class="icon">
+          <i class="fa fa-long-arrow-right"></i>
+        </td>
+        <td class="info">
+          <%= date_info @offer %>
+        </td>
+      </tr>
+      <tr>
+        <td class="icon">
+          <i class="fa fa-home"></i>
+        </td>
+        <td class="info" colspan="4">
+          <%= address_info @offer %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="description">
+    <%= auto_link simple_format(@offer.description) %>
+  </div>
+
+  <h2><i class="fa fa-comments-o"></i> <%= t 'answers.title' %></h2>
+  <% if @offer.answers.count > 0 %>
+    <%= render @offer.answers %>
+  <% else %>
+    <h4><%= t 'answers.none' %></h4>
+  <% end %>
+</div>
+
+<hr />
+
+<div class="form-actions">
+  <% if @offer.outdated? %>
+    <%= link_to t('items.reactivate'), reactivate_path(@offer.get_or_create_reactivator.token), class: 'btn btn-primary' %>
+  <% end %>
+  <%= link_to t('helpers.links.edit'), edit_offer_path(@offer, token: params[:token]), class: 'btn btn-default' %>
+  <% if @offer.is_public? %>
+    <%= link_to '<i class="fa fa-eye-slash"></i> '.html_safe + t('helpers.links.hide'), toggle_active_offer_path(@offer, token: params[:token]), method: :put, class: 'btn btn-default' %>
+  <% else %>
+    <%= link_to '<i class="fa fa-eye"></i> '.html_safe + t('helpers.links.make_public'), toggle_active_offer_path(@offer, token: params[:token]), method: :put, class: 'btn btn-default' %>
+  <% end %>
+  <%= link_to t('helpers.links.destroy'),
+              offer_path(@offer, token: params[:token]),
+              method: 'delete',
+              data: { confirm: t('helpers.links.confirm') },
+              class: 'btn btn-danger' %>
+</div>

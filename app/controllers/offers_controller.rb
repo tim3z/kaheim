@@ -10,6 +10,10 @@ class OffersController < ApplicationController
     @offer = Offer.visible_for(current_user, Offer).find_by(id: params[:id]) or (authenticate_user! and redirect_to offers_path)
   end
 
+  def owner_show
+    @offer = GlobalID::Locator.locate_signed(params[:token], for: :owner)
+  end
+
   def new
     @offer = Offer.new
   end
@@ -32,7 +36,7 @@ class OffersController < ApplicationController
       # TODO let admins deactivate items
 
       # TODO infoseite
-      redirect_to :index, flash: flash
+      redirect_to offers_url, flash: flash
     else
       render action: 'new'
     end
