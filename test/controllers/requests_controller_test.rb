@@ -8,37 +8,34 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'table.request-specifics', 1
   end
 
-  test 'should get index for signed in user' do
-    sign_in users(:jim)
-    get requests_url
-    assert_response :success
-    assert_select 'table.request-specifics', 2
-  end
+  # test 'does not send notification if unlocked but unconfirmed user creates requests' do
+  #   user = users(:jane)
+  #   assert user.unlocked
+  #   assert_not user.confirmed?
+  #   sign_in user
+  #   assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+  #     post requests_url, params: {request: { title: "I'm requesting", description: 'I want a place to live', gender: 'female' }}
+  #   end
+  #   assert_equal I18n.t('helpers.creation_success_confirmation_required', {model: Request.model_name.human}), flash[:alert]
+  #   sent_mail = ActionMailer::Base.deliveries.last
+  #   assert sent_mail.subject.include?(I18n.t('devise.mailer.confirmation_instructions.subject'))
+  #   assert sent_mail.body.include?("confirmation")
+  # end
+  #
+  # test 'send notification if unlocked and confirmed user creates requests' do
+  #   user = users(:maren)
+  #   assert user.unlocked
+  #   assert user.confirmed?
+  #   sign_in user
+  #   num_subscribers = Subscription.requests.confirmed.count
+  #   assert_difference 'ActionMailer::Base.deliveries.size', +num_subscribers do
+  #     post requests_url, params: {request: { title: "I'm requesting", description: 'I want a place to live', gender: 'female' }}
+  #   end
+  #   assert_equal I18n.t('helpers.creation_success', {model: Request.model_name.human}), flash[:notice]
+  # end
 
-  test 'does not send notification if unlocked but unconfirmed user creates requests' do
-    user = users(:jane)
-    assert user.unlocked
-    assert_not user.confirmed?
-    sign_in user
-    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      post requests_url, params: {request: { title: "I'm requesting", description: 'I want a place to live', gender: 'female' }}
-    end
-    assert_equal I18n.t('helpers.creation_success_confirmation_required', {model: Request.model_name.human}), flash[:alert]
-    sent_mail = ActionMailer::Base.deliveries.last
-    assert sent_mail.subject.include?(I18n.t('devise.mailer.confirmation_instructions.subject'))
-    assert sent_mail.body.include?("confirmation")
-  end
-
-  test 'send notification if unlocked and confirmed user creates requests' do
-    user = users(:maren)
-    assert user.unlocked
-    assert user.confirmed?
-    sign_in user
-    num_subscribers = Subscription.requests.confirmed.count
-    assert_difference 'ActionMailer::Base.deliveries.size', +num_subscribers do
-      post requests_url, params: {request: { title: "I'm requesting", description: 'I want a place to live', gender: 'female' }}
-    end
-    assert_equal I18n.t('helpers.creation_success', {model: Request.model_name.human}), flash[:notice]
+  test 'send notification when request is confirmed' do
+    # TODO
   end
 
 end

@@ -5,7 +5,7 @@ class ItemReactivationController < ApplicationController
       return false
     end
 
-    reactivator.item.user.confirm unless reactivator.item.user.confirmed?
+    reactivator.item.confirm_email! unless reactivator.item.confirmed?
     reactivator.item.touch
     reactivator.destroy
 

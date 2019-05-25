@@ -5,6 +5,7 @@ need_room:
   gender: 2
   owner_name: Jim Fisher
   email: jim.f@gmail.com
+  email_confirmed_at: 14-12-2013
 
 need_room2:
   title: I need a room

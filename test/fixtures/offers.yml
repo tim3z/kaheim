@@ -10,6 +10,7 @@ tworooms:
   zip_code: 45876
   owner_name: John Ericson
   email: john.ericson@example.com
+  email_confirmed_at: 14-12-2013
 
 roommate_wanted:
   title: Roommate wanted
