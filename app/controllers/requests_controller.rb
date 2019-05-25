@@ -23,8 +23,6 @@ class RequestsController < ApplicationController
     @request = Request.new(request_params)
 
     if @request.save
-      flash = { alert: tm('helpers.creation_success_confirmation_required', @request) } # TODO text aktualisieren
-
       ItemMailer.item_creation_mail(@request).deliver_now
       User.admin.find_each do |admin|
         ItemMailer.admin_notice_mail(@request, admin).deliver_now
@@ -32,8 +30,8 @@ class RequestsController < ApplicationController
 
       # TODO make sure on activation subscriptions notified
 
-      # TODO infoseite
-      redirect_to requests_url, flash: flash
+      @item = @request
+      render 'pages/item_created', flash
     else
       render action: 'new'
     end

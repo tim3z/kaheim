@@ -81,8 +81,6 @@ en:
     make_public_success: "%{model} successfully published."
     hide_success: "%{model} successfully hidden."
     hidden: "Not public"
-    creation_success_unlock_required: "%{model} was successfully created. Since this is your first %{model} an admin has to unlock it."
-    creation_success_confirmation_required: "%{model} was successfully created. It becomes visible after you have confirmed your email address."
     about: Contact
     kaheim: About Kaheim
     dot: dot

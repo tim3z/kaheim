@@ -23,8 +23,6 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
 
     if @offer.save
-      flash = { alert: tm('helpers.creation_success_confirmation_required', @offer) } # TODO text aktualisieren
-
       ItemMailer.item_creation_mail(@offer).deliver_now
       User.admin.find_each do |admin|
         ItemMailer.admin_notice_mail(@offer, admin).deliver_now
@@ -32,8 +30,8 @@ class OffersController < ApplicationController
 
       # TODO make sure on activation subscriptions notified
 
-      # TODO infoseite
-      redirect_to offers_url, flash: flash
+      @item = @request
+      render 'pages/item_created', flash
     else
       render action: 'new'
     end
