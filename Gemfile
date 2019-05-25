@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0.0.rc1'
 gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -13,7 +13,7 @@ gem 'sass-rails', '~> 5.0.7' # TODO unmaintained as of 26 March 2019 (alternativ
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.2.2'
+gem 'coffee-rails', '~> 5.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -23,7 +23,7 @@ gem 'jquery-rails', '~> 4.3.3'
 gem 'turbolinks', '~> 5.2.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.8.0'
+gem 'jbuilder', '~> 2.9.1'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 1.0.0', group: :doc
 
@@ -73,7 +73,7 @@ gem 'rails_autolink', '~> 1.1.0'
 gem 'recaptcha', '~> 4.14.0', require: 'recaptcha/rails'
 
 # admin stuff
-gem 'activeadmin', '~> 1.4.0'
+gem 'activeadmin', '~> 2.0.0'
 # Authentication with Devise
 gem 'devise', '~> 4.6.2'
 
@@ -86,7 +86,7 @@ gem 'whenever', '~> 0.10.0', require: false
 gem 'dotenv-rails', '~> 2.7.2'
 
 group :production do
-  gem 'exception_notification', '~> 4.3.0'
+  gem 'exception_notification', git: 'https://github.com/shanecav84/exception_notification.git', branch: 'rails_6'
 end
 
 gem 'simplecov', '~> 0.16.0', :require => false, :group => :test
