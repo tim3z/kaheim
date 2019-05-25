@@ -42,8 +42,6 @@ class OffersController < ApplicationController
         ItemMailer.admin_notice_mail(@offer, admin).deliver_now
       end
 
-      # TODO make sure on activation subscriptions notified
-
       @item = @offer
       render 'pages/item_created', flash: flash
     else
