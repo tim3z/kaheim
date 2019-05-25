@@ -3,7 +3,7 @@ class RequestsController < ApplicationController
   before_action :set_editable_request, only: [:edit, :update, :destroy, :toggle_active]
 
   def index
-    @requests = Request.visible_for(current_user, Request).order(Arel.sql('from_date IS NOT NULL, from_date ASC'), updated_at: :desc).includes(:user)
+    @requests = Request.visible_for(current_user, Request).order(Arel.sql('from_date IS NOT NULL, from_date ASC'), updated_at: :desc)
   end
 
   def show
