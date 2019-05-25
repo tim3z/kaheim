@@ -2,13 +2,15 @@
     <div class="edit">
 
       <div class="row">
-        <%= f.text_area :title,
-                         input_group_wrapper_class: 'input-group-lg col-md-12',
-                         wrapper_class: 'title',
-                         class: 'short-description',
-                         append: (@request.title ? 140 - @request.title.length : 140).to_s,
-                         placeholder: tm('items.placeholder.title', Request),
-                         hide_label: true %>
+        <div class="col-md-12">
+          <%= f.text_area :title,
+                           input_group_wrapper_class: 'input-group-lg title-group',
+                           wrapper_class: 'title',
+                           class: 'short-description',
+                           append: (@request.title ? 140 - @request.title.length : 140).to_s,
+                           placeholder: tm('items.placeholder.title', Request),
+                           hide_label: true %>
+        </div>
       </div>
 
       <hr/>
@@ -41,6 +43,21 @@
       </div>
 
       <hr/>
+
+      <h2>Kontakt</h2>
+      <!-- TODO pretty -->
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.text_field :owner_name,
+                           placeholder: t('activerecord.attributes.item.owner_name'),
+                           hide_label: true %>
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :email,
+                           placeholder: t('activerecord.attributes.item.email'),
+                           hide_label: true %>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-md-1 explanation">
