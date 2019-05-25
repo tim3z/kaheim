@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
   end
 
   def owner_show
-    unless @request.confirmed?
+    unless @request.email_confirmed?
       @request.confirm_email!
 
       Subscription.requests.confirmed.each do |subscriber|

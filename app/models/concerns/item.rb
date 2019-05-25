@@ -40,10 +40,10 @@ module Item
   end
 
   def visible?
-    !blocked && confirmed? && current?
+    !blocked && email_confirmed? && current?
   end
 
-  def confirmed? # TODO wtf name
+  def email_confirmed?
     !email_confirmed_at.nil?
   end
 

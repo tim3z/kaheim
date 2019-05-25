@@ -10,7 +10,7 @@ class OffersController < ApplicationController
   end
 
   def owner_show
-    unless @offer.confirmed?
+    unless @offer.email_confirmed?
       @offer.confirm_email!
 
       Subscription.offers.confirmed.each do |subscriber|
