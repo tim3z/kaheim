@@ -116,6 +116,7 @@ de:
       title:
         other: Angebot von %{name}
         mine: Angebot von mir
+      no_access: Angebot wurde nicht gefunden oder ist nicht öffentlich
     owner_show:
       from: frei ab
       to: bis
@@ -143,6 +144,7 @@ de:
       title:
         other: Gesuch von %{name}
         mine: Gesuch von mir
+      no_access: Gesuch wurde nicht gefunden oder ist nicht öffentlich
     list:
       title: Gesuche
       none: Momentan sind keine Gesuche vorhanden.

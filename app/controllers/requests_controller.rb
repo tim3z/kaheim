@@ -6,7 +6,10 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.visible_for(current_user, Request).find_by(id: params[:id]) or (authenticate_user! and redirect_to requests_path)
+    @request = Request.visible_for(current_user, Request).find_by(id: params[:id])
+    unless @request
+      redirect_to root_path, flash: { error: t('requests.show.no_access') }
+    end
   end
 
   def owner_show

@@ -6,7 +6,10 @@ class OffersController < ApplicationController
   end
 
   def show
-    @offer = Offer.visible_for(current_user, Offer).find_by(id: params[:id]) or (authenticate_user! and redirect_to offers_path)
+    @offer = Offer.visible_for(current_user, Offer).find_by(id: params[:id])
+    unless @offer
+      redirect_to root_path, flash: { error: t('offers.show.no_access') }
+    end
   end
 
   def owner_show

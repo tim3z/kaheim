@@ -110,6 +110,7 @@ en:
       title:
         other: "%{name}'s offer"
         mine: "My Offer"
+      no_access: Offer not found or not public
     owner_show:
       from: free from
       to: til
@@ -138,6 +139,7 @@ en:
       title:
         other: "%{name}'s request"
         mine: "My Request"
+      no_access: Request not found or not public
     list:
       title: Requests
       none: There are currently no requests available.
