@@ -1,0 +1,4 @@
+<%= bootstrap_form_tag url: request_owner_link_offer_path(item), method: 'post' do |f| %>
+  <%= f.email_field :email %>
+  <%= f.submit 'Send' %>
+<% end %>

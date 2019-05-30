@@ -117,6 +117,7 @@ de:
         other: Angebot von %{name}
         mine: Angebot von mir
       no_access: Angebot wurde nicht gefunden oder ist nicht öffentlich
+      edit: Bearbeiten
     owner_show:
       from: frei ab
       to: bis

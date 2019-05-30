@@ -60,6 +60,26 @@
     <%= auto_link simple_format(@offer.description) %>
   </div>
 
+  <div class="request-edit-link">
+    <div class="inline-button toggle-collapse">
+      <div class="short"><%= t 'offers.show.edit' %>&#x25BC;</div>
+      <div class="long"><%= t 'helpers.less' %>&#x25B2;</div>
+    </div>
+  </div>
+
+  <div class="request-edit-link-form">
+    <div class="short transition"></div>
+    <div class="long transition">
+      <p>
+        Um das Angebot zu bearbeiten, nutze den Link, den du per E-Mail bekommen hast.
+      </p>
+      <p>
+        Falls du die E-Mail nicht mehr hast, kannst du hier deine E-Mail-Adresse angeben, um dir den Link noch einmal zusenden zu lassen:
+      </p>
+      <%= render 'request_edit_link_form', item: @offer %>
+    </div>
+  </div>
+
   <%= render 'answers/form', answer: @answer ||= @offer.answers.build %>
 </div>
 

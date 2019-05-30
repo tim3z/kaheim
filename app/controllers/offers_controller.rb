@@ -70,6 +70,12 @@ class OffersController < ApplicationController
     end
   end
 
+  def request_owner_link
+    @offer = Offer.visible_for(current_user, Offer).find_by(id: params[:id])
+    ItemMailer.item_creation_mail(@offer).deliver_now if params[:email] == @offer.email # TODO use specific email template
+    redirect_to @offer, notice: 'We sent an email to you, if you supplied the correct email associated with this offer.' # TODO translate
+  end
+
   private
     def set_editable_offer
       @offer = GlobalID::Locator.locate_signed(params[:token], for: :owner)
