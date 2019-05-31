@@ -1,0 +1,11 @@
+<p>Hallo <%= @item.owner_name %>,</p>
+
+<p>
+  du hast gerade den Bearbeitungslink für dein <%= @item.class.model_name.human %> mit dem Titel <i><%= @item.title %></i> angefordert.
+  Mit diesem
+  <%= link_to 'Link', polymorphic_url(@item, action: :owner_show, token: @item.to_sgid(expires_in: nil, for: :owner).to_s) %>
+  kannst du es bearbeiten und Antworten darauf einsehen.
+</p>
+<p>
+  Dein Kaheim-Team
+</p>

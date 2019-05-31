@@ -116,7 +116,6 @@ de:
       title:
         other: Angebot von %{name}
         mine: Angebot von mir
-      no_access: Angebot wurde nicht gefunden oder ist nicht öffentlich
       edit: Bearbeiten
     owner_show:
       from: frei ab
@@ -145,7 +144,6 @@ de:
       title:
         other: Gesuch von %{name}
         mine: Gesuch von mir
-      no_access: Gesuch wurde nicht gefunden oder ist nicht öffentlich
     list:
       title: Gesuche
       none: Momentan sind keine Gesuche vorhanden.
@@ -204,10 +202,17 @@ de:
       temporal: '(bei Zwischenmiete)'
     unconfirmed: E-Mail-Adresse unbestätigt
     reactivate: Wieder aktivieren
+    no_access: Eintrag wurde nicht gefunden oder ist nicht öffentlich
+    request_edit_link:
+      email: E-Mail
+      send: Senden
+      sent_notice: 'Wir haben dir eine E-Mail geschickt, wenn du die richtige E-Mail-Adresse angegeben hast, die mit diesem Eintrag verknüpft ist.'
 
   item_mailer:
     item_creation_mail:
       subject: "Aktiviere dein '%{item_type}'"
+    item_edit_link_mail:
+      subject: "Link zu deinem %{item_type}"
     answer_mail:
       subject: "Antwort auf '%{title}'"
     answer_mail_notification:

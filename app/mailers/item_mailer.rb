@@ -6,6 +6,11 @@ class ItemMailer < ActionMailer::Base
     mail to: item.email, subject: t('item_mailer.item_creation_mail.subject', item_type: item.class.model_name.human)
   end
 
+  def item_edit_link_mail item
+    @item = item
+    mail to: item.email, subject: t('item_mailer.item_edit_link_mail.subject', item_type: item.class.model_name.human)
+  end
+
   def reactivate_item_mail item, token
     @item = item
     @token = token

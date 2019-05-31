@@ -8,7 +8,7 @@ class OffersController < ApplicationController
   def show
     @offer = Offer.visible_for(current_user, Offer).find_by(id: params[:id])
     unless @offer
-      redirect_to root_path, flash: { error: t('offers.show.no_access') }
+      redirect_to root_path, flash: { error: t('items.no_access') }
     end
   end
 
@@ -72,8 +72,8 @@ class OffersController < ApplicationController
 
   def request_owner_link
     @offer = Offer.visible_for(current_user, Offer).find_by(id: params[:id])
-    ItemMailer.item_creation_mail(@offer).deliver_now if params[:email] == @offer.email # TODO use specific email template
-    redirect_to @offer, notice: 'We sent an email to you, if you supplied the correct email associated with this offer.' # TODO translate
+    ItemMailer.item_edit_link_mail(@offer).deliver_now if params[:email] == @offer.email
+    redirect_to @offer, notice: t('items.request_edit_link.sent_notice')
   end
 
   private

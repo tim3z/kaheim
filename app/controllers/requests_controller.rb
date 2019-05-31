@@ -8,7 +8,7 @@ class RequestsController < ApplicationController
   def show
     @request = Request.visible_for(current_user, Request).find_by(id: params[:id])
     unless @request
-      redirect_to root_path, flash: { error: t('requests.show.no_access') }
+      redirect_to root_path, flash: { error: t('items.no_access') }
     end
   end
 

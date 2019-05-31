@@ -110,7 +110,6 @@ en:
       title:
         other: "%{name}'s offer"
         mine: "My Offer"
-      no_access: Offer not found or not public
       edit: Edit
     owner_show:
       from: free from
@@ -140,7 +139,6 @@ en:
       title:
         other: "%{name}'s request"
         mine: "My Request"
-      no_access: Request not found or not public
     list:
       title: Requests
       none: There are currently no requests available.
@@ -198,10 +196,17 @@ en:
       temporal: '(if temporal)'
     unconfirmed: Unconfirmed email address
     reactivate: Reactivate
+    no_access: Offer not found or not public
+    request_edit_link:
+      email: Email
+      send: Send
+      sent_notice: 'We sent an email to you, if you supplied the correct email associated with this offer.'
 
   item_mailer:
     item_creation_mail:
       subject: "Activate your '%{item_type}'"
+    item_edit_link_mail:
+      subject: "Link to your %{item_type}"
     answer_mail:
       subject: "Reply to '%{title}'"
     answer_mail_notification:
