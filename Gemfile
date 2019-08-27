@@ -8,8 +8,6 @@ gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'bootsnap', '~> 1.4.2'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0.0' # TODO unmaintained as of 26 March 2019 (alternative: sassc-rails)
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -29,7 +27,7 @@ gem 'sdoc', '~> 1.0.0', group: :doc
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.0.2'
+  gem 'spring', '~> 2.1.0'
   gem 'letter_opener', '~> 1.7.0'
   gem 'better_errors', '~> 2.5.1'
   gem 'binding_of_caller', '~> 0.8.0'
