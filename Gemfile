@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0.rc1'
+gem 'rails', '~> 6.0.0'
 gem 'pg', '~> 1.1.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -51,7 +51,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-sass', '~> 3.4.1'
-gem 'autoprefixer-rails', '~> 9.5.0'
+gem 'autoprefixer-rails', '~> 9.6.0'
 gem 'bootstrap_form', '~> 2.7'
 
 gem 'bootstrap-datepicker-rails', '~> 1.8.0'
@@ -73,9 +73,9 @@ gem 'rails_autolink', '~> 1.1.0'
 gem 'recaptcha', '~> 4.14.0', require: 'recaptcha/rails'
 
 # admin stuff
-gem 'activeadmin', '~> 2.0.0'
+gem 'activeadmin', '~> 2.2.0'
 # Authentication with Devise
-gem 'devise', '~> 4.6.2'
+gem 'devise', '~> 4.7.0'
 
 # static pages
 gem 'high_voltage', '~> 3.1.0'
