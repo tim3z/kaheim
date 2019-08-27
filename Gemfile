@@ -9,7 +9,7 @@ gem 'pg', '~> 1.1.4'
 gem 'puma', '~> 3.0'
 gem 'bootsnap', '~> 1.4.2'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.7' # TODO unmaintained as of 26 March 2019 (alternative: sassc-rails)
+gem 'sass-rails', '~> 6.0.0' # TODO unmaintained as of 26 March 2019 (alternative: sassc-rails)
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
