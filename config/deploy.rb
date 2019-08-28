@@ -28,7 +28,8 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 
 rubyversion = File.open('.ruby-version', &:readline).gsub(/\n/, '')
 # Default value for default_env is {}
-set :default_env, { path: "/package/host/localhost/nodejs-9/bin:/package/host/localhost/#{rubyversion}/bin:/package/host/localhost/gcc-4/bin:$PATH" }
+set :default_env, { PATH: "/package/host/localhost/nodejs-9/bin:/package/host/localhost/#{rubyversion}/bin:/package/host/localhost/gcc-4/bin:$PATH",
+                    LD_LIBRARY_PATH: "/package/host/localhost/gcc-4/lib64:$LD_LIBRARY_PATH"}
 
 # Default value for keep_releases is 5
 set :keep_releases, 20
