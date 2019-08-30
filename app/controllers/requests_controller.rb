@@ -60,7 +60,7 @@ class RequestsController < ApplicationController
 
   def toggle_active
     if @request.toggle!(:is_public)
-      redirect_to @request, notice: tm("helpers.#{@request.is_public? ? 'make_public_success' : 'hide_success'}")
+      redirect_to @request, notice: tm("helpers.#{@request.is_public? ? 'make_public_success' : 'hide_success'}", @request)
     else
       render action: 'show'
     end
