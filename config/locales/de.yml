@@ -204,6 +204,8 @@ de:
     reactivate: Wieder aktivieren
     no_access: Eintrag wurde nicht gefunden oder ist nicht öffentlich
     request_edit_link:
+      info_general: "Um diesen Eintrag zu bearbeiten, nutze den Link, den du per E-Mail bekommen hast."
+      info_send_again: "Falls du die E-Mail nicht mehr hast, kannst du hier deine E-Mail-Adresse angeben, um dir den Link noch einmal zusenden zu lassen:"
       email: E-Mail
       send: Senden
       sent_notice: 'Wir haben dir eine E-Mail geschickt, wenn du die richtige E-Mail-Adresse angegeben hast, die mit diesem Eintrag verknüpft ist.'

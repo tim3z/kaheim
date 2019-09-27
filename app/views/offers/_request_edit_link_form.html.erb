@@ -1,4 +1,6 @@
-<%= bootstrap_form_tag url: request_owner_link_offer_path(item), method: 'post' do |f| %>
+<%= bootstrap_form_tag url: request_owner_link_offer_path(item), method: 'post', layout: :horizontal do |f| %>
   <%= f.email_field :email, label: t('items.request_edit_link.email') %>
-  <%= f.submit t('items.request_edit_link.send') %>
+  <%= f.form_group do %>
+    <%= f.submit t('items.request_edit_link.send') %>
+  <% end %>
 <% end %>
