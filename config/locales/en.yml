@@ -198,6 +198,7 @@ en:
     reactivate: Reactivate
     no_access: Offer not found or not public
     request_edit_link:
+      send_link_again: Send edit link again
       info_general: "To edit this item please use the link you received via email."
       info_send_again: "In case you do not have this email anymore, you can submit your email address here and we'll send the link again to you:"
       email: Email
