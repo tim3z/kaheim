@@ -41,4 +41,9 @@ class ApplicationController < ActionController::Base
   def default_url_options(options = {})
     (I18n.locale == :de) ? options : options.merge(locale: I18n.locale)
   end
+
+  def verify_captcha
+    params[:stupid_captcha] == "Maria"
+  end
+
 end

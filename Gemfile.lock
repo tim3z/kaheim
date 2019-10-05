@@ -264,8 +264,6 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     rdoc (6.1.1)
-    recaptcha (4.14.0)
-      json
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -355,7 +353,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 6.0.0)
   rails_autolink (~> 1.1.0)
-  recaptcha (~> 4.14.0)
+  sass-rails (~> 5.0.7)
   sdoc (~> 1.0.0)
   select2-rails (~> 4.0.3)
   simplecov (~> 0.16.0)

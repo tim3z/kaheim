@@ -7,9 +7,10 @@
   <%= f.text_area :message %>
   <% unless user_signed_in? && current_user.confirmed? %>
     <%= f.form_group label: { text: 'Captcha' } do %>
-      <%= recaptcha_tags ajax: true %>
+      <%= label_tag(:captcha, t('captcha.label', captcha: 'Maria')) %>
+      <%= text_field_tag(:captcha) %>
     <% end %>
-    <% end %>
+  <% end %>
   <%= f.form_group do %>
     <%= f.primary t('helpers.links.send') %>
   <% end %>

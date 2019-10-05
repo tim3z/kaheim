@@ -67,9 +67,6 @@ gem 'chartkick', '~> 3.0.2'
 gem 'actionview-encoded_mail_to', '~> 1.0.9'
 gem 'rails_autolink', '~> 1.1.0'
 
-# bot protection with recaptcha
-gem 'recaptcha', '~> 4.14.0', require: 'recaptcha/rails'
-
 # admin stuff
 gem 'activeadmin', '~> 2.2.0'
 # Authentication with Devise
