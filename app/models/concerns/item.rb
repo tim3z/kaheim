@@ -5,6 +5,7 @@ module Item
 
   included do
     validates_presence_of :email, :owner_name
+    attr_readonly :email
 
     has_many :answers, as: :item, dependent: :destroy
     has_one :item_reactivator, as: :item, dependent: :destroy
@@ -62,5 +63,9 @@ module Item
 
   def block!
     update!(blocked: true)
+  end
+
+  def owner_show_token
+    self.to_sgid(expires_in: nil, for: :owner).to_s
   end
 end

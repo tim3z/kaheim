@@ -51,7 +51,7 @@ class RequestsController < ApplicationController
 
   def update
     if @request.update(request_params)
-      redirect_to @request, notice: tm('helpers.update_success', @request)
+      redirect_to owner_show_request_path(@request, token: @request.owner_show_token), notice: tm('helpers.update_success', @request)
     else
       render action: 'edit'
     end
@@ -64,7 +64,7 @@ class RequestsController < ApplicationController
 
   def toggle_active
     if @request.toggle!(:is_public)
-      redirect_to @request, notice: tm("helpers.#{@request.is_public? ? 'make_public_success' : 'hide_success'}", @request)
+      redirect_to owner_show_request_path(@request, token: @request.owner_show_token), notice: tm("helpers.#{@request.is_public? ? 'make_public_success' : 'hide_success'}", @request)
     else
       render action: 'show'
     end
@@ -78,7 +78,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      # TODO disallow name and email for update or invalidate activation
       params[:request].permit(:owner_name, :email, :title, :description, :from_date, :to_date, :gender)
     end
 end

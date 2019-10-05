@@ -122,7 +122,8 @@
     <div class="col-md-6">
       <%= f.text_field :email,
                        placeholder: t('activerecord.attributes.item.email'),
-                       hide_label: true %>
+                       hide_label: true,
+                       disabled: type != :create %>
     </div>
   </div>
 

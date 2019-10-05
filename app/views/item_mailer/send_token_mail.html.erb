@@ -7,7 +7,7 @@
   Mit folgendem Link kannst du dein <%= @item.class.model_name.human %> bearbeiten und Antworten einsehen:
 </p>
 <p>
-  <%= link_to 'Link', polymorphic_url(@item, action: :owner_show, token: @item.to_sgid(expires_in: nil, for: :owner).to_s) %>
+  <%= link_to 'Link', polymorphic_url(@item, action: :owner_show, token: @item.owner_show_token) %>
 </p>
 <p>
   Bearbeiten und Antworten einsehen klappt ab jetzt ausschließlich über diesen Link; also bewahre diese E-Mail auf!

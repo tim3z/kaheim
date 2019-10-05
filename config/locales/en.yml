@@ -88,7 +88,7 @@ en:
 
   privacy:
     warning: Please do not share any sensible data. All %{model} are publicly accessible.
-    explanation: There is a contact form under your %{model} on the website. People can use it to contact you. Kaheim will then send you an Email with the reply. Your contact data is safe (unless you put it in the description).
+    explanation: When your %{model} is published on the website, there will be a contact form shown below your %{model}. People can use it to contact you. Kaheim will then send you an email with the reply. Your contact data is secure (unless you include it in the description).
 
   sort:
     sorted: Sorted by

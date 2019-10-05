@@ -51,7 +51,7 @@ class OffersController < ApplicationController
 
   def update
     if @offer.update(offer_params)
-      redirect_to @offer, notice: tm('helpers.update_success', @offer)
+      redirect_to owner_show_offer_path(@offer, token: @offer.owner_show_token), notice: tm('helpers.update_success', @offer)
     else
       render action: 'edit'
     end
@@ -64,7 +64,7 @@ class OffersController < ApplicationController
 
   def toggle_active
     if @offer.toggle!(:is_public)
-      redirect_to @offer, notice: tm("helpers.#{@offer.is_public? ? 'make_public_success' : 'hide_success'}", @offer)
+      redirect_to owner_show_offer_path(@offer, token: @offer.owner_show_token), notice: tm("helpers.#{@offer.is_public? ? 'make_public_success' : 'hide_success'}", @offer)
     else
       render action: 'show'
     end
@@ -84,7 +84,6 @@ class OffersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params
-      # TODO disallow name and email for update or invalidate activation
       params[:offer].permit(:owner_name, :email, :title, :description, :rent, :size, :gender, :from_date, :to_date, :district, :street, :zip_code)
     end
 end
