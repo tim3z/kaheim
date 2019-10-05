@@ -70,6 +70,12 @@ class RequestsController < ApplicationController
     end
   end
 
+  def request_owner_link
+    @request = Request.visible_for(current_user, Request).find_by(id: params[:id])
+    ItemMailer.item_edit_link_mail(@request).deliver_now if params[:email] == @request.email
+    redirect_to @request, notice: t('items.request_edit_link.sent_notice')
+  end
+
   private
     def set_editable_request
       @request = GlobalID::Locator.locate_signed(params[:token], for: :owner)

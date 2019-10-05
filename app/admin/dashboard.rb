@@ -24,6 +24,7 @@ ActiveAdmin.register_page "Dashboard" do
             column I18n.t('active_admin.actions.title') do |request|
               link_to(I18n.t('active_admin.actions.show'), request) + ' ' +
               link_to(request.blocked ? 'Freischalten' : 'Sperren', request.blocked ? unblock_admin_request_path(request) : block_admin_request_path(request), method: :put) + ' ' +
+              link_to(I18n.t('items.request_edit_link.send_link_again'), request_owner_link_request_path(request, email: request.email), method: :post) + ' ' +
               link_to(I18n.t('active_admin.actions.show_in_admin_panel'), admin_request_path(request))
             end
           end

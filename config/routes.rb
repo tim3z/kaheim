@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     member do
       put :toggle_active
       get :owner_show
+      post :request_owner_link
     end
   end
 

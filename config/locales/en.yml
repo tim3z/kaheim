@@ -110,14 +110,6 @@ en:
       title:
         other: "%{name}'s offer"
         mine: "My Offer"
-      edit: Edit
-    owner_show:
-      from: free from
-      to: til
-      user: "%{name}'s offer"
-      title:
-        other: "%{name}'s offer"
-        mine: "My Offer"
     list:
       title: Offers
       none: There are currently no offers available.
@@ -188,6 +180,8 @@ en:
       subject: "New item on Kaheim"
 
   items:
+    show:
+      edit: Edit
     locked: User not unlocked
     outdated: Outdated
     placeholder:
@@ -203,7 +197,7 @@ en:
       info_send_again: "In case you do not have this email anymore, you can submit your email address here and we'll send the link again to you:"
       email: Email
       send: Send
-      sent_notice: 'We sent an email to you, if you supplied the correct email associated with this offer.'
+      sent_notice: 'We sent an email to you, if you supplied the correct email associated with this item.'
 
   item_mailer:
     item_creation_mail:

@@ -117,13 +117,6 @@ de:
         other: Angebot von %{name}
         mine: Angebot von mir
       edit: Bearbeiten
-    owner_show:
-      from: frei ab
-      to: bis
-      user: Angebot von %{name}
-      title:
-        other: Angebot von %{name}
-        mine: Angebot von mir
     list:
       title: Angebote
       none: Momentan sind keine Angebote vorhanden.
@@ -194,6 +187,8 @@ de:
       subject: "Neuer Eintrag auf Kaheim"
 
   items:
+    show:
+      edit: Bearbeiten
     locked: Benutzer nicht freigeschaltet
     outdated: Abgelaufen
     placeholder:

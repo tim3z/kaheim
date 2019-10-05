@@ -11,6 +11,24 @@
 
 <div class="item">
 
+  <div class="request-edit-link">
+    <div class="inline-button toggle-collapse">
+      <div class="short"><%= t 'items.show.edit' %>
+        <i class="fa fa-pencil"></i>
+      </div>
+      <div class="long"><%= t 'helpers.less' %>&#x25B2;</div>
+    </div>
+  </div>
+
+  <div class="request-edit-link-form">
+    <div class="short transition"></div>
+    <div class="long transition">
+      <p><%= t('items.request_edit_link.info_general') %></p>
+      <p><%= t('items.request_edit_link.info_send_again') %></p>
+      <%= render 'requests/request_edit_link_form', item: @request %>
+    </div>
+  </div>
+
   <%= badges_for @request %>
   <div class="title"><strong><%= @request.title %></strong></div>
 
