@@ -3,12 +3,12 @@
 </div>
 
 <%= bootstrap_form_for answer, layout: :horizontal do |f| %>
-  <%= f.email_field :mail, value: user_signed_in? ? current_user.email : '' %>
+  <%= f.email_field :mail %>
   <%= f.text_area :message %>
   <% unless user_signed_in? && current_user.confirmed? %>
     <%= f.form_group label: { text: 'Captcha' } do %>
-      <%= label_tag(:captcha, t('captcha.label', captcha: 'Maria')) %>
-      <%= text_field_tag(:captcha) %>
+      <%= label_tag(:stupid_captcha, t('captcha.label', captcha: 'Maria')) %>
+      <%= text_field_tag(:stupid_captcha) %>
     <% end %>
   <% end %>
   <%= f.form_group do %>
