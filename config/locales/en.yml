@@ -189,6 +189,7 @@ en:
     unconfirmed: Unconfirmed email address
     reactivate: Reactivate
     no_access: Offer not found or not public
+    contact: Contact
     request_edit_link:
       send_link_again: Send edit link again
       info_general: "If you created this item, please use the link you received via email to edit this item ."

@@ -189,6 +189,7 @@ de:
     unconfirmed: E-Mail-Adresse unbestätigt
     reactivate: Wieder aktivieren
     no_access: Eintrag wurde nicht gefunden oder ist nicht öffentlich
+    contact: Kontakt
     request_edit_link:
       send_link_again: Bearbeitungslink senden
       info_general: "Wenn du diesen Eintrag erstellt hast, nutze den Link, den du per E-Mail bekommen hast, um diesen Eintrag zu bearbeiten."
