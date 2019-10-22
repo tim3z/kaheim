@@ -1,8 +1,6 @@
 <p>Hallo,</p>
 
-<p>du hast gerade über Kaheim eine Nachricht an "<%= @item.owner_name %>"
-  zum <% @item.class.model_name.human %> "<%= @item.title %>" gesendet:</p>
+<p>du hast gerade über Kaheim eine Nachricht an <%= @item.owner_name %>
+  zum <%= @item.class.model_name.human %> "<%= link_to @item.title, @item %>" gesendet:</p>
 
 <%= simple_format @content %>
-
-<%= link_to t('helpers.links.to_item'), @item %>

@@ -1,9 +1,4 @@
 de:
-  bootstrap_forms:
-    errors:
-      header: "Konnte %{model} nicht speichern:"
-    buttons:
-      cancel: 'Abbrechen'
 
   activerecord:
     models:
@@ -113,9 +108,7 @@ de:
       from: frei ab
       to: bis
       user: Angebot von %{name}
-      title:
-        other: Angebot von %{name}
-        mine: Angebot von mir
+      title: Angebot von %{name}
       edit: Bearbeiten
     list:
       title: Angebote
@@ -134,9 +127,7 @@ de:
       now: Sucht ab sofort
       to: Auszug zum
       user: Gesuch von %{name}
-      title:
-        other: Gesuch von %{name}
-        mine: Gesuch von mir
+      title: Gesuch von %{name}
     list:
       title: Gesuche
       none: Momentan sind keine Gesuche vorhanden.
@@ -200,7 +191,7 @@ de:
     no_access: Eintrag wurde nicht gefunden oder ist nicht öffentlich
     request_edit_link:
       send_link_again: Bearbeitungslink senden
-      info_general: "Um diesen Eintrag zu bearbeiten, nutze den Link, den du per E-Mail bekommen hast."
+      info_general: "Wenn du diesen Eintrag erstellt hast, nutze den Link, den du per E-Mail bekommen hast, um diesen Eintrag zu bearbeiten."
       info_send_again: "Falls du die E-Mail nicht mehr hast, kannst du hier deine E-Mail-Adresse angeben, um dir den Link noch einmal zusenden zu lassen:"
       email: E-Mail
       send: Senden

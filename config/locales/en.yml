@@ -10,12 +10,13 @@ en:
         zero: "Requests"
         one: "Request"
         other: "Requests"
+
     attributes:
       offer:
         title: "Title"
         description: "Description"
-        to_date: "Available until"
         from_date: "Available from"
+        to_date: "Available until"
         created_at: "Created at"
         district: 'District'
         street: 'Street'
@@ -35,6 +36,7 @@ en:
         email: "Email"
         password: "Password"
         password_confirmation: "Confirm password"
+
         remember_me: "Remember me"
         name: "Name"
       answer:
@@ -107,9 +109,7 @@ en:
       from: free from
       to: til
       user: "%{name}'s offer"
-      title:
-        other: "%{name}'s offer"
-        mine: "My Offer"
+      title: "%{name}'s offer"
     list:
       title: Offers
       none: There are currently no offers available.
@@ -128,9 +128,7 @@ en:
       to: Moving out on
       now: Searching from now on
       user: "%{name}'s request"
-      title:
-        other: "%{name}'s request"
-        mine: "My Request"
+      title: "%{name}'s request"
     list:
       title: Requests
       none: There are currently no requests available.
@@ -193,7 +191,7 @@ en:
     no_access: Offer not found or not public
     request_edit_link:
       send_link_again: Send edit link again
-      info_general: "To edit this item please use the link you received via email."
+      info_general: "If you created this item, please use the link you received via email to edit this item ."
       info_send_again: "In case you do not have this email anymore, you can submit your email address here and we'll send the link again to you:"
       email: Email
       send: Send

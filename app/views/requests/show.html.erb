@@ -2,7 +2,7 @@
 
 <div class="page-header">
   <h1>
-    <%=t '.title.other', name: @request.owner_name %>
+    <%=t '.title', name: @request.owner_name %>
     <% if current_user&.admin? %>
       <%= link_to @request.blocked? ? 'Freischalten' : 'Sperren', @request.blocked? ? unblock_admin_request_path(@request) : block_admin_request_path(@request), method: :put, class: 'btn btn-default' %>
     <% end %>
