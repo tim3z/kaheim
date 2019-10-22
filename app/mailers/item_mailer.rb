@@ -14,7 +14,7 @@ class ItemMailer < ActionMailer::Base
   def reactivate_item_mail item, token
     @item = item
     @token = token
-    mail to: item.user.email
+    mail to: item.email
   end
 
   def answer_mail answer
@@ -36,7 +36,7 @@ class ItemMailer < ActionMailer::Base
 
   def send_token_mail item
     @item = item
-    mail to: item.user.email, subject: "Dein #{@item.class.model_name.human} auf Kaheim"
+    mail to: item.email, subject: "Dein #{@item.class.model_name.human} auf Kaheim"
   end
 
 end

@@ -9,6 +9,7 @@ class ItemReactivationController < ApplicationController
     reactivator.item.touch
     reactivator.destroy
 
+    # TODO redirect to owner_show would be better (is it secure to do so?)
     redirect_to reactivator.item, notice: tm('reactivation.success', reactivator.item.class)
   end
 end
