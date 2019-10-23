@@ -46,4 +46,12 @@ class ApplicationController < ActionController::Base
     params[:stupid_captcha] == "Maria"
   end
 
+  def owner_show_item_path(item)
+    if item.is_a?(Offer)
+      owner_show_offer_path(item, token: item.owner_show_token)
+    elsif item.is_a?(Request)
+      owner_show_request_path(item, token: item.owner_show_token)
+    end
+  end
+
 end
