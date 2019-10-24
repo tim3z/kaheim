@@ -29,15 +29,16 @@ namespace :kaheim do
 
   desc 'sends out token mails to existing users'
   task send_token_mails: :environment do
-    Offer.confirmed do |offer|
+    Offer.confirmed.find_each do |offer|
       send_token_mail offer
     end
-    Request.confirmed do |request|
+    Request.confirmed.find_each do |request|
       send_token_mail request
     end
   end
 
   def send_token_mail item
+    print "Sending mail to #{item.email}...\n"
     ItemMailer.send_token_mail(item).deliver_now
   end
 end

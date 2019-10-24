@@ -212,7 +212,7 @@ de:
 
   reactivation:
     success: "Dein %{model} wurde reaktiviert."
-    bad_token: "Ungültiges Token"
+    bad_token: "Ungültiges Token. Möglicherweise wurde der Eintrag schon wieder aktiviert."
 
   captcha:
     label: "Bitte trage hier '%{captcha}' ein:"

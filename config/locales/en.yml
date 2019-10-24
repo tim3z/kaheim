@@ -212,7 +212,7 @@ en:
 
   reactivation:
       success: "Your %{model} was reactivated."
-      bad_token: "Invalid token"
+      bad_token: "Invalid token. Possibly the item has already been reactivated."
 
   captcha:
     label: "Please enter '%{captcha}' here:"

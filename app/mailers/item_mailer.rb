@@ -36,7 +36,7 @@ class ItemMailer < ActionMailer::Base
 
   def send_token_mail item
     @item = item
-    mail to: item.email, subject: "Dein #{@item.class.model_name.human} auf Kaheim"
+    mail from: "team@kaheim.de", to: item.email, subject: "Dein #{@item.class.model_name.human} auf Kaheim"
   end
 
 end
