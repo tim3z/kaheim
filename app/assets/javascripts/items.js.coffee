@@ -38,3 +38,20 @@ document.addEventListener "turbolinks:load", ->
 
   # district select
   $('select.select2').select2(allowClear: true)
+
+  $('.request-edit-link').each ->
+    item_id = $(this).data('id')
+    item_type = $(this).data('type')
+    token = localStorage.getItem(item_type + '-' + item_id)
+    if (token)
+      inline_button = $(this).find('.inline-button')
+      inline_button.removeClass('toggle-collapse')
+      inline_button.on 'click', (event) ->
+        Turbolinks.visit("/#{item_type}s/#{item_id}/owner_show?token=#{token}")
+
+
+@store_owner_token = (item_id, item_type) ->
+  urlParams = new URLSearchParams(window.location.search)
+  token = urlParams.get('token')
+  if (token)
+    localStorage.setItem(item_type + '-' + item_id, token)

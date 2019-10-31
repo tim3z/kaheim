@@ -1,5 +1,9 @@
 <% content_for :title, @offer.title %>
 
+<script type="text/javascript">
+    store_owner_token(<%= @offer.id %>, 'offer');
+</script>
+
 <div class="page-header">
   <h1>
     <%=t 'offers.show.title', name: @offer.owner_name %>
