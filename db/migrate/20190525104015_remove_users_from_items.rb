@@ -25,7 +25,7 @@ class RemoveUsersFromItems < ActiveRecord::Migration[6.0]
             item.email = item.user.email
             item.email_confirmed_at = item.user.confirmed_at
             item.blocked = true unless item.user.unlocked
-            item.save!
+            item.save!(touch: false)
           end
         end
       end
