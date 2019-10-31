@@ -6,14 +6,14 @@
 <p>
   Und das ist der Grund:
   Die meisten Benutzer erstellen nur einmal ein Angebot oder Gesuch und brauchen dann ihren Account nicht wieder.
-  In den letzten fünf Jahren haben sich nun etwa 700 E-Mail-Adressen angesammelt, von denen viele nicht mehr gespeichert werden müssten.
+  In den letzten fünf Jahren haben sich nun 700 E-Mail-Adressen angesammelt, von denen viele nicht mehr gespeichert werden müssten.
   Da wir so wenig personenbezogene Daten wie möglich langfristig speichern wollen, wollten wir das ändern und haben uns folgendes Konzept überlegt:<br />
-  Einträge können in Zukunft ohne Account erstellt werden; dafür gibt man beim Erstellen seine E-Mail-Adresse an.
+  Einträge können in Zukunft ohne Account erstellt werden; dafür gibt man beim Erstellen eines Eintrags seine E-Mail-Adresse an.
   An diese E-Mail-Adresse wird darauf ein Link geschickt, über den der Eintrag freigeschaltet wird.
   Nur über diesen Link ist ein späteres Bearbeiten und Löschen des Eintrags möglich.
-  Dein existierendes <%= @item.class.model_name.human %> kannst du ab jetzt mit folgendem Link bearbeiten und Antworten darauf einsehen:
 </p>
 <p>
+  Dein existierendes <%= @item.class.model_name.human %> kannst du ab jetzt mit folgendem Link bearbeiten und Antworten darauf einsehen:
   <%= link_to @item.title, polymorphic_url(@item, action: :owner_show, token: @item.owner_show_token) %>
 </p>
 <p>
