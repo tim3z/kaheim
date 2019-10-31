@@ -81,7 +81,7 @@ gem 'whenever', '~> 0.10.0', require: false
 gem 'dotenv-rails', '~> 2.7.2'
 
 group :production do
-  gem 'exception_notification', git: 'https://github.com/shanecav84/exception_notification.git', branch: 'rails_6'
+  gem 'exception_notification', '~> 4.4.0'
 end
 
 gem 'simplecov', '~> 0.16.0', :require => false, :group => :test
