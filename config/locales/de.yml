@@ -244,7 +244,7 @@ de:
   active_admin:
     dashboard:
       title: Dashboard
-      not_unlocked: Nicht freigeschaltet
+      active_items: Aktive Einträge
     actions:
       title: Aktionen
       show: Anzeigen

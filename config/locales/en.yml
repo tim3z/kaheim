@@ -245,7 +245,7 @@ en:
   active_admin:
     dashboard:
       title: Dashboard
-      not_unlocked: Not unlocked
+      active_items: Active Items
     actions:
       title: Actions
       show: Show

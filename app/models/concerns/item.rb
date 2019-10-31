@@ -11,7 +11,7 @@ module Item
     has_one :item_reactivator, as: :item, dependent: :destroy
 
     scope :not_blocked, -> { where(blocked: false) }
-    scope :blocked, -> { where(blocked: false) }
+    scope :blocked, -> { where(blocked: true) }
     scope :confirmed, -> { where.not(email_confirmed_at: nil) }
     scope :current, -> { where("#{table_name}.updated_at >= ?", outdating_date) }
     scope :outdated, -> { where("#{table_name}.updated_at < ?", outdating_date) }

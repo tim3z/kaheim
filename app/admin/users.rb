@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  menu priority: 2
+  menu priority: 3
 
   index do
     column :name
@@ -7,9 +7,7 @@ ActiveAdmin.register User do
     column :unlocked
     column :admin
     column :confirmed_at
-    actions default: true do |user|
-      link_to( user.unlocked? ? 'Sperren' : 'Freischalten', user.unlocked? ? lock_admin_user_path(user) : unlock_admin_user_path(user), method: :put)
-    end
+    actions default: true
   end
 
   filter :email

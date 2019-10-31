@@ -1,12 +1,12 @@
 ActiveAdmin.register Request do
-  menu priority: 3
+  menu priority: 2
 
   index do
     column :title
     column :owner_name
     column :email
     column :blocked
-    column :confirmed_at
+    column :email_confirmed_at
     actions default: true do |item|
       link_to(item.blocked ? 'Freischalten' : 'Sperren', item.blocked ? unblock_admin_request_path(item) : block_admin_request_path(item), method: :put)
     end

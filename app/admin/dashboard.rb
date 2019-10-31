@@ -5,9 +5,9 @@ ActiveAdmin.register_page "Dashboard" do
   content title: proc{ I18n.t('active_admin.dashboard.title') } do
     columns do
       column do
-        panel I18n.t('active_admin.dashboard.not_unlocked') do
+        panel I18n.t('active_admin.dashboard.active_items') do
           h6 I18n.t('activerecord.models.offer.other')
-          table_for(Offer.all) do
+          table_for(Offer.current) do
             column :title
             column :description
             column I18n.t('active_admin.actions.title') do |offer|
@@ -18,7 +18,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
           end
           h6 I18n.t('activerecord.models.request.other')
-          table_for(Request.all) do
+          table_for(Request.current) do
             column :title
             column :description
             column I18n.t('active_admin.actions.title') do |request|
