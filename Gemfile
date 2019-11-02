@@ -73,7 +73,7 @@ gem 'recaptcha', '~> 4.14.0', require: 'recaptcha/rails'
 # admin stuff
 gem 'activeadmin', '~> 2.2.0'
 # Authentication with Devise
-gem 'devise', '~> 4.7.0'
+gem 'devise', '~> 4.7.1'
 
 # static pages
 gem 'high_voltage', '~> 3.1.0'
