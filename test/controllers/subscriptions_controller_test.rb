@@ -11,9 +11,9 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed'), flash[:notice]
 
     confirm_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.confirmation_request.subject'), confirm_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.confirmation_request.subject'), confirm_email.subject
     assert_equal email_address, confirm_email.to[0]
-    assert_match(/.*Um Deine E-Mail-Adresse zu bestätigen.*/, confirm_email.body.to_s)
+    assert_match(/.*Um deine E-Mail-Adresse zu bestätigen.*/, confirm_email.body.to_s)
 
     subscription = Subscription.find_by_email(email_address)
     assert subscription.offers
@@ -78,9 +78,9 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal I18n.t('subscriptions.subscribe.success.confirmed'), flash[:notice]
 
     subscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.subscribe_notification.subject'), subscribe_email.subject
     assert_equal subscriber.email, subscribe_email.to[0]
-    assert_match(/.*Dein Abonnement für neue Angebote und Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
+    assert_match(/.*dein Abonnement für neue Angebote und Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
 
     subscription = Subscription.find_by_email(subscriber.email)
     assert subscription.requests
@@ -97,9 +97,9 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed'), flash[:notice]
 
     subscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.confirmation_request.subject'), subscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.confirmation_request.subject'), subscribe_email.subject
     assert_equal subscriber.email, subscribe_email.to[0]
-    assert_match(/.*Um Deine E-Mail-Adresse zu bestätigen.*/, subscribe_email.body.to_s)
+    assert_match(/.*Um deine E-Mail-Adresse zu bestätigen.*/, subscribe_email.body.to_s)
 
     subscription = Subscription.find_by_email(subscriber.email)
     assert subscription.requests
@@ -115,9 +115,9 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal I18n.t('subscriptions.subscribe.success.confirmed'), flash[:notice]
 
     subscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.subscribe_notification.subject'), subscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.subscribe_notification.subject'), subscribe_email.subject
     assert_equal subscriber.email, subscribe_email.to[0]
-    assert_match(/.*Dein Abonnement für neue Angebote und Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
+    assert_match(/.*dein Abonnement für neue Angebote und Gesuche auf Kaheim ist jetzt aktiv.*/, subscribe_email.body.to_s)
 
     subscription = Subscription.find_by_email(subscriber.email)
     assert subscription.offers
@@ -185,9 +185,9 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed'), flash[:notice]
 
     confirm_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.confirmation_request.subject'), confirm_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.confirmation_request.subject'), confirm_email.subject
     assert_equal user.email, confirm_email.to[0]
-    assert_match(/.*Um Deine E-Mail-Adresse zu bestätigen.*/, confirm_email.body.to_s)
+    assert_match(/.*Um deine E-Mail-Adresse zu bestätigen.*/, confirm_email.body.to_s)
 
     subscription = Subscription.find_by_email(user.email)
     assert subscription.offers
@@ -404,7 +404,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil flash[:error]
 
     unsubscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.unsubscribe_notification.subject'), unsubscribe_email.subject
     assert_equal subscriber.email, unsubscribe_email.to[0]
     assert_match(/.*Benachrichtigungen über neue Gesuche erhältst.*/, unsubscribe_email.body.to_s)
 
@@ -426,7 +426,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil flash[:error]
 
     unsubscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.unsubscribe_notification.subject'), unsubscribe_email.subject
     assert_equal subscriber.email, unsubscribe_email.to[0]
     assert_match(/.*Benachrichtigungen über neue Angebote erhältst.*/, unsubscribe_email.body.to_s)
 
@@ -448,7 +448,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil flash[:error]
 
     unsubscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.unsubscribe_notification.subject'), unsubscribe_email.subject
     assert_equal subscriber.email, unsubscribe_email.to[0]
     assert_match(/.*erhältst in Zukunft keine Benachrichtigungen über neue Einträge.*/, unsubscribe_email.body.to_s)
 
@@ -468,7 +468,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil flash[:error]
 
     unsubscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.unsubscribe_notification.subject'), unsubscribe_email.subject
     assert_equal subscriber.email, unsubscribe_email.to[0]
     assert_match(/.*erhältst in Zukunft keine Benachrichtigungen über neue Einträge.*/, unsubscribe_email.body.to_s)
 
@@ -488,7 +488,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil flash[:error]
 
     unsubscribe_email = ActionMailer::Base.deliveries.last
-    assert_equal '[Kaheim] ' + I18n.t('subscriptions.unsubscribe_notification.subject'), unsubscribe_email.subject
+    assert_equal '[Kaheim] ' + I18n.t('subscription_mailer.unsubscribe_notification.subject'), unsubscribe_email.subject
     assert_equal subscriber.email, unsubscribe_email.to[0]
     assert_match(/.*erhältst in Zukunft keine Benachrichtigungen über neue Einträge.*/, unsubscribe_email.body.to_s)
 

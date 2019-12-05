@@ -1,0 +1,8 @@
+<p>Hi <%= @item.owner_name %>,</p>
+
+<p>
+  Your <%= @item.class.model_name.human %> on Kaheim <i><%= @item.title %></i> has not been edited since a month and
+  will therefore be hidden from now on.
+  If it still should be active, click on this <%= link_to 'link', reactivate_url(@token) %>, to reactivate it for another month.
+  Otherwise, it will automatically be deleted in two months.
+</p>

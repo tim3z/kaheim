@@ -1,0 +1,6 @@
+<p>Hi,</p>
+
+<p>You've just sent a message over Kaheim to <%= @item.owner_name %>
+  in reply to <%= @item.class.model_name.human %> "<%= link_to @item.title, @item %>":</p>
+
+<%= simple_format @content %>

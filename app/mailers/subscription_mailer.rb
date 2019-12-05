@@ -3,22 +3,22 @@ class SubscriptionMailer < ActionMailer::Base
 
   def confirmation_request subscription
     @subscription = subscription
-    mail to: subscription.email, subject: t('subscriptions.confirmation_request.subject')
+    mail to: subscription.email, subject: default_i18n_subject
   end
 
   def unsubscribe_notification subscription
     @subscription = subscription
-    mail to: subscription.email, subject: t('subscriptions.unsubscribe_notification.subject')
+    mail to: subscription.email, subject: default_i18n_subject
   end
 
   def subscribe_notification subscription
     @subscription = subscription
-    mail to: subscription.email, subject: t('subscriptions.subscribe_notification.subject')
+    mail to: subscription.email, subject: default_i18n_subject
   end
 
   def new_item_notification item, subscriber
     @item = item
     @subscriber = subscriber
-    mail to:subscriber.email, subject: t('subscriptions.new_item_notification.subject')
+    mail to:subscriber.email, subject: default_i18n_subject
   end
 end

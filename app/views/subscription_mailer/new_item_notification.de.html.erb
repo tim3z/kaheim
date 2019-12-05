@@ -1,0 +1,9 @@
+<p>Hallo,</p>
+
+<p>auf Kaheim wurde ein neues <%= @item.class.model_name.human %> eingetragen:
+<i><%= link_to @item.title, (@item.instance_of?(Offer) ? offer_url(@item) : request_url(@item)) %></i>
+</p>
+
+<p>Du erhältst diese Nachricht, da du Benachrichtigungen über neue <%= @item.class.model_name.human(count: 2) %> abonniert hast.
+Um dich davon abzumelden, klicke auf diesen
+  <%= link_to 'Link', subscriptions_unsubscribe_url( @item.class.model_name.plural, @subscriber.unsubscribe_token) %>.</p>

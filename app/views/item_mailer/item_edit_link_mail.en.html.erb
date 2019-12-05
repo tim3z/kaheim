@@ -1,0 +1,11 @@
+<p>Hi <%= @item.owner_name %>,</p>
+
+<p>
+  You've just asked for the edit link for your <%= @item.class.model_name.human %> with the title <i><%= @item.title %></i>.
+  By clicking on this
+  <%= link_to 'link', polymorphic_url(@item, action: :owner_show, token: @item.owner_show_token) %>
+  you can edit it and view replies to it.
+</p>
+<p>
+  Team of Kaheim
+</p>

@@ -1,0 +1,10 @@
+<p>Hi,</p>
+
+<% if @subscription.offers || @subscription.requests %>
+<p>You've just canceled your subscription for new <%= @subscription.requests ? 'offers' : 'requests' %> on Kaheim.</p>
+<p>You will still receive notifications for new <%= @subscription.offers ? 'offers' : 'requests' %>.
+  To also cancel this subscription, please click on this
+  <%= link_to 'link', subscriptions_unsubscribe_url( @subscription.subscribed_types, @subscription.unsubscribe_token) %>.</p>
+<% else %>
+  <p>You've just canceled your subscription on Kaheim and you will not receive notifications for new entries anymore.</p>
+<% end %>

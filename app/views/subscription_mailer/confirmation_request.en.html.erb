@@ -1,0 +1,15 @@
+<p>Hi,</p>
+
+<p>You've just created a subscription for notifications for new <%=
+    if @subscription.offers && @subscription.requests
+      'offers and requests'
+    elsif @subscription.offers
+      'offers'
+    else
+      'requests'
+    end %> on Kaheim.
+  To confirm your email address and activate your subscription, please click on this
+  <%= link_to 'link', subscriptions_confirm_url(@subscription.confirmation_token) %>.</p>
+
+<p>To cancel the subscription, please click on this
+  <%= link_to 'link', subscriptions_unsubscribe_url( @subscription.subscribed_types, @subscription.unsubscribe_token) %>.</p>

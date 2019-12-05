@@ -1,0 +1,9 @@
+<p>Hi,</p>
+
+<p>a new<%= @item.class.model_name.human %> was created on Kaheim:
+<i><%= link_to @item.title, (@item.instance_of?(Offer) ? offer_url(@item) : request_url(@item)) %></i>
+</p>
+
+<p>You receive this message because you've created a subscription for new <%= @item.class.model_name.human(count: 2) %>.
+To cancel the subscription, please click on this
+  <%= link_to 'link', subscriptions_unsubscribe_url( @item.class.model_name.plural, @subscriber.unsubscribe_token) %>.</p>

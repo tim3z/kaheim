@@ -168,14 +168,6 @@ en:
       bad_token: This confirmation link is invalid.
       success: Your subscription was successfully confirmed and is now active.
     mail: Your email
-    confirmation_request:
-      subject: "Please confirm your email address"
-    unsubscribe_notification:
-      subject: "Subscription deleted"
-    subscribe_notification:
-      subject: "Subscription created"
-    new_item_notification:
-      subject: "New item on Kaheim"
 
   items:
     show:
@@ -200,15 +192,29 @@ en:
 
   item_mailer:
     item_creation_mail:
-      subject: "Activate your '%{item_type}'"
+      subject: "Activate your %{item_type}"
     item_edit_link_mail:
       subject: "Link to your %{item_type}"
     answer_mail:
       subject: "Reply to '%{title}'"
     answer_mail_notification:
       subject: "Your message sent through kaheim.de"
+    admin_notice_mail:
+      subject: New item
+    send_token_mail:
+      subject: "Your %{item_type} on Kaheim"
     reactivate_item_mail:
       subject: "Update item?"
+
+  subscription_mailer:
+    confirmation_request:
+      subject: "Please confirm your email address"
+    unsubscribe_notification:
+      subject: "Subscription deleted"
+    subscribe_notification:
+      subject: "Subscription created"
+    new_item_notification:
+      subject: "New item on Kaheim"
 
   reactivation:
       success: "Your %{model} was reactivated."

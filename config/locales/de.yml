@@ -168,14 +168,6 @@ de:
       bad_token: Dieser Link zur Bestätigung ist ungültig.
       success: Dein Abonnement wurde erfolgreich bestätigt und ist jetzt aktiv.
     mail: Deine Mail
-    confirmation_request:
-      subject: "Bestätigung deiner E-Mail-Adresse nötig"
-    unsubscribe_notification:
-      subject: "Abonnement beendet"
-    subscribe_notification:
-      subject: "Abonnement erstellt"
-    new_item_notification:
-      subject: "Neuer Eintrag auf Kaheim"
 
   items:
     show:
@@ -200,15 +192,29 @@ de:
 
   item_mailer:
     item_creation_mail:
-      subject: "Aktiviere dein '%{item_type}'"
+      subject: "Aktiviere dein %{item_type}"
     item_edit_link_mail:
       subject: "Link zu deinem %{item_type}"
     answer_mail:
       subject: "Antwort auf '%{title}'"
     answer_mail_notification:
       subject: "Deine Nachricht über Kaheim"
+    admin_notice_mail:
+      subject: Neuer Eintrag auf Kaheim
+    send_token_mail:
+      subject: "Dein %{item_type} auf Kaheim"
     reactivate_item_mail:
       subject: "Eintrag verlängern?"
+
+  subscription_mailer:
+    confirmation_request:
+      subject: "Bestätigung deiner E-Mail-Adresse nötig"
+    unsubscribe_notification:
+      subject: "Abonnement beendet"
+    subscribe_notification:
+      subject: "Abonnement erstellt"
+    new_item_notification:
+      subject: "Neuer Eintrag auf Kaheim"
 
   reactivation:
     success: "Dein %{model} wurde reaktiviert."

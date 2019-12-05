@@ -1,0 +1,13 @@
+<p>Hi,</p>
+
+<p>Your subscription for new <%=
+    if @subscription.offers && @subscription.requests
+      'offers and requests'
+    elsif @subscription.offers
+      'offers'
+    else
+      'requests'
+    end %> on Kaheim is now active.</p>
+
+<p>To cancel the subscription, please click on this
+<%= link_to 'link', subscriptions_unsubscribe_url( @subscription.subscribed_types, @subscription.unsubscribe_token) %>.</p>
