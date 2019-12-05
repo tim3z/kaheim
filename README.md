@@ -1,6 +1,4 @@
-[![Dependency Status](https://gemnasium.com/SDEagle/kaheim.svg)](https://gemnasium.com/SDEagle/kaheim)
-
-[![Build Status](https://travis-ci.com/SDEagle/kaheim.svg?branch=destroy_all_users)](https://travis-ci.com/SDEagle/kaheim)
+[![Build Status](https://travis-ci.com/tim3z/kaheim.svg?branch=destroy_all_users)](https://travis-ci.com/tim3z/kaheim)
 
 Kaheim
 ======
