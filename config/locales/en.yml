@@ -53,6 +53,7 @@ en:
     answer: "Reply"
     more: "Description"
     less: "close"
+    email: Email
     password: "Password"
     password_confirm: "Confirm password"
     forgot_password: "Forgot your password?"
@@ -235,6 +236,12 @@ en:
   pages:
     about:
       responsible: Responsible for this site
+    item_created:
+      headline: Almost there!
+      alert:
+        strong: "Your %{item_type} is not yet public."
+        message: "Use the link that we have emailed to you to activate your %{item_type}."
+      message: "Using this link, you can edit or delete your %{item_type} when it is outdated."
     kaheim:
       project: The Kaheim project
       source: The source code is available on

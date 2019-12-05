@@ -1,11 +1,11 @@
-<h1>Fast geschafft!</h1>
+<h1><%= t('pages.item_created.headline') %></h1>
 
 <div class="alert alert-success">
-  <strong>Dein <%= @item.model_name.human %> ist noch nicht öffentlich.</strong> <br />
-  Verwende den Link, den wir dir gemailt haben, um das <%= @item.model_name.human %> zu aktivieren.
+  <strong><%= t('pages.item_created.alert.strong', item_type: @item.model_name.human) %></strong> <br />
+  <%= t('pages.item_created.alert.message', item_type: @item.model_name.human) %>
 </div>
 
 <p>
-  Unter diesem Link kannst du dein <%= @item.model_name.human %> auch bearbeiten oder löschen, falls es nicht mehr aktuell ist.
+  <%= t('pages.item_created.message', item_type: @item.model_name.human) %>
 </p>
 

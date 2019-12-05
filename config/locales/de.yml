@@ -53,6 +53,7 @@ de:
     answer: "Antworten"
     more: "Beschreibung"
     less: "schließen"
+    email: E-Mail
     password: "Passwort"
     password_confirm: "Passwort wiederholen"
     forgot_password: "Passwort vergessen?"
@@ -234,6 +235,12 @@ de:
   pages:
     about:
       responsible: Verantwortlich für diese Website
+    item_created:
+      headline: Fast geschafft!
+      alert:
+        strong: "Dein %{item_type} ist noch nicht öffentlich."
+        message: "Verwende den Link, den wir dir gemailt haben, um das %{item_type} zu aktivieren."
+      message: "Unter diesem Link kannst du dein %{item_type} auch bearbeiten oder löschen, falls es nicht mehr aktuell ist."
     kaheim:
       project: Das Kaheim-Projekt
       source: Der Quellcode ist verfügbar auf

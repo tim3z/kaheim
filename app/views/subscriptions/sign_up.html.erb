@@ -1,5 +1,5 @@
 <%= bootstrap_form_for @subscription, layout: :horizontal, url: subscriptions_create_path do |f| %>
-  <%= f.email_field :email, value: user_signed_in? ? current_user.email : '', label: t('helpers.mail') %>
+  <%= f.email_field :email, value: user_signed_in? ? current_user.email : '', label: t('helpers.email') %>
 
   <%= f.hidden_field :offers %>
   <%= f.hidden_field :requests %>
