@@ -4,7 +4,7 @@
   Welcome to Kaheim!
 </p>
 <p>
-  You've just created a <%= @item.class.model_name.human %> with the title <i><%= @item.title %></i>.
+  You've just created the <%= @item.class.model_name.human %> with the title <i><%= @item.title %></i>.
   It is not yet public but you can activate it by clicking on this
   <%= link_to 'link', polymorphic_url(@item, action: :owner_show, token: @item.owner_show_token) %>.
 </p>

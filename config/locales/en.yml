@@ -3,13 +3,13 @@ en:
   activerecord:
     models:
       offer:
-        zero: "Offers"
-        one: "Offer"
-        other: "Offers"
+        zero: "offers"
+        one: "offer"
+        other: "offers"
       request:
-        zero: "Requests"
-        one: "Request"
-        other: "Requests"
+        zero: "requests"
+        one: "request"
+        other: "requests"
 
     attributes:
       offer:
