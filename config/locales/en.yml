@@ -90,8 +90,8 @@ en:
     dot: dot
 
   privacy:
-    warning: Please do not share any sensible data. All %{model} are publicly accessible.
-    explanation: When your %{model} is published on the website, there will be a contact form shown below your %{model}. People can use it to contact you. Kaheim will then send you an email with the reply. Your contact data is secure (unless you include it in the description).
+    warning: Please do not share any sensitive data. All %{model} are publicly accessible.
+    explanation: When your %{model} is published on the website, there will be a contact form shown below your %{model}. People can use it to contact you. Kaheim will then send you an email with the reply. Your contact data is private (unless you include it in the description).
 
   sort:
     sorted: Sorted by
