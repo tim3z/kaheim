@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get 'subscription/unsubscribe/:item_type/:unsubscribe_token' => 'subscriptions#destroy', as: 'subscriptions_unsubscribe'
   delete 'subscription/unsubscribe' => 'subscriptions#unsubscribe_user', as: 'subscriptions_unsubscribe_user'
 
-  get 'users/items'
-
   get 'reactivate/:token' => 'item_reactivation#reactivate', as: 'reactivate'
 
   get 'welcome/index'
