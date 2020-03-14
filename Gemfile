@@ -69,6 +69,7 @@ gem 'rails_autolink', '~> 1.1.0'
 
 # admin stuff
 gem 'activeadmin', '~> 2.2.0'
+gem 'kaminari-i18n', '~> 0.5.0'
 # Authentication with Devise
 gem 'devise', '~> 4.7.0'
 
