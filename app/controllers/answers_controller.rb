@@ -25,10 +25,10 @@ class AnswersController < ApplicationController
 
   def render_item
     @answer ||= Answer.new(answer_params)
-    if @answer.item.is_a? Request
+    if @answer.item_type == Request.to_s
       @request = @answer.item
       render 'requests/show'
-    elsif @answer.item.is_a? Offer
+    elsif @answer.item_type == Offer.to_s
       @offer = @answer.item
       render 'offers/show'
     else
