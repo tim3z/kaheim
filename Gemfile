@@ -62,7 +62,7 @@ gem 'it'
 gem 'select2-rails', '~> 4.0.3'
 
 gem 'groupdate', '~> 4.1.1'
-gem 'chartkick', '~> 3.0.2'
+gem 'chartkick', '~> 3.3.0'
 
 gem 'actionview-encoded_mail_to', '~> 1.0.9'
 gem 'rails_autolink', '~> 1.1.0'

@@ -120,7 +120,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    chartkick (3.0.2)
+    chartkick (3.3.0)
     childprocess (3.0.0)
     chronic (0.10.2)
     coderay (1.1.2)
@@ -350,7 +350,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.4.0)
   capistrano3-puma (~> 3.1.1)
   capybara
-  chartkick (~> 3.0.2)
+  chartkick (~> 3.3.0)
   coffee-rails (~> 5.0.0)
   devise (~> 4.7.0)
   dotenv-rails (~> 2.7.2)
