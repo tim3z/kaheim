@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
       request.path != new_user_registration_path &&
       request.path != new_user_password_path &&
       request.path != edit_user_password_path &&
-      request.path != user_confirmation_path &&
       request.path != destroy_user_session_path &&
       !request.xhr? # don't store ajax calls
       store_location_for(:user, request.original_url)
