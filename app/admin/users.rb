@@ -17,7 +17,14 @@ ActiveAdmin.register User do
       f.input :name
       f.input :email
       f.input :admin
+      f.input :password
     end
     f.actions
+  end
+
+  controller do
+    def permitted_params
+      params.permit user: [:name, :email, :admin, :password]
+    end
   end
 end
