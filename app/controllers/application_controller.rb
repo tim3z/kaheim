@@ -35,7 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = locale_param || I18n.default_locale
+  end
+
+  def locale_param
+    I18n.available_locales.map(&:to_s).include?(params[:locale]) ? params[:locale] : nil
   end
 
   def default_url_options(options = {})
