@@ -14,8 +14,8 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs "User Details" do
-      f.input :name, input_html: { disabled: true }
-      f.input :email, input_html: { disabled: true }
+      f.input :name
+      f.input :email
       f.input :admin
     end
     f.actions
