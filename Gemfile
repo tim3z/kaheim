@@ -87,3 +87,5 @@ end
 
 gem 'simplecov', '~> 0.16.0', :require => false, :group => :test
 
+gem 'capybara'
+gem 'selenium-webdriver'
