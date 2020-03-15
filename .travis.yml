@@ -1,7 +1,7 @@
 language: ruby
 addons:
   postgresql: "9.6"
-  firefox: lastest
+  firefox: latest
 services:
   - postgresql
 before_install:
