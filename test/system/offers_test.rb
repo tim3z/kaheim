@@ -6,8 +6,7 @@ class OffersTest < ApplicationSystemTestCase
 
   test "title is shown" do
     offer = offers(:tworooms)
-    visit offers_url(offer)
-
+    visit offer_url(offer)
     assert_selector '.title', text: offer.title
   end
 
