@@ -37,6 +37,11 @@
                                    prepend: t('activerecord.attributes.request.to_date'),
                                    placeholder: t('items.placeholder.temporal'),
                                    hide_label: true %>
+        <% unless @request.id %>
+          <%= f.form_group :no_spam do %>
+            <%= f.check_box :no_spam %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

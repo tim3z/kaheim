@@ -29,6 +29,7 @@ de:
         from_date: "Suche zum"
         to_date: "Auszug"
         created_at: "Erstellt am"
+        no_spam: Ich bin ein Mensch.
       item:
         owner_name: "Dein Name"
         email: "Deine E-Mail"
