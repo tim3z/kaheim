@@ -6,7 +6,7 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'bootsnap', '~> 1.4'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
