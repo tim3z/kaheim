@@ -116,11 +116,13 @@
     <div class="col-md-6">
       <%= f.text_field :owner_name,
                        placeholder: t('activerecord.attributes.item.owner_name'),
+                       append: content_tag(:i, "", class: "fa fa-globe icon"),
                        hide_label: true %>
     </div>
     <div class="col-md-6">
       <%= f.text_field :email,
                        placeholder: t('activerecord.attributes.item.email'),
+                       append: content_tag(:i, "", class: "fa fa-lock icon"),
                        hide_label: true,
                        disabled: type != :create %>
     </div>

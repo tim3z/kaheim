@@ -32,7 +32,7 @@ de:
         no_spam: Ich bin ein Mensch.
       item:
         owner_name: "Dein Name"
-        email: "Deine E-Mail"
+        email: "Deine E-Mail-Adresse"
       user:
         email: "E-Mail"
         password: "Passwort"
@@ -42,7 +42,7 @@ de:
         name: "Name"
       answer:
         message: Nachricht
-        mail: "Deine E-Mail"
+        mail: "Deine E-Mail-Adresse"
 
   helpers:
     switch_to_english: Switch to english
@@ -91,7 +91,7 @@ de:
 
   privacy:
     warning: Bitte keine sensiblen Daten angeben, da alle %{model} öffentlich einsehbar sind!
-    explanation: Unter deinem %{model} wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein %{model} antworten können. Kaheim schickt dir dann eine Mail mit der Antwort. Deine Kontaktdaten bleiben geschützt (solange du sie nicht oben angibst).
+    explanation: Dein Name wird öffentlich angezeigt, aber deine E-Mail-Adresse ist nicht öffentlich einsehbar. Unter deinem %{model} wird auf der Website ein Kontaktformular angezeigt mit dem Interessenten auf dein %{model} antworten können. Kaheim schickt dir dann eine E-Mail mit der Antwort. Deine Kontaktdaten bleiben damit geschützt (solange du sie nicht oben in der Beschreibung angibst).
 
   sort:
     sorted: Sortiert nach
