@@ -82,7 +82,7 @@ gem 'whenever', '~> 0.10', require: false
 gem 'dotenv-rails', '~> 2.7'
 
 group :production do
-  gem 'dkim', '~> 0.2'
+  gem 'dkim', '~> 1.0'
   gem 'exception_notification', '~> 4.4'
 end
 
