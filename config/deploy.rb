@@ -6,7 +6,7 @@ set :repo_url, 'https://github.com/tim3z/kaheim.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/kaheim7/rails-kaheim'
+set :deploy_to, '/home/kaheim/rails-kaheim'
 
 # Default value for :scm is :git
 # set :scm, :git

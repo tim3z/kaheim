@@ -23,4 +23,4 @@ production:
   username: <%= ENV["POSTGRES_USER"] %>
   password: <%= ENV["POSTGRES_PASSWORD"] %>
   min_messages: warning
-  host: /home/kaheim7/tmp
+  host: /home/kaheim/tmp
