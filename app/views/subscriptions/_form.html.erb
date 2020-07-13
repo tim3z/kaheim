@@ -1,5 +1,10 @@
 <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_create_path, layout: :inline, html: {id: "new_subscription_#{item_type}"}) do |f| %>
   <%= f.hidden_field item_type, value: true %>
+  <div class="hidden">
+    <%= f.form_group :no_spam do %>
+      <%= f.check_box :no_spam, class: "subscription-no-spam #{item_type}" %>
+    <% end %>
+  </div>
   <%= f.email_field :email,
                     id: "subscription-email-#{item_type}",
                     placeholder: t('subscriptions.mail'),

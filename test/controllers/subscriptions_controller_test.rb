@@ -5,7 +5,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
   test 'subscribe offers with non user' do
     email_address = 'donald.duck@duckburg.com'
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      post subscriptions_create_path, params: {subscription: { email: email_address, offers: 'true' }}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: email_address, offers: 'true', no_spam: 1 }}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed'), flash[:notice]
@@ -24,13 +24,21 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
   test 'subscribe offers with invalid email address' do
     email_address = 'donald.duck(at)duckburg.com'
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: email_address, offers: 'true' }}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: email_address, offers: 'true', no_spam: 1 }}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_match(/#{I18n.t('subscriptions.subscribe.error_save')}.*/, flash[:error])
 
     subscription = Subscription.find_by_email(email_address)
     assert_nil subscription
+  end
+
+  test 'do not create subscription if spam prevention is missing' do
+    email_address = 'donald.duck@duckburg.com'
+    assert_no_difference 'ActionMailer::Base.deliveries.size' do
+      post subscriptions_create_path, params: {subscription: { email: email_address, offers: 'true' }}, headers: {'HTTP_REFERER': 'localhost'}
+    end
+    assert_redirected_to 'localhost'
   end
 
   test 'confirm offer subscriber' do
@@ -72,7 +80,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
   test 'subscribe requests when offers already subscribed and confirmed' do
     subscriber = subscriptions(:offer_subscriber)
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      post subscriptions_create_path, params: {subscription: { email: subscriber.email, requests: 'true' }}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: subscriber.email, requests: 'true', no_spam: 1 }}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.success.confirmed'), flash[:notice]
@@ -91,7 +99,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     subscriber = subscriptions(:offer_subscriber_unconfirmed)
     assert_not subscriber.confirmed?
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      post subscriptions_create_path, params: {subscription: { email: subscriber.email, requests: 'true' }}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: subscriber.email, requests: 'true', no_spam: 1 }}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed'), flash[:notice]
@@ -109,7 +117,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
   test 'subscribe offers when requests already subscribed and confirmed' do
     subscriber = subscriptions(:request_subscriber)
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'true' }}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'true', no_spam: 1 }}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.success.confirmed'), flash[:notice]
@@ -129,7 +137,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert subscriber.offers
     assert_not subscriber.requests
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'true'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'true', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.error_existing'), flash[:error]
@@ -144,7 +152,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert subscriber.offers
     assert subscriber.requests
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'true'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'true', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.error_existing'), flash[:error]
@@ -161,7 +169,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
 
     sign_in(user)
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_nil flash[:notice]
@@ -179,7 +187,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil subscription
 
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed'), flash[:notice]
@@ -202,7 +210,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
 
     sign_in(user)
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.success.unconfirmed_user'), flash[:notice]
@@ -221,7 +229,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
 
     sign_in(user)
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'no'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'no', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.nothing_selected'), flash[:error]
@@ -236,7 +244,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil subscription
 
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'no'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'no', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.nothing_selected'), flash[:error]
@@ -251,7 +259,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     assert subscriber.requests
 
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'no'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: subscriber.email, offers: 'no', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.nothing_selected'), flash[:error]
@@ -269,7 +277,7 @@ class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
 
     sign_in(user)
     assert_no_difference 'ActionMailer::Base.deliveries.size' do
-      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true'}}, headers: {'HTTP_REFERER': 'localhost'}
+      post subscriptions_create_path, params: {subscription: { email: user.email, offers: 'true', no_spam: 1}}, headers: {'HTTP_REFERER': 'localhost'}
     end
     assert_redirected_to 'localhost'
     assert_equal I18n.t('subscriptions.subscribe.success.confirmed'), flash[:notice]

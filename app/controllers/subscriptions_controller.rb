@@ -5,6 +5,7 @@ class SubscriptionsController < ApplicationController
 
   def create
     @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
+    @subscription.no_spam = subscription_params[:no_spam]
     @subscription.offers = true if subscription_params[:offers] == 'true'
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if @subscription.changed?
@@ -89,7 +90,7 @@ class SubscriptionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def subscription_params
-    params[:subscription].permit(:email, :offers, :requests)
+    params[:subscription].permit(:email, :offers, :requests, :no_spam)
   end
 
   def check_offers_or_requests

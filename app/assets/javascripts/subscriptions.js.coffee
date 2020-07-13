@@ -3,6 +3,7 @@ $(document).on 'click', '.subscription-toggle-button', ->
   selector = $(this).data('item-type')
   $('.subscription-toggle.' + selector).toggle()
   $('.subscription-email.' + selector).focus()
+  $('.subscription-no-spam.' + selector).prop('checked', true)
 
 # disabling the subscribe button and enabling the back button if no email is put in
 $(document).on 'input', '.subscription-email', ->
