@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.2'
+ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
@@ -49,7 +49,6 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'bootstrap-sass', '~> 3.4'
-gem 'autoprefixer-rails', '~> 9.7'
 gem 'bootstrap_form', '~> 2.7'
 
 gem 'bootstrap-datepicker-rails', '~> 1.8'
