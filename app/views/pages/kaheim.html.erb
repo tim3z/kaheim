@@ -64,9 +64,13 @@
 Wir freuen uns auch über geringe Beiträge, die uns zeigen, dass ihr Kaheim unterstützenswert findet.
 Da wir nicht sehen, von wem eine Aufladung stammt und uns daher nicht persönlich bei euch bedanken können,
 sagen wir schon einmal hier: Danke für alles, was ihr beitragt!
-Aktuell haben wir auf unserem Konto <%= current_balance(36, Time.parse('2022-01-10')) %>&nbsp;€,
-was noch für die nächsten <%= distance_of_time_in_words(Time.now, end_of_balance_date(36, Time.parse('2022-01-10'))) %> reicht.
+<% balance_amount = 36 %>
+<% balance_date = Time.parse('2022-01-10') %>
+<% if current_balance(balance_amount, balance_date) > 0 %>
+Aktuell haben wir auf unserem Konto <%= current_balance(balance_amount, balance_date) %>&nbsp;€,
+was noch für die nächsten <%= distance_of_time_in_words(Time.now, end_of_balance_date(balance_amount, balance_date)) %> reicht.
 Vielen Dank für eure gute Unterstützung!
+<% end %>
 </p>
 
 <h3>Kaheim auch in deiner Stadt?</h3>
