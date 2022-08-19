@@ -63,6 +63,6 @@
   <%= link_to t('helpers.links.destroy'),
               request_path(@request, token: params[:token]),
               method: 'delete',
-              data: { confirm: t('helpers.links.confirm') },
+              data: { confirm: t('helpers.links.confirm-delete') },
               class: 'btn btn-danger' %>
 </div>

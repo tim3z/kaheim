@@ -73,7 +73,7 @@ de:
       make_public: "Öffentlich machen"
       send: "Absenden"
       destroy: "Löschen"
-      confirm: "Bist du sicher?"
+      confirm-delete: "Möchtest du diesen Eintrag wirklich löschen?"
       sign_in: "Anmelden"
       sign_up: "Registrieren"
       sign_out: "Abmelden"

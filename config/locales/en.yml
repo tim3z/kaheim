@@ -74,7 +74,7 @@ en:
       make_public: "Make public"
       send: "Send"
       destroy: "Delete"
-      confirm: "Are you sure?"
+      confirm-delete: "Do you really want to delete this item?"
       sign_in: "Sign in"
       sign_up: "Sign up"
       sign_out: "Sign out"
