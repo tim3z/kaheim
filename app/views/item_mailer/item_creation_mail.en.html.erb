@@ -9,10 +9,16 @@
   <%= link_to 'link', polymorphic_url(@item, action: :owner_show, token: @item.owner_show_token) %>.
 </p>
 <p>
-  You need also need this link to edit your <%= @item.class.model_name.human %> in the future
-  and to read replies to it.
+  You need also need this link to edit your <%= @item.class.model_name.human %> in the future and to read replies to it.
   Therefore, do not delete this email until you do not need your <%= @item.class.model_name.human %> anymore.
 </p>
 <p>
   Team of Kaheim
+</p>
+
+<p style="margin-top: 4em; color: gray">
+  Content of your <%= @item.class.model_name.human %>:
+  <blockquote style="color: gray">
+    <%= simple_format @item.description %>
+  </blockquote>
 </p>
