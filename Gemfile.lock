@@ -366,7 +366,7 @@ DEPENDENCIES
   whenever (~> 0.10)
 
 RUBY VERSION
-   ruby 2.7.7p221
+   ruby 2.7.8p225
 
 BUNDLED WITH
    2.1.4
