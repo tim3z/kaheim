@@ -20,6 +20,8 @@ gem 'jquery-rails', '~> 4.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '~> 5.2'
 
+gem 'net-smtp'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.9'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -30,7 +32,7 @@ group :development do
   gem 'spring', '~> 2.1'
   gem 'letter_opener', '~> 1.7'
   gem 'better_errors', '~> 2.5'
-  gem 'binding_of_caller', '~> 0.8'
+  gem 'binding_of_caller', '~> 1.0'
   gem 'listen', '~> 3.1'
 end
 
