@@ -96,7 +96,7 @@ Rails.application.configure do
   # Deliver mails on exceptions
   config.middleware.use ExceptionNotification::Rack, email: {
       sender_address: 'error@kaheim.de',
-      exception_recipients: 'dev.tim.zeitz@googlemail.com'
+      exception_recipients: %w{dev.tim.zeitz@googlemail.com kaheim.exceptions@glasmail.de}
   }
 
   # exception views
