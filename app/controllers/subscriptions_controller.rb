@@ -3,11 +3,18 @@ class SubscriptionsController < ApplicationController
   before_action :check_offers_or_requests, only: [:create]
   before_action :authenticate_user!, only: [:unsubscribe_user]
 
+  @@spam_list = []
+
   def create
     @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
     @subscription.no_spam = subscription_params[:no_spam]
     @subscription.offers = true if subscription_params[:offers] == 'true'
     @subscription.requests = true if subscription_params[:requests] == 'true'
+    if subscription_params[:spam] == 'true'
+      @@spam_list << @subscription.email
+      return
+    end
+    return if @@spam_list.include?(@subscription.email)
     if @subscription.changed?
       unless @subscription.save
         redirect_back(fallback_location: root_path, flash: { error: t('subscriptions.subscribe.error_save') + ' ' + @subscription.errors.full_messages.join('. ') + '.'})
@@ -90,11 +97,11 @@ class SubscriptionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def subscription_params
-    params[:subscription].permit(:email, :offers, :requests, :no_spam)
+    params[:subscription].permit(:email, :offers, :requests, :no_spam, :spam)
   end
 
   def check_offers_or_requests
-    unless subscription_params[:offers] == 'true' || subscription_params[:requests] == 'true'
+    unless subscription_params[:offers] == 'true' || subscription_params[:requests] == 'true' || subscription_params[:spam] == 'true'
       redirect_back(fallback_location: root_path, flash: { error: t('subscriptions.subscribe.nothing_selected')})
     end
   end

@@ -5,6 +5,24 @@
   <%= render 'welcome_message' %>
 </div>
 
+<div class="hidden">
+  <%= custom_bootstrap_form_for(Subscription.new, as: :subscription, url: subscriptions_create_path, layout: :inline, html: {id: "new_subscription_fake"}) do |f| %>
+    <%= f.hidden_field 'spam', value: true %>
+    <div class="hidden">
+      <%= f.form_group :no_spam do %>
+        <%= f.check_box :no_spam, class: "subscription-no-spam" %>
+      <% end %>
+    </div>
+    <%= f.email_field :email,
+                      id: "subscription-email-fake",
+                      placeholder: t('subscriptions.mail'),
+                      hide_label: true,
+                      class: "subscription-email" %>
+    <%= f.submit t('subscriptions.actions.subscribe'), class: "btn btn-primary subscription-submit-button" %>
+  <% end %>
+</div>
+
+
 <%= render partial: 'shared/list_page_header', locals: { count: @offers.count, item: 'offer', header_class: 'welcome-list-header'} %>
 <% if @offers.count > 2 %>
   <div class="row">
