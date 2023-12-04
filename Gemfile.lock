@@ -242,6 +242,8 @@ GEM
     puma (3.12.6)
     racc (1.7.3)
     rack (2.2.8)
+    rack-attack (6.7.0)
+      rack (>= 1.0, < 4)
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (6.1.7.6)
@@ -373,6 +375,7 @@ DEPENDENCIES
   net-smtp
   pg (~> 1.1)
   puma (~> 3.0)
+  rack-attack (~> 6.7.0)
   rails (~> 6.1.0)
   rails_autolink (~> 1.1)
   sdoc (~> 1.0)

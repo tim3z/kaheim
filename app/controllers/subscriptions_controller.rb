@@ -3,18 +3,16 @@ class SubscriptionsController < ApplicationController
   before_action :check_offers_or_requests, only: [:create]
   before_action :authenticate_user!, only: [:unsubscribe_user]
 
-  @@spam_list = []
-
   def create
     @subscription = Subscription.find_or_create_by(email: subscription_params[:email])
     @subscription.no_spam = subscription_params[:no_spam]
     @subscription.offers = true if subscription_params[:offers] == 'true'
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if subscription_params[:spam] == 'true'
-      @@spam_list << @subscription.email
+      logger.debug "Blocking #{request.remote_ip}"
+      Rails.cache.write("block #{request.remote_ip}", true, expires_in: 30.days)
       return
     end
-    return if @@spam_list.include?(@subscription.email)
     if @subscription.changed?
       unless @subscription.save
         redirect_back(fallback_location: root_path, flash: { error: t('subscriptions.subscribe.error_save') + ' ' + @subscription.errors.full_messages.join('. ') + '.'})

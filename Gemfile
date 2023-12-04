@@ -87,6 +87,8 @@ group :production do
   gem 'exception_notification', '~> 4.4'
 end
 
+gem 'rack-attack', '~> 6.7.0'
+
 gem 'simplecov', '~> 0.16.0', :require => false, :group => :test
 
 gem 'capybara', '~> 3.31'
