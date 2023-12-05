@@ -130,6 +130,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
     debug_inspector (1.1.0)
@@ -288,6 +289,10 @@ GEM
       ffi (~> 1.0)
     rdoc (6.6.0)
       psych (>= 4.0.0)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
+    redis-client (0.18.0)
+      connection_pool
     regexp_parser (2.8.3)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -378,6 +383,7 @@ DEPENDENCIES
   rack-attack (~> 6.7.0)
   rails (~> 6.1.0)
   rails_autolink (~> 1.1)
+  redis (~> 5.0.7)
   sdoc (~> 1.0)
   select2-rails (~> 4.0)
   selenium-webdriver (~> 3.142)

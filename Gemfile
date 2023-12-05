@@ -88,6 +88,7 @@ group :production do
 end
 
 gem 'rack-attack', '~> 6.7.0'
+gem 'redis', '~> 5.0.7'
 
 gem 'simplecov', '~> 0.16.0', :require => false, :group => :test
 

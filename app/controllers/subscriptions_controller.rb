@@ -10,7 +10,7 @@ class SubscriptionsController < ApplicationController
     @subscription.requests = true if subscription_params[:requests] == 'true'
     if subscription_params[:spam] == 'true'
       logger.debug "Blocking #{request.remote_ip}"
-      Rails.cache.write("block #{request.remote_ip}", true, expires_in: 30.days)
+      Rack::Attack.cache.write("block #{request.remote_ip}", true, expires_in: 30.days)
       return
     end
     if @subscription.changed?
