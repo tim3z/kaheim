@@ -34,11 +34,5 @@ Rails.application.routes.draw do
 
   resources :answers, only: [:create]
 
-  # Error handling
-  get '/404' => redirect('/errors/404')
-  get '/422' => redirect('/errors/422')
-  get '/500' => redirect('/errors/500')
-  get '/errors/:error_code', to: 'errors#error'
-
   root to: 'welcome#index'
 end
