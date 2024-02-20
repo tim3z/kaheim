@@ -20,7 +20,7 @@ namespace :kaheim do
     reactivator = ItemReactivator.find_by item: item
     if reactivator.nil?
       reactivator = ItemReactivator.create! item: item
-      ItemMailer.reactivate_item_mail(item, reactivator.token).deliver_now
+      ItemMailer.reactivate_item_mail(item, reactivator.token).deliver_now unless item.blocked?
     elsif reactivator && reactivator.created_at < 100.days.ago
       reactivator.destroy
       item.destroy
