@@ -394,7 +394,7 @@ DEPENDENCIES
   whenever (~> 0.10)
 
 RUBY VERSION
-   ruby 3.1.6p260
+   ruby 3.1.7p261
 
 BUNDLED WITH
    2.4.19
