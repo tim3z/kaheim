@@ -7,7 +7,7 @@
   <%= f.text_area :message %>
   <% unless user_signed_in? && current_user.confirmed? %>
     <%= f.form_group label: { text: 'Captcha' } do %>
-      <%= label_tag(:stupid_captcha, t('captcha.label', captcha: 'Maria')) %>
+      <%= label_tag(:stupid_captcha, t('captcha.label')) %>
       <%= text_field_tag(:stupid_captcha) %>
     <% end %>
   <% end %>

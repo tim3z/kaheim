@@ -46,7 +46,9 @@ class ApplicationController < ActionController::Base
   end
 
   def verify_captcha
-    params[:stupid_captcha] == "Maria"
+    return false unless params[:stupid_captcha]
+    (params[:stupid_captcha].downcase.include?("jesus") || params[:stupid_captcha].downcase.include?("christ")) &&
+      params[:stupid_captcha].length < 20
   end
 
   def owner_show_item_path(item)
